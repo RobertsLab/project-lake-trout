@@ -1,0 +1,46 @@
+---
+title: "Identification of differentially expressed isoforms using Ballgown in _S.namaysuch_ non-parasitized/parasitized liver tissue in two different subspecies: lean and siscowet."
+author: "Sam White"
+date: "08/17/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Use [Ballgown](https://github.com/alyssafrazee/ballgown) for identification of differentially expressed isoforms in _S.namaysuch_ non-parasitized/parasitized liver tissue in two different subspecies: lean and siscowet.
+
+REQUIRES Linux-based system to run all chunks properly; some chunks will not work on Mac OS!
+
+REQUIRES the following Bash programs:
+
+- `wget`
+
+- `tree`
+
+- `md5sum`
+
+REQUIRES the following R libraries:
+
+- [`Ballgown`](https://github.com/alyssafrazee/ballgown) (Bioconductor)
+
+- `tidyverse`
+
+## Load `R` libraries
+
+```{r}
+library("ballgown")
+library("tidyverse")
+library("ggplot2")
+library("Rfast")
+```
+
+
+## Set user variables!
+```{r}
+# Set maximum pvalue for isoform expression cutoff
+pvalue <- 0.05
+# Set maximum qvalue (false discovery rate) for isoform expression cutoff
+qvalue <- 0.05
+```
