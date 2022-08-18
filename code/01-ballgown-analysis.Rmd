@@ -212,10 +212,69 @@ head(sample_metadata_subset_nonparasitized)
 
 
 ## Load phenotype dataframe into Ballgown object
-```{r}
+```{r load-phenotype-full}
 # Load phenotype info into Ballgown
-pData(bg) <- sample_metadata_subset
+pData(bg) <- sample_metadata_full
+
 # Examine phenotype data as it exists in Ballgown
 phenotype_table <-  pData(bg)
 head(phenotype_table)
+```
+
+## Look at exon info
+```{r all-exon-info}
+# Exon info
+structure(bg)$exon
+```
+
+## Look at intron info
+```{r all-intron-info}
+# Intron info
+structure(bg)$intron
+```
+
+## Look at transcript (isoform) info
+```{r all-transcript-info}
+# Transcript info
+structure(bg)$trans
+```
+
+
+## Load all transcript expression data
+```{r load-all-transcript-expression}
+# Expression data
+whole_tx_table <-  texpr(bg, 'all')
+
+# Rename gene_names listed as a "."
+whole_tx_table <- whole_tx_table %>% mutate(gene_name = ifelse(gene_name == ".", t_name, gene_name))
+head(whole_tx_table)
+
+# FPKM values for all transcripts
+# Converts output to data frame
+transcript_fpkm <- as.data.frame(texpr(bg, 'FPKM'))
+
+# Put rownames into column named "t_id" for further manipulation
+transcript_fpkm <- rownames_to_column(transcript_fpkm, "t_id")
+head(transcript_fpkm)
+```
+
+```{r write-all-fpkm-to-file}
+write.csv(transcript_fpkm,
+          file = "../data/fpkm-all_transcripts.csv",
+          quote = FALSE,
+          row.names = FALSE)
+```
+
+```{r write-tx-table-to-file}
+# Write whole_tx_table to file
+write.csv(whole_tx_table,
+          file ="../data/whole_tx_table.csv",
+          quote = FALSE,
+          row.names = FALSE)
+```
+
+## Load all gene expression data
+```{r load-gene-expression-data}
+whole_gx_table <-  gexpr(bg)
+head(whole_gx_table)
 ```
