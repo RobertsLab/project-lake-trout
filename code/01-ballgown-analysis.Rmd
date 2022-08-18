@@ -38,9 +38,79 @@ library("Rfast")
 
 
 ## Set user variables!
-```{r}
+```{r set-pval-qval-cutoffs}
 # Set maximum pvalue for isoform expression cutoff
 pvalue <- 0.05
 # Set maximum qvalue (false discovery rate) for isoform expression cutoff
 qvalue <- 0.05
 ```
+
+## Download Ballgown input files.
+
+Notebooks detailing their creation:
+
+- [FastQ trimming](https://robertslab.github.io/sams-notebook/2022/07/06/SRA-Data-S.namaycush-SRA-BioProject-PRJNA674328-Download-and-QC.html)
+
+- [Genome indexing, and exon/splice sites with HISAT2](https://robertslab.github.io/sams-notebook/2022/08/10/Splice-Site-Identification-S.namaycush-Liver-Parasitized-and-Non-Parasitized-SRA-RNAseq-Using-Hisat2-Stingtie-with-Genome-GCF_016432855.1.html)
+
+- [Mapping and identificaion of isoforms with StingTie](https://robertslab.github.io/sams-notebook/2022/08/10/Splice-Site-Identification-S.namaycush-Liver-Parasitized-and-Non-Parasitized-SRA-RNAseq-Using-Hisat2-Stingtie-with-Genome-GCF_016432855.1.html)
+
+```{bash download-bgown-input-tables}
+# Download Ballgown input files and directory structure
+wget \
+--directory-prefix ../data/ballgown \
+--recursive \
+--no-check-certificate \
+--continue \
+--cut-dirs 2 \
+--no-host-directories \
+--no-parent \
+--quiet \
+--reject "concatenated-fastq-checksums.md5,original-fastq-checksums.md5" \
+--reject-regex "/multiqc_data/" \
+--accept "*.ctab,*checksums.md5" https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/
+```
+
+```{bash cleanup}
+rm ../data/ballgown/checksums.md5
+```
+
+
+## Verify checksums
+
+NOTE: Warnings are expected, as the checksums files have checksums for files that are not downloaded for this project.
+```{bash}
+cd ../data/ballgown
+# Make a line
+line="-----------------------------------------------------------------------------------------------"
+# Set working directory
+wd=$(pwd)
+# Loop through directories and verify checksums
+for directory in */
+do
+  cd "${directory}"
+  # Get sample name; strips trailing slash from directory name
+  sample="${directory%/}"
+  
+  echo ${line}
+  echo "${sample}"
+  echo ""
+  
+  # Confirm checksums; sorts for easier reading
+  md5sum --check "${sample}"_checksums.md5 | sort -V
+  echo ""
+  echo "${line}"
+  echo ""
+  cd ${wd}
+done
+# Show downloaded directories/files
+tree
+```
+
+## Find Ballgown installation location
+```{r set-ballgown-install-dir}
+data_directory <-  system.file('extdata', package='ballgown') # automatically finds ballgown's installation directory
+# examine data_directory:
+data_directory
+```
+
