@@ -1,0 +1,25 @@
+library,Ecotype,strain
+NPLL32,Lean nonparasitized,2
+NPLL34,Lean nonparasitized,2
+NPLL44,Lean nonparasitized,2
+NPLL46,Lean nonparasitized,2
+NPLL56,Lean nonparasitized,2
+NPLL61,Lean nonparasitized,2
+NPSL15,Sicowet nonparasitized,4
+NPSL24,Sicowet nonparasitized,4
+NPSL29,Sicowet nonparasitized,4
+NPSL36,Sicowet nonparasitized,4
+NPSL50,Sicowet nonparasitized,4
+NPSL58,Sicowet nonparasitized,4
+PLL20,Lean parasitized,1
+PLL31,Lean parasitized,1
+PLL43,Lean parasitized,1
+PLL55,Lean parasitized,1
+PLL59,Lean parasitized,1
+PLL62,Lean parasitized,1
+PSL13,Siscowet parasitized,3
+PSL16,Siscowet parasitized,3
+PSL35,Siscowet parasitized,3
+PSL49,Siscowet parasitized,3
+PSL53,Siscowet parasitized,3
+PSL63,Siscowet parasitized,3
