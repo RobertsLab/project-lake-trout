@@ -123,3 +123,23 @@ genes_BED <- read.table(file = "../data/20220818-snam-GCF_016432855.1_SaNama_1.0
 colnames(genes_BED) <- c("chr", "start", "end", "name", "score", "strand")
 head(genes_BED)
 ```
+## Create Ballgown object
+```{r create-ballgown-objects}
+# Uses regular expression in samplePattern to find all pertinent folders
+# Load all measurement data
+bg <- ballgown(dataDir="../data/ballgown/", samplePattern='[NP]*', meas='all')
+bg
+bg.nonparasitized <- ballgown(dataDir="../data/ballgown/", samplePattern='NP*', meas='all')
+bg.nonparasitized
+bg.nonparasitized.lean <- ballgown(dataDir="../data/ballgown/", samplePattern='NPLL*', meas='all')
+bg.nonparasitized.lean
+bg.nonparasitized.siscowet <- ballgown(dataDir="../data/ballgown/", samplePattern='NPSL*', meas='all')
+bg.nonparasitized.siscowet
+
+bg.parasitized <- ballgown(dataDir="../data/ballgown/", samplePattern='P*', meas='all')
+bg.parasitized
+bg.parasitized.lean <- ballgown(dataDir="../data/ballgown/", samplePattern='PLL*', meas='all')
+bg.parasitized.lean
+bg.parasitized.siscowet <- ballgown(dataDir="../data/ballgown/", samplePattern='PSL*', meas='all')
+bg.parasitized.siscowet
+```
