@@ -143,3 +143,79 @@ bg.parasitized.lean
 bg.parasitized.siscowet <- ballgown(dataDir="../data/ballgown/", samplePattern='PSL*', meas='all')
 bg.parasitized.siscowet
 ```
+
+## Download and filter metadata file
+
+Filtered metadata will be used to create a phenotype dataframe needed for Ballgown differential expression analysis.
+
+Will use the 'strain` column.
+
+`strain` column explanation:
+
+lean parasitized = 1
+lean nonparasitized = 2
+siscowet parasitized = 3
+siscowet nonparasitized = 4
+
+```{r create-dataframes-for-ballgwon-pData}
+# Read in metadata file from URL
+# Data is alreayd properly sorted (by library) to match directory structure - required by Ballgown.
+sample_metadata_full <- read.csv("https://raw.githubusercontent.com/RobertsLab/project-lake-trout/main/data/ballgown-metadata.csv")
+
+# View full metadata
+head(sample_metadata_full)
+
+# Create modified metadata for LEAN only
+# 1 = LEAN PARASTIZED
+# 2 = LEAN NONPARASITIZED
+sample_metadata_subset_lean_only <- sample_metadata_full %>% filter(strain == "1" | strain == "2")
+
+# Test to make sure expected number of rows (does NOT count header row)
+# Expect 12 rows; 6 samples from each grouping
+stopifnot(12 == nrow(sample_metadata_subset_lean_only))
+head(sample_metadata_subset_lean_only)
+
+
+# Create modified metadata for SISCOWET only
+# 3 = SISCOWET PARASITIZED
+# 4 = SISCOWET NONPARASITIZED
+sample_metadata_subset_siscowet_only <- sample_metadata_full %>% filter(strain == "3" | strain == "4")
+
+# Test to make sure expected number of rows (does NOT count header row)
+# Expect 12 rows; 6 samples from each grouping
+stopifnot(12 == nrow(sample_metadata_subset_siscowet_only))
+head(sample_metadata_subset_siscowet_only)
+
+# Create modified metadata for PARASITIZED (leand and siscowet combined)
+# 1 = LEAN PARASTIZED
+# 3 = SISCOWET PARASITIZED
+sample_metadata_subset_parasitized <- sample_metadata_full %>% filter(strain == "1" | strain == "3")
+
+# Test to make sure expected number of rows (does NOT count header row)
+# Expect 12 rows; 6 samples from each grouping
+stopifnot(12 == nrow(sample_metadata_subset_parasitized))
+head(sample_metadata_subset_parasitized)
+
+
+
+# Create modified metadata for NONPARASITIZED (leand and siscowet combined)
+# 1 = LEAN NONPARASTIZED
+# 4 = SISCOWET NONPARASITIZED
+sample_metadata_subset_nonparasitized <- sample_metadata_full %>% filter(strain == "3" | strain == "4")
+
+# Test to make sure expected number of rows (does NOT count header row)
+# Expect 12 rows; 6 samples from each grouping
+stopifnot(12 == nrow(sample_metadata_subset_nonparasitized))
+head(sample_metadata_subset_nonparasitized)
+
+```
+
+
+## Load phenotype dataframe into Ballgown object
+```{r}
+# Load phenotype info into Ballgown
+pData(bg) <- sample_metadata_subset
+# Examine phenotype data as it exists in Ballgown
+phenotype_table <-  pData(bg)
+head(phenotype_table)
+```
