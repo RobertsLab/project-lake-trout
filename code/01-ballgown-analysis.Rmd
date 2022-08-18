@@ -131,15 +131,19 @@ bg <- ballgown(dataDir="../data/ballgown/", samplePattern='[NP]*', meas='all')
 bg
 bg.nonparasitized <- ballgown(dataDir="../data/ballgown/", samplePattern='NP*', meas='all')
 bg.nonparasitized
+
 bg.nonparasitized.lean <- ballgown(dataDir="../data/ballgown/", samplePattern='NPLL*', meas='all')
 bg.nonparasitized.lean
+
 bg.nonparasitized.siscowet <- ballgown(dataDir="../data/ballgown/", samplePattern='NPSL*', meas='all')
 bg.nonparasitized.siscowet
 
 bg.parasitized <- ballgown(dataDir="../data/ballgown/", samplePattern='P*', meas='all')
 bg.parasitized
+
 bg.parasitized.lean <- ballgown(dataDir="../data/ballgown/", samplePattern='PLL*', meas='all')
 bg.parasitized.lean
+
 bg.parasitized.siscowet <- ballgown(dataDir="../data/ballgown/", samplePattern='PSL*', meas='all')
 bg.parasitized.siscowet
 ```
@@ -331,6 +335,85 @@ ggplot(fpkm_df_pivot, aes(library, value, color = subspecies)) +
 # Save boxplot as PDF
 ggsave(filename = "../figures/fpkm-lean-v-siscowet-boxplot.pdf")
 ```
+## Identify differentially expressed transcripts (DETs) between subspecies.
+## Returns FoldChange, too (getFC = TRUE)
+
+### THERE ARE NO SAMPLES WITH q-values <=0.05!!!
+```{r DETs-lean-vs.-siscowet}
+# Set string describing comparison
+# Used for final printout in chunk
+comparison <- "lean vs. siscowet"
+
+# Load phenotype info into Ballgown
+pData(bg) <- sample_metadata_full
+
+# Identify DETs
+DET_subspecies_stat_results = stattest(bg, feature='transcript', meas='FPKM', covariate="subspecies", getFC = TRUE)
+head(DET_subspecies_stat_results)
+
+# Filter based on p-value and q-value
+DET_subspecies_filtered_stat_results <- filter(DET_subspecies_stat_results, pval <= pvalue & qval <= qvalue)
+head(DET_subspecies_filtered_stat_results)
+```
+
+
+## Identify differentially expressed transcripts (DETs) between subspecies.
+## Returns FoldChange, too (getFC = TRUE)
+## Restricted to p-value filtering ONLY. q-values are all >=0.05!!
+```{r DETs-lean-vs-siscowet-pval-only}
+# Filter based on p-value only
+DET_subspecies_pval_filtered_stat_results <- filter(DET_subspecies_stat_results, pval <= pvalue)
+head(DET_subspecies_pval_filtered_stat_results)
+
+# Merge with full table to get subset of just differentially expressed transcripts
+merged_DET_subspecies_pval_filtered <- merge(x = DET_subspecies_pval_filtered_stat_results, y = whole_tx_table, by.x = "id", by.y = "t_id")
+head(merged_DET_subspecies_pval_filtered)
+
+# Convert to BED coordinate system, which is 0-based start
+# and end EXCLUSIVE; so need to subtract 1 from start coordinates ONLY
+merged_DET_subspecies_pval_filtered <- merged_DET_subspecies_pval_filtered %>% mutate(start = start - 1)
+head(merged_DET_subspecies_pval_filtered)
+
+# Filter for lean up-regulated transcripts (i.e. fold-change < 1)
+# Convert to BED coordinate system, which is 0-based start
+# and end EXCLUSIVE; so need to subtract 1 from start coordinates ONLY
+DET_subspecies_pval_filtered_lean <- filter(merged_DET_subspecies_pval_filtered, fc < 1) %>% mutate(start = start - 1)
+head(DET_subspecies_pval_filtered_lean)
+
+# Filter for siscowet up-regulated transcripts (i.e. fold-change > 1)
+# Convert to BED coordinate system, which is 0-based start
+# and end EXCLUSIVE; so need to subtract 1 from start coordinates ONLY
+DET_subspecies_pval_filtered_siscowet <- filter(merged_DET_subspecies_pval_filtered, fc > 1) %>% mutate(start = start - 1)
+head(DET_subspecies_pval_filtered_siscowet)
+
+# Count number of DET.
+count_DET_subspecies_pval_filtered_stat_results <-  nrow(DET_subspecies_pval_filtered_stat_results)
+
+# Print number of DET
+cat("Number of", comparison, "DET with p-values <= ", pvalue, ":", count_DET_subspecies_pval_filtered_stat_results, "\n")
+
+# Count number of lean DET.
+count_DET_subspecies_pval_filtered_lean <-  nrow(DET_subspecies_pval_filtered_lean)
+
+# Print number of lean DET
+cat("Number of lean DET with p-values <= ", pvalue, ":", count_DET_subspecies_pval_filtered_lean, "\n")
+
+# Count number of siscowet DET.
+count_DET_subspecies_pval_filtered_siscowet <-  nrow(DET_subspecies_pval_filtered_siscowet)
+
+# Print number of siscowet DET
+cat("Number of siscowet DET with p-values <= ", pvalue, ":", count_DET_subspecies_pval_filtered_siscowet, "\n")
+```
+
+
+
+
+
+
+
+
+
+
 ## Load all gene expression data
 ```{r load-gene-expression-data}
 whole_gx_table <-  gexpr(bg)
