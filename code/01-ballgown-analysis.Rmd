@@ -81,6 +81,8 @@ rm ../data/ballgown/checksums.md5
 NOTE: Warnings are expected, as the checksums files have checksums for files that are not downloaded for this project.
 ```{bash}
 cd ../data/ballgown
+
+pwd
 # Make a line
 line="-----------------------------------------------------------------------------------------------"
 # Set working directory
@@ -97,7 +99,7 @@ do
   echo ""
   
   # Confirm checksums; sorts for easier reading
-  md5sum --check "${sample}"_checksums.md5 | sort -V
+  md5sum --check "${sample}"-checksums.md5 | sort -V
   echo ""
   echo "${line}"
   echo ""
@@ -114,3 +116,10 @@ data_directory <-  system.file('extdata', package='ballgown') # automatically fi
 data_directory
 ```
 
+## Read in _S.namaycush_ genes BED file
+```{r read-in-genes-BED}
+genes_BED <- read.table(file = "../data/20220818-snam-GCF_016432855.1_SaNama_1.0_genes.bed")
+# Add BED column names for more clarity
+colnames(genes_BED) <- c("chr", "start", "end", "name", "score", "strand")
+head(genes_BED)
+```
