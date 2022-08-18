@@ -273,6 +273,64 @@ write.csv(whole_tx_table,
           row.names = FALSE)
 ```
 
+
+## Generate boxplots to compare FPKM across all samples
+```{r boxplots-to-compare-FPKM-across-all-samples} 
+# Load phenotype info into Ballgown
+pData(bg) <- sample_metadata_full
+
+# Pull all transcript expression values stored in FPKM measurement from ballgown object
+fpkm <- texpr(bg, meas = "FPKM")
+
+# Log transform data and add 1 to all values to artificially prevent log10(0).
+fpkm_df <- as.data.frame(log10(fpkm+1))
+head(fpkm_df)
+
+# Rotate data frame
+# Creates a "subspecies" column by examining library name length
+# Parses out subspecies "L" or "S" depending on length of library name
+# L = lean
+# S = siscowet
+# Then, changes abbreviated subspecies to full, corresponding name
+fpkm_df_pivot <- pivot_longer(
+  fpkm_df, cols = starts_with("FPKM"), 
+  names_to = "library") %>% 
+  mutate(subspecies = case_when(
+    nchar(library) == 11 ~ str_sub(library, 8, 8),
+    nchar(library) == 10 ~ str_sub(library, 7, 7)
+    )
+  ) %>% 
+  mutate(subspecies = replace(subspecies, subspecies == "L", "lean")) %>% 
+  mutate(subspecies = replace(subspecies, subspecies == "S", "siscowet"))
+
+head(fpkm_df_pivot)
+
+# Sort data frame by subspecies
+fpkm_df_pivot_sorted <- fpkm_df_pivot %>% arrange(subspecies)
+head(fpkm_df_pivot_sorted)
+
+# Set unique library names as vector
+# Will be used to group boxplot by subspecies
+fpkm_libraries_sorted_unique <- (unique(fpkm_df_pivot_sorted$library))
+head(fpkm_libraries_sorted_unique)
+
+# Re-order data frame by subspecies-sorted data
+fpkm_df_pivot$library <- factor(fpkm_df_pivot$library, levels = fpkm_libraries_sorted_unique)
+
+# Produce boxplots of FPKM for each library
+# Grouped by subspecies
+ggplot(fpkm_df_pivot, aes(library, value, color = subspecies)) +
+  geom_boxplot() +
+  ggtitle("Comparisons of transcript FPKM values across all libraries") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  ylab("FPKM (log10+1 transformed") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
+```
+
+```{r save-boxplot-all-fpkm}
+# Save boxplot as PDF
+ggsave(filename = "../figures/fpkm-lean-v-siscowet-boxplot.pdf")
+```
 ## Load all gene expression data
 ```{r load-gene-expression-data}
 whole_gx_table <-  gexpr(bg)
