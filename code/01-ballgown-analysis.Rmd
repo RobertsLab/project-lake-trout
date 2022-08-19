@@ -410,7 +410,7 @@ cat("Number of siscowet DET with p-values <= ", pvalue, ":", count_DET_subspecie
 # Write merged dataframe to CSV
 write.csv(
   merged_DET_subspecies_pval_filtered, 
-  file = "../analyses/merged_DET_subspecies_pval_filtered_p-0.05.csv", 
+  file = "../analyses/DET-subspecies-pval_filtered_p-0.05.csv", 
   quote = FALSE, 
   row.names = FALSE)
 
@@ -425,7 +425,7 @@ write.table(
         .before = "strand"
         )
     ), 
-  file = "../analyses/DET_subspecies_filtered_p-0.05.bed",
+  file = "../analyses/DET-subspecies-pval_filtered_p-0.05.bed",
   sep = "\t",
   col.names = FALSE,
   row.names = FALSE,
@@ -442,7 +442,7 @@ write.table(
         .before = "strand"
         )
     ), 
-  file = "../analyses/DET_sex_female_filtered_p-0.05.bed",
+  file = "../analyses/DET-subspecies-lean-pval_filtered_p-0.05.bed",
   sep = "\t",
   col.names = FALSE,
   row.names = FALSE,
@@ -459,7 +459,7 @@ write.table(
         .before = "strand"
         )
     ), 
-  file = "../analyses/DET_subspecies_pval_filtered_siscowet_p-0.05.bed",
+  file = "../analyses/DET-subspecies-siscowet-pval_filtered_p-0.05.bed",
   sep = "\t",
   col.names = FALSE,
   row.names = FALSE,
