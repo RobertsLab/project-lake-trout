@@ -406,6 +406,66 @@ cat("Number of siscowet DET with p-values <= ", pvalue, ":", count_DET_subspecie
 ```
 
 
+```{r write-DETs-lean-vs-siscowet-to-files}
+# Write merged dataframe to CSV
+write.csv(
+  merged_DET_subspecies_pval_filtered, 
+  file = "../analyses/merged_DET_subspecies_pval_filtered_p-0.05.csv", 
+  quote = FALSE, 
+  row.names = FALSE)
+
+
+# Creates a BED file of all DETs and inserts necessary columns to create properly formatted BED file. 
+write.table(
+  (
+    merged_DET_subspecies_pval_filtered %>% 
+    select(chr, start, end, t_name, strand) %>% 
+      add_column(
+        score = "0", # Inserts a "score" column and assigns a value of "0" to all rows.
+        .before = "strand"
+        )
+    ), 
+  file = "../analyses/DET_subspecies_filtered_p-0.05.bed",
+  sep = "\t",
+  col.names = FALSE,
+  row.names = FALSE,
+  quote = FALSE
+)
+
+# Creates a BED file of only lean DETs and inserts necessary columns to create properly formatted BED file. 
+write.table(
+  (
+    DET_subspecies_pval_filtered_lean %>% 
+    select(chr, start, end, t_name, strand) %>% 
+      add_column(
+        score = "0", # Inserts a "score" column and assigns a value of "0" to all rows.
+        .before = "strand"
+        )
+    ), 
+  file = "../analyses/DET_sex_female_filtered_p-0.05.bed",
+  sep = "\t",
+  col.names = FALSE,
+  row.names = FALSE,
+  quote = FALSE
+)
+
+# Creates a BED file of only siscowet DETs and inserts necessary columns to create properly formatted BED file. 
+write.table(
+  (
+    DET_subspecies_pval_filtered_siscowet %>% 
+    select(chr, start, end, t_name, strand) %>% 
+      add_column(
+        score = "0", # Inserts a "score" column and assigns a value of "0" to all rows.
+        .before = "strand"
+        )
+    ), 
+  file = "../analyses/DET_subspecies_pval_filtered_siscowet_p-0.05.bed",
+  sep = "\t",
+  col.names = FALSE,
+  row.names = FALSE,
+  quote = FALSE
+)
+```
 
 
 
