@@ -430,11 +430,19 @@ write.csv(
   quote = FALSE, 
   row.names = FALSE)
 
+# Write pval/qval filtered dataframe to CSV
+write.csv(
+  DET_subspecies_filtered_stat_results,
+  file = "../analyses/DET-subspecies-pval_qval_filtered_p-q-0.05.csv",
+  quote = FALSE,
+  row.names = FALSE
+)
+
 
 # Creates a BED file of all DETs and inserts necessary columns to create properly formatted BED file. 
 write.table(
   (
-    merged_DET_subspecies_pval_filtered %>% 
+    merged_DET_subspecies_pval_filtered_start_minus_1 %>% 
     select(chr, start, end, t_name, strand) %>% 
       add_column(
         score = "0", # Inserts a "score" column and assigns a value of "0" to all rows.
