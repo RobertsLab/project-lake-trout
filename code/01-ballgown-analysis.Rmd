@@ -511,8 +511,14 @@ DEG_subspecies_stat_results = stattest(bg, feature='gene', meas='FPKM', covariat
 head(DEG_subspecies_stat_results)
 
 # Filter based on p-value and q-value
-DEG_subspecies_filtered_stat_results <- filter(DET_subspecies_stat_results, pval <= pvalue & qval <= qvalue)
+DEG_subspecies_filtered_stat_results <- filter(DEG_subspecies_stat_results, pval <= pvalue & qval <= qvalue)
 head(DEG_subspecies_filtered_stat_results)
+
+# Count number of DEG.
+count_DEG_subspecies_filtered_stat_results <-  nrow(DEG_subspecies_filtered_stat_results)
+
+# Print number of DEG
+cat("Number of", comparison, "DEG with p-values <=", pvalue, "&", "q-values <=", qvalue, ":", count_DEG_subspecies_filtered_stat_results, "\n")
 ```
 
 ## Identify differentially expressed GENES (DEGs) between subspecies.
@@ -575,5 +581,74 @@ cat("Number of lean DEG with p-values <= ", pvalue, ":", count_DEG_subspecies_pv
 
 # Print number of siscowet DEG
 cat("Number of siscowet DEG with p-values <= ", pvalue, ":", count_DEG_subspecies_pval_filtered_genes_only_siscowet, "\n")
+```
+
+```{r write-DEGs-lean-vs-siscowet-to-files}
+# Write merged dataframe to CSV
+write.csv(
+  merged_DEG_subspecies_pval_filtered_genes_only, 
+  file = "../analyses/DEG-subspecies-pval_filtered_p-0.05.csv", 
+  quote = FALSE, 
+  row.names = FALSE)
+
+# Write pval/qval filtered dataframe to CSV
+write.csv(
+  DEG_subspecies_filtered_stat_results,
+  file = "../analyses/DEG_subspecies-pval_qval_filtered_p-q-0.05.csv",
+  quote = FALSE,
+  row.names = FALSE
+)
+
+
+# Creates a BED file of all DEGs and inserts necessary columns to create properly formatted BED file. 
+write.table(
+  (
+    merged_DEG_subspecies_pval_filtered_genes_only %>% 
+    select(chr, start, end, id, strand) %>% 
+      add_column(
+        score = "0", # Inserts a "score" column and assigns a value of "0" to all rows.
+        .before = "strand"
+        )
+    ), 
+  file = "../analyses/DEG-subspecies-pval_filtered_p-0.05.bed",
+  sep = "\t",
+  col.names = FALSE,
+  row.names = FALSE,
+  quote = FALSE
+)
+
+# Creates a BED file of only lean DEGs and inserts necessary columns to create properly formatted BED file. 
+write.table(
+  (
+    DEG_subspecies_pval_filtered_lean %>% 
+    select(chr, start, end, id, strand) %>% 
+      add_column(
+        score = "0", # Inserts a "score" column and assigns a value of "0" to all rows.
+        .before = "strand"
+        )
+    ), 
+  file = "../analyses/DEG-subspecies-lean-pval_filtered_p-0.05.bed",
+  sep = "\t",
+  col.names = FALSE,
+  row.names = FALSE,
+  quote = FALSE
+)
+
+# Creates a BED file of only siscowet DEGs and inserts necessary columns to create properly formatted BED file. 
+write.table(
+  (
+    DEG_subspecies_pval_filtered_siscowet %>% 
+    select(chr, start, end, id, strand) %>% 
+      add_column(
+        score = "0", # Inserts a "score" column and assigns a value of "0" to all rows.
+        .before = "strand"
+        )
+    ), 
+  file = "../analyses/DEG-subspecies-siscowet-pval_filtered_p-0.05.bed",
+  sep = "\t",
+  col.names = FALSE,
+  row.names = FALSE,
+  quote = FALSE
+)
 ```
 
