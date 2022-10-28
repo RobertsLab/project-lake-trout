@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="https://owl.fish.washington.edu/halfshell/genomic-databank/SaNama_1.0_genomic.fna" hasGeneTrack="false" hasSequenceTrack="true" locus="NC_052339.1:18629110-18631282" version="8">
+    <Resources>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/20220810-snam-stringtie-GCF_016432855.1-sorted_bams-merged.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL50/NPSL50.sorted.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL15/NPSL15.sorted.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL32/NPLL32.sorted.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL61/NPLL61.sorted.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL44/NPLL44.sorted.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL56/NPLL56.sorted.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL29/NPSL29.sorted.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL58/NPSL58.sorted.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220818-snam-gff_to_bed-genes/20220818-snam-GCF_016432855.1_SaNama_1.0_genes.bed" type="bed"/>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL24/NPSL24.sorted.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL36/NPSL36.sorted.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL34/NPLL34.sorted.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL46/NPLL46.sorted.bam" type="bam"/>
+    </Resources>
+    <Panel height="75" name="DataPanel" width="1909">
+        <Track attributeKey="20220818-snam-GCF_016432855.1_SaNama_1.0_genes.bed" clazz="org.broad.igv.track.FeatureTrack" displayMode="EXPANDED" fontSize="10" groupByStrand="false" id="https://gannet.fish.washington.edu/Atumefaciens/20220818-snam-gff_to_bed-genes/20220818-snam-GCF_016432855.1_SaNama_1.0_genes.bed" name="20220818-snam-GCF_016432855.1_SaNama_1.0_genes.bed" visible="true"/>
+    </Panel>
+    <Panel height="335" name="Panel1666969020878" width="1909">
+        <Track attributeKey="NPLL32.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="255,0,102" colorScale="ContinuousColorScale;0.0;10.0;255,255,255;175,175,175" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL32/NPLL32.sorted.bam_coverage" name="NPLL32.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="NPLL32.sorted.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" color="255,0,102" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL32/NPLL32.sorted.bam_junctions" name="NPLL32.sorted.bam Junctions" visible="true"/>
+        <Track attributeKey="NPLL32.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="255,0,102" displayMode="SQUISHED" experimentType="RNA" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL32/NPLL32.sorted.bam" name="NPLL32.sorted.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="365" name="Panel1666969050723" width="1909">
+        <Track attributeKey="NPLL34.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="255,0,102" colorScale="ContinuousColorScale;0.0;10.0;255,255,255;175,175,175" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL34/NPLL34.sorted.bam_coverage" name="NPLL34.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="NPLL34.sorted.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" color="255,0,102" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL34/NPLL34.sorted.bam_junctions" name="NPLL34.sorted.bam Junctions" visible="true"/>
+        <Track attributeKey="NPLL34.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="255,0,102" displayMode="SQUISHED" experimentType="RNA" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL34/NPLL34.sorted.bam" name="NPLL34.sorted.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="314" name="Panel1666969071667" width="1909">
+        <Track attributeKey="NPLL44.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="255,0,102" colorScale="ContinuousColorScale;0.0;10.0;255,255,255;175,175,175" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL44/NPLL44.sorted.bam_coverage" name="NPLL44.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="NPLL44.sorted.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" color="255,0,102" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL44/NPLL44.sorted.bam_junctions" name="NPLL44.sorted.bam Junctions" visible="true"/>
+        <Track attributeKey="NPLL44.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="255,0,102" displayMode="SQUISHED" experimentType="RNA" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL44/NPLL44.sorted.bam" name="NPLL44.sorted.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="1281" name="Panel1666969105080" width="1909">
+        <Track attributeKey="NPLL46.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="255,0,102" colorScale="ContinuousColorScale;0.0;10.0;255,255,255;175,175,175" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL46/NPLL46.sorted.bam_coverage" name="NPLL46.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="NPLL46.sorted.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" color="255,0,102" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL46/NPLL46.sorted.bam_junctions" name="NPLL46.sorted.bam Junctions" visible="true"/>
+        <Track attributeKey="NPLL46.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="255,0,102" displayMode="SQUISHED" experimentType="RNA" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL46/NPLL46.sorted.bam" name="NPLL46.sorted.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="796" name="Panel1666969130620" width="1909">
+        <Track attributeKey="NPLL61.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="255,0,102" colorScale="ContinuousColorScale;0.0;10.0;255,255,255;175,175,175" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL61/NPLL61.sorted.bam_coverage" name="NPLL61.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="NPLL61.sorted.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" color="255,0,102" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL61/NPLL61.sorted.bam_junctions" name="NPLL61.sorted.bam Junctions" visible="true"/>
+        <Track attributeKey="NPLL61.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="255,0,102" displayMode="SQUISHED" experimentType="RNA" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL61/NPLL61.sorted.bam" name="NPLL61.sorted.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="384" name="Panel1666969159726" width="1909">
+        <Track attributeKey="NPLL56.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="255,0,102" colorScale="ContinuousColorScale;0.0;10.0;255,255,255;175,175,175" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL56/NPLL56.sorted.bam_coverage" name="NPLL56.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="NPLL56.sorted.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL56/NPLL56.sorted.bam_junctions" name="NPLL56.sorted.bam Junctions" visible="true"/>
+        <Track attributeKey="NPLL56.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" displayMode="SQUISHED" experimentType="RNA" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPLL56/NPLL56.sorted.bam" name="NPLL56.sorted.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="181" name="Panel1666969199667" width="1909">
+        <Track attributeKey="NPSL15.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="0,102,51" colorScale="ContinuousColorScale;0.0;10.0;255,255,255;175,175,175" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL15/NPSL15.sorted.bam_coverage" name="NPSL15.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="NPSL15.sorted.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" color="0,102,51" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL15/NPSL15.sorted.bam_junctions" name="NPSL15.sorted.bam Junctions" visible="true"/>
+        <Track attributeKey="NPSL15.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="0,102,51" displayMode="SQUISHED" experimentType="RNA" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL15/NPSL15.sorted.bam" name="NPSL15.sorted.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="181" name="Panel1666969235516" width="1909">
+        <Track attributeKey="NPSL24.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="0,102,51" colorScale="ContinuousColorScale;0.0;10.0;255,255,255;175,175,175" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL24/NPSL24.sorted.bam_coverage" name="NPSL24.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="NPSL24.sorted.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" color="0,102,51" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL24/NPSL24.sorted.bam_junctions" name="NPSL24.sorted.bam Junctions" visible="true"/>
+        <Track attributeKey="NPSL24.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="0,102,51" displayMode="SQUISHED" experimentType="RNA" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL24/NPSL24.sorted.bam" name="NPSL24.sorted.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="181" name="Panel1666969250019" width="1909">
+        <Track attributeKey="NPSL29.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="0,102,51" colorScale="ContinuousColorScale;0.0;10.0;255,255,255;175,175,175" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL29/NPSL29.sorted.bam_coverage" name="NPSL29.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="NPSL29.sorted.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" color="0,102,51" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL29/NPSL29.sorted.bam_junctions" name="NPSL29.sorted.bam Junctions" visible="true"/>
+        <Track attributeKey="NPSL29.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="0,102,51" displayMode="SQUISHED" experimentType="RNA" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL29/NPSL29.sorted.bam" name="NPSL29.sorted.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="181" name="Panel1666969262592" width="1909">
+        <Track attributeKey="NPSL36.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="0,102,51" colorScale="ContinuousColorScale;0.0;10.0;255,255,255;175,175,175" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL36/NPSL36.sorted.bam_coverage" name="NPSL36.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="NPSL36.sorted.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" color="0,102,51" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL36/NPSL36.sorted.bam_junctions" name="NPSL36.sorted.bam Junctions" visible="true"/>
+        <Track attributeKey="NPSL36.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="0,102,51" displayMode="SQUISHED" experimentType="RNA" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL36/NPSL36.sorted.bam" name="NPSL36.sorted.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="242" name="Panel1666969279601" width="1909">
+        <Track attributeKey="NPSL50.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="0,102,51" colorScale="ContinuousColorScale;0.0;10.0;255,255,255;175,175,175" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL50/NPSL50.sorted.bam_coverage" name="NPSL50.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="NPSL50.sorted.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" color="0,102,51" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL50/NPSL50.sorted.bam_junctions" name="NPSL50.sorted.bam Junctions" visible="true"/>
+        <Track attributeKey="NPSL58.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" displayMode="EXPANDED" experimentType="RNA" fontSize="10" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL58/NPSL58.sorted.bam" name="NPSL58.sorted.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+        <Track attributeKey="NPSL50.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="0,102,51" displayMode="SQUISHED" experimentType="RNA" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL50/NPSL50.sorted.bam" name="NPSL50.sorted.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="120" name="Panel1666969292190" width="1909">
+        <Track attributeKey="NPSL58.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="0,102,51" colorScale="ContinuousColorScale;0.0;29.0;255,255,255;175,175,175" fontSize="10" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL58/NPSL58.sorted.bam_coverage" name="NPSL58.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="NPSL58.sorted.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" color="0,102,51" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/NPSL58/NPSL58.sorted.bam_junctions" name="NPSL58.sorted.bam Junctions" visible="true"/>
+    </Panel>
+    <Panel height="174" name="Panel1666978646309" width="1909">
+        <Track attributeKey="20220810-snam-stringtie-GCF_016432855.1-sorted_bams-merged.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" color="175,175,175" colorScale="ContinuousColorScale;0.0;53425.0;255,255,255;175,175,175" fontSize="10" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/20220810-snam-stringtie-GCF_016432855.1-sorted_bams-merged.bam_coverage" name="20220810-snam-stringtie-GCF_016432855.1-sorted_bams-merged.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="10.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="20220810-snam-stringtie-GCF_016432855.1-sorted_bams-merged.bam Junctions" clazz="org.broad.igv.sam.SpliceJunctionTrack" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/20220810-snam-stringtie-GCF_016432855.1-sorted_bams-merged.bam_junctions" name="20220810-snam-stringtie-GCF_016432855.1-sorted_bams-merged.bam Junctions" visible="true"/>
+        <Track attributeKey="20220810-snam-stringtie-GCF_016432855.1-sorted_bams-merged.bam" clazz="org.broad.igv.sam.AlignmentTrack" displayMode="EXPANDED" experimentType="RNA" fontSize="10" id="https://gannet.fish.washington.edu/Atumefaciens/20220810-snam-hisat2-GCF_016432855.1_index-align-stringtie_isoforms/20220810-snam-stringtie-GCF_016432855.1-sorted_bams-merged.bam" name="20220810-snam-stringtie-GCF_016432855.1-sorted_bams-merged.bam" visible="true">
+            <RenderOptions/>
+        </Track>
+    </Panel>
+    <Panel height="20" name="FeaturePanel" width="1909">
+        <Track attributeKey="Reference sequence" clazz="org.broad.igv.track.SequenceTrack" fontSize="10" id="Reference sequence" name="Reference sequence" sequenceTranslationStrandValue="POSITIVE" shouldShowTranslation="false" visible="true"/>
+    </Panel>
+    <PanelLayout dividerFractions="0.019305019305019305,0.36036036036036034,0.37194337194337196,0.3835263835263835,0.39510939510939513,0.4066924066924067,0.9073359073359073,0.918918918918919,0.9305019305019305,0.9420849420849421,0.9536679536679536,0.9652509652509652,0.9768339768339769,0.9884169884169884"/>
+    <HiddenAttributes>
+        <Attribute name="DATA FILE"/>
+        <Attribute name="DATA TYPE"/>
+        <Attribute name="NAME"/>
+    </HiddenAttributes>
+</Session>
