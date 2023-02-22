@@ -123,7 +123,7 @@ genes_BED <- read.table(file = "../data/20220818-snam-GCF_016432855.1_SaNama_1.0
 colnames(genes_BED) <- c("chr", "start", "end", "name", "score", "strand")
 head(genes_BED)
 ```
-## Create Ballgown object
+## Create Ballgown objects
 ```{r create-ballgown-objects}
 # Uses regular expression in samplePattern to find all pertinent folders
 # Load all measurement data
@@ -202,10 +202,10 @@ head(sample_metadata_subset_parasitized)
 
 
 
-# Create modified metadata for NONPARASITIZED (leand and siscowet combined)
-# 1 = LEAN NONPARASTIZED
+# Create modified metadata for NONPARASITIZED (lean and siscowet combined)
+# 2 = LEAN NONPARASTIZED
 # 4 = SISCOWET NONPARASITIZED
-sample_metadata_subset_nonparasitized <- sample_metadata_full %>% filter(strain == "3" | strain == "4")
+sample_metadata_subset_nonparasitized <- sample_metadata_full %>% filter(strain == "2" | strain == "4")
 
 # Test to make sure expected number of rows (does NOT count header row)
 # Expect 12 rows; 6 samples from each grouping
@@ -496,7 +496,7 @@ write.table(
 
 
 
-## Lean vs Siscowet DEGs).
+## Lean vs Siscowet DEGs.
 ### pval & qval <=0.05
 
 Returns FoldChange, too (getFC = TRUE)
@@ -525,7 +525,7 @@ count_DEG_subspecies_filtered_stat_results <-  nrow(DEG_subspecies_filtered_stat
 cat("Number of", comparison, "DEG with p-values <=", pvalue, "&", "q-values <=", qvalue, ":", count_DEG_subspecies_filtered_stat_results, "\n")
 ```
 
-## Leav vs SiscowetDEGs).
+## Lean vs SiscowetDEGs).
 ### p-value only <=0.05
 Returns FoldChange, too (getFC = TRUE)
 ### Restricted to p-value filtering ONLY. q-values are all >=0.05!!
@@ -655,5 +655,55 @@ write.table(
   row.names = FALSE,
   quote = FALSE
 )
+```
+
+## Lean NP vs. Siscowet NP DETs.
+Returns FoldChange, too (getFC = TRUE)
+
+### pval & qval <=0.05
+```{r DETs-leanNP-vs.-siscowetNP}
+# Set string describing comparison
+# Used for final printout in chunk
+comparison <- "lean-NP vs. siscowet-NP"
+
+# Load phenotype info into Ballgown
+pData(bg.nonparasitized) <- sample_metadata_subset_nonparasitized
+
+# Identify DETs
+DET_subspecies_stat_results = stattest(bg.nonparasitized, feature='transcript', meas='FPKM', covariate="subspecies", getFC = TRUE)
+head(DET_subspecies_stat_results)
+
+# Filter based on p-value and q-value
+DET_subspecies_filtered_stat_results <- filter(DET_subspecies_stat_results, pval <= pvalue & qval <= qvalue)
+head(DET_subspecies_filtered_stat_results)
+```
+
+## Lean NP vs Siscowet NP DEGs.
+### pval & qval <=0.05
+
+Returns FoldChange, too (getFC = TRUE)
+
+
+```{r DEGs-leanNP-vs.-siscowetNP}
+# Set string describing comparison
+# Used for final printout in chunk
+comparison <- "lean-NP vs. siscowet-NP"
+
+# Load phenotype info into Ballgown
+pData(bg.nonparasitized) <- sample_metadata_subset_nonparasitized
+
+# Identify DEGs
+DEG_subspecies_stat_results = stattest(bg.nonparasitized, feature='gene', meas='FPKM', covariate="subspecies", getFC = TRUE)
+head(DEG_subspecies_stat_results)
+
+# Filter based on p-value and q-value
+DEG_subspecies_filtered_stat_results <- filter(DEG_subspecies_stat_results, pval <= pvalue & qval <= qvalue)
+head(DEG_subspecies_filtered_stat_results)
+
+# Count number of DEG.
+count_DEG_subspecies_filtered_stat_results <-  nrow(DEG_subspecies_filtered_stat_results)
+
+# Print number of DEG
+cat("Number of", comparison, "DEG with p-values <=", pvalue, "&", "q-values <=", qvalue, ":", count_DEG_subspecies_filtered_stat_results, "\n")
 ```
 
