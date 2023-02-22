@@ -215,7 +215,7 @@ head(sample_metadata_subset_nonparasitized)
 ```
 
 
-## Load phenotype dataframe into Ballgown object
+## Load FULL phenotype dataframe into Ballgown object
 ```{r load-phenotype-full}
 # Load phenotype info into Ballgown
 pData(bg) <- sample_metadata_full
@@ -225,26 +225,26 @@ phenotype_table <-  pData(bg)
 head(phenotype_table)
 ```
 
-## Look at exon info
+### Look at FULL exon info
 ```{r all-exon-info}
 # Exon info
 structure(bg)$exon
 ```
 
-## Look at intron info
+### Look at FULL intron info
 ```{r all-intron-info}
 # Intron info
 structure(bg)$intron
 ```
 
-## Look at transcript (isoform) info
+### Look at FULL transcript (isoform) info
 ```{r all-transcript-info}
 # Transcript info
 structure(bg)$trans
 ```
 
 
-## Load all transcript expression data
+## Load ALL transcript expression data
 ```{r load-all-transcript-expression}
 # Expression data
 whole_tx_table <-  texpr(bg, 'all')
@@ -263,7 +263,7 @@ head(transcript_fpkm)
 ```
 
 
-## Load all gene expression data
+## Load ALL gene expression data
 ```{r load-gene-expression-data}
 whole_gx_table <-  gexpr(bg)
 head(whole_gx_table)
@@ -342,10 +342,11 @@ ggplot(fpkm_df_pivot, aes(library, value, color = subspecies)) +
 # Save boxplot as PDF
 ggsave(filename = "../figures/fpkm-lean-v-siscowet-boxplot.pdf")
 ```
-## Identify differentially expressed transcripts (DETs) between subspecies.
-## Returns FoldChange, too (getFC = TRUE)
+## Lean vs. Siscowet DETs.
+Returns FoldChange, too (getFC = TRUE)
 
-### THERE ARE NO SAMPLES WITH q-values <=0.05!!!
+### pval & qval <=0.05
+#### THERE ARE NO SAMPLES WITH p-values & q-values <=0.05!!!
 ```{r DETs-lean-vs.-siscowet}
 # Set string describing comparison
 # Used for final printout in chunk
@@ -364,9 +365,10 @@ head(DET_subspecies_filtered_stat_results)
 ```
 
 
-## Identify differentially expressed transcripts (DETs) between subspecies.
-## Returns FoldChange, too (getFC = TRUE)
-## Restricted to p-value filtering ONLY. q-values are all >=0.05!!
+## Lean vs. Siscowet DETs
+### pval only <=0.05
+Returns FoldChange, too (getFC = TRUE)
+#### Restricted to p-value filtering ONLY. q-values are all >=0.05!!
 ```{r DETs-lean-vs-siscowet-pval-only}
 # Filter based on p-value only
 DET_subspecies_pval_filtered_stat_results <- filter(DET_subspecies_stat_results, pval <= pvalue)
@@ -494,10 +496,12 @@ write.table(
 
 
 
-## Identify differentially expressed GENES (DEGs) between subspecies.
-## Returns FoldChange, too (getFC = TRUE)
+## Lean vs Siscowet DEGs).
+### pval & qval <=0.05
 
-### THERE ARE NO SAMPLES WITH q-values <=0.05!!!
+Returns FoldChange, too (getFC = TRUE)
+
+#### THERE ARE NO SAMPLES WITH q-values <=0.05!!!
 ```{r DEGs-lean-vs.-siscowet}
 # Set string describing comparison
 # Used for final printout in chunk
@@ -521,9 +525,10 @@ count_DEG_subspecies_filtered_stat_results <-  nrow(DEG_subspecies_filtered_stat
 cat("Number of", comparison, "DEG with p-values <=", pvalue, "&", "q-values <=", qvalue, ":", count_DEG_subspecies_filtered_stat_results, "\n")
 ```
 
-## Identify differentially expressed GENES (DEGs) between subspecies.
-## Returns FoldChange, too (getFC = TRUE)
-## Restricted to p-value filtering ONLY. q-values are all >=0.05!!
+## Leav vs SiscowetDEGs).
+### p-value only <=0.05
+Returns FoldChange, too (getFC = TRUE)
+### Restricted to p-value filtering ONLY. q-values are all >=0.05!!
 ```{r DEGs-lean-vs-siscowet-pval-only}
 # Filter based on p-value only
 DEG_subspecies_pval_filtered_stat_results <- filter(DEG_subspecies_stat_results, pval <= pvalue)
