@@ -1,0 +1,26 @@
+---
+title: "gene-explore"
+format: markdown_github
+editor: visual
+---
+
+## C1Q
+
+```{bash}
+fgrep "LOC120027825" /Users/sr320/Downloads/GCF_016432855.1_SaNama_1.0_genomic.gff
+
+```
+
+
+```
+NC_052339.1	Gnomon	gene	19244556	19248013	.	-	.	ID=gene-LOC120027825;Dbxref=GeneID:120027825;Name=LOC120027825;gbkey=Gene;gene=LOC120027825;gene_biotype=protein_coding
+```
+
+
+```{r}
+19248013-19244556
+```
+
+```{r jb, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("../img/jb.png")
+```
