@@ -8,14 +8,29 @@ date: "2025-10-18"
 04-pacbio/tools/pbmm2 index ../data/GCF_016432855.1_SaNama_1.0_genomic.fa ../data/GCF_016432855.1_SaNama_1.0_genomic.fa.pacbio.mmi
 ```
 
+```{bash}
+samtools view \
+-H \
+../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.bam \
+| grep '^@RG'
+```
 
 
 ```{bash}
 04-pacbio/tools/pbmm2 align \
 ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
 ../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.bam \
-../analyses/05-pacbio-align/m84082.bam
---preset CCS --sort --rg '@RG\tID:Pool1\tSM:Pool1' --num-threads 24
+../analyses/05-pacbio-align/m84082_preset.bam \
+--preset CCS --sort --num-threads 48
 
 ```
+
+
+
+
+```{bash}
+head 
+```
+
+
 

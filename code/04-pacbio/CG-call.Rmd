@@ -1,0 +1,46 @@
+---
+title: "04-cpg-call"
+output: html_document
+date: "2025-10-18"
+---
+
+
+```{bash}
+# Per-site CpG methylation (bedMethyl + bedGraph tracks)
+/mmfs1/home/sr320/.local/bin/dist_modkit_v0.5.1_8fa79e3/modkit pileup \
+  --ref ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+  --combine-strands CpG \
+  --include-unmapped \
+  ../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.bam \
+  --bedgraph \
+  ../analyses/04-pacbio
+
+# QC summary (overall rates, motif breakdown)
+modkit summary pool1.aln.ccs.bam --ref ref.fa --out pool1.modkit.summary.txt
+```
+
+
+
+
+```
+/mmfs1/home/sr320/.local/bin/dist_modkit_v0.5.1_8fa79e3/modkit pileup \
+  ../analyses/04-pacbio/alignments-raven/m84082_250614_081210_s3.pbmm2.sorted.bam \
+  --ref ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+  --combine-strands CpG \
+  --cpg \
+  --include-unmapped \
+  --threads 48 \
+  --bedgraph 
+  
+  
+```
+
+
+
+```{bash}
+tail ../CpG/m*
+```
+
+```{bash}
+head ../CpG/a*
+```
