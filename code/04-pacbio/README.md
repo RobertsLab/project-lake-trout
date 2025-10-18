@@ -26,6 +26,7 @@ This directory captures every step of the PacBio DNA methylation exploration, in
 | 2025-10-17 | Created `align_hifi_pbmm2.py` | Batch-align HiFi CCS BAMs to the genome using pbmm2 with configurable paths and CPU counts. |
 | 2025-10-17 | `curl https://api.github.com/.../pbmm2/releases/latest` → `wget https://github.com/PacificBiosciences/pbmm2/.../pbmm2` | Downloaded pbmm2 v1.17.0 binary, marked it executable, and symlinked it into `.venv/bin/` for uv-managed runs. |
 | 2025-10-17 | Updated `align_hifi_pbmm2.py` | Added flexible pbmm2 discovery (`--pbmm2` override, local `tools/pbmm2` fallback) so the script works even when run outside the project directory. |
+| 2025-10-17 | Tweaked pbmm2 CLI usage | Replaced unsupported `--threads` with `-j` (`--num-threads`) to match pbmm2 ≥1.17. |
 
 > **Note:** Attempted to install `pbcore` from PyPI/GitHub for direct `.pbi` parsing, but its latest release requires `numpy<=1.22.4`, which conflicts with modern `pandas` builds. For now, rely on `pysam` and `modbampy` to access CCS reads and modified-base tags directly from the BAM. If `.pbi` access becomes essential, revisit with a constrained environment or containerized PacBio SMRT Tools installation.
 
@@ -67,6 +68,8 @@ Key options:
 - Pass additional pbmm2 flags by appending them after `--` (e.g., `-- --bam-index`).
 
 Aligned BAMs and pbmm2 logs land in `analyses/04-pacbio/alignments/` by default, keeping results separate from raw data.
+
+> **Note:** pbmm2 v1.17 switched to the `-j/--num-threads` switch; the script already uses `-j`, so keep pbmm2 up to date or adjust if using an older release.
 
 ## Next Steps
 - Add initial prompts and planned analyses.
