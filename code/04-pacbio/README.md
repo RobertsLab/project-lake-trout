@@ -23,8 +23,34 @@ This directory captures every step of the PacBio DNA methylation exploration, in
 | 2025-10-17 | `uv init --python 3.11` | Scaffolded the dedicated PacBio analysis project and virtual environment managed by uv. |
 | 2025-10-17 | `uv add pysam pandas numpy matplotlib seaborn rich` | Added core scientific stack for working with BAM files, tabular data, and visualization. |
 | 2025-10-17 | `uv add modbampy` | Enabled parsing of modified-base tags embedded in HiFi BAM records. |
+| 2025-10-17 | Created `align_hifi_pbmm2.py` | Batch-align HiFi CCS BAMs to the genome using pbmm2 with configurable paths and CPU counts. |
 
 > **Note:** Attempted to install `pbcore` from PyPI/GitHub for direct `.pbi` parsing, but its latest release requires `numpy<=1.22.4`, which conflicts with modern `pandas` builds. For now, rely on `pysam` and `modbampy` to access CCS reads and modified-base tags directly from the BAM. If `.pbi` access becomes essential, revisit with a constrained environment or containerized PacBio SMRT Tools installation.
+
+## Alignment Script (`align_hifi_pbmm2.py`)
+
+- Assumes this repository layout (`code/04-pacbio/` for scripts, `data/` for raw HiFi BAMs, `analyses/04-pacbio/` for outputs). The user request referenced `code/04-bio`; the script was placed in `code/04-pacbio/` to match the established naming scheme.
+- Requires the PacBio `pbmm2` executable on your `PATH`. Install via the PacBio bioconda channel or download the standalone binary from PacBio releases.
+- Discovers `*.hifi_reads.bam` files (configurable) in the supplied reads directory, aligns each to the reference genome, and writes sorted BAMs plus log files to the output directory.
+
+### Quick start
+
+```bash
+uv run python code/04-pacbio/align_hifi_pbmm2.py \
+	--reads-dir data/pacbio \
+	--genome data/GCF_016432855.1_SaNama_1.0_genomic.fna.gz \
+	--output-dir analyses/04-pacbio/alignments \
+	--cpus 32
+```
+
+Key options:
+
+- `--pattern` (default `*.hifi_reads.bam`) controls which BAMs are aligned.
+- `--preset` (default `CCS`) lets you choose pbmm2 presets (`CCS`, `SUBREAD`, etc.).
+- `--dry-run` prints planned commands without execution; `--force` overwrites existing outputs.
+- Pass additional pbmm2 flags by appending them after `--` (e.g., `-- --bam-index`).
+
+Aligned BAMs and pbmm2 logs land in `analyses/04-pacbio/alignments/` by default, keeping results separate from raw data.
 
 ## Next Steps
 - Add initial prompts and planned analyses.
