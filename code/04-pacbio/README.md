@@ -24,13 +24,14 @@ This directory captures every step of the PacBio DNA methylation exploration, in
 | 2025-10-17 | `uv add pysam pandas numpy matplotlib seaborn rich` | Added core scientific stack for working with BAM files, tabular data, and visualization. |
 | 2025-10-17 | `uv add modbampy` | Enabled parsing of modified-base tags embedded in HiFi BAM records. |
 | 2025-10-17 | Created `align_hifi_pbmm2.py` | Batch-align HiFi CCS BAMs to the genome using pbmm2 with configurable paths and CPU counts. |
+| 2025-10-17 | `curl https://api.github.com/.../pbmm2/releases/latest` → `wget https://github.com/PacificBiosciences/pbmm2/.../pbmm2` | Downloaded pbmm2 v1.17.0 binary, marked it executable, and symlinked it into `.venv/bin/` for uv-managed runs. |
 
 > **Note:** Attempted to install `pbcore` from PyPI/GitHub for direct `.pbi` parsing, but its latest release requires `numpy<=1.22.4`, which conflicts with modern `pandas` builds. For now, rely on `pysam` and `modbampy` to access CCS reads and modified-base tags directly from the BAM. If `.pbi` access becomes essential, revisit with a constrained environment or containerized PacBio SMRT Tools installation.
 
 ## Alignment Script (`align_hifi_pbmm2.py`)
 
 - Assumes this repository layout (`code/04-pacbio/` for scripts, `data/` for raw HiFi BAMs, `analyses/04-pacbio/` for outputs). The user request referenced `code/04-bio`; the script was placed in `code/04-pacbio/` to match the established naming scheme.
-- Requires the PacBio `pbmm2` executable on your `PATH`. Install via the PacBio bioconda channel or download the standalone binary from PacBio releases.
+- Requires the PacBio `pbmm2` executable on your `PATH`. Installed here by downloading the v1.17.0 release binary, storing it under `code/04-pacbio/tools/`, and symlinking it into `.venv/bin/` so that `uv run` picks it up automatically.
 - Discovers `*.hifi_reads.bam` files (configurable) in the supplied reads directory, aligns each to the reference genome, and writes sorted BAMs plus log files to the output directory.
 
 ### Quick start

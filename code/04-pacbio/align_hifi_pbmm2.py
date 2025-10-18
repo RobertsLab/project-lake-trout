@@ -13,7 +13,7 @@ uv run python code/04-pacbio/align_hifi_pbmm2.py \
   --reads-dir data/pacbio-reads \
   --genome data/GCF_016432855.1_SaNama_1.0_genomic.fna.gz \
   --output-dir analyses/04-pacbio/alignments \
-  --cpus 32
+  --cpus 46
 ```
 
 Set `--dry-run` to print planned commands without executing them.
