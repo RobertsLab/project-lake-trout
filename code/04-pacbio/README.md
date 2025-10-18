@@ -25,6 +25,7 @@ This directory captures every step of the PacBio DNA methylation exploration, in
 | 2025-10-17 | `uv add modbampy` | Enabled parsing of modified-base tags embedded in HiFi BAM records. |
 | 2025-10-17 | Created `align_hifi_pbmm2.py` | Batch-align HiFi CCS BAMs to the genome using pbmm2 with configurable paths and CPU counts. |
 | 2025-10-17 | `curl https://api.github.com/.../pbmm2/releases/latest` → `wget https://github.com/PacificBiosciences/pbmm2/.../pbmm2` | Downloaded pbmm2 v1.17.0 binary, marked it executable, and symlinked it into `.venv/bin/` for uv-managed runs. |
+| 2025-10-17 | Updated `align_hifi_pbmm2.py` | Added flexible pbmm2 discovery (`--pbmm2` override, local `tools/pbmm2` fallback) so the script works even when run outside the project directory. |
 
 > **Note:** Attempted to install `pbcore` from PyPI/GitHub for direct `.pbi` parsing, but its latest release requires `numpy<=1.22.4`, which conflicts with modern `pandas` builds. For now, rely on `pysam` and `modbampy` to access CCS reads and modified-base tags directly from the BAM. If `.pbi` access becomes essential, revisit with a constrained environment or containerized PacBio SMRT Tools installation.
 
@@ -36,11 +37,24 @@ This directory captures every step of the PacBio DNA methylation exploration, in
 
 ### Quick start
 
+Run commands *inside* this uv project or provide `--project` so the managed `.venv` (and bundled `pbmm2`) are available. Example from the project directory:
+
 ```bash
-uv run python code/04-pacbio/align_hifi_pbmm2.py \
-	--reads-dir data/pacbio \
-	--genome data/GCF_016432855.1_SaNama_1.0_genomic.fna.gz \
-	--output-dir analyses/04-pacbio/alignments \
+cd code/04-pacbio
+uv run python align_hifi_pbmm2.py \
+	--reads-dir ../../data/pacbio-reads \
+	--genome ../../data/GCF_016432855.1_SaNama_1.0_genomic.fna.gz \
+	--output-dir ../../analyses/04-pacbio/alignments \
+	--cpus 32
+```
+
+Or from the repository root:
+
+```bash
+uv --project code/04-pacbio run python align_hifi_pbmm2.py \
+	--reads-dir ../data/pacbio-reads \
+	--genome ../data/GCF_016432855.1_SaNama_1.0_genomic.fna.gz \
+	--output-dir ../analyses/04-pacbio/alignments \
 	--cpus 32
 ```
 
@@ -49,6 +63,7 @@ Key options:
 - `--pattern` (default `*.hifi_reads.bam`) controls which BAMs are aligned.
 - `--preset` (default `CCS`) lets you choose pbmm2 presets (`CCS`, `SUBREAD`, etc.).
 - `--dry-run` prints planned commands without execution; `--force` overwrites existing outputs.
+- `--pbmm2` lets you point to a specific pbmm2 binary; otherwise the script checks PATH and `code/04-pacbio/tools/pbmm2`.
 - Pass additional pbmm2 flags by appending them after `--` (e.g., `-- --bam-index`).
 
 Aligned BAMs and pbmm2 logs land in `analyses/04-pacbio/alignments/` by default, keeping results separate from raw data.

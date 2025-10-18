@@ -108,6 +108,11 @@ def parse_args(argv: Iterable[str]) -> argparse.Namespace:
         nargs=argparse.REMAINDER,
         help="Additional arguments to append verbatim to each pbmm2 command after `--`.",
     )
+    parser.add_argument(
+        "--pbmm2",
+        type=Path,
+        help="Path to pbmm2 binary. Defaults to PATH lookup then local tools/pbmm2.",
+    )
 
     return parser.parse_args(argv)
 
@@ -125,6 +130,7 @@ def sample_name_from_bam(bam_path: Path) -> str:
 
 
 def build_pbmm2_command(
+    pbmm2_path: Path,
     genome: Path,
     bam_path: Path,
     output_bam: Path,
@@ -135,13 +141,13 @@ def build_pbmm2_command(
     extra_args: list[str] | None,
 ) -> list[str]:
     cmd = [
-        "pbmm2",
+        str(pbmm2_path),
         "align",
         "--sort",
-        "--preset",
+    "--preset",
         preset,
-        "--threads",
-        str(threads),
+    "-j",
+    str(threads),
         "--log-level",
         log_level,
         "--log-file",
@@ -155,10 +161,28 @@ def build_pbmm2_command(
     return cmd
 
 
-def ensure_pbmm2_available() -> None:
-    if not shutil.which("pbmm2"):
-        LOGGER.error("pbmm2 executable not found on PATH. Install pbmm2 and retry.")
-        sys.exit(1)
+def resolve_pbmm2(provided: Path | None) -> Path:
+    """Return an executable pbmm2 path, searching common fallback locations."""
+
+    candidates: list[Path] = []
+    if provided:
+        candidates.append(provided)
+
+    env_path = shutil.which("pbmm2")
+    if env_path:
+        candidates.append(Path(env_path))
+
+    script_dir = Path(__file__).resolve().parent
+    candidates.append(script_dir / "tools" / "pbmm2")
+
+    for candidate in candidates:
+        if candidate and candidate.exists() and os.access(candidate, os.X_OK):
+            return candidate
+
+    LOGGER.error(
+        "pbmm2 executable not found. Provide --pbmm2, place a binary in tools/pbmm2, or add pbmm2 to PATH."
+    )
+    sys.exit(1)
 
 
 def main(argv: Iterable[str] | None = None) -> int:
@@ -166,7 +190,7 @@ def main(argv: Iterable[str] | None = None) -> int:
 
     logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
 
-    ensure_pbmm2_available()
+    pbmm2_path = resolve_pbmm2(args.pbmm2)
 
     reads_dir = args.reads_dir.resolve()
     genome = args.genome.resolve()
@@ -198,6 +222,7 @@ def main(argv: Iterable[str] | None = None) -> int:
             continue
 
         cmd = build_pbmm2_command(
+            pbmm2_path=pbmm2_path,
             genome=genome,
             bam_path=bam_path,
             output_bam=output_bam,
