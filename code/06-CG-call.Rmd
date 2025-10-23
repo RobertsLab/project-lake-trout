@@ -1,0 +1,82 @@
+---
+title: "06-cpg-call"
+output: html_document
+date: "2025-10-18"
+---
+
+
+```{bash}
+# Per-site CpG methylation (bedMethyl + bedGraph tracks)
+/mmfs1/home/sr320/.local/bin/dist_modkit_v0.5.1_8fa79e3/modkit pileup \
+  --ref ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+  --combine-strands CpG \
+  --include-unmapped \
+  ../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.bam \
+  --bedgraph \
+  ../analyses/04-pacbio
+
+# QC summary (overall rates, motif breakdown)
+modkit summary pool1.aln.ccs.bam --ref ref.fa --out pool1.modkit.summary.txt
+```
+
+
+
+
+```
+/mmfs1/home/sr320/.local/bin/dist_modkit_v0.5.1_8fa79e3/modkit pileup \
+  ../analyses/04-pacbio/alignments-raven/m84082_250614_081210_s3.pbmm2.sorted.bam \
+  --ref ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+  --combine-strands CpG \
+  --cpg \
+  --include-unmapped \
+  --threads 48 \
+  --bedgraph 
+  
+  
+```
+
+
+
+```{bash}
+tail ../CpG/m*
+```
+
+```{bash}
+head ../CpG/a*
+```
+
+
+
+
+
+
+
+# Pool 3
+
+
+```{bash}
+/mmfs1/home/sr320/.local/bin/dist_modkit_v0.5.1_8fa79e3/modkit pileup \
+  ../analyses/05-pacbio-align/bc2068.bam \
+  --ref ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+  --combine-strands CpG \
+  --min-mapq 20 --min-baseq 20 \
+  --threads 48 \
+  --output ../analyses/05-pacbio-align/bc2068.CpG.bed \
+  --bedgraph ../analyses/05-pacbio-align/bc2068.CpG.bedGraph
+```
+
+```{bash}
+/mmfs1/home/sr320/.local/bin/dist_modkit_v0.5.1_8fa79e3/modkit summary \
+  ../analyses/05-pacbio-align/bc2068.bam \
+  --ref ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+  --out ../analyses/05-pacbio-align/bc2068.modkit.summary.txt
+```
+
+```{bash}
+samtools faidx ../data/GCF_016432855.1_SaNama_1.0_genomic.fa
+cut -f1,2 ../data/GCF_016432855.1_SaNama_1.0_genomic.fa.fai > ../analyses/05-pacbio-align/ref.chrom.sizes
+bedGraphToBigWig ../analyses/05-pacbio-align/bc2068.CpG.bedGraph \
+                 ../analyses/05-pacbio-align/ref.chrom.sizes \
+                 ../analyses/05-pacbio-align/bc2068.CpG.bw
+```
+

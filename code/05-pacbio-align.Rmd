@@ -34,3 +34,47 @@ head
 
 
 
+
+
+# Pool 3
+
+```{bash}
+ls ../data/pacbio-reads
+```
+
+
+
+```{bash}
+samtools view \
+-H \
+../data/pacbio-reads/m84082_251001_025627_s2.hifi_reads.bc2068.bam \
+| grep '^@RG'
+```
+
+
+```{bash}
+04-pacbio/tools/pbmm2 align \
+../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+../data/pacbio-reads/m84082_251001_025627_s2.hifi_reads.bc2068.bam \
+../analyses/05-pacbio-align/bc2068.bam \
+--preset CCS --sort --num-threads 48
+```
+
+```{bash}
+samtools view ../analyses/05-pacbio-align/bc2068.bam | head -n1
+# You should see MM/ML tags somewhere on the line (e.g., MM:Z:..., ML:B:C,...).
+```
+
+
+
+
+
+
+
+```{bash}
+04-pacbio/tools/pbmm2 align \
+../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+../data/pacbio-reads/m84082_251001_025627_s2.hifi_reads.bc2096.bam \
+../analyses/05-pacbio-align/bc2096.bam \
+--preset CCS --sort --num-threads 48
+```
