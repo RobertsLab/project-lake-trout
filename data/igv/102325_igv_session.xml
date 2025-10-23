@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/data/GCF_016432855.1_SaNama_1.0_genomic.fa" locus="NC_052308.1:33470933-33523602" version="8">
+    <Resources>
+        <Resource path="https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/05-pacbio-align/m84082_preset.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/04-pacbio/alignments-raven/m84082_250614_081210_s3.pbmm2.sorted.bam" type="bam"/>
+        <Resource path="https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/05-pacbio-align/bc2068.bam" type="bam"/>
+    </Resources>
+    <Panel height="812" name="Panel1761242634153" width="1214">
+        <Track attributeKey="m84082_250614_081210_s3.pbmm2.sorted.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" fontSize="10" id="https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/04-pacbio/alignments-raven/m84082_250614_081210_s3.pbmm2.sorted.bam_coverage" name="m84082_250614_081210_s3.pbmm2.sorted.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="53.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="m84082_250614_081210_s3.pbmm2.sorted.bam Junctions" autoScale="true" clazz="org.broad.igv.sam.SpliceJunctionTrack" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/04-pacbio/alignments-raven/m84082_250614_081210_s3.pbmm2.sorted.bam_junctions" maxdepth="50" name="m84082_250614_081210_s3.pbmm2.sorted.bam Junctions" visible="false"/>
+        <Track attributeKey="m84082_250614_081210_s3.pbmm2.sorted.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="185,185,185" displayMode="EXPANDED" experimentType="THIRD_GEN" fontSize="10" id="https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/04-pacbio/alignments-raven/m84082_250614_081210_s3.pbmm2.sorted.bam" name="m84082_250614_081210_s3.pbmm2.sorted.bam" visible="true">
+            <RenderOptions duplicatesOption="FILTER"/>
+        </Track>
+    </Panel>
+    <Panel height="812" name="Panel1761242690523" width="1214">
+        <Track attributeKey="m84082_preset.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" fontSize="10" id="https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/05-pacbio-align/m84082_preset.bam_coverage" name="m84082_preset.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="53.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="m84082_preset.bam Junctions" autoScale="true" clazz="org.broad.igv.sam.SpliceJunctionTrack" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/05-pacbio-align/m84082_preset.bam_junctions" maxdepth="50" name="m84082_preset.bam Junctions" visible="false"/>
+        <Track attributeKey="m84082_preset.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="185,185,185" displayMode="EXPANDED" experimentType="THIRD_GEN" fontSize="10" id="https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/05-pacbio-align/m84082_preset.bam" name="m84082_preset.bam" visible="true">
+            <RenderOptions duplicatesOption="FILTER"/>
+        </Track>
+    </Panel>
+    <Panel height="266" name="Panel1761242713795" width="1214">
+        <Track attributeKey="bc2068.bam Coverage" autoScale="true" clazz="org.broad.igv.sam.CoverageTrack" fontSize="10" id="https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/05-pacbio-align/bc2068.bam_coverage" name="bc2068.bam Coverage" snpThreshold="0.2" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="12.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track attributeKey="bc2068.bam Junctions" autoScale="true" clazz="org.broad.igv.sam.SpliceJunctionTrack" fontSize="10" groupByStrand="false" height="60" id="https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/05-pacbio-align/bc2068.bam_junctions" maxdepth="50" name="bc2068.bam Junctions" visible="false"/>
+        <Track attributeKey="bc2068.bam" clazz="org.broad.igv.sam.AlignmentTrack" color="185,185,185" displayMode="EXPANDED" experimentType="THIRD_GEN" fontSize="10" id="https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/05-pacbio-align/bc2068.bam" name="bc2068.bam" visible="true">
+            <RenderOptions duplicatesOption="FILTER"/>
+        </Track>
+    </Panel>
+    <Panel height="29" name="FeaturePanel" width="1214">
+        <Track attributeKey="Reference sequence" clazz="org.broad.igv.track.SequenceTrack" fontSize="10" id="Reference sequence" name="Reference sequence" sequenceTranslationStrandValue="+" shouldShowTranslation="false" visible="true"/>
+    </Panel>
+    <PanelLayout dividerFractions="0.005361930294906166,0.42180518319928506,0.8436103663985701,0.9696157283288651"/>
+    <HiddenAttributes>
+        <Attribute name="DATA FILE"/>
+        <Attribute name="DATA TYPE"/>
+        <Attribute name="NAME"/>
+    </HiddenAttributes>
+</Session>
