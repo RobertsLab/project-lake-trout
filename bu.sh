@@ -12,6 +12,7 @@
 rsync -av ../project-lake-trout \
 --exclude='*.sam' \
 --exclude='tmp*' \
+--exclude='*tmp*' \
 --exclude='*gz_C_to_T.fastq' \
 --exclude='*gz_G_to_A.fastq' \
 --exclude='Non_CpG_context*' \
