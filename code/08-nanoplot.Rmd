@@ -1,0 +1,22 @@
+---
+title: "08-nanoplot"
+output: html_document
+date: "2025-10-26"
+---
+
+
+
+```{bash}
+mkdir -p ../analyses/09-nanoplot/
+
+for fq in ../data/pacbio-reads/fastq/*.fastq; do
+    sample=$(basename "$fq" .fastq)
+    echo "Running NanoPlot on $sample"
+    
+    /opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot --fastq "$fq" \
+             -o ../analyses/09-nanoplot/"$sample" \
+             --threads 40 \
+             --loglength \
+             --tsv_stats
+done
+```
