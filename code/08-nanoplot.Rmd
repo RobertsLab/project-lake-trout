@@ -9,14 +9,20 @@ date: "2025-10-26"
 ```{bash}
 mkdir -p ../analyses/09-nanoplot/
 
-for fq in ../data/pacbio-reads/fastq/*.fastq; do
+for fq in ../data/pacbio-reads/fastq/*.fastq{,.gz}; do
+    [ -e "$fq" ] || continue  # skip if no match
     sample=$(basename "$fq" .fastq)
+    sample=${sample%.gz}      # strip .gz if needed
+
     echo "Running NanoPlot on $sample"
-    
-    /opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot --fastq "$fq" \
-             -o ../analyses/09-nanoplot/"$sample" \
-             --threads 40 \
-             --loglength \
-             --tsv_stats
+
+    mkdir -p ../analyses/09-nanoplot/"$sample"
+
+    /opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot \
+        --fastq "$fq" \
+        -o ../analyses/09-nanoplot/"$sample" \
+        --threads 40 \
+        --loglength \
+        --tsv_stats
 done
 ```
