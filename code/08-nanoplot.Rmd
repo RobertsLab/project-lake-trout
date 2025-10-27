@@ -26,3 +26,25 @@ for fq in ../data/pacbio-reads/fastq/*.fastq{,.gz}; do
         --tsv_stats
 done
 ```
+
+
+```{bash}
+/opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot \
+-t 40 \
+--fastq ../data/pacbio-reads/fastq/m84082_251001_025627_s2.hifi_reads.bc2068.fastq \
+-o ../analyses/08-nanoplot/bc2068
+```
+
+```{bash}
+/opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot \
+-t 40 \
+--fastq ../data/pacbio-reads/fastq/m84082_251001_025627_s2.hifi_reads.bc2096.fastq \
+-o ../analyses/08-nanoplot/bc2096
+```
+
+
+
+```{bash}
+multiqc ../analyses/08-nanoplot/ -o ../analyses/08-multiqc
+```
+
