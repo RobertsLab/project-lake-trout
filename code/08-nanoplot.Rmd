@@ -31,60 +31,44 @@ done
 ```{bash}
 /opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot \
 -t 40 \
---fastq ../data/pacbio-reads/fastq/m84082_251001_025627_s2.hifi_reads.bc2068.fastq \
+--fastq ../data/pacbio-reads/fastq2/m84082_251001_025627_s2.hifi_reads.bc2068.fastq.gz \
 -o ../analyses/08-nanoplot/bc2068
 ```
 
-```{bash}
-/opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot \
--t 40 \
---fastq ../data/pacbio-reads/fastq/m84082_251001_025627_s2.hifi_reads.bc2096.fastq \
--o ../analyses/08-nanoplot/bc2096
-```
-
-```{bash}
-/opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot \
--t 40 \
---fastq ../data/pacbio-reads/fastq/m84082_250614_101514_s4.hifi_reads.demux.bc2073--bc2073--fixed.fastq \
--o ../analyses/08-nanoplot/bc2073
-```
-
-
-```{bash}
-awk 'BEGIN{RS="@"; ORS=""} NR>1 { if (match($0, /\n\+/)) print "@" $0 }' \
-../data/pacbio-reads/fastq/m84082_250614_101514_s4.hifi_reads.demux.bc2073--bc2073.fastq \
-> ../data/pacbio-reads/fastq/m84082_250614_101514_s4.hifi_reads.demux.bc2073--bc2073--fixed.fastq
-```
-
 
 
 ```{bash}
 /opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot \
 -t 40 \
---fastq ../data/pacbio-reads/fastq/m84082_250614_101514_s4.hifi_reads.demux.bc2073--bc2073--fixed.fastq \
--o ../analyses/08-nanoplot/bc2073
+--fastq ../data/pacbio-reads/fastq2/m84082_251001_025627_s2.hifi_reads.bc2096.fastq.gz \
+-o ../analyses/08-nanoplot/bc2096 \
+--prefix bc2096_
 ```
-
 
 ```{bash}
-awk 'BEGIN{RS="@"; ORS=""} NR>1 { if (match($0, /\n\+/)) print "@" $0 }' \
-../data/pacbio-reads/fastq/m84082_250614_101514_s4.hifi_reads.demux.bc2070--bc2070.fastq \
-> ../data/pacbio-reads/fastq/m84082_250614_101514_s4.hifi_reads.demux.bc2070--bc2070--fixed.fastq
+/opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot \
+-t 40 \
+--fastq ../data/pacbio-reads/fastq2/m84082_250614_101514_s4.hifi_reads.demux.bc2073--bc2073.fastq.gz \
+-o ../analyses/08-nanoplot/bc2073 \
+--prefix bc2073_
 ```
-
 
 
 ```{bash}
 /opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot \
 -t 40 \
---fastq ../data/pacbio-reads/fastq/m84082_250614_101514_s4.hifi_reads.demux.bc2070--bc2070--fixed.fastq \
--o ../analyses/08-nanoplot/bc2070
+--fastq ../data/pacbio-reads/fastq2/m84082_250614_101514_s4.hifi_reads.demux.bc2070--bc2070.fastq.gz \
+-o ../analyses/08-nanoplot/bc2070 \
+--prefix bc2070_
 ```
 
+
 ```{bash}
-awk 'BEGIN{RS="@"; ORS=""} NR>1 { if (match($0, /\n\+/)) print "@" $0 }' \
-../data/pacbio-reads/fastq/m84082_250614_101514_s4.hifi_reads.demux.bc2069--bc2069.fastq \
-> ../data/pacbio-reads/fastq/m84082_250614_101514_s4.hifi_reads.demux.bc2069--bc2069.fastq--fixed.fastq
+/opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot \
+-t 40 \
+--fastq ../data/pacbio-reads/fastq2/m84082_250614_101514_s4.hifi_reads.demux.bc2069--bc2069.fastq.gz \
+-o ../analyses/08-nanoplot/bc2069 \
+--prefix bc2069_
 ```
 
 
@@ -92,14 +76,28 @@ awk 'BEGIN{RS="@"; ORS=""} NR>1 { if (match($0, /\n\+/)) print "@" $0 }' \
 ```{bash}
 /opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot \
 -t 40 \
---fastq ../data/pacbio-reads/fastq/m84082_250614_101514_s4.hifi_reads.demux.bc2069--bc2069.fastq--fixed.fastq \
--o ../analyses/08-nanoplot/bc2069
+--fastq ../data/pacbio-reads/fastq2/m84082_250614_081210_s3.hifi_reads.demux.bc2071--bc2071.fastq.gz \
+-o ../analyses/08-nanoplot/bc2071 \
+--prefix bc2071_
 ```
 
 
+```{bash}
+/opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot \
+-t 40 \
+--fastq ../data/pacbio-reads/fastq2/m84082_250614_081210_s3.hifi_reads.demux.bc2072--bc2072.fastq.gz \
+-o ../analyses/08-nanoplot/bc2072 \
+--prefix bc2072_
+```
 
 
-
+```{bash}
+/opt/anaconda/anaconda3/envs/nanoplot_env/bin/NanoPlot \
+-t 40 \
+--fastq ../data/pacbio-reads/fastq2/m84082_250614_081210_s3.hifi_reads.demux.bc2041--bc2041.fastq.gz \
+-o ../analyses/08-nanoplot/bc2041 \
+--prefix bc2041_
+```
 
 
 
