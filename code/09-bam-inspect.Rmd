@@ -1,0 +1,12 @@
+---
+title: "09-bam-inspect"
+output: html_document
+date: "2025-11-02"
+---
+
+
+```{bash}
+samtools flagstat ../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.demux.bc2041--bc2041.bam > ../analyses/09-bam-inspect/bc2041.flagstat.txt
+samtools stats data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.demux.bc2041--bc2041.bam > ../analyses/09-bam-inspect/bc2041.stats.txt
+mosdepth -t 32 bc2041 /data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.demux.bc2041--bc2041.bam            # makes bc2068.regions.bed.gz etc.
+```
