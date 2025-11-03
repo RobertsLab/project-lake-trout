@@ -8,48 +8,106 @@ date: "2025-10-18"
 04-pacbio/tools/pbmm2 index ../data/GCF_016432855.1_SaNama_1.0_genomic.fa ../data/GCF_016432855.1_SaNama_1.0_genomic.fa.pacbio.mmi
 ```
 
+
+```{bash}
+04-pacbio/tools/pbmm2 align \
+../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.demux.bc2041--bc2041.bam \
+../analyses/05-pacbio-align/bc2041.bam \
+--preset CCS --sort --num-threads 48
+
+```
+
+
 ```{bash}
 samtools view \
 -H \
-../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.bam \
+../analyses/05-pacbio-align/bc2041.bam \
 | grep '^@RG'
+```
+
+
+
+```{bash}
+04-pacbio/tools/pbmm2 align \
+../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.demux.bc2071--bc2071.bam \
+../analyses/05-pacbio-align/bc2071.bam \
+--preset CCS --sort --num-threads 48
+
+samtools view \
+-H \
+../analyses/05-pacbio-align/bc2071.bam \
+| grep '^@RG'
+
+```
+
+
+
+
+
+```{bash}
+04-pacbio/tools/pbmm2 align \
+../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.demux.bc2072--bc2072.bam \
+../analyses/05-pacbio-align/bc2072.bam \
+--preset CCS --sort --num-threads 48
+
+samtools view \
+-H \
+../analyses/05-pacbio-align/bc2072.bam \
+| grep '^@RG'
+
 ```
 
 
 ```{bash}
 04-pacbio/tools/pbmm2 align \
 ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
-../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.bam \
-../analyses/05-pacbio-align/m84082_preset.bam \
+../data/pacbio-reads/m84082_250614_101514_s4.hifi_reads.demux.bc2069--bc2069.bam \
+../analyses/05-pacbio-align/bc2069.bam \
 --preset CCS --sort --num-threads 48
 
-```
-
-
-
-
-```{bash}
-head 
-```
-
-
-
-
-
-# Pool 3
-
-```{bash}
-ls ../data/pacbio-reads
-```
-
-
-
-```{bash}
 samtools view \
 -H \
-../data/pacbio-reads/m84082_251001_025627_s2.hifi_reads.bc2068.bam \
+../analyses/05-pacbio-align/bc2069.bam \
 | grep '^@RG'
+
 ```
+
+
+
+```{bash}
+04-pacbio/tools/pbmm2 align \
+../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+../data/pacbio-reads/m84082_250614_101514_s4.hifi_reads.demux.bc2070--bc2070.bam \
+../analyses/05-pacbio-align/bc2070.bam \
+--preset CCS --sort --num-threads 48
+
+samtools view \
+-H \
+../analyses/05-pacbio-align/bc2070.bam \
+| grep '^@RG'
+
+```
+
+
+
+```{bash}
+04-pacbio/tools/pbmm2 align \
+../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+../data/pacbio-reads/m84082_250614_101514_s4.hifi_reads.demux.bc2073--bc2073.bam \
+../analyses/05-pacbio-align/bc2073.bam \
+--preset CCS --sort --num-threads 48
+
+samtools view \
+-H \
+../analyses/05-pacbio-align/bc2073.bam \
+| grep '^@RG'
+
+```
+
+
 
 
 ```{bash}
@@ -58,16 +116,13 @@ samtools view \
 ../data/pacbio-reads/m84082_251001_025627_s2.hifi_reads.bc2068.bam \
 ../analyses/05-pacbio-align/bc2068.bam \
 --preset CCS --sort --num-threads 48
+
+samtools view \
+-H \
+../analyses/05-pacbio-align/bc2068.bam \
+| grep '^@RG'
+
 ```
-
-```{bash}
-samtools view ../analyses/05-pacbio-align/bc2068.bam | head -n1
-# You should see MM/ML tags somewhere on the line (e.g., MM:Z:..., ML:B:C,...).
-```
-
-
-
-
 
 
 
@@ -77,4 +132,10 @@ samtools view ../analyses/05-pacbio-align/bc2068.bam | head -n1
 ../data/pacbio-reads/m84082_251001_025627_s2.hifi_reads.bc2096.bam \
 ../analyses/05-pacbio-align/bc2096.bam \
 --preset CCS --sort --num-threads 48
+
+samtools view \
+-H \
+../analyses/05-pacbio-align/bc2096.bam \
+| grep '^@RG'
+
 ```
