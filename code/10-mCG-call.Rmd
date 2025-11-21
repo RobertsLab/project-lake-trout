@@ -4,82 +4,182 @@ output: html_document
 date: "2025-11-20"
 ---
 
+```{bash}
+cd ../analyses/
+wget -r -np -nH --cut-dirs=5 --reject="index.html*" https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/05-pacbio-align/
+```
+
+
 
 ```{bash}
-# Per-site CpG methylation (bedMethyl + bedGraph tracks)
+SAMPLE=bc2041
+
+# 1. Run modkit pileup
 /mmfs1/home/sr320/.local/bin/dist_modkit_v0.5.1_8fa79e3/modkit pileup \
-  --ref ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
-  --combine-strands CpG \
-  --include-unmapped \
-  ../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.bam \
-  --bedgraph \
-  ../analyses/04-pacbio
-
-# QC summary (overall rates, motif breakdown)
-modkit summary pool1.aln.ccs.bam --ref ref.fa --out pool1.modkit.summary.txt
-```
-
-
-
-
-```
-/mmfs1/home/sr320/.local/bin/dist_modkit_v0.5.1_8fa79e3/modkit pileup \
-  ../analyses/04-pacbio/alignments-raven/m84082_250614_081210_s3.pbmm2.sorted.bam \
-  --ref ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
-  --combine-strands CpG \
+  ../analyses/05-pacbio-align/${SAMPLE}.bam \
+  ../analyses/10-mCG-call/${SAMPLE}.CpG.bed \
   --cpg \
-  --include-unmapped \
-  --threads 48 \
-  --bedgraph 
-  
-  
+  --combine-strands \
+  --ref ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+  --threads 38
+
+# 2. Convert bedMethyl → bedGraph with percent methylation
+awk 'BEGIN{OFS="\t"} {
+        meth=$11; 
+        unmeth=$12; 
+        total=meth+unmeth; 
+        if (total > 0) 
+            pct = 100 * (meth/total); 
+        else 
+            pct = 0;
+        print $1,$2,$3,pct;
+     }' \
+  ../analyses/10-mCG-call/${SAMPLE}.CpG.bed \
+  > ../analyses/10-mCG-call/${SAMPLE}.CpG.bedGraph
+
+# 3. Preview
+head ../analyses/10-mCG-call/${SAMPLE}.CpG.bedGraph
 ```
 
 
-
 ```{bash}
-tail ../CpG/m*
-```
-
-```{bash}
-head ../CpG/a*
-```
+SAMPLE=bc2068
 
 
-
-
-
-
-
-# Pool 3
-
-
-```{bash}
+# 1. Run modkit pileup
 /mmfs1/home/sr320/.local/bin/dist_modkit_v0.5.1_8fa79e3/modkit pileup \
-  ../analyses/05-pacbio-align/bc2068.bam \
+  ../analyses/05-pacbio-align/${SAMPLE}.bam \
+  ../analyses/10-mCG-call/${SAMPLE}.CpG.bed \
+  --cpg \
+  --combine-strands \
   --ref ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
-  --combine-strands CpG \
-  --min-mapq 20 --min-baseq 20 \
-  --threads 48 \
-  --output ../analyses/06-CG-call/bc2068.CpG.bed \
-  --bedgraph ../analyses/06-CG-call/bc2068.CpG.bedGraph
+  --threads 38
+
+# 2. Convert bedMethyl → bedGraph with percent methylation
+awk 'BEGIN{OFS="\t"} {
+        meth=$11; 
+        unmeth=$12; 
+        total=meth+unmeth; 
+        if (total > 0) 
+            pct = 100 * (meth/total); 
+        else 
+            pct = 0;
+        print $1,$2,$3,pct;
+     }' \
+  ../analyses/10-mCG-call/${SAMPLE}.CpG.bed \
+  > ../analyses/10-mCG-call/${SAMPLE}.CpG.bedGraph
+
+# 3. Preview
+head ../analyses/10-mCG-call/${SAMPLE}.CpG.bedGraph
 ```
 
+
+```{bash}
+SAMPLE=bc2069
+
+
+# 1. Run modkit pileup
+/mmfs1/home/sr320/.local/bin/dist_modkit_v0.5.1_8fa79e3/modkit pileup \
+  ../analyses/05-pacbio-align/${SAMPLE}.bam \
+  ../analyses/10-mCG-call/${SAMPLE}.CpG.bed \
+  --cpg \
+  --combine-strands \
+  --ref ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
+  --threads 38
+
+# 2. Convert bedMethyl → bedGraph with percent methylation
+awk 'BEGIN{OFS="\t"} {
+        meth=$11; 
+        unmeth=$12; 
+        total=meth+unmeth; 
+        if (total > 0) 
+            pct = 100 * (meth/total); 
+        else 
+            pct = 0;
+        print $1,$2,$3,pct;
+     }' \
+  ../analyses/10-mCG-call/${SAMPLE}.CpG.bed \
+  > ../analyses/10-mCG-call/${SAMPLE}.CpG.bedGraph
+
+# 3. Preview
+head ../analyses/10-mCG-call/${SAMPLE}.CpG.bedGraph
+```
 
 
 
 ```{bash}
-/mmfs1/home/sr320/.local/bin/dist_modkit_v0.5.1_8fa79e3/modkit summary \
-  ../analyses/05-pacbio-align/bc2068.bam \
+SAMPLE=bc2070
+
+
+# 1. Run modkit pileup
+/mmfs1/home/sr320/.local/bin/dist_modkit_v0.5.1_8fa79e3/modkit pileup \
+  ../analyses/05-pacbio-align/${SAMPLE}.bam \
+  ../analyses/10-mCG-call/${SAMPLE}.CpG.bed \
+  --cpg \
+  --combine-strands \
   --ref ../data/GCF_016432855.1_SaNama_1.0_genomic.fa \
-  --out ../analyses/05-pacbio-align/bc2068.modkit.summary.txt
+  --threads 38
+
+# 2. Convert bedMethyl → bedGraph with percent methylation
+awk 'BEGIN{OFS="\t"} {
+        meth=$11; 
+        unmeth=$12; 
+        total=meth+unmeth; 
+        if (total > 0) 
+            pct = 100 * (meth/total); 
+        else 
+            pct = 0;
+        print $1,$2,$3,pct;
+     }' \
+  ../analyses/10-mCG-call/${SAMPLE}.CpG.bed \
+  > ../analyses/10-mCG-call/${SAMPLE}.CpG.bedGraph
+
+# 3. Preview
+head ../analyses/10-mCG-call/${SAMPLE}.CpG.bedGraph
 ```
 
-```{bash}
-samtools faidx ../data/GCF_016432855.1_SaNama_1.0_genomic.fa
-cut -f1,2 ../data/GCF_016432855.1_SaNama_1.0_genomic.fa.fai > ../analyses/05-pacbio-align/ref.chrom.sizes
-bedGraphToBigWig ../analyses/05-pacbio-align/bc2068.CpG.bedGraph \
-                 ../analyses/05-pacbio-align/ref.chrom.sizes \
-                 ../analyses/05-pacbio-align/bc2068.CpG.bw
-```
 
+
+
+
+
+
+
+
+
+
+```
+#!/bin/bash
+set -euo pipefail
+
+REF=../data/GCF_016432855.1_SaNama_1.0_genomic.fa
+BG_DIR=../analyses/10-mCG-call
+
+# 1. Make chromosome sizes file (if not present)
+if [ ! -f ${REF}.fai ]; then
+    echo "Indexing reference..."
+    samtools faidx $REF
+fi
+
+CHROMSIZES=${REF%.fa*}.chrom.sizes
+cut -f1,2 ${REF}.fai > $CHROMSIZES
+
+echo "Using chromosome sizes file: $CHROMSIZES"
+echo
+
+# 2. Convert each bedGraph → bigWig
+for BG in ${BG_DIR}/*.bedGraph; do
+    [ -e "$BG" ] || continue  # skip if no files match
+
+    SAMPLE=$(basename "$BG" .bedGraph)
+    OUT="${BG_DIR}/${SAMPLE}.bigWig"
+
+    echo "Converting: $BG"
+    echo "     → $OUT"
+
+    bedGraphToBigWig "$BG" "$CHROMSIZES" "$OUT"
+done
+
+echo
+echo "🎉 Conversion complete! All bigWig files are in: $BG_DIR"
+```
