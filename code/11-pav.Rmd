@@ -1,0 +1,571 @@
+---
+title: "11-pav"
+subtitle: "Present-Absent Variation Analysis"
+output: html_document
+date: "2025-12-07"
+---
+
+# Present-Absent Variation (PAV) Analysis
+
+This notebook identifies genomic regions that are present or absent in each sample 
+relative to the reference genome (GCF_016432855.1_SaNama_1.0). PAV analysis uses 
+coverage depth from aligned PacBio HiFi reads to identify:
+
+1. **Absent regions**: Genomic regions with zero/very low coverage (potential deletions)
+2. **Present regions**: Genomic regions with sufficient coverage
+3. **Insertions**: Novel sequences in samples not in reference (from CIGAR analysis)
+
+## Setup
+
+Define samples and paths:
+
+```{r setup}
+# Define samples
+samples <- c("bc2041", "bc2068", "bc2069", "bc2070", "bc2071", "bc2072", "bc2096")
+
+# Paths
+bam_dir <- "../analyses/05-pacbio-align"
+output_dir <- "../analyses/11-pav"
+reference <- "../data/GCF_016432855.1_SaNama_1.0_genomic.fa"
+genes_bed <- "../data/20220818-snam-GCF_016432855.1_SaNama_1.0_genes.bed"
+
+# Create output directory
+dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
+```
+
+## Step 1: Generate Reference Genome Index and Chromosome Sizes
+
+```{bash create-genome-files}
+# Index reference if not already done
+if [ ! -f ../data/GCF_016432855.1_SaNama_1.0_genomic.fa.fai ]; then
+    samtools faidx ../data/GCF_016432855.1_SaNama_1.0_genomic.fa
+fi
+
+# Create chromosome sizes file
+cut -f1,2 ../data/GCF_016432855.1_SaNama_1.0_genomic.fa.fai > ../analyses/11-pav/genome.chrom.sizes
+
+echo "Chromosome sizes file created:"
+head ../analyses/11-pav/genome.chrom.sizes
+```
+
+## Step 2: Calculate Per-Base Coverage with mosdepth
+
+Run mosdepth for each sample to get coverage information:
+
+```{bash mosdepth-bc2041}
+SAMPLE=bc2041
+BAM=../analyses/05-pacbio-align/${SAMPLE}.bam
+OUT_PREFIX=../analyses/11-pav/${SAMPLE}
+
+# Run mosdepth - generates per-base coverage
+mosdepth \
+  --threads 16 \
+  --no-per-base \
+  --by 1000 \
+  ${OUT_PREFIX} \
+  ${BAM}
+
+echo "mosdepth complete for ${SAMPLE}"
+ls -la ../analyses/11-pav/${SAMPLE}*
+```
+
+```{bash mosdepth-bc2068}
+SAMPLE=bc2068
+BAM=../analyses/05-pacbio-align/${SAMPLE}.bam
+OUT_PREFIX=../analyses/11-pav/${SAMPLE}
+
+mosdepth \
+  --threads 16 \
+  --no-per-base \
+  --by 1000 \
+  ${OUT_PREFIX} \
+  ${BAM}
+
+echo "mosdepth complete for ${SAMPLE}"
+```
+
+```{bash mosdepth-bc2069}
+SAMPLE=bc2069
+BAM=../analyses/05-pacbio-align/${SAMPLE}.bam
+OUT_PREFIX=../analyses/11-pav/${SAMPLE}
+
+mosdepth \
+  --threads 16 \
+  --no-per-base \
+  --by 1000 \
+  ${OUT_PREFIX} \
+  ${BAM}
+
+echo "mosdepth complete for ${SAMPLE}"
+```
+
+```{bash mosdepth-bc2070}
+SAMPLE=bc2070
+BAM=../analyses/05-pacbio-align/${SAMPLE}.bam
+OUT_PREFIX=../analyses/11-pav/${SAMPLE}
+
+mosdepth \
+  --threads 16 \
+  --no-per-base \
+  --by 1000 \
+  ${OUT_PREFIX} \
+  ${BAM}
+
+echo "mosdepth complete for ${SAMPLE}"
+```
+
+```{bash mosdepth-bc2071}
+SAMPLE=bc2071
+BAM=../analyses/05-pacbio-align/${SAMPLE}.bam
+OUT_PREFIX=../analyses/11-pav/${SAMPLE}
+
+mosdepth \
+  --threads 16 \
+  --no-per-base \
+  --by 1000 \
+  ${OUT_PREFIX} \
+  ${BAM}
+
+echo "mosdepth complete for ${SAMPLE}"
+```
+
+```{bash mosdepth-bc2072}
+SAMPLE=bc2072
+BAM=../analyses/05-pacbio-align/${SAMPLE}.bam
+OUT_PREFIX=../analyses/11-pav/${SAMPLE}
+
+mosdepth \
+  --threads 16 \
+  --no-per-base \
+  --by 1000 \
+  ${OUT_PREFIX} \
+  ${BAM}
+
+echo "mosdepth complete for ${SAMPLE}"
+```
+
+```{bash mosdepth-bc2096}
+SAMPLE=bc2096
+BAM=../analyses/05-pacbio-align/${SAMPLE}.bam
+OUT_PREFIX=../analyses/11-pav/${SAMPLE}
+
+mosdepth \
+  --threads 16 \
+  --no-per-base \
+  --by 1000 \
+  ${OUT_PREFIX} \
+  ${BAM}
+
+echo "mosdepth complete for ${SAMPLE}"
+```
+
+## Step 3: Identify Absent Regions (Zero Coverage)
+
+Extract regions with zero coverage (absent/deleted in sample):
+
+```{bash extract-absent-regions}
+OUTPUT_DIR=../analyses/11-pav
+
+for SAMPLE in bc2041 bc2068 bc2069 bc2070 bc2071 bc2072 bc2096; do
+    echo "Processing ${SAMPLE}..."
+    
+    # Decompress and filter for zero coverage regions (column 4 = mean coverage)
+    zcat ${OUTPUT_DIR}/${SAMPLE}.regions.bed.gz | \
+    awk -v OFS='\t' '$4 == 0 {print $1, $2, $3, "absent", $4, "."}' > \
+    ${OUTPUT_DIR}/${SAMPLE}.absent_regions.bed
+    
+    # Merge adjacent zero-coverage windows into continuous absent regions
+    bedtools merge -i ${OUTPUT_DIR}/${SAMPLE}.absent_regions.bed | \
+    awk -v OFS='\t' '{print $1, $2, $3, "absent_region", 0, "."}' > \
+    ${OUTPUT_DIR}/${SAMPLE}.absent_regions_merged.bed
+    
+    echo "${SAMPLE} absent regions:"
+    wc -l ${OUTPUT_DIR}/${SAMPLE}.absent_regions_merged.bed
+done
+```
+
+## Step 4: Identify Present Regions (With Coverage)
+
+Extract regions with coverage > 0 (present in sample):
+
+```{bash extract-present-regions}
+OUTPUT_DIR=../analyses/11-pav
+MIN_COVERAGE=1  # Minimum coverage to consider region "present"
+
+for SAMPLE in bc2041 bc2068 bc2069 bc2070 bc2071 bc2072 bc2096; do
+    echo "Processing ${SAMPLE}..."
+    
+    # Filter for regions with coverage >= MIN_COVERAGE
+    zcat ${OUTPUT_DIR}/${SAMPLE}.regions.bed.gz | \
+    awk -v min_cov=${MIN_COVERAGE} -v OFS='\t' '$4 >= min_cov {print $1, $2, $3, "present", $4, "."}' > \
+    ${OUTPUT_DIR}/${SAMPLE}.present_regions.bed
+    
+    # Merge adjacent present windows
+    bedtools merge -i ${OUTPUT_DIR}/${SAMPLE}.present_regions.bed | \
+    awk -v OFS='\t' '{print $1, $2, $3, "present_region", 0, "."}' > \
+    ${OUTPUT_DIR}/${SAMPLE}.present_regions_merged.bed
+    
+    echo "${SAMPLE} present regions:"
+    wc -l ${OUTPUT_DIR}/${SAMPLE}.present_regions_merged.bed
+done
+```
+
+## Step 5: Identify Insertions from BAM Alignments
+
+Extract insertions (novel sequences in samples not in reference) using CIGAR strings.
+Insertions >= 50bp are considered significant:
+
+```{bash extract-insertions}
+OUTPUT_DIR=../analyses/11-pav
+BAM_DIR=../analyses/05-pacbio-align
+MIN_INS_SIZE=50  # Minimum insertion size to report
+
+for SAMPLE in bc2041 bc2068 bc2069 bc2070 bc2071 bc2072 bc2096; do
+    echo "Extracting insertions for ${SAMPLE}..."
+    
+    # Extract insertions from CIGAR strings
+    # Using samtools and awk to parse CIGAR for insertions (I operations)
+    samtools view ${BAM_DIR}/${SAMPLE}.bam | \
+    awk -v min_size=${MIN_INS_SIZE} -v OFS='\t' '
+    BEGIN { 
+        # No header needed
+    }
+    {
+        chrom = $3
+        pos = $4
+        cigar = $6
+        
+        # Skip unmapped reads
+        if (chrom == "*") next
+        
+        # Parse CIGAR string for insertions
+        ref_pos = pos
+        while (match(cigar, /([0-9]+)([MIDNSHP=X])/, arr)) {
+            len = arr[1]
+            op = arr[2]
+            
+            if (op == "I" && len >= min_size) {
+                # Report insertion at current reference position
+                print chrom, ref_pos, ref_pos+1, "insertion_" len "bp", len, "+"
+            }
+            
+            # Advance reference position for M, D, N, =, X operations
+            if (op == "M" || op == "D" || op == "N" || op == "=" || op == "X") {
+                ref_pos += len
+            }
+            
+            # Remove matched portion from cigar
+            cigar = substr(cigar, RSTART + RLENGTH)
+        }
+    }' | \
+    sort -k1,1 -k2,2n > ${OUTPUT_DIR}/${SAMPLE}.insertions_raw.bed
+    
+    # Merge nearby insertions and count
+    bedtools merge -i ${OUTPUT_DIR}/${SAMPLE}.insertions_raw.bed -c 4,5 -o count,sum | \
+    awk -v OFS='\t' '{print $1, $2, $3, "insertion_cluster", $4, "+", $5}' > \
+    ${OUTPUT_DIR}/${SAMPLE}.insertions.bed
+    
+    echo "${SAMPLE} insertions (>=${MIN_INS_SIZE}bp):"
+    wc -l ${OUTPUT_DIR}/${SAMPLE}.insertions.bed
+done
+```
+
+## Step 6: Identify Deletions from BAM Alignments
+
+Extract deletions (sequences in reference absent from sample) using CIGAR strings:
+
+```{bash extract-deletions}
+OUTPUT_DIR=../analyses/11-pav
+BAM_DIR=../analyses/05-pacbio-align
+MIN_DEL_SIZE=50  # Minimum deletion size to report
+
+for SAMPLE in bc2041 bc2068 bc2069 bc2070 bc2071 bc2072 bc2096; do
+    echo "Extracting deletions for ${SAMPLE}..."
+    
+    # Extract deletions from CIGAR strings (D operations)
+    samtools view ${BAM_DIR}/${SAMPLE}.bam | \
+    awk -v min_size=${MIN_DEL_SIZE} -v OFS='\t' '
+    {
+        chrom = $3
+        pos = $4
+        cigar = $6
+        
+        # Skip unmapped reads
+        if (chrom == "*") next
+        
+        # Parse CIGAR string for deletions
+        ref_pos = pos
+        while (match(cigar, /([0-9]+)([MIDNSHP=X])/, arr)) {
+            len = arr[1]
+            op = arr[2]
+            
+            if (op == "D" && len >= min_size) {
+                # Report deletion spanning reference coordinates
+                print chrom, ref_pos, ref_pos + len, "deletion_" len "bp", len, "+"
+            }
+            
+            # Advance reference position for M, D, N, =, X operations
+            if (op == "M" || op == "D" || op == "N" || op == "=" || op == "X") {
+                ref_pos += len
+            }
+            
+            # Remove matched portion from cigar
+            cigar = substr(cigar, RSTART + RLENGTH)
+        }
+    }' | \
+    sort -k1,1 -k2,2n > ${OUTPUT_DIR}/${SAMPLE}.deletions_raw.bed
+    
+    # Merge overlapping deletions
+    bedtools merge -i ${OUTPUT_DIR}/${SAMPLE}.deletions_raw.bed -c 4,5 -o count,sum | \
+    awk -v OFS='\t' '{print $1, $2, $3, "deletion_cluster", $4, "+", $5}' > \
+    ${OUTPUT_DIR}/${SAMPLE}.deletions.bed
+    
+    echo "${SAMPLE} deletions (>=${MIN_DEL_SIZE}bp):"
+    wc -l ${OUTPUT_DIR}/${SAMPLE}.deletions.bed
+done
+```
+
+## Step 7: Create Combined PAV Feature Files
+
+Combine all PAV features (absent, present, insertions, deletions) into single files per sample:
+
+```{bash create-combined-pav}
+OUTPUT_DIR=../analyses/11-pav
+
+for SAMPLE in bc2041 bc2068 bc2069 bc2070 bc2071 bc2072 bc2096; do
+    echo "Creating combined PAV file for ${SAMPLE}..."
+    
+    # Create header
+    echo -e "#chrom\tstart\tend\tfeature_type\tscore\tstrand" > ${OUTPUT_DIR}/${SAMPLE}.pav_features.bed
+    
+    # Add absent regions
+    awk -v OFS='\t' '{print $1, $2, $3, "ABSENT", $3-$2, "."}' \
+        ${OUTPUT_DIR}/${SAMPLE}.absent_regions_merged.bed >> ${OUTPUT_DIR}/${SAMPLE}.pav_features.bed
+    
+    # Add insertions
+    if [ -s ${OUTPUT_DIR}/${SAMPLE}.insertions.bed ]; then
+        awk -v OFS='\t' '{print $1, $2, $3, "INSERTION", $5, $6}' \
+            ${OUTPUT_DIR}/${SAMPLE}.insertions.bed >> ${OUTPUT_DIR}/${SAMPLE}.pav_features.bed
+    fi
+    
+    # Add deletions  
+    if [ -s ${OUTPUT_DIR}/${SAMPLE}.deletions.bed ]; then
+        awk -v OFS='\t' '{print $1, $2, $3, "DELETION", $5, $6}' \
+            ${OUTPUT_DIR}/${SAMPLE}.deletions.bed >> ${OUTPUT_DIR}/${SAMPLE}.pav_features.bed
+    fi
+    
+    # Sort the combined file (excluding header)
+    (head -1 ${OUTPUT_DIR}/${SAMPLE}.pav_features.bed && \
+     tail -n +2 ${OUTPUT_DIR}/${SAMPLE}.pav_features.bed | sort -k1,1 -k2,2n) > \
+     ${OUTPUT_DIR}/${SAMPLE}.pav_features_sorted.bed
+    
+    mv ${OUTPUT_DIR}/${SAMPLE}.pav_features_sorted.bed ${OUTPUT_DIR}/${SAMPLE}.pav_features.bed
+    
+    echo "${SAMPLE} combined PAV features:"
+    grep -v "^#" ${OUTPUT_DIR}/${SAMPLE}.pav_features.bed | wc -l
+done
+```
+
+## Step 8: Intersect PAV Features with Gene Annotations
+
+Identify which genes overlap with PAV regions:
+
+```{bash intersect-genes}
+OUTPUT_DIR=../analyses/11-pav
+GENES_BED=../data/20220818-snam-GCF_016432855.1_SaNama_1.0_genes.bed
+
+for SAMPLE in bc2041 bc2068 bc2069 bc2070 bc2071 bc2072 bc2096; do
+    echo "Intersecting ${SAMPLE} PAV with genes..."
+    
+    # Get PAV features without header
+    grep -v "^#" ${OUTPUT_DIR}/${SAMPLE}.pav_features.bed > ${OUTPUT_DIR}/${SAMPLE}.pav_noheader.bed
+    
+    # Intersect absent regions with genes
+    bedtools intersect \
+        -a ${GENES_BED} \
+        -b ${OUTPUT_DIR}/${SAMPLE}.absent_regions_merged.bed \
+        -wa -wb > ${OUTPUT_DIR}/${SAMPLE}.genes_in_absent_regions.bed
+    
+    # Intersect deletions with genes (if file exists and is not empty)
+    if [ -s ${OUTPUT_DIR}/${SAMPLE}.deletions.bed ]; then
+        bedtools intersect \
+            -a ${GENES_BED} \
+            -b ${OUTPUT_DIR}/${SAMPLE}.deletions.bed \
+            -wa -wb > ${OUTPUT_DIR}/${SAMPLE}.genes_with_deletions.bed
+    fi
+    
+    # Intersect insertions with genes (if file exists and is not empty)
+    if [ -s ${OUTPUT_DIR}/${SAMPLE}.insertions.bed ]; then
+        bedtools intersect \
+            -a ${GENES_BED} \
+            -b ${OUTPUT_DIR}/${SAMPLE}.insertions.bed \
+            -wa -wb > ${OUTPUT_DIR}/${SAMPLE}.genes_with_insertions.bed
+    fi
+    
+    # Clean up temp file
+    rm -f ${OUTPUT_DIR}/${SAMPLE}.pav_noheader.bed
+    
+    echo "${SAMPLE} genes affected:"
+    echo "  In absent regions: $(wc -l < ${OUTPUT_DIR}/${SAMPLE}.genes_in_absent_regions.bed)"
+    if [ -f ${OUTPUT_DIR}/${SAMPLE}.genes_with_deletions.bed ]; then
+        echo "  With deletions: $(wc -l < ${OUTPUT_DIR}/${SAMPLE}.genes_with_deletions.bed)"
+    fi
+    if [ -f ${OUTPUT_DIR}/${SAMPLE}.genes_with_insertions.bed ]; then
+        echo "  With insertions: $(wc -l < ${OUTPUT_DIR}/${SAMPLE}.genes_with_insertions.bed)"
+    fi
+done
+```
+
+## Step 9: Generate Summary Statistics
+
+```{r summary-stats}
+library(tidyverse)
+
+output_dir <- "../analyses/11-pav"
+samples <- c("bc2041", "bc2068", "bc2069", "bc2070", "bc2071", "bc2072", "bc2096")
+
+# Function to safely read bed files
+read_bed_safe <- function(file) {
+  if (file.exists(file) && file.info(file)$size > 0) {
+    tryCatch({
+      read_tsv(file, col_names = c("chrom", "start", "end", "name", "score", "strand"),
+               col_types = "ciicdc", comment = "#")
+    }, error = function(e) tibble())
+  } else {
+    tibble()
+  }
+}
+
+# Collect summary stats
+summary_stats <- map_dfr(samples, function(sample) {
+  
+  absent <- read_bed_safe(file.path(output_dir, paste0(sample, ".absent_regions_merged.bed")))
+  deletions <- read_bed_safe(file.path(output_dir, paste0(sample, ".deletions.bed")))
+  insertions <- read_bed_safe(file.path(output_dir, paste0(sample, ".insertions.bed")))
+  
+  tibble(
+    sample = sample,
+    n_absent_regions = nrow(absent),
+    absent_total_bp = if(nrow(absent) > 0) sum(absent$end - absent$start) else 0,
+    n_deletions = nrow(deletions),
+    deletion_total_bp = if(nrow(deletions) > 0) sum(deletions$end - deletions$start) else 0,
+    n_insertions = nrow(insertions)
+  )
+})
+
+print(summary_stats)
+
+# Save summary
+write_csv(summary_stats, file.path(output_dir, "pav_summary_stats.csv"))
+```
+
+## Step 10: Visualize PAV Distribution
+
+```{r visualize-pav, fig.width=12, fig.height=8}
+library(ggplot2)
+
+# Plot absent regions per sample
+if(exists("summary_stats") && nrow(summary_stats) > 0) {
+  
+  # Absent regions count
+  p1 <- ggplot(summary_stats, aes(x = sample, y = n_absent_regions, fill = sample)) +
+    geom_bar(stat = "identity") +
+    theme_minimal() +
+    labs(title = "Number of Absent Regions per Sample",
+         x = "Sample", y = "Count") +
+    theme(legend.position = "none")
+  
+  # Absent regions total bp
+  p2 <- ggplot(summary_stats, aes(x = sample, y = absent_total_bp/1e6, fill = sample)) +
+    geom_bar(stat = "identity") +
+    theme_minimal() +
+    labs(title = "Total Absent Sequence per Sample",
+         x = "Sample", y = "Megabases (Mb)") +
+    theme(legend.position = "none")
+  
+  # Deletions count
+  p3 <- ggplot(summary_stats, aes(x = sample, y = n_deletions, fill = sample)) +
+    geom_bar(stat = "identity") +
+    theme_minimal() +
+    labs(title = "Number of Deletions per Sample",
+         x = "Sample", y = "Count") +
+    theme(legend.position = "none")
+  
+  # Insertions count
+  p4 <- ggplot(summary_stats, aes(x = sample, y = n_insertions, fill = sample)) +
+    geom_bar(stat = "identity") +
+    theme_minimal() +
+    labs(title = "Number of Insertions per Sample",
+         x = "Sample", y = "Count") +
+    theme(legend.position = "none")
+  
+  # Combine plots
+  library(patchwork)
+  combined_plot <- (p1 + p2) / (p3 + p4)
+  print(combined_plot)
+  
+  ggsave(file.path(output_dir, "pav_summary_plot.png"), combined_plot, 
+         width = 12, height = 8, dpi = 150)
+}
+```
+
+## Step 11: Compare PAV Across Samples
+
+Identify regions that are consistently absent or present across samples:
+
+```{bash compare-samples}
+OUTPUT_DIR=../analyses/11-pav
+
+# Create a multi-sample intersection of absent regions
+# First, create a list of all absent region files
+ls ${OUTPUT_DIR}/*.absent_regions_merged.bed > ${OUTPUT_DIR}/absent_files.txt
+
+# Use multiinter to find regions absent in multiple samples
+bedtools multiinter \
+    -i ${OUTPUT_DIR}/bc2041.absent_regions_merged.bed \
+       ${OUTPUT_DIR}/bc2068.absent_regions_merged.bed \
+       ${OUTPUT_DIR}/bc2069.absent_regions_merged.bed \
+       ${OUTPUT_DIR}/bc2070.absent_regions_merged.bed \
+       ${OUTPUT_DIR}/bc2071.absent_regions_merged.bed \
+       ${OUTPUT_DIR}/bc2072.absent_regions_merged.bed \
+       ${OUTPUT_DIR}/bc2096.absent_regions_merged.bed \
+    -header \
+    -names bc2041 bc2068 bc2069 bc2070 bc2071 bc2072 bc2096 \
+    > ${OUTPUT_DIR}/absent_regions_multiinter.bed
+
+# Filter for regions absent in all samples (potential reference errors or common deletions)
+awk '$4 == 7' ${OUTPUT_DIR}/absent_regions_multiinter.bed > ${OUTPUT_DIR}/absent_in_all_samples.bed
+
+# Filter for regions absent in only one sample (sample-specific deletions)
+awk '$4 == 1' ${OUTPUT_DIR}/absent_regions_multiinter.bed > ${OUTPUT_DIR}/absent_in_one_sample.bed
+
+echo "Regions absent in all samples: $(wc -l < ${OUTPUT_DIR}/absent_in_all_samples.bed)"
+echo "Regions absent in only one sample: $(wc -l < ${OUTPUT_DIR}/absent_in_one_sample.bed)"
+```
+
+## Output Files Summary
+
+The following files are generated for each sample in `../analyses/11-pav/`:
+
+| File | Description |
+|------|-------------|
+| `{sample}.regions.bed.gz` | mosdepth coverage per 1kb window |
+| `{sample}.absent_regions_merged.bed` | Merged regions with zero coverage |
+| `{sample}.present_regions_merged.bed` | Merged regions with coverage |
+| `{sample}.insertions.bed` | Insertions >=50bp from CIGAR |
+| `{sample}.deletions.bed` | Deletions >=50bp from CIGAR |
+| `{sample}.pav_features.bed` | Combined PAV features |
+| `{sample}.genes_in_absent_regions.bed` | Genes overlapping absent regions |
+| `{sample}.genes_with_deletions.bed` | Genes overlapping deletions |
+| `{sample}.genes_with_insertions.bed` | Genes overlapping insertions |
+
+Cross-sample comparison files:
+- `absent_regions_multiinter.bed` - Multi-sample intersection of absent regions
+- `absent_in_all_samples.bed` - Regions absent in all samples
+- `absent_in_one_sample.bed` - Sample-specific absent regions
+- `pav_summary_stats.csv` - Summary statistics per sample
+
+```{r session-info}
+sessionInfo()
+```
+
