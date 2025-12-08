@@ -1,0 +1,4 @@
+# Enable CORS for IGV.js genome browser
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, OPTIONS"
+Header set Access-Control-Allow-Headers "Range"

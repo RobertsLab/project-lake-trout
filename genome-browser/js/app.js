@@ -40,23 +40,34 @@ async function initBrowser() {
             .map(trackId => config.TRACK_CONFIGS[trackId])
             .filter(track => track !== undefined);
         
-        // Determine genome file URLs based on environment
+        // Determine if running locally or on GitHub Pages
         const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-        const genomeBaseURL = isLocal 
-            ? './data/genome'
-            : 'https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/data';
         
-        const fastaFile = isLocal 
-            ? 'GCF_016432855.1_SaNama_1.0_genomic.fa'
-            : 'GCF_016432855.1_SaNama_1.0_genomic.fa';
+        // Gannet URL for genome files (repo syncs to Gannet)
+        const gannetGenomeURL = 'https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/genome-browser/data/genome';
         
-        // Build reference config using FASTA file
-        const referenceConfig = {
-            id: config.GENOME_CONFIG.id,
-            name: config.GENOME_CONFIG.name,
-            fastaURL: `${genomeBaseURL}/${fastaFile}`,
-            indexURL: `${genomeBaseURL}/${fastaFile}.fai`
-        };
+        let referenceConfig;
+        let showSequence;
+        
+        if (isLocal) {
+            // Local development - use local files
+            referenceConfig = {
+                id: config.GENOME_CONFIG.id,
+                name: config.GENOME_CONFIG.name,
+                fastaURL: './data/genome/GCF_016432855.1_SaNama_1.0_genomic.fa',
+                indexURL: './data/genome/GCF_016432855.1_SaNama_1.0_genomic.fa.fai'
+            };
+            showSequence = true;
+        } else {
+            // GitHub Pages - use Gannet for genome files (repo syncs there)
+            referenceConfig = {
+                id: config.GENOME_CONFIG.id,
+                name: config.GENOME_CONFIG.name,
+                fastaURL: gannetGenomeURL + '/GCF_016432855.1_SaNama_1.0_genomic.fa',
+                indexURL: gannetGenomeURL + '/GCF_016432855.1_SaNama_1.0_genomic.fa.fai'
+            };
+            showSequence = true;
+        }
         
         // IGV.js configuration
         const igvConfig = {
@@ -64,7 +75,7 @@ async function initBrowser() {
             showRuler: true,
             showCenterGuide: true,
             showCursorTrackingGuide: true,
-            showSequence: true,
+            showSequence: showSequence,
             locus: config.INITIAL_LOCUS,
             reference: referenceConfig,
             tracks: tracks

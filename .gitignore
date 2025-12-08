@@ -21,9 +21,4 @@ analyses/*pac*
 analyses/11*
 analyses/14*/*thylat*csv
 analyses/15*/all*
-
-genome-browser/data/genome/GCF*
-
-# Large genome files (hosted on Gannet)
-genome-browser/data/genome/*.fa
-genome-browser/data/genome/*.fa.fai
+genome-browser/data/genome/GCF_016432855.1_SaNama_1.0_genomic.fa
