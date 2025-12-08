@@ -43,14 +43,11 @@ async function initBrowser() {
         // Determine if running locally or on GitHub Pages
         const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
         
-        // Gannet URL for genome files (repo syncs to Gannet)
-        const gannetGenomeURL = 'https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/genome-browser/data/genome';
-        
         let referenceConfig;
         let showSequence;
         
         if (isLocal) {
-            // Local development - use local files
+            // Local development - use local FASTA files
             referenceConfig = {
                 id: config.GENOME_CONFIG.id,
                 name: config.GENOME_CONFIG.name,
@@ -59,14 +56,14 @@ async function initBrowser() {
             };
             showSequence = true;
         } else {
-            // GitHub Pages - use Gannet for genome files (repo syncs there)
+            // GitHub Pages - use chromSizes from GitHub Pages (has CORS)
+            // No sequence display, but navigation works
             referenceConfig = {
                 id: config.GENOME_CONFIG.id,
                 name: config.GENOME_CONFIG.name,
-                fastaURL: gannetGenomeURL + '/GCF_016432855.1_SaNama_1.0_genomic.fa',
-                indexURL: gannetGenomeURL + '/GCF_016432855.1_SaNama_1.0_genomic.fa.fai'
+                chromSizesURL: config.DATA_BASE_URL + '/genome/chrom.sizes'
             };
-            showSequence = true;
+            showSequence = false;
         }
         
         // IGV.js configuration
