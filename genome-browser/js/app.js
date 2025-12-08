@@ -23,32 +23,43 @@ async function initBrowser() {
         </div>
     `;
     
+    // Check if config loaded properly
+    if (!config || !config.GENOME_CONFIG) {
+        container.innerHTML = `
+            <div style="padding: 2rem; text-align: center; color: var(--color-text-dim);">
+                <h3 style="color: var(--color-siscowet); margin-bottom: 1rem;">Error Loading Browser</h3>
+                <p>Configuration failed to load.</p>
+            </div>
+        `;
+        return;
+    }
+    
     try {
         // Build track list from default selection
         const tracks = config.DEFAULT_TRACKS
             .map(trackId => config.TRACK_CONFIGS[trackId])
             .filter(track => track !== undefined);
         
-        // Build reference config - use FASTA if available, otherwise chromSizes
+        // Build reference config directly from GENOME_CONFIG
+        // Include all properties that IGV.js expects
         const referenceConfig = {
             id: config.GENOME_CONFIG.id,
             name: config.GENOME_CONFIG.name,
-            chromosomeOrder: config.GENOME_CONFIG.chromosomeOrder,
-            // Explicitly set cytobandURL to null to prevent IGV.js errors
-            cytobandURL: null
+            chromSizesURL: config.GENOME_CONFIG.chromSizesURL,
+            cytobandURL: config.GENOME_CONFIG.cytobandURL || null,
+            wholeGenomeView: config.GENOME_CONFIG.wholeGenomeView || false
         };
         
-        // Add FASTA or chromSizes based on what's configured
+        // Only add chromosomeOrder if defined
+        if (config.GENOME_CONFIG.chromosomeOrder) {
+            referenceConfig.chromosomeOrder = config.GENOME_CONFIG.chromosomeOrder;
+        }
+        
+        // Add FASTA if available (overrides chromSizes)
         if (config.GENOME_CONFIG.fastaURL) {
             referenceConfig.fastaURL = config.GENOME_CONFIG.fastaURL;
             referenceConfig.indexURL = config.GENOME_CONFIG.indexURL;
-        } else if (config.GENOME_CONFIG.chromSizesURL) {
-            referenceConfig.chromSizesURL = config.GENOME_CONFIG.chromSizesURL;
-        }
-        
-        // Ensure wholeGenomeView is disabled when using chromSizes without FASTA
-        if (!config.GENOME_CONFIG.fastaURL) {
-            referenceConfig.wholeGenomeView = false;
+            delete referenceConfig.chromSizesURL;
         }
         
         // IGV.js configuration

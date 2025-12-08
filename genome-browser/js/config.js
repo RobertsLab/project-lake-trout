@@ -6,7 +6,7 @@
 // Base URL for data files - update this to your GitHub Pages URL
 const DATA_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? './data'
-    : 'https://sr320.github.io/project-lake-trout/genome-browser/data';
+    : 'https://robertslab.github.io/project-lake-trout/genome-browser/data';
 
 // External genome hosting URL (Gannet server)
 const GENOME_BASE_URL = 'https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/data';
@@ -22,8 +22,10 @@ const GENOME_CONFIG = {
     name: "Lake Trout (Salvelinus namaycush) - SaNama_1.0",
     // Chromosome sizes file for basic navigation (no sequence display)
     chromSizesURL: `${DATA_BASE_URL}/genome/chrom.sizes`,
-    // Use cytobandURL for chromosome ideogram if available
-    // cytobandURL: `${DATA_BASE_URL}/genome/cytoBand.txt`,
+    // Explicitly set cytobandURL to null to prevent IGV.js errors
+    cytobandURL: null,
+    // Disable whole genome view when not using FASTA
+    wholeGenomeView: false,
     
     // Chromosome aliases for user-friendly names
     chromosomeOrder: [
