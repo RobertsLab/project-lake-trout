@@ -86,22 +86,40 @@ genome-browser/
 
 ### PAV Tracks
 
-| Track | Description | Color |
-|-------|-------------|-------|
-| Lean-Specific Insertions | Insertions found only in Lean | Blue |
-| Lean-Specific Deletions | Deletions found only in Lean | Dark Blue |
-| Siscowet-Specific Insertions | Insertions found only in Siscowet | Red |
-| Siscowet-Specific Deletions | Deletions found only in Siscowet | Dark Red |
-| Shared Insertions | Present in both ecotypes | Gray |
-| Shared Deletions | Present in both ecotypes | Dark Gray |
+| Track | Description | Count | Color |
+|-------|-------------|-------|-------|
+| Lean-Specific Insertions | Insertions found only in Lean | 770,891 | Blue |
+| Lean-Specific Deletions | Deletions found only in Lean | 225,337 | Dark Blue |
+| Siscowet-Specific Insertions | Insertions found only in Siscowet | 1,086,799 | Red |
+| Siscowet-Specific Deletions | Deletions found only in Siscowet | 245,906 | Dark Red |
+| Shared Insertions | Present in both ecotypes | 672,773 | Gray |
+| Shared Deletions | Present in both ecotypes | 205,599 | Dark Gray |
 
 ### Methylation Tracks
 
-| Track | Description |
-|-------|-------------|
-| Methylation Difference | Siscowet - Lean methylation (positive = higher in Siscowet) |
-| DMRs Hypermethylated | Regions with higher methylation in Siscowet |
-| DMRs Hypomethylated | Regions with lower methylation in Siscowet |
+| Track | Description | Count |
+|-------|-------------|-------|
+| Methylation Difference | Siscowet - Lean methylation % (positive = higher in Siscowet) | 540,040 CpGs tested |
+| DMRs Hypermethylated | Regions with higher methylation in Siscowet | 20 |
+| DMRs Hypomethylated | Regions with lower methylation in Siscowet | 282 |
+| Significant DMCs | Individual CpG sites with significant differential methylation (p < 0.05) | 4,440 |
+
+### Analysis Summary
+
+**Differential PAV Analysis:**
+- Lean-specific: 996,228 variants (770,891 insertions + 225,337 deletions)
+- Siscowet-specific: 1,332,705 variants (1,086,799 insertions + 245,906 deletions)
+- Shared between ecotypes: 878,372 variants (672,773 insertions + 205,599 deletions)
+
+**Differential Methylation Analysis:**
+- CpG sites tested: 540,040
+- Significant DMCs (p < 0.05): 4,440
+  - Hypermethylated in Siscowet: 445
+  - Hypomethylated in Siscowet: 3,995
+- Total DMRs: 302
+  - Hypermethylated in Siscowet: 20
+  - Hypomethylated in Siscowet: 282
+- Mean methylation difference: 23.2%
 
 ## Sample Information
 

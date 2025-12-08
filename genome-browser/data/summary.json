@@ -18,24 +18,64 @@
       "bc2096"
     ]
   },
-  "tracks": {
-    "lean_specific.insertions": {
-      "count": 770891
+  "pav": {
+    "siscowet_specific.insertions": {
+      "count": 1086799
     },
     "shared.insertions": {
       "count": 672773
     },
+    "shared.deletions": {
+      "count": 205599
+    },
     "siscowet_specific.deletions": {
       "count": 245906
+    },
+    "lean_specific.insertions": {
+      "count": 770891
+    },
+    "lean_specific.deletions": {
+      "count": 225337
+    }
+  },
+  "methylation": {
+    "dmrs_hyper_siscowet": {
+      "count": 20
+    },
+    "dmrs_hypo_siscowet": {
+      "count": 282
+    },
+    "significant_dmcs": {
+      "count": 4440
+    }
+  },
+  "tracks": {
+    "siscowet_specific.insertions": {
+      "count": 1086799
+    },
+    "shared.insertions": {
+      "count": 672773
     },
     "shared.deletions": {
       "count": 205599
     },
+    "siscowet_specific.deletions": {
+      "count": 245906
+    },
+    "lean_specific.insertions": {
+      "count": 770891
+    },
     "lean_specific.deletions": {
       "count": 225337
     },
-    "siscowet_specific.insertions": {
-      "count": 1086799
+    "dmrs_hyper_siscowet": {
+      "count": 20
+    },
+    "dmrs_hypo_siscowet": {
+      "count": 282
+    },
+    "significant_dmcs": {
+      "count": 4440
     }
   }
 }

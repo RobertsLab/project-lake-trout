@@ -67,6 +67,24 @@
                     Siscowet (n=4)
                 </span>
             </div>
+            <div class="hero-stats" style="margin-top: 1.5rem; display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+                <div style="text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 600; color: var(--color-lean);">996K</div>
+                    <div style="font-size: 0.75rem; color: var(--color-text-dim);">Lean-specific PAVs</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 600; color: var(--color-siscowet);">1.33M</div>
+                    <div style="font-size: 0.75rem; color: var(--color-text-dim);">Siscowet-specific PAVs</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 600; color: var(--color-accent);">302</div>
+                    <div style="font-size: 0.75rem; color: var(--color-text-dim);">DMRs identified</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 600; color: var(--color-accent);">4,440</div>
+                    <div style="font-size: 0.75rem; color: var(--color-text-dim);">Significant DMCs</div>
+                </div>
+            </div>
         </div>
         <div class="hero-decoration">
             <div class="decoration-circle circle-1"></div>
@@ -112,7 +130,7 @@
                     <h3 class="legend-title">Lean-Specific Variants</h3>
                 </div>
                 <p class="legend-desc">
-                    Insertions and deletions found exclusively in Lean trout samples (bc2041, bc2069, bc2070, bc2068).
+                    Insertions (770,891) and deletions (225,337) found exclusively in Lean trout samples.
                 </p>
             </div>
             <div class="legend-card">
@@ -121,7 +139,7 @@
                     <h3 class="legend-title">Siscowet-Specific Variants</h3>
                 </div>
                 <p class="legend-desc">
-                    Insertions and deletions found exclusively in Siscowet trout samples (bc2071, bc2073, bc2072, bc2096).
+                    Insertions (1,086,799) and deletions (245,906) found exclusively in Siscowet trout samples.
                 </p>
             </div>
             <div class="legend-card">
@@ -130,7 +148,7 @@
                     <h3 class="legend-title">Shared Variants</h3>
                 </div>
                 <p class="legend-desc">
-                    Structural variants present in both ecotypes, indicating ancestral polymorphisms.
+                    Shared insertions (672,773) and deletions (205,599) present in both ecotypes.
                 </p>
             </div>
             <div class="legend-card">
@@ -140,6 +158,24 @@
                 </div>
                 <p class="legend-desc">
                     Reference gene annotations from the SaNama_1.0 genome assembly (GCF_016432855.1).
+                </p>
+            </div>
+            <div class="legend-card">
+                <div class="legend-header">
+                    <div class="legend-color" style="background: linear-gradient(135deg, #DC2626, #2563EB);"></div>
+                    <h3 class="legend-title">Differentially Methylated Regions</h3>
+                </div>
+                <p class="legend-desc">
+                    302 total DMRs: 20 hypermethylated and 282 hypomethylated in Siscowet (p < 0.05, ≥15% diff).
+                </p>
+            </div>
+            <div class="legend-card">
+                <div class="legend-header">
+                    <div class="legend-color" style="background: linear-gradient(135deg, #A855F7, #8B5CF6);"></div>
+                    <h3 class="legend-title">Methylation Difference Track</h3>
+                </div>
+                <p class="legend-desc">
+                    Methylation difference (Siscowet - Lean) from 540,040 CpG sites with 4,440 significant DMCs.
                 </p>
             </div>
         </div>

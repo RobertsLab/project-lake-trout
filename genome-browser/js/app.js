@@ -29,17 +29,26 @@ async function initBrowser() {
             .map(trackId => config.TRACK_CONFIGS[trackId])
             .filter(track => track !== undefined);
         
+        // Build reference config - use FASTA if available, otherwise chromSizes
+        const referenceConfig = {
+            id: config.GENOME_CONFIG.id,
+            name: config.GENOME_CONFIG.name,
+            chromosomeOrder: config.GENOME_CONFIG.chromosomeOrder
+        };
+        
+        // Add FASTA or chromSizes based on what's configured
+        if (config.GENOME_CONFIG.fastaURL) {
+            referenceConfig.fastaURL = config.GENOME_CONFIG.fastaURL;
+            referenceConfig.indexURL = config.GENOME_CONFIG.indexURL;
+        } else if (config.GENOME_CONFIG.chromSizesURL) {
+            referenceConfig.chromSizesURL = config.GENOME_CONFIG.chromSizesURL;
+        }
+        
         // IGV.js configuration
         const igvConfig = {
             ...config.BROWSER_OPTIONS,
             locus: config.INITIAL_LOCUS,
-            reference: {
-                id: config.GENOME_CONFIG.id,
-                name: config.GENOME_CONFIG.name,
-                fastaURL: config.GENOME_CONFIG.fastaURL,
-                indexURL: config.GENOME_CONFIG.indexURL,
-                chromosomeOrder: config.GENOME_CONFIG.chromosomeOrder
-            },
+            reference: referenceConfig,
             tracks: tracks
         };
         

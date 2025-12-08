@@ -8,18 +8,20 @@ const DATA_BASE_URL = window.location.hostname === 'localhost' || window.locatio
     ? './data'
     : 'https://sr320.github.io/project-lake-trout/genome-browser/data';
 
-// Alternative: Use raw GitHub content or external hosting
-// const DATA_BASE_URL = 'https://raw.githubusercontent.com/sr320/project-lake-trout/main/genome-browser/data';
+// External genome hosting URL (Gannet server)
+const GENOME_BASE_URL = 'https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/data';
 
 /**
  * Genome Configuration
  * Reference: GCF_016432855.1 SaNama_1.0 (Lake Trout / Salvelinus namaycush)
+ * Note: Using chromosome sizes for navigation without sequence display.
+ * For full sequence display, genome files need CORS headers enabled.
  */
 const GENOME_CONFIG = {
     id: "SaNama_1.0",
     name: "Lake Trout (Salvelinus namaycush) - SaNama_1.0",
-    fastaURL: `${DATA_BASE_URL}/genome/GCF_016432855.1_SaNama_1.0_genomic.fa`,
-    indexURL: `${DATA_BASE_URL}/genome/GCF_016432855.1_SaNama_1.0_genomic.fa.fai`,
+    // Chromosome sizes file for basic navigation (no sequence display)
+    chromSizesURL: `${DATA_BASE_URL}/genome/chrom.sizes`,
     // Use cytobandURL for chromosome ideogram if available
     // cytobandURL: `${DATA_BASE_URL}/genome/cytoBand.txt`,
     
@@ -188,6 +190,19 @@ const TRACK_CONFIGS = {
         color: "#2563EB",
         height: 40,
         order: 61
+    },
+    
+    // Significant DMCs (Differentially Methylated CpGs)
+    significantDMCs: {
+        name: "Significant DMCs (p < 0.05)",
+        type: "annotation",
+        format: "bed",
+        url: `${DATA_BASE_URL}/methylation/significant_dmcs.bed`,
+        displayMode: "SQUISHED",
+        color: "#A855F7",
+        height: 40,
+        order: 62,
+        visibilityWindow: 5000000
     }
 };
 
@@ -201,7 +216,9 @@ const DEFAULT_TRACKS = [
     'leanDeletions', 
     'siscowetInsertions',
     'siscowetDeletions',
-    'methylationDiff'
+    'methylationDiff',
+    'dmrsHyper',
+    'dmrsHypo'
 ];
 
 /**

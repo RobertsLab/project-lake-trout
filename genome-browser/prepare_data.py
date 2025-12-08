@@ -215,6 +215,20 @@ def prepare_pav_files():
 # Step 4: Prepare Methylation Files
 # =============================================================================
 
+def downsample_bedgraph(input_file, output_file, sample_rate=10):
+    """Downsample a bedGraph file to reduce file size for browser."""
+    with open(input_file, 'r') as f_in, open(output_file, 'w') as f_out:
+        line_count = 0
+        written = 0
+        for line in f_in:
+            if line.startswith('#') or line.startswith('track'):
+                continue
+            line_count += 1
+            if line_count % sample_rate == 0:
+                f_out.write(line)
+                written += 1
+    print(f"    Downsampled {line_count:,} -> {written:,} positions")
+
 def prepare_methylation_files():
     """Prepare methylation data files for browser visualization."""
     print("\n" + "="*60)
@@ -229,9 +243,11 @@ def prepare_methylation_files():
     sig_dmcs = DIFF_METH_DIR / "significant_dmcs.bed"
     diff_bedgraph = DIFF_METH_DIR / "methylation_diff_siscowet_vs_lean.bedGraph"
     
-    # Copy differential methylation bedGraph
+    # Copy differential methylation bedGraph (downsampled for browser)
     if diff_bedgraph.exists():
-        copy_file(diff_bedgraph, meth_output / "methylation_diff.bedGraph", strip_header=True)
+        # Downsample the bedGraph for browser performance
+        print("  Downsampling methylation difference bedGraph...")
+        downsample_bedgraph(diff_bedgraph, meth_output / "methylation_diff.bedGraph", sample_rate=10)
     else:
         print("  Differential methylation bedGraph not found.")
         print("    Run 'python code/14-diff-meth.py' first.")
@@ -245,8 +261,21 @@ def prepare_methylation_files():
     
     if hyper_src.exists():
         copy_file(hyper_src, meth_output / "dmrs_hyper_siscowet.bed")
+        with open(hyper_src, 'r') as f:
+            count = sum(1 for line in f if line.strip() and not line.startswith('#'))
+        print(f"    Hypermethylated DMRs: {count:,}")
     if hypo_src.exists():
         copy_file(hypo_src, meth_output / "dmrs_hypo_siscowet.bed")
+        with open(hypo_src, 'r') as f:
+            count = sum(1 for line in f if line.strip() and not line.startswith('#'))
+        print(f"    Hypomethylated DMRs: {count:,}")
+    
+    # Copy significant DMCs
+    if sig_dmcs.exists():
+        copy_file(sig_dmcs, meth_output / "significant_dmcs.bed")
+        with open(sig_dmcs, 'r') as f:
+            count = sum(1 for line in f if line.strip() and not line.startswith('#'))
+        print(f"    Significant DMCs: {count:,}")
     
     # Generate mean methylation bedGraphs for each ecotype
     print("\n  Generating ecotype mean methylation files...")
@@ -351,6 +380,8 @@ def create_summary():
             "lean": SAMPLES_LEAN,
             "siscowet": SAMPLES_SISCOWET
         },
+        "pav": {},
+        "methylation": {},
         "tracks": {}
     }
     
@@ -360,6 +391,16 @@ def create_summary():
         for bed_file in pav_dir.glob("*.bed"):
             with open(bed_file, 'r') as f:
                 count = sum(1 for line in f if line.strip() and not line.startswith('#'))
+            stats["pav"][bed_file.stem] = {"count": count}
+            stats["tracks"][bed_file.stem] = {"count": count}
+    
+    # Count methylation features
+    meth_dir = DATA_OUTPUT_DIR / "methylation"
+    if meth_dir.exists():
+        for bed_file in meth_dir.glob("*.bed"):
+            with open(bed_file, 'r') as f:
+                count = sum(1 for line in f if line.strip() and not line.startswith('#'))
+            stats["methylation"][bed_file.stem] = {"count": count}
             stats["tracks"][bed_file.stem] = {"count": count}
     
     # Write summary
@@ -368,7 +409,9 @@ def create_summary():
         json.dump(stats, f, indent=2)
     
     print(f"  Created: {summary_file.name}")
-    print(f"  Tracks prepared: {len(stats['tracks'])}")
+    print(f"  PAV tracks: {len(stats['pav'])}")
+    print(f"  Methylation tracks: {len(stats['methylation'])}")
+    print(f"  Total tracks: {len(stats['tracks'])}")
 
 # =============================================================================
 # Step 6: Verify Data Integrity
@@ -399,6 +442,7 @@ def verify_data():
         "methylation/siscowet_mean.bedGraph",
         "methylation/dmrs_hyper_siscowet.bed",
         "methylation/dmrs_hypo_siscowet.bed",
+        "methylation/significant_dmcs.bed",
     ]
     
     missing_required = []
