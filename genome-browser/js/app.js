@@ -61,7 +61,8 @@ async function initBrowser() {
             referenceConfig = {
                 id: config.GENOME_CONFIG.id,
                 name: config.GENOME_CONFIG.name,
-                chromSizesURL: config.DATA_BASE_URL + '/genome/chrom.sizes'
+                chromSizesURL: config.DATA_BASE_URL + '/genome/chrom.sizes',
+                cytobandURL: config.DATA_BASE_URL + '/genome/cytoBand.txt'
             };
             showSequence = false;
         }
