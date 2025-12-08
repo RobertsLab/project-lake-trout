@@ -56,13 +56,55 @@ async function initBrowser() {
             };
             showSequence = true;
         } else {
-            // GitHub Pages - use chromSizes from GitHub Pages (has CORS)
-            // No sequence display, but navigation works
+            // GitHub Pages - define chromosomes inline to avoid external file loading issues
+            // This avoids the cytobandURL error with chromSizesURL
             referenceConfig = {
                 id: config.GENOME_CONFIG.id,
                 name: config.GENOME_CONFIG.name,
-                chromSizesURL: config.DATA_BASE_URL + '/genome/chrom.sizes',
-                cytobandURL: config.DATA_BASE_URL + '/genome/cytoBand.txt'
+                chromosomes: [
+                    {name: "NC_052307.1", size: 84126519},
+                    {name: "NC_052308.1", size: 80899063},
+                    {name: "NC_052309.1", size: 98200354},
+                    {name: "NC_052310.1", size: 84641001},
+                    {name: "NC_052311.1", size: 74663310},
+                    {name: "NC_052312.1", size: 53240245},
+                    {name: "NC_052313.1", size: 62955435},
+                    {name: "NC_052314.1", size: 89946781},
+                    {name: "NC_052315.1", size: 77627323},
+                    {name: "NC_052316.1", size: 55315881},
+                    {name: "NC_052317.1", size: 72888909},
+                    {name: "NC_052318.1", size: 76979435},
+                    {name: "NC_052319.1", size: 78589171},
+                    {name: "NC_052320.1", size: 64649498},
+                    {name: "NC_052321.1", size: 65048267},
+                    {name: "NC_052322.1", size: 55422761},
+                    {name: "NC_052323.1", size: 52735498},
+                    {name: "NC_052324.1", size: 48040928},
+                    {name: "NC_052325.1", size: 56779286},
+                    {name: "NC_052326.1", size: 42509555},
+                    {name: "NC_052327.1", size: 49837422},
+                    {name: "NC_052328.1", size: 50166449},
+                    {name: "NC_052329.1", size: 48355507},
+                    {name: "NC_052330.1", size: 47124051},
+                    {name: "NC_052331.1", size: 42984373},
+                    {name: "NC_052332.1", size: 52270378},
+                    {name: "NC_052333.1", size: 40490003},
+                    {name: "NC_052334.1", size: 42540729},
+                    {name: "NC_052335.1", size: 50269628},
+                    {name: "NC_052336.1", size: 44632854},
+                    {name: "NC_052337.1", size: 41213638},
+                    {name: "NC_052338.1", size: 41426868},
+                    {name: "NC_052339.1", size: 40758918},
+                    {name: "NC_052340.1", size: 31687327},
+                    {name: "NC_052341.1", size: 35142098},
+                    {name: "NC_052342.1", size: 31730470},
+                    {name: "NC_052343.1", size: 36544277},
+                    {name: "NC_052344.1", size: 42306528},
+                    {name: "NC_052345.1", size: 31458917},
+                    {name: "NC_052346.1", size: 37618679},
+                    {name: "NC_052347.1", size: 36174209},
+                    {name: "NC_052348.1", size: 28563236}
+                ]
             };
             showSequence = false;
         }

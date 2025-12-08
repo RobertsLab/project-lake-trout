@@ -1,0 +1,271 @@
+{
+  "baseUrl": "jbrowse/",
+  "assemblies": [
+    {
+      "name": "Amil_v2.1",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "amil_refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/Apul-vAmil/GCF_013753865.1_Amil_v2.1_genomic.fna"
+          },
+          "faiLocation": {
+            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/Apul-vAmil/GCF_013753865.1_Amil_v2.1_genomic.fna.fai"
+          }
+        }
+      }
+    },
+    {
+      "name": "Peve_v1",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "peve_refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/Peve/Porites_evermanni_v1.fa"
+          },
+          "faiLocation": {
+            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/Peve/Porites_evermanni_v1.fa.fai"
+          }
+        }
+      }
+    },
+    {
+      "name": "Pmea_v1",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "pmea_refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/Ptuh-vPmea/Pocillopora_meandrina_HIv1.assembly.fasta"
+          },
+          "faiLocation": {
+            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/Ptuh-vPmea/Pocillopora_meandrina_HIv1.assembly.fasta.fai"
+          }
+        }
+      }
+    }
+  ],
+  "tracks": [
+    {
+      "type": "FeatureTrack",
+      "trackId": "Apul_mature",
+      "name": "Apul mature miRNAs",
+      "assemblyNames": ["Amil_v2.1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Apul-vAmil/Apul_mature.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Apul_star",
+      "name": "Apul star miRNAs",
+      "assemblyNames": ["Amil_v2.1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Apul-vAmil/Apul_star.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "Apul_precursor",
+      "name": "Apul precursor miRNAs",
+      "assemblyNames": ["Amil_v2.1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Apul-vAmil/Apul_precursor.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "amil_features",
+      "name": "Amil Gene Features",
+      "assemblyNames": ["Amil_v2.1"],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/data/Apul-vAmil/GCF_013753865.1_Amil_v2.1_genomic.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "amil_lncRNAs",
+      "name": "Apul lncRNAs",
+      "assemblyNames": ["Amil_v2.1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Apul-vAmil/Apul_lncRNA.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "peve_features",
+      "name": "Peve Gene Features",
+      "assemblyNames": ["Peve_v1"],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/Peve/Porites_evermanni_v1.annot.gff"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "peve_lncRNAs",
+      "name": "Peve lncRNAs",
+      "assemblyNames": ["Peve_v1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Peve/Peve_lncRNA.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "peve_star",
+      "name": "Peve star miRNAs",
+      "assemblyNames": ["Peve_v1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Peve/Peve_star.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "peve_mature",
+      "name": "Peve mature miRNAs",
+      "assemblyNames": ["Peve_v1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Peve/Peve_mature.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "peve_precursor",
+      "name": "Peve precursor miRNAs",
+      "assemblyNames": ["Peve_v1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Peve/Peve_precursor.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "pmea_features",
+      "name": "Pmea Gene Features",
+      "assemblyNames": ["Pmea_v1"],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/Ptuh-vPmea/Pocillopora_meandrina_HIv1.genes.gff3"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "pmea_lncRNAs",
+      "name": "Ptuh lncRNAs",
+      "assemblyNames": ["Pmea_v1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Ptuh-vPmea/Ptuh_lncRNA.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "ptuh_star",
+      "name": "Ptuh star miRNAs",
+      "assemblyNames": ["Pmea_v1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Ptuh-vPmea/Ptuh_star.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "ptuh_mature",
+      "name": "Ptuh mature miRNAs",
+      "assemblyNames": ["Pmea_v1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Ptuh-vPmea/Ptuh_mature.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "ptuh_precursor",
+      "name": "Ptuh precursor miRNAs",
+      "assemblyNames": ["Pmea_v1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Ptuh-vPmea/Ptuh_precursor.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "peve_pi_clusters",
+      "name": "Peve piRNA Clusters",
+      "assemblyNames": ["Peve_v1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Peve/Peve_pi_clusters.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "pmea_pi_clusters",
+      "name": "Ptuh piRNA Clusters",
+      "assemblyNames": ["Pmea_v1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Ptuh-vPmea/Ptuh_pi_clusters.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "pi_clusters",
+      "name": "Apul piRNA Clusters",
+      "assemblyNames": ["Amil_v2.1"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/Apul-vAmil/Apul_pi_clusters.bed"
+        }
+      }
+    }
+  ]
+}
