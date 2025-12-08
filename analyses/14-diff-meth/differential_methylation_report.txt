@@ -1,0 +1,73 @@
+============================================================
+Differential Methylation Analysis Report
+Lake Trout: Siscowet vs Lean
+============================================================
+
+SAMPLE INFORMATION
+----------------------------------------
+LEAN samples: bc2041, bc2069, bc2070, bc2068
+SISCOWET samples: bc2071, bc2073, bc2072, bc2096
+
+ANALYSIS PARAMETERS
+----------------------------------------
+Minimum coverage per sample: 10
+Minimum samples per group: 3
+Methylation difference threshold: 15.0%
+P-value threshold: 0.05
+Q-value threshold (FDR): 0.1
+DMR merge distance: 250 bp
+Minimum CpGs per DMR: 3
+
+DIFFERENTIALLY METHYLATED CpGs (DMCs)
+----------------------------------------
+Total CpG sites tested: 540040
+Significant DMCs (p < 0.05): 4440
+  - Hypermethylated in Siscowet: 445
+  - Hypomethylated in Siscowet: 3995
+Significant after FDR (q < 0.1): 0
+
+DIFFERENTIALLY METHYLATED REGIONS (DMRs)
+----------------------------------------
+Total DMRs: 302
+  - Hypermethylated in Siscowet: 20
+  - Hypomethylated in Siscowet: 282
+
+DMR Statistics:
+  Mean CpGs per DMR: 10.0
+  Mean DMR length: 432.2 bp
+  Mean methylation difference: 23.2%
+
+DMRs overlapping genes: 25
+
+Top 20 DMRs by methylation difference:
+----------------------------------------
+  DMR_3: NC_052308.1:78971079-78971451 (5 CpGs, 66.3% diff)
+  DMR_5: NC_052312.1:36566291-36566807 (19 CpGs, 38.2% diff)
+  DMR_71: NW_024058342.1:287276-287898 (15 CpGs, 34.0% diff)
+  DMR_32: NW_024057674.1:488637-489301 (6 CpGs, 33.1% diff)
+  DMR_18: NC_052343.1:27242658-27242906 (8 CpGs, 32.8% diff) [gene-rbm24b]
+  DMR_21: NC_052345.1:3790780-3791331 (7 CpGs, 28.8% diff) [gene-LOC120032414]
+  DMR_282: NW_024061304.1:3660-4021 (11 CpGs, 27.8% diff)
+  DMR_7: NC_052313.1:18549740-18550074 (5 CpGs, 22.9% diff)
+  DMR_9: NC_052314.1:189932-190464 (12 CpGs, 22.8% diff)
+  DMR_126: NW_024058962.1:9614-9809 (5 CpGs, 21.9% diff)
+  DMR_16: NC_052335.1:25694473-25694679 (3 CpGs, 21.9% diff)
+  DMR_73: NW_024058452.1:693080-693326 (5 CpGs, 21.4% diff)
+  DMR_75: NW_024058595.1:34219-34387 (5 CpGs, 21.4% diff)
+  DMR_269: NW_024061198.1:551644-551724 (4 CpGs, 20.0% diff)
+  DMR_2: NC_052308.1:72362697-72363096 (13 CpGs, 18.1% diff)
+  DMR_1: NC_052307.1:72942650-72942716 (3 CpGs, 17.6% diff)
+  DMR_6: NC_052313.1:4374494-4374814 (5 CpGs, 17.5% diff)
+  DMR_299: NW_024061530.1:994542-994686 (6 CpGs, 17.2% diff)
+  DMR_60: NW_024058207.1:15701-15734 (5 CpGs, 16.6% diff)
+  DMR_4: NC_052309.1:97923272-97923394 (3 CpGs, 16.5% diff) [gene-LOC120043843]
+
+============================================================
+OUTPUT FILES
+============================================================
+  methylation_matrix.csv - Methylation values per sample
+  differential_methylation_cpgs.csv - All tested CpGs
+  significant_dmcs.csv - Significant DMCs only
+  dmrs.csv - Differentially methylated regions
+  dmrs.bed - DMRs in BED format
+  dmrs_annotated.csv - DMRs with gene annotations
