@@ -40,35 +40,38 @@ async function initBrowser() {
             .map(trackId => config.TRACK_CONFIGS[trackId])
             .filter(track => track !== undefined);
         
-        // Build reference config directly from GENOME_CONFIG
-        // Include all properties that IGV.js expects
+        // Determine genome file URLs based on environment
+        const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        const genomeBaseURL = isLocal 
+            ? './data/genome'
+            : 'https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/data';
+        
+        const fastaFile = isLocal 
+            ? 'GCF_016432855.1_SaNama_1.0_genomic.fa'
+            : 'GCF_016432855.1_SaNama_1.0_genomic.fa';
+        
+        // Build reference config using FASTA file
         const referenceConfig = {
             id: config.GENOME_CONFIG.id,
             name: config.GENOME_CONFIG.name,
-            chromSizesURL: config.GENOME_CONFIG.chromSizesURL,
-            cytobandURL: config.GENOME_CONFIG.cytobandURL || null,
-            wholeGenomeView: config.GENOME_CONFIG.wholeGenomeView || false
+            fastaURL: `${genomeBaseURL}/${fastaFile}`,
+            indexURL: `${genomeBaseURL}/${fastaFile}.fai`
         };
-        
-        // Only add chromosomeOrder if defined
-        if (config.GENOME_CONFIG.chromosomeOrder) {
-            referenceConfig.chromosomeOrder = config.GENOME_CONFIG.chromosomeOrder;
-        }
-        
-        // Add FASTA if available (overrides chromSizes)
-        if (config.GENOME_CONFIG.fastaURL) {
-            referenceConfig.fastaURL = config.GENOME_CONFIG.fastaURL;
-            referenceConfig.indexURL = config.GENOME_CONFIG.indexURL;
-            delete referenceConfig.chromSizesURL;
-        }
         
         // IGV.js configuration
         const igvConfig = {
-            ...config.BROWSER_OPTIONS,
+            showNavigation: true,
+            showRuler: true,
+            showCenterGuide: true,
+            showCursorTrackingGuide: true,
+            showSequence: true,
             locus: config.INITIAL_LOCUS,
             reference: referenceConfig,
             tracks: tracks
         };
+        
+        // Debug logging
+        console.log('IGV Config:', JSON.stringify(igvConfig, null, 2));
         
         // Clear container and create browser
         container.innerHTML = '';

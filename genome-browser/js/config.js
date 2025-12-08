@@ -236,11 +236,8 @@ const BROWSER_OPTIONS = {
     showRuler: true,
     showCenterGuide: true,
     showCursorTrackingGuide: true,
-    showSequence: true,
-    flanking: 1000,
-    search: {
-        url: null  // Custom search would require a backend
-    }
+    showSequence: false,  // Disabled - no FASTA file available
+    flanking: 1000
 };
 
 // Export for use in app.js
