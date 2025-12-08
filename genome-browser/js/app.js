@@ -33,7 +33,9 @@ async function initBrowser() {
         const referenceConfig = {
             id: config.GENOME_CONFIG.id,
             name: config.GENOME_CONFIG.name,
-            chromosomeOrder: config.GENOME_CONFIG.chromosomeOrder
+            chromosomeOrder: config.GENOME_CONFIG.chromosomeOrder,
+            // Explicitly set cytobandURL to null to prevent IGV.js errors
+            cytobandURL: null
         };
         
         // Add FASTA or chromSizes based on what's configured
@@ -42,6 +44,11 @@ async function initBrowser() {
             referenceConfig.indexURL = config.GENOME_CONFIG.indexURL;
         } else if (config.GENOME_CONFIG.chromSizesURL) {
             referenceConfig.chromSizesURL = config.GENOME_CONFIG.chromSizesURL;
+        }
+        
+        // Ensure wholeGenomeView is disabled when using chromSizes without FASTA
+        if (!config.GENOME_CONFIG.fastaURL) {
+            referenceConfig.wholeGenomeView = false;
         }
         
         // IGV.js configuration
