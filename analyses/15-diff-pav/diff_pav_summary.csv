@@ -1,0 +1,7 @@
+variant_type,category,count,total_bp
+insertions,lean_specific,770891,809306
+insertions,siscowet_specific,1086799,1150168
+insertions,shared,672773,764250
+deletions,lean_specific,225337,68061971
+deletions,siscowet_specific,245906,84330029
+deletions,shared,205599,112750807
