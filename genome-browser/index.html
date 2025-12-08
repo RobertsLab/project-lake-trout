@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lake Trout Genome Browser | PAV & Methylation</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- IGV.js -->
+    <script src="https://cdn.jsdelivr.net/npm/igv@2.15.11/dist/igv.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-title">Lake Trout Genome Browser</span>
+                    <span class="logo-subtitle">Salvelinus namaycush</span>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#tracks" class="nav-link">Track Info</a>
+                <a href="https://github.com/sr320/project-lake-trout" target="_blank" class="nav-link nav-link-external">
+                    GitHub
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="external-icon">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-accent">PAV</span> & <span class="title-accent">Methylation</span>
+                <br>Differences Between Ecotypes
+            </h1>
+            <p class="hero-description">
+                Interactive visualization of Presence-Absence Variation and DNA methylation 
+                differences between <strong>Lean</strong> and <strong>Siscowet</strong> lake trout ecotypes.
+            </p>
+            <div class="hero-badges">
+                <span class="badge badge-lean">
+                    <span class="badge-dot"></span>
+                    Lean (n=4)
+                </span>
+                <span class="badge badge-siscowet">
+                    <span class="badge-dot"></span>
+                    Siscowet (n=4)
+                </span>
+            </div>
+        </div>
+        <div class="hero-decoration">
+            <div class="decoration-circle circle-1"></div>
+            <div class="decoration-circle circle-2"></div>
+            <div class="decoration-circle circle-3"></div>
+        </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <section class="quick-nav">
+        <div class="quick-nav-content">
+            <div class="quick-nav-item" onclick="navigateToRegion('NC_052307.1:1-1000000')">
+                <span class="quick-nav-label">Chromosome 1</span>
+                <span class="quick-nav-value">NC_052307.1</span>
+            </div>
+            <div class="quick-nav-item" onclick="navigateToRegion('NC_052308.1:1-1000000')">
+                <span class="quick-nav-label">Chromosome 2</span>
+                <span class="quick-nav-value">NC_052308.1</span>
+            </div>
+            <div class="quick-nav-item" onclick="navigateToRegion('NC_052309.1:1-1000000')">
+                <span class="quick-nav-label">Chromosome 3</span>
+                <span class="quick-nav-value">NC_052309.1</span>
+            </div>
+            <div class="quick-nav-item" id="search-box">
+                <label class="quick-nav-label" for="region-search">Jump to Region</label>
+                <input type="text" id="region-search" class="region-input" placeholder="e.g., NC_052307.1:100000-200000">
+            </div>
+        </div>
+    </section>
+
+    <!-- IGV Browser Container -->
+    <section class="browser-section">
+        <div id="igv-container" class="igv-container"></div>
+    </section>
+
+    <!-- Track Legend -->
+    <section class="legend-section" id="tracks">
+        <h2 class="section-title">Track Legend</h2>
+        <div class="legend-grid">
+            <div class="legend-card">
+                <div class="legend-header">
+                    <div class="legend-color" style="background: linear-gradient(135deg, #3B82F6, #1D4ED8);"></div>
+                    <h3 class="legend-title">Lean-Specific Variants</h3>
+                </div>
+                <p class="legend-desc">
+                    Insertions and deletions found exclusively in Lean trout samples (bc2041, bc2069, bc2070, bc2068).
+                </p>
+            </div>
+            <div class="legend-card">
+                <div class="legend-header">
+                    <div class="legend-color" style="background: linear-gradient(135deg, #EF4444, #B91C1C);"></div>
+                    <h3 class="legend-title">Siscowet-Specific Variants</h3>
+                </div>
+                <p class="legend-desc">
+                    Insertions and deletions found exclusively in Siscowet trout samples (bc2071, bc2073, bc2072, bc2096).
+                </p>
+            </div>
+            <div class="legend-card">
+                <div class="legend-header">
+                    <div class="legend-color" style="background: linear-gradient(135deg, #6B7280, #374151);"></div>
+                    <h3 class="legend-title">Shared Variants</h3>
+                </div>
+                <p class="legend-desc">
+                    Structural variants present in both ecotypes, indicating ancestral polymorphisms.
+                </p>
+            </div>
+            <div class="legend-card">
+                <div class="legend-header">
+                    <div class="legend-color" style="background: linear-gradient(135deg, #10B981, #059669);"></div>
+                    <h3 class="legend-title">Gene Annotations</h3>
+                </div>
+                <p class="legend-desc">
+                    Reference gene annotations from the SaNama_1.0 genome assembly (GCF_016432855.1).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2 class="section-title">About This Study</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <h3>Ecotype Comparison</h3>
+                    <p>
+                        Lake trout exhibit remarkable morphological diversity. This study compares 
+                        <strong>Lean</strong> and <strong>Siscowet</strong> ecotypes to understand 
+                        genetic and epigenetic underpinnings of their phenotypic differences.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <h3>PacBio HiFi Sequencing</h3>
+                    <p>
+                        High-fidelity long-read sequencing enables detection of structural variants 
+                        and native DNA methylation simultaneously, providing comprehensive genomic insights.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3>Open Science</h3>
+                    <p>
+                        All data, code, and analyses are publicly available on GitHub. This browser 
+                        is deployed via GitHub Pages for easy access and reproducibility.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Info Table -->
+    <section class="samples-section">
+        <h2 class="section-title">Sample Information</h2>
+        <div class="table-container">
+            <table class="samples-table">
+                <thead>
+                    <tr>
+                        <th>Sample ID</th>
+                        <th>Ecotype</th>
+                        <th>PAV Features</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="lean-row">
+                        <td><code>bc2041</code></td>
+                        <td><span class="ecotype-badge lean">Lean</span></td>
+                        <td>~871K insertions, ~299K deletions</td>
+                        <td>Lean ecotype sample</td>
+                    </tr>
+                    <tr class="lean-row">
+                        <td><code>bc2069</code></td>
+                        <td><span class="ecotype-badge lean">Lean</span></td>
+                        <td>~341K insertions, ~217K deletions</td>
+                        <td>Lean ecotype sample</td>
+                    </tr>
+                    <tr class="lean-row">
+                        <td><code>bc2070</code></td>
+                        <td><span class="ecotype-badge lean">Lean</span></td>
+                        <td>~538K insertions, ~284K deletions</td>
+                        <td>Lean ecotype sample</td>
+                    </tr>
+                    <tr class="lean-row">
+                        <td><code>bc2068</code></td>
+                        <td><span class="ecotype-badge lean">Lean</span></td>
+                        <td>~332K insertions, ~262K deletions</td>
+                        <td>Lean ecotype sample</td>
+                    </tr>
+                    <tr class="siscowet-row">
+                        <td><code>bc2071</code></td>
+                        <td><span class="ecotype-badge siscowet">Siscowet</span></td>
+                        <td>~574K insertions, ~297K deletions</td>
+                        <td>Siscowet ecotype sample</td>
+                    </tr>
+                    <tr class="siscowet-row">
+                        <td><code>bc2073</code></td>
+                        <td><span class="ecotype-badge siscowet">Siscowet</span></td>
+                        <td>~652K insertions, ~308K deletions</td>
+                        <td>Siscowet ecotype sample</td>
+                    </tr>
+                    <tr class="siscowet-row">
+                        <td><code>bc2072</code></td>
+                        <td><span class="ecotype-badge siscowet">Siscowet</span></td>
+                        <td>~469K insertions, ~267K deletions</td>
+                        <td>Siscowet ecotype sample</td>
+                    </tr>
+                    <tr class="siscowet-row">
+                        <td><code>bc2096</code></td>
+                        <td><span class="ecotype-badge siscowet">Siscowet</span></td>
+                        <td>~1.04M insertions, ~347K deletions</td>
+                        <td>Siscowet ecotype sample</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>Lake Trout Genome Browser</p>
+                <p class="footer-sub">Reference: GCF_016432855.1 SaNama_1.0</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/sr320/project-lake-trout" target="_blank">GitHub Repository</a>
+                <span class="footer-divider">|</span>
+                <a href="https://igv.org/" target="_blank">Powered by IGV.js</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+

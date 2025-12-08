@@ -1,0 +1,41 @@
+{
+  "genome": {
+    "assembly": "GCF_016432855.1",
+    "name": "SaNama_1.0",
+    "species": "Salvelinus namaycush"
+  },
+  "samples": {
+    "lean": [
+      "bc2041",
+      "bc2069",
+      "bc2070",
+      "bc2068"
+    ],
+    "siscowet": [
+      "bc2071",
+      "bc2073",
+      "bc2072",
+      "bc2096"
+    ]
+  },
+  "tracks": {
+    "lean_specific.insertions": {
+      "count": 770891
+    },
+    "shared.insertions": {
+      "count": 672773
+    },
+    "siscowet_specific.deletions": {
+      "count": 245906
+    },
+    "shared.deletions": {
+      "count": 205599
+    },
+    "lean_specific.deletions": {
+      "count": 225337
+    },
+    "siscowet_specific.insertions": {
+      "count": 1086799
+    }
+  }
+}
