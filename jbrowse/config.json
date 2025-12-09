@@ -1,50 +1,18 @@
 {
-  "baseUrl": "jbrowse/",
   "assemblies": [
     {
-      "name": "Amil_v2.1",
+      "name": "SaNama_1.0",
+      "displayName": "Lake Trout (Salvelinus namaycush) v1.0",
       "sequence": {
         "type": "ReferenceSequenceTrack",
-        "trackId": "amil_refseq",
+        "trackId": "snam_refseq",
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/Apul-vAmil/GCF_013753865.1_Amil_v2.1_genomic.fna"
+            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/genome-browser/data/genome/GCF_016432855.1_SaNama_1.0_genomic.fa"
           },
           "faiLocation": {
-            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/Apul-vAmil/GCF_013753865.1_Amil_v2.1_genomic.fna.fai"
-          }
-        }
-      }
-    },
-    {
-      "name": "Peve_v1",
-      "sequence": {
-        "type": "ReferenceSequenceTrack",
-        "trackId": "peve_refseq",
-        "adapter": {
-          "type": "IndexedFastaAdapter",
-          "fastaLocation": {
-            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/Peve/Porites_evermanni_v1.fa"
-          },
-          "faiLocation": {
-            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/Peve/Porites_evermanni_v1.fa.fai"
-          }
-        }
-      }
-    },
-    {
-      "name": "Pmea_v1",
-      "sequence": {
-        "type": "ReferenceSequenceTrack",
-        "trackId": "pmea_refseq",
-        "adapter": {
-          "type": "IndexedFastaAdapter",
-          "fastaLocation": {
-            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/Ptuh-vPmea/Pocillopora_meandrina_HIv1.assembly.fasta"
-          },
-          "faiLocation": {
-            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/Ptuh-vPmea/Pocillopora_meandrina_HIv1.assembly.fasta.fai"
+            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/genome-browser/data/genome/GCF_016432855.1_SaNama_1.0_genomic.fa.fai"
           }
         }
       }
@@ -53,219 +21,154 @@
   "tracks": [
     {
       "type": "FeatureTrack",
-      "trackId": "Apul_mature",
-      "name": "Apul mature miRNAs",
-      "assemblyNames": ["Amil_v2.1"],
+      "trackId": "genes",
+      "name": "Genes",
+      "category": ["Annotation"],
+      "assemblyNames": ["SaNama_1.0"],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
-          "uri": "data/Apul-vAmil/Apul_mature.bed"
+          "uri": "data/lake-trout/genes.bed"
         }
       }
     },
     {
       "type": "FeatureTrack",
-      "trackId": "Apul_star",
-      "name": "Apul star miRNAs",
-      "assemblyNames": ["Amil_v2.1"],
+      "trackId": "lean_insertions",
+      "name": "Lean-specific Insertions",
+      "category": ["PAV", "Lean"],
+      "assemblyNames": ["SaNama_1.0"],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
-          "uri": "data/Apul-vAmil/Apul_star.bed"
+          "uri": "data/lake-trout/lean_specific.insertions.bed"
         }
       }
     },
     {
       "type": "FeatureTrack",
-      "trackId": "Apul_precursor",
-      "name": "Apul precursor miRNAs",
-      "assemblyNames": ["Amil_v2.1"],
+      "trackId": "lean_deletions",
+      "name": "Lean-specific Deletions",
+      "category": ["PAV", "Lean"],
+      "assemblyNames": ["SaNama_1.0"],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
-          "uri": "data/Apul-vAmil/Apul_precursor.bed"
+          "uri": "data/lake-trout/lean_specific.deletions.bed"
         }
       }
     },
     {
       "type": "FeatureTrack",
-      "trackId": "amil_features",
-      "name": "Amil Gene Features",
-      "assemblyNames": ["Amil_v2.1"],
-      "adapter": {
-        "type": "Gff3Adapter",
-        "gffLocation": {
-          "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/data/Apul-vAmil/GCF_013753865.1_Amil_v2.1_genomic.gff"
-        }
-      }
-    },
-    {
-      "type": "FeatureTrack",
-      "trackId": "amil_lncRNAs",
-      "name": "Apul lncRNAs",
-      "assemblyNames": ["Amil_v2.1"],
+      "trackId": "siscowet_insertions",
+      "name": "Siscowet-specific Insertions",
+      "category": ["PAV", "Siscowet"],
+      "assemblyNames": ["SaNama_1.0"],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
-          "uri": "data/Apul-vAmil/Apul_lncRNA.bed"
+          "uri": "data/lake-trout/siscowet_specific.insertions.bed"
         }
       }
     },
     {
       "type": "FeatureTrack",
-      "trackId": "peve_features",
-      "name": "Peve Gene Features",
-      "assemblyNames": ["Peve_v1"],
-      "adapter": {
-        "type": "Gff3Adapter",
-        "gffLocation": {
-          "uri": "data/Peve/Porites_evermanni_v1.annot.gff"
-        }
-      }
-    },
-    {
-      "type": "FeatureTrack",
-      "trackId": "peve_lncRNAs",
-      "name": "Peve lncRNAs",
-      "assemblyNames": ["Peve_v1"],
+      "trackId": "siscowet_deletions",
+      "name": "Siscowet-specific Deletions",
+      "category": ["PAV", "Siscowet"],
+      "assemblyNames": ["SaNama_1.0"],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
-          "uri": "data/Peve/Peve_lncRNA.bed"
+          "uri": "data/lake-trout/siscowet_specific.deletions.bed"
         }
       }
     },
     {
       "type": "FeatureTrack",
-      "trackId": "peve_star",
-      "name": "Peve star miRNAs",
-      "assemblyNames": ["Peve_v1"],
+      "trackId": "shared_insertions",
+      "name": "Shared Insertions",
+      "category": ["PAV", "Shared"],
+      "assemblyNames": ["SaNama_1.0"],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
-          "uri": "data/Peve/Peve_star.bed"
+          "uri": "data/lake-trout/shared.insertions.bed"
         }
       }
     },
     {
       "type": "FeatureTrack",
-      "trackId": "peve_mature",
-      "name": "Peve mature miRNAs",
-      "assemblyNames": ["Peve_v1"],
+      "trackId": "shared_deletions",
+      "name": "Shared Deletions",
+      "category": ["PAV", "Shared"],
+      "assemblyNames": ["SaNama_1.0"],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
-          "uri": "data/Peve/Peve_mature.bed"
+          "uri": "data/lake-trout/shared.deletions.bed"
+        }
+      }
+    },
+    {
+      "type": "QuantitativeTrack",
+      "trackId": "methylation_diff",
+      "name": "Methylation Difference",
+      "category": ["Methylation"],
+      "assemblyNames": ["SaNama_1.0"],
+      "adapter": {
+        "type": "BedGraphAdapter",
+        "bedGraphLocation": {
+          "uri": "data/lake-trout/methylation_diff.bedGraph"
         }
       }
     },
     {
       "type": "FeatureTrack",
-      "trackId": "peve_precursor",
-      "name": "Peve precursor miRNAs",
-      "assemblyNames": ["Peve_v1"],
+      "trackId": "dmrs_hyper_siscowet",
+      "name": "DMRs Hyper in Siscowet",
+      "category": ["Methylation", "DMRs"],
+      "assemblyNames": ["SaNama_1.0"],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
-          "uri": "data/Peve/Peve_precursor.bed"
+          "uri": "data/lake-trout/dmrs_hyper_siscowet.bed"
         }
       }
     },
     {
       "type": "FeatureTrack",
-      "trackId": "pmea_features",
-      "name": "Pmea Gene Features",
-      "assemblyNames": ["Pmea_v1"],
-      "adapter": {
-        "type": "Gff3Adapter",
-        "gffLocation": {
-          "uri": "data/Ptuh-vPmea/Pocillopora_meandrina_HIv1.genes.gff3"
-        }
-      }
-    },
-    {
-      "type": "FeatureTrack",
-      "trackId": "pmea_lncRNAs",
-      "name": "Ptuh lncRNAs",
-      "assemblyNames": ["Pmea_v1"],
+      "trackId": "dmrs_hypo_siscowet",
+      "name": "DMRs Hypo in Siscowet",
+      "category": ["Methylation", "DMRs"],
+      "assemblyNames": ["SaNama_1.0"],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
-          "uri": "data/Ptuh-vPmea/Ptuh_lncRNA.bed"
+          "uri": "data/lake-trout/dmrs_hypo_siscowet.bed"
         }
       }
     },
     {
       "type": "FeatureTrack",
-      "trackId": "ptuh_star",
-      "name": "Ptuh star miRNAs",
-      "assemblyNames": ["Pmea_v1"],
+      "trackId": "significant_dmcs",
+      "name": "Significant DMCs",
+      "category": ["Methylation", "DMCs"],
+      "assemblyNames": ["SaNama_1.0"],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
-          "uri": "data/Ptuh-vPmea/Ptuh_star.bed"
-        }
-      }
-    },
-    {
-      "type": "FeatureTrack",
-      "trackId": "ptuh_mature",
-      "name": "Ptuh mature miRNAs",
-      "assemblyNames": ["Pmea_v1"],
-      "adapter": {
-        "type": "BedAdapter",
-        "bedLocation": {
-          "uri": "data/Ptuh-vPmea/Ptuh_mature.bed"
-        }
-      }
-    },
-    {
-      "type": "FeatureTrack",
-      "trackId": "ptuh_precursor",
-      "name": "Ptuh precursor miRNAs",
-      "assemblyNames": ["Pmea_v1"],
-      "adapter": {
-        "type": "BedAdapter",
-        "bedLocation": {
-          "uri": "data/Ptuh-vPmea/Ptuh_precursor.bed"
-        }
-      }
-    },
-    {
-      "type": "FeatureTrack",
-      "trackId": "peve_pi_clusters",
-      "name": "Peve piRNA Clusters",
-      "assemblyNames": ["Peve_v1"],
-      "adapter": {
-        "type": "BedAdapter",
-        "bedLocation": {
-          "uri": "data/Peve/Peve_pi_clusters.bed"
-        }
-      }
-    },
-    {
-      "type": "FeatureTrack",
-      "trackId": "pmea_pi_clusters",
-      "name": "Ptuh piRNA Clusters",
-      "assemblyNames": ["Pmea_v1"],
-      "adapter": {
-        "type": "BedAdapter",
-        "bedLocation": {
-          "uri": "data/Ptuh-vPmea/Ptuh_pi_clusters.bed"
-        }
-      }
-    },
-    {
-      "type": "FeatureTrack",
-      "trackId": "pi_clusters",
-      "name": "Apul piRNA Clusters",
-      "assemblyNames": ["Amil_v2.1"],
-      "adapter": {
-        "type": "BedAdapter",
-        "bedLocation": {
-          "uri": "data/Apul-vAmil/Apul_pi_clusters.bed"
+          "uri": "data/lake-trout/significant_dmcs.bed"
         }
       }
     }
-  ]
+  ],
+  "defaultSession": {
+    "name": "Lake Trout Genome Browser",
+    "view": {
+      "id": "linearGenomeView",
+      "type": "LinearGenomeView",
+      "tracks": []
+    }
+  }
 }
