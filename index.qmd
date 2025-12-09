@@ -1,7 +1,7 @@
 ---
 title: "Lake Trout Genomics Project"
 subtitle: "Comparative Analysis of *Salvelinus namaycush* Ecotypes"
-author: "Roberts Lab"
+author: "Rick Goetz, Cristian Gallardo-Escarate, and Steven Roberts"
 date: last-modified
 format:
   html:
@@ -149,39 +149,6 @@ These ecotypes exhibit remarkable phenotypic differences despite living in the s
 
 :::
 
----
-
-## Key Findings
-
-::: {.stats-container}
-
-::: {.stat-box}
-::: {.stat-number}
-~996K
-:::
-Lean-specific PAVs
-:::
-
-::: {.stat-box}
-::: {.stat-number}
-~1.33M
-:::
-Siscowet-specific PAVs
-:::
-
-:::
-
-::: {.finding-box}
-### 🧬 Presence-Absence Variation (PAV)
-PacBio long-read sequencing revealed extensive structural variation between ecotypes. Siscowet lake trout harbor significantly more unique insertions and deletions compared to lean ecotypes, suggesting greater genomic diversity potentially associated with deep-water adaptation.
-:::
-
-::: {.finding-box}
-### 📊 DNA Methylation Differences
-Whole-genome bisulfite sequencing identified **302 differentially methylated regions (DMRs)** and **4,440 significant differentially methylated CpGs (DMCs)** between ecotypes. These epigenetic differences may contribute to phenotypic divergence without changes to the underlying DNA sequence.
-:::
-
-
 
 ---
 
@@ -197,15 +164,6 @@ Explore the genomic data through two interactive visualization platforms, each o
 
 ### 🔬 IGV.js Browser
 #### *Best for Quick Exploration*
-
-<ul class="advantage-list">
-<li>Lightweight and fast loading</li>
-<li>Intuitive navigation with click-and-drag</li>
-<li>Smooth zooming with scroll wheel</li>
-<li>Pre-configured track visibility</li>
-<li>Quick region navigation</li>
-<li>Ideal for reviewing specific loci</li>
-</ul>
 
 **Featured Tracks:**
 
@@ -227,18 +185,8 @@ Explore the genomic data through two interactive visualization platforms, each o
 ### 🧬 JBrowse 2
 #### *Best for Advanced Analysis*
 
-<ul class="advantage-list">
-<li>Full-featured genome browser</li>
-<li>Multiple synchronized views</li>
-<li>Advanced track configuration</li>
-<li>Plugin extensibility</li>
-<li>Dot plot & synteny views</li>
-<li>Better for complex comparisons</li>
-</ul>
-
 **Featured Tracks:**
 
-- Reference genome sequence
 - Gene annotations (BED format)
 - PAV structural variants
 - CpG methylation BigWig tracks
@@ -276,8 +224,6 @@ Explore the genomic data through two interactive visualization platforms, each o
 ## Citation & Resources
 
 - **GitHub Repository**: [RobertsLab/project-lake-trout](https://github.com/RobertsLab/project-lake-trout)
-- **Lab Website**: [Roberts Lab](https://robertslab.github.io/)
 
 ---
 
-*Last updated: `r Sys.Date()`*

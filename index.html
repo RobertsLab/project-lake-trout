@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Roberts Lab">
+<meta name="author" content="Rick Goetz, Cristian Gallardo-Escarate, and Steven Roberts">
 <meta name="dcterms.date" content="2025-12-08">
 
 <title>Lake Trout Genomics Project</title>
@@ -83,11 +83,6 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#about-lake-trout-salvelinus-namaycush" id="toc-about-lake-trout-salvelinus-namaycush" class="nav-link active" data-scroll-target="#about-lake-trout-salvelinus-namaycush">About Lake Trout (<em>Salvelinus namaycush</em>)</a></li>
-  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a>
-  <ul class="collapse">
-  <li><a href="#presence-absence-variation-pav" id="toc-presence-absence-variation-pav" class="nav-link" data-scroll-target="#presence-absence-variation-pav">🧬 Presence-Absence Variation (PAV)</a></li>
-  <li><a href="#dna-methylation-differences" id="toc-dna-methylation-differences" class="nav-link" data-scroll-target="#dna-methylation-differences">📊 DNA Methylation Differences</a></li>
-  </ul></li>
   <li><a href="#interactive-genome-browsers" id="toc-interactive-genome-browsers" class="nav-link" data-scroll-target="#interactive-genome-browsers">Interactive Genome Browsers</a></li>
   <li><a href="#data-methods" id="toc-data-methods" class="nav-link" data-scroll-target="#data-methods">Data &amp; Methods</a>
   <ul class="collapse">
@@ -95,7 +90,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#samples" id="toc-samples" class="nav-link" data-scroll-target="#samples">Samples</a></li>
   <li><a href="#analysis-pipeline" id="toc-analysis-pipeline" class="nav-link" data-scroll-target="#analysis-pipeline">Analysis Pipeline</a></li>
   </ul></li>
-  <li><a href="#repository-structure" id="toc-repository-structure" class="nav-link" data-scroll-target="#repository-structure">Repository Structure</a></li>
   <li><a href="#citation-resources" id="toc-citation-resources" class="nav-link" data-scroll-target="#citation-resources">Citation &amp; Resources</a></li>
   </ul>
 </nav>
@@ -117,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Roberts Lab </p>
+             <p>Rick Goetz, Cristian Gallardo-Escarate, and Steven Roberts </p>
           </div>
   </div>
     
@@ -233,32 +227,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <hr>
 </section>
-<section id="key-findings" class="level2">
-<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
-<div class="stats-container">
-<div class="stat-box">
-<div class="stat-number">
-<p>~996K</p>
-</div>
-<p>Lean-specific PAVs</p>
-</div>
-<div class="stat-box">
-<div class="stat-number">
-<p>~1.33M</p>
-</div>
-<p>Siscowet-specific PAVs</p>
-</div>
-</div>
-<section id="presence-absence-variation-pav" class="level3 finding-box">
-<h3 class="anchored" data-anchor-id="presence-absence-variation-pav">🧬 Presence-Absence Variation (PAV)</h3>
-<p>PacBio long-read sequencing revealed extensive structural variation between ecotypes. Siscowet lake trout harbor significantly more unique insertions and deletions compared to lean ecotypes, suggesting greater genomic diversity potentially associated with deep-water adaptation.</p>
-</section>
-<section id="dna-methylation-differences" class="level3 finding-box">
-<h3 class="anchored" data-anchor-id="dna-methylation-differences">📊 DNA Methylation Differences</h3>
-<p>Whole-genome bisulfite sequencing identified <strong>302 differentially methylated regions (DMRs)</strong> and <strong>4,440 significant differentially methylated CpGs (DMCs)</strong> between ecotypes. These epigenetic differences may contribute to phenotypic divergence without changes to the underlying DNA sequence.</p>
-</section>
-<hr>
-</section>
 <section id="interactive-genome-browsers" class="level2">
 <h2 class="anchored" data-anchor-id="interactive-genome-browsers">Interactive Genome Browsers</h2>
 <p>Explore the genomic data through two interactive visualization platforms, each offering unique capabilities for data exploration.</p>
@@ -268,26 +236,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="igv.js-browser">🔬 IGV.js Browser</h3>
 <section id="best-for-quick-exploration" class="level4">
 <h4 class="anchored" data-anchor-id="best-for-quick-exploration"><em>Best for Quick Exploration</em></h4>
-<ul class="advantage-list">
-<li>
-Lightweight and fast loading
-</li>
-<li>
-Intuitive navigation with click-and-drag
-</li>
-<li>
-Smooth zooming with scroll wheel
-</li>
-<li>
-Pre-configured track visibility
-</li>
-<li>
-Quick region navigation
-</li>
-<li>
-Ideal for reviewing specific loci
-</li>
-</ul>
 <p><strong>Featured Tracks:</strong></p>
 <ul>
 <li>Gene annotations</li>
@@ -303,29 +251,8 @@ Ideal for reviewing specific loci
 <h3 class="anchored" data-anchor-id="jbrowse-2">🧬 JBrowse 2</h3>
 <section id="best-for-advanced-analysis" class="level4">
 <h4 class="anchored" data-anchor-id="best-for-advanced-analysis"><em>Best for Advanced Analysis</em></h4>
-<ul class="advantage-list">
-<li>
-Full-featured genome browser
-</li>
-<li>
-Multiple synchronized views
-</li>
-<li>
-Advanced track configuration
-</li>
-<li>
-Plugin extensibility
-</li>
-<li>
-Dot plot &amp; synteny views
-</li>
-<li>
-Better for complex comparisons
-</li>
-</ul>
 <p><strong>Featured Tracks:</strong></p>
 <ul>
-<li>Reference genome sequence</li>
 <li>Gene annotations (BED format)</li>
 <li>PAV structural variants</li>
 <li>CpG methylation BigWig tracks</li>
@@ -380,25 +307,12 @@ Better for complex comparisons
 <hr>
 </section>
 </section>
-<section id="repository-structure" class="level2">
-<h2 class="anchored" data-anchor-id="repository-structure">Repository Structure</h2>
-<pre><code>project-lake-trout/
-├── analyses/          # Analysis outputs (DEGs, DETs, PAV, methylation)
-├── code/              # R Markdown and Python analysis scripts  
-├── data/              # Input data and metadata
-├── genome-browser/    # IGV.js browser application
-├── jbrowse/           # JBrowse 2 browser application
-└── figures/           # Generated figures</code></pre>
-<hr>
-</section>
 <section id="citation-resources" class="level2">
 <h2 class="anchored" data-anchor-id="citation-resources">Citation &amp; Resources</h2>
 <ul>
 <li><strong>GitHub Repository</strong>: <a href="https://github.com/RobertsLab/project-lake-trout">RobertsLab/project-lake-trout</a></li>
-<li><strong>Lab Website</strong>: <a href="https://robertslab.github.io/">Roberts Lab</a></li>
 </ul>
 <hr>
-<p><em>Last updated: <code>r Sys.Date()</code></em></p>
 </section>
 
 </main>
