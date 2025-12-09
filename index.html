@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Roberts Lab">
+<meta name="dcterms.date" content="2025-12-08">
+
+<title>Lake Trout Genomics Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap-8a894fcc3cb5e37eb5bf30def131be2f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+<link rel="stylesheet" href=".genome-browser-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+.genome-browser-card:hover {
+  border-color: #4a90a4;
+  box-shadow: 0 8px 25px rgba(74, 144, 164, 0.15);
+  transform: translateY(-2px);
+}
+.stat-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin: 0.5rem;
+}
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.lean-color { color: #3b82f6; }
+.siscowet-color { color: #f97316; }
+.finding-box {
+  background: #f0f9ff;
+  border-left: 4px solid #0ea5e9;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}">
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#about-lake-trout-salvelinus-namaycush" id="toc-about-lake-trout-salvelinus-namaycush" class="nav-link active" data-scroll-target="#about-lake-trout-salvelinus-namaycush">About Lake Trout (<em>Salvelinus namaycush</em>)</a></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a>
+  <ul class="collapse">
+  <li><a href="#presence-absence-variation-pav" id="toc-presence-absence-variation-pav" class="nav-link" data-scroll-target="#presence-absence-variation-pav">🧬 Presence-Absence Variation (PAV)</a></li>
+  <li><a href="#dna-methylation-differences" id="toc-dna-methylation-differences" class="nav-link" data-scroll-target="#dna-methylation-differences">📊 DNA Methylation Differences</a></li>
+  </ul></li>
+  <li><a href="#interactive-genome-browsers" id="toc-interactive-genome-browsers" class="nav-link" data-scroll-target="#interactive-genome-browsers">Interactive Genome Browsers</a></li>
+  <li><a href="#data-methods" id="toc-data-methods" class="nav-link" data-scroll-target="#data-methods">Data &amp; Methods</a>
+  <ul class="collapse">
+  <li><a href="#reference-genome" id="toc-reference-genome" class="nav-link" data-scroll-target="#reference-genome">Reference Genome</a></li>
+  <li><a href="#samples" id="toc-samples" class="nav-link" data-scroll-target="#samples">Samples</a></li>
+  <li><a href="#analysis-pipeline" id="toc-analysis-pipeline" class="nav-link" data-scroll-target="#analysis-pipeline">Analysis Pipeline</a></li>
+  </ul></li>
+  <li><a href="#repository-structure" id="toc-repository-structure" class="nav-link" data-scroll-target="#repository-structure">Repository Structure</a></li>
+  <li><a href="#citation-resources" id="toc-citation-resources" class="nav-link" data-scroll-target="#citation-resources">Citation &amp; Resources</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content column-page-right" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lake Trout Genomics Project</h1>
+<p class="subtitle lead">Comparative Analysis of <em>Salvelinus namaycush</em> Ecotypes</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-right">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Roberts Lab </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 8, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+.genome-browser-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+.genome-browser-card:hover {
+  border-color: #4a90a4;
+  box-shadow: 0 8px 25px rgba(74, 144, 164, 0.15);
+  transform: translateY(-2px);
+}
+.stat-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin: 0.5rem;
+  flex: 1;
+  min-width: 150px;
+}
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.lean-color { color: #3b82f6; }
+.siscowet-color { color: #f97316; }
+.finding-box {
+  background: #f0f9ff;
+  border-left: 4px solid #0ea5e9;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+}
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.browser-link {
+  display: inline-block;
+  background: linear-gradient(135deg, #4a90a4 0%, #2d5a6a 100%);
+  color: white !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.browser-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(74, 144, 164, 0.4);
+}
+.advantage-list {
+  list-style: none;
+  padding: 0;
+}
+.advantage-list li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+.advantage-list li::before {
+  content: "✓";
+  color: #22c55e;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+</style>
+<section id="about-lake-trout-salvelinus-namaycush" class="level2">
+<h2 class="anchored" data-anchor-id="about-lake-trout-salvelinus-namaycush">About Lake Trout (<em>Salvelinus namaycush</em>)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Lake trout (<em>Salvelinus namaycush</em>) are a cold-water char native to North American lakes. They are the largest member of the char genus <em>Salvelinus</em> and represent an important species for understanding evolutionary adaptation and ecological divergence.</p>
+<p>This project focuses on comparing two distinct ecotypes found in the Great Lakes:</p>
+<ul>
+<li><strong><span class="lean-color">Lean Lake Trout</span></strong>: Shallow-water dwelling, elongated body morphology, lower lipid content</li>
+<li><strong><span class="siscowet-color">Siscowet Lake Trout</span></strong>: Deep-water specialist, robust body form, high lipid storage capacity</li>
+</ul>
+<p>These ecotypes exhibit remarkable phenotypic differences despite living in the same lake system, making them an excellent model for studying the genomic basis of ecological adaptation.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/lt.png" class="img-fluid figure-img" style="width:100.0%" alt="Lake Trout"></p>
+<figcaption>Lake Trout ecotypes show distinct morphological adaptations</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="key-findings" class="level2">
+<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<div class="stats-container">
+<div class="stat-box">
+<div class="stat-number">
+<p>~996K</p>
+</div>
+<p>Lean-specific PAVs</p>
+</div>
+<div class="stat-box">
+<div class="stat-number">
+<p>~1.33M</p>
+</div>
+<p>Siscowet-specific PAVs</p>
+</div>
+</div>
+<section id="presence-absence-variation-pav" class="level3 finding-box">
+<h3 class="anchored" data-anchor-id="presence-absence-variation-pav">🧬 Presence-Absence Variation (PAV)</h3>
+<p>PacBio long-read sequencing revealed extensive structural variation between ecotypes. Siscowet lake trout harbor significantly more unique insertions and deletions compared to lean ecotypes, suggesting greater genomic diversity potentially associated with deep-water adaptation.</p>
+</section>
+<section id="dna-methylation-differences" class="level3 finding-box">
+<h3 class="anchored" data-anchor-id="dna-methylation-differences">📊 DNA Methylation Differences</h3>
+<p>Whole-genome bisulfite sequencing identified <strong>302 differentially methylated regions (DMRs)</strong> and <strong>4,440 significant differentially methylated CpGs (DMCs)</strong> between ecotypes. These epigenetic differences may contribute to phenotypic divergence without changes to the underlying DNA sequence.</p>
+</section>
+<hr>
+</section>
+<section id="interactive-genome-browsers" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-genome-browsers">Interactive Genome Browsers</h2>
+<p>Explore the genomic data through two interactive visualization platforms, each offering unique capabilities for data exploration.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="igv.js-browser" class="level3 genome-browser-card">
+<h3 class="anchored" data-anchor-id="igv.js-browser">🔬 IGV.js Browser</h3>
+<section id="best-for-quick-exploration" class="level4">
+<h4 class="anchored" data-anchor-id="best-for-quick-exploration"><em>Best for Quick Exploration</em></h4>
+<ul class="advantage-list">
+<li>
+Lightweight and fast loading
+</li>
+<li>
+Intuitive navigation with click-and-drag
+</li>
+<li>
+Smooth zooming with scroll wheel
+</li>
+<li>
+Pre-configured track visibility
+</li>
+<li>
+Quick region navigation
+</li>
+<li>
+Ideal for reviewing specific loci
+</li>
+</ul>
+<p><strong>Featured Tracks:</strong></p>
+<ul>
+<li>Gene annotations</li>
+<li>PAV insertions &amp; deletions (Lean/Siscowet)</li>
+<li>CpG methylation (8 samples)</li>
+<li>Differentially methylated regions</li>
+</ul>
+<p><a href="genome-browser/index.html" class="browser-link">Launch IGV Browser →</a></p>
+</section>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="jbrowse-2" class="level3 genome-browser-card">
+<h3 class="anchored" data-anchor-id="jbrowse-2">🧬 JBrowse 2</h3>
+<section id="best-for-advanced-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="best-for-advanced-analysis"><em>Best for Advanced Analysis</em></h4>
+<ul class="advantage-list">
+<li>
+Full-featured genome browser
+</li>
+<li>
+Multiple synchronized views
+</li>
+<li>
+Advanced track configuration
+</li>
+<li>
+Plugin extensibility
+</li>
+<li>
+Dot plot &amp; synteny views
+</li>
+<li>
+Better for complex comparisons
+</li>
+</ul>
+<p><strong>Featured Tracks:</strong></p>
+<ul>
+<li>Reference genome sequence</li>
+<li>Gene annotations (BED format)</li>
+<li>PAV structural variants</li>
+<li>CpG methylation BigWig tracks</li>
+<li>Differential methylation results</li>
+</ul>
+<p><a href="jbrowse/index.html" class="browser-link">Launch JBrowse 2 →</a></p>
+</section>
+</section>
+</div>
+</div>
+<hr>
+</section>
+<section id="data-methods" class="level2">
+<h2 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h2>
+<section id="reference-genome" class="level3">
+<h3 class="anchored" data-anchor-id="reference-genome">Reference Genome</h3>
+<ul>
+<li><strong>Assembly</strong>: NCBI <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_016432855.1/">GCF_016432855.1 (SaNama_1.0)</a></li>
+<li><strong>Source</strong>: NCBI BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA674328">PRJNA674328</a></li>
+</ul>
+</section>
+<section id="samples" class="level3">
+<h3 class="anchored" data-anchor-id="samples">Samples</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Ecotype</th>
+<th>Sample Size</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Lean</strong></td>
+<td>n=4</td>
+<td>Shallow-water ecotype</td>
+</tr>
+<tr class="even">
+<td><strong>Siscowet</strong></td>
+<td>n=4</td>
+<td>Deep-water ecotype</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="analysis-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-pipeline">Analysis Pipeline</h3>
+<ol type="1">
+<li><strong>PAV Calling</strong>: PacBio long-read sequencing with pbsv</li>
+<li><strong>Methylation Analysis</strong>: PacBio CpG methylation calling and DMR identification</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="repository-structure" class="level2">
+<h2 class="anchored" data-anchor-id="repository-structure">Repository Structure</h2>
+<pre><code>project-lake-trout/
+├── analyses/          # Analysis outputs (DEGs, DETs, PAV, methylation)
+├── code/              # R Markdown and Python analysis scripts  
+├── data/              # Input data and metadata
+├── genome-browser/    # IGV.js browser application
+├── jbrowse/           # JBrowse 2 browser application
+└── figures/           # Generated figures</code></pre>
+<hr>
+</section>
+<section id="citation-resources" class="level2">
+<h2 class="anchored" data-anchor-id="citation-resources">Citation &amp; Resources</h2>
+<ul>
+<li><strong>GitHub Repository</strong>: <a href="https://github.com/RobertsLab/project-lake-trout">RobertsLab/project-lake-trout</a></li>
+<li><strong>Lab Website</strong>: <a href="https://robertslab.github.io/">Roberts Lab</a></li>
+</ul>
+<hr>
+<p><em>Last updated: <code>r Sys.Date()</code></em></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
