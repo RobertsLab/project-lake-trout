@@ -9,10 +9,10 @@
         "adapter": {
           "type": "IndexedFastaAdapter",
           "fastaLocation": {
-            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/genome-browser/data/genome/GCF_016432855.1_SaNama_1.0_genomic.fa"
+            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/GCF_016432855.1_SaNama_1.0_genomic.fa"
           },
           "faiLocation": {
-            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/genome-browser/data/genome/GCF_016432855.1_SaNama_1.0_genomic.fa.fai"
+            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data/GCF_016432855.1_SaNama_1.0_genomic.fa.fai"
           }
         }
       }
