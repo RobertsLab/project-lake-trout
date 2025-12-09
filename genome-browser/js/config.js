@@ -9,23 +9,23 @@ const DATA_BASE_URL = window.location.hostname === 'localhost' || window.locatio
     : 'https://robertslab.github.io/project-lake-trout/genome-browser/data';
 
 // External genome hosting URL (Gannet server)
-const GENOME_BASE_URL = 'https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/data';
+const GENOME_BASE_URL = 'https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/deep-dive-genome-browser/docs/jbrowse/data';
 
 /**
  * Genome Configuration
  * Reference: GCF_016432855.1 SaNama_1.0 (Lake Trout / Salvelinus namaycush)
- * Note: Using chromosome sizes for navigation without sequence display.
- * For full sequence display, genome files need CORS headers enabled.
+ * Note: Using full FASTA file for sequence display.
  */
 const GENOME_CONFIG = {
     id: "SaNama_1.0",
     name: "Lake Trout (Salvelinus namaycush) - SaNama_1.0",
-    // Chromosome sizes file for basic navigation (no sequence display)
-    chromSizesURL: `${DATA_BASE_URL}/genome/chrom.sizes`,
+    // Full genome FASTA for sequence display
+    fastaURL: `${GENOME_BASE_URL}/GCF_016432855.1_SaNama_1.0_genomic.fa`,
+    indexURL: `${GENOME_BASE_URL}/GCF_016432855.1_SaNama_1.0_genomic.fa.fai`,
     // Explicitly set cytobandURL to null to prevent IGV.js errors
     cytobandURL: null,
-    // Disable whole genome view when not using FASTA
-    wholeGenomeView: false,
+    // Enable whole genome view with FASTA
+    wholeGenomeView: true,
     
     // Chromosome aliases for user-friendly names
     chromosomeOrder: [
