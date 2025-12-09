@@ -20,7 +20,7 @@ Comprehensive genomic analysis of _Salvelinus namaycush_ (lake trout) comparing 
 
 ### 1. RNAseq Differential Expression
 
-Analysis of liver RNAseq data from parasitized and non-parasitized samples ([NCBI BioProject PRJNA674328](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA674328)) to identify:
+Analysis of liver RNAseq data from parasitized and non-parasitized samples ([NCBI BioProject PRJNA316738](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA316738)) to identify:
 - Differentially expressed genes (DEGs) between subspecies
 - Differentially expressed transcripts (DETs) and alternative isoforms
 - Expression differences related to parasite status
@@ -124,14 +124,17 @@ See README files in each subdirectory for detailed information about specific an
 
 ## Sample Information
 
-### Lean Ecotype
-- bc2041, bc2068, bc2069, bc2070
+### RNAseq Samples
+- **Lean Nonparasitized**: NPLL32, NPLL34, NPLL44, NPLL46, NPLL56, NPLL61
+- **Lean Parasitized**: PLL20, PLL31, PLL43, PLL55, PLL59, PLL62
+- **Siscowet Nonparasitized**: NPSL15, NPSL24, NPSL29, NPSL36, NPSL50, NPSL58
+- **Siscowet Parasitized**: PSL13, PSL16, PSL35, PSL49, PSL53, PSL63
 
-### Siscowet Ecotype  
-- bc2071, bc2072, bc2073, bc2096
+See [`data/SraRunTable.csv`](data/SraRunTable.csv) for complete RNAseq sample metadata.
 
-### Sample Details
-See [`data/SraRunTable.csv`](data/SraRunTable.csv) for complete RNAseq sample metadata including parasite status.
+### PacBio HiFi Samples (for methylation and PAV analysis)
+- **Lean**: bc2041, bc2068, bc2069, bc2070
+- **Siscowet**: bc2071, bc2072, bc2073, bc2096
 
 ---
 
@@ -167,7 +170,7 @@ The following data processing steps were performed prior to analyses in this rep
 
 If you use data or methods from this repository, please cite:
 
-- Lake Trout RNAseq data: [NCBI BioProject PRJNA674328](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA674328)
+- Lake Trout RNAseq data: [NCBI BioProject PRJNA316738](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA316738)
 - Reference genome: GCF_016432855.1 (SaNama_1.0)
 
 ---
