@@ -1,5 +1,5 @@
 ---
-title: "Lake Trout Genomics Project"
+title: "Lake Trout EpiGenomics Project"
 subtitle: "Comparative Analysis of *Salvelinus namaycush* Ecotypes"
 author: "Rick Goetz, Cristian Gallardo-Escarate, and Steven Roberts"
 date: last-modified
@@ -124,34 +124,6 @@ format:
 </style>
 ```
 
-## About Lake Trout (*Salvelinus namaycush*)
-
-::: {.columns}
-
-::: {.column width="60%"}
-
-Lake trout (*Salvelinus namaycush*) are a cold-water char native to North American lakes. They are the largest member of the char genus *Salvelinus* and represent an important species for understanding evolutionary adaptation and ecological divergence.
-
-This project focuses on comparing two distinct ecotypes found in the Great Lakes:
-
-- **<span class="lean-color">Lean Lake Trout</span>**: Shallow-water dwelling, elongated body morphology, lower lipid content
-- **<span class="siscowet-color">Siscowet Lake Trout</span>**: Deep-water specialist, robust body form, high lipid storage capacity
-
-These ecotypes exhibit remarkable phenotypic differences despite living in the same lake system, making them an excellent model for studying the genomic basis of ecological adaptation.
-
-:::
-
-::: {.column width="40%"}
-
-![Lake Trout ecotypes show distinct morphological adaptations](img/lt.png){fig-alt="Lake Trout" width="100%"}
-
-:::
-
-:::
-
-
----
-
 ## Interactive Genome Browsers
 
 Explore the genomic data through two interactive visualization platforms, each offering unique capabilities for data exploration.
@@ -201,6 +173,35 @@ Explore the genomic data through two interactive visualization platforms, each o
 :::
 
 ---
+
+## About Lake Trout (*Salvelinus namaycush*)
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+Lake trout (*Salvelinus namaycush*) are a cold-water char native to North American lakes. They are the largest member of the char genus *Salvelinus* and represent an important species for understanding evolutionary adaptation and ecological divergence.
+
+This project focuses on comparing two distinct ecotypes found in the Great Lakes:
+
+- **<span class="lean-color">Lean Lake Trout</span>**: Shallow-water dwelling, elongated body morphology, lower lipid content
+- **<span class="siscowet-color">Siscowet Lake Trout</span>**: Deep-water specialist, robust body form, high lipid storage capacity
+
+These ecotypes exhibit remarkable phenotypic differences despite living in the same lake system, making them an excellent model for studying the genomic basis of ecological adaptation.
+
+:::
+
+::: {.column width="40%"}
+
+![Lake Trout ecotypes show distinct morphological adaptations](img/lt.png){fig-alt="Lake Trout" width="100%"}
+
+:::
+
+:::
+
+
+---
+
 
 ## Data & Methods
 
