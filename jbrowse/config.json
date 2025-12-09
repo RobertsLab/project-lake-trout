@@ -86,6 +86,19 @@
     },
     {
       "type": "FeatureTrack",
+      "trackId": "stringent_siscowet_deletions",
+      "name": "Stringent Siscowet-specific Deletions (>100bp, all 4 samples)",
+      "category": ["PAV", "Siscowet", "Stringent"],
+      "assemblyNames": ["SaNama_1.0"],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/lake-trout/stringent.siscowet_specific.deletions.browser.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
       "trackId": "shared_insertions",
       "name": "Shared Insertions",
       "category": ["PAV", "Shared"],

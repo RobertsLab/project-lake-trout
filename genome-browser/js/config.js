@@ -106,6 +106,19 @@ const TRACK_CONFIGS = {
         visibilityWindow: 10000000
     },
     
+    // Stringent PAV Tracks - Present in ALL 4 samples, absent from other ecotype, >100bp
+    stringentSiscowetDeletions: {
+        name: "Stringent Siscowet-Specific Deletions (>100bp, all 4 samples)",
+        type: "annotation",
+        format: "bed",
+        url: `${DATA_BASE_URL}/pav/stringent.siscowet_specific.deletions.browser.bed`,
+        displayMode: "SQUISHED",
+        color: "#7F1D1D",
+        height: 50,
+        order: 22,
+        visibilityWindow: 10000000
+    },
+    
     // PAV Tracks - Shared
     sharedInsertions: {
         name: "Shared Insertions",
@@ -218,6 +231,7 @@ const DEFAULT_TRACKS = [
     'leanDeletions', 
     'siscowetInsertions',
     'siscowetDeletions',
+    'stringentSiscowetDeletions',
     'methylationDiff',
     'dmrsHyper',
     'dmrsHypo'
