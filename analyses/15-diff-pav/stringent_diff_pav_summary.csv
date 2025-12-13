@@ -1,0 +1,5 @@
+variant_type,category,count,total_bp,min_size,max_size,mean_size
+insertions,lean_specific,0,0,0,0,0.0
+insertions,siscowet_specific,0,0,0,0,0.0
+deletions,lean_specific,0,0,0,0,0.0
+deletions,siscowet_specific,3465,1937786,101,11315,559.2

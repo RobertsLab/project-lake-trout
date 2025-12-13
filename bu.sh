@@ -16,7 +16,7 @@ rsync -av ../project-lake-trout \
 --exclude='*gz_C_to_T.fastq' \
 --exclude='*gz_G_to_A.fastq' \
 --exclude='Non_CpG_context*' \
---exclude='.*' --exclude='*/.*' \
+--exclude='.git*' --exclude='*/.git*' \
 sr320@gannet.fish.washington.edu:/volume1/v1_web/owlshell/bu-github/
 
 
