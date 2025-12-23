@@ -4,6 +4,8 @@
 .Ruserdata
 .DS_Store
 *tmp
+__pycache__/
+*.pyc
 
 data/m84082_250614_081210_s3.hifi_reads.bam
 data/GCF_016432855.1_SaNama_1.0_genomic.fna.gz

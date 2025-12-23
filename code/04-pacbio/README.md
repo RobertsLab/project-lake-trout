@@ -71,7 +71,69 @@ Aligned BAMs and pbmm2 logs land in `analyses/04-pacbio/alignments/` by default,
 
 > **Note:** pbmm2 v1.17 switched to the `-j/--num-threads` switch; the script already uses `-j`, so keep pbmm2 up to date or adjust if using an older release.
 
+## Data Summary Scripts
+
+### `create_sequencing_summary.py`
+
+Generate comprehensive summary reports of PacBio Revio sequencing data for the Lake Trout project.
+
+#### Features
+- Scans directories for sequencing data files
+- Analyzes BAM files to extract read statistics (using samtools or pysam)
+- Generates detailed markdown reports with:
+  - File inventory
+  - Read statistics (counts, lengths, N50, quality scores)
+  - Sample information (Lean vs Siscowet)
+  - Technology overview
+  - Recommended analysis workflows
+  - References and links
+
+#### Usage Examples
+
+Generate a template report:
+```bash
+cd code/04-pacbio
+python create_sequencing_summary.py --generate-template
+```
+
+Analyze local data directory:
+```bash
+python create_sequencing_summary.py --data-dir ../../data/pacbio-reads
+```
+
+Analyze BAM files in detail:
+```bash
+python create_sequencing_summary.py \
+  --data-dir ../../data/pacbio-reads \
+  --analyze-bams \
+  --max-bams 5
+```
+
+Custom output location:
+```bash
+python create_sequencing_summary.py \
+  --data-dir /path/to/data \
+  --output /path/to/output/report.md \
+  --analyze-bams
+```
+
+#### Requirements
+- Python 3.11+
+- Optional: `pysam` for BAM analysis (install with `uv add pysam`)
+- Optional: `samtools` for BAM analysis (if pysam not available)
+
+#### Output
+The script generates a markdown report at `../../analyses/04-pacbio/sequencing_data_summary.md` by default, containing:
+- Overview of the sequencing project
+- Data source information
+- File inventory grouped by type
+- Sequencing statistics tables
+- Detailed per-sample metrics
+- Sample and technology information
+- Recommended analysis workflows
+- References and documentation links
+
 ## Next Steps
-- Add initial prompts and planned analyses.
-- Create scaffolding scripts or notebooks for processing PacBio data.
-- Outline quality control and validation checkpoints for DNA methylation calls.
+- Use `create_sequencing_summary.py` to generate reports from local or downloaded data
+- Run alignment workflows using the provided `align_hifi_pbmm2.py` script
+- Perform downstream analyses (variant calling, methylation, etc.)
