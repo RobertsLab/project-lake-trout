@@ -1,0 +1,4 @@
+../data/pacbio-siscowet/m84082_250614_081210_s3.hifi_reads.demux.bc2071--bc2071.fastq.gz
+../data/pacbio-siscowet/m84082_250614_081210_s3.hifi_reads.demux.bc2072--bc2072.fastq.gz
+../data/pacbio-siscowet/m84082_250614_101514_s4.hifi_reads.demux.bc2073--bc2073.fastq.gz
+../data/pacbio-siscowet/m84082_251001_025627_s2.hifi_reads.bc2096.fastq.gz
