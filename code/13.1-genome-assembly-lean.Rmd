@@ -1,0 +1,73 @@
+---
+title: "13.1-genome-assembly-lean"
+author: "Sam White"
+date: "2026-03-26"
+output: 
+  github_document:
+    toc: true
+    number_sections: true
+  bookdown::html_document2:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+bibliography: references.bib
+citeproc: true
+---
+
+# SETUP
+
+## Libraries
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(reticulate)
+
+knitr::opts_chunk$set(
+  echo = TRUE,         # Display code chunks
+    eval = FALSE,        # Evaluate code chunks
+    results = "hold",   # Hold outputs and show them after the full code chunk
+  warning = FALSE,     # Hide warnings
+        collapse = FALSE,    # Keep code and output in separate blocks
+        warning = FALSE,     # Hide warnings
+        message = FALSE,     # Hide messages
+        comment = "##"      # Prefix output lines with '##' so output is visually distinct
+)
+```
+
+## Set R variables
+
+```{r R-variables, eval=TRUE}
+# OUTPUT DIRECTORY
+output_dir <- "../output/13.1-genome-assembly-lean"
+
+#INPUT FILE(S)
+
+
+# CONDA
+conda_env_name <- c("/srlab/programs/miniforge3-24.7.1-0/envs/flye-2.9.6-env")
+conda_path <- c("/srlab/programs/miniforge3-24.7.1-0/bin/conda")
+```
+
+## Load [Flye](https://github.com/mikolmogorov/Flye) conda environment
+
+If this is successful, the first line of output should show that the Python being used is the one in your [Flye](https://github.com/mikolmogorov/Flye) conda environment path.
+
+E.g.
+
+`python:         /srlab/programs/miniforge3-24.7.1-0/envs/flye-2.9.6-env/bin/python`
+
+```{r load-conda-env, eval=TRUE}
+use_condaenv(condaenv = conda_env_name, conda = conda_path)
+py_config()
+```
