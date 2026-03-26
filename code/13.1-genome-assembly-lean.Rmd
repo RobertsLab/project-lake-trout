@@ -24,6 +24,10 @@ bibliography: references.bib
 citeproc: true
 ---
 
+# BACKGROUND
+
+Use [Flye](https://github.com/mikolmogorov/Flye)(GitHub) [@kolmogorov2019] to assemble PacBio reads for _S.namaycush_ `lean` ecotype.
+
 # SETUP
 
 ## Libraries
@@ -49,14 +53,30 @@ knitr::opts_chunk$set(
 
 ```{r R-variables, eval=TRUE}
 # OUTPUT DIRECTORY
+data_dir <- "../data/pacbio-lean"
 output_dir <- "../output/13.1-genome-assembly-lean"
 
 #INPUT FILE(S)
 
 
+
 # CONDA
 conda_env_name <- c("/srlab/programs/miniforge3-24.7.1-0/envs/flye-2.9.6-env")
 conda_path <- c("/srlab/programs/miniforge3-24.7.1-0/bin/conda")
+
+# SETTINGS
+genome_size <- "2.3g"
+threads <- "32"
+
+
+# Export these as environment variables for bash chunks.
+Sys.setenv(
+  data_dir = data_dir,
+  genome_size = genome_size,
+  output_dir = output_dir,
+  threads = threads
+)
+
 ```
 
 ## Load [Flye](https://github.com/mikolmogorov/Flye) conda environment
@@ -70,4 +90,29 @@ E.g.
 ```{r load-conda-env, eval=TRUE}
 use_condaenv(condaenv = conda_env_name, conda = conda_path)
 py_config()
+```
+
+
+```{r flye, engine='bash'}
+# Make output directory, if it doesn't exist
+mkdir --parents "${output_dir}"
+
+# Create an array of .fastq.gz files
+fastqs=(${data_dir}/*.fastq.gz)
+
+# Print the result (optional, for verification)
+## newline-delimited format
+echo "List of FastQs used for assembly:"
+
+printf "%s\n" "${fastqs[@]}" \
+| tee "${output_dir}/input_fastqs.txt"
+
+# Run Flye assembly
+flye \
+--pacbio-hifi "${fastqs[@]}" \
+--genome-size "${genome_size}" \
+--out-dir "${output_dir}" \
+--threads "${threads}" \
+> "${output_dir}"/pb-lean-assembly.log 2>&1
+
 ```

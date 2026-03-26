@@ -1,0 +1,4 @@
+../data/pacbio-lean/m84082_250614_081210_s3.hifi_reads.demux.bc2041--bc2041.fastq.gz
+../data/pacbio-lean/m84082_250614_101514_s4.hifi_reads.demux.bc2069--bc2069.fastq.gz
+../data/pacbio-lean/m84082_250614_101514_s4.hifi_reads.demux.bc2070--bc2070.fastq.gz
+../data/pacbio-lean/m84082_251001_025627_s2.hifi_reads.bc2068.fastq.gz
