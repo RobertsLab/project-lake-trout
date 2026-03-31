@@ -1,0 +1,101 @@
+---
+title: "13.1-hifiasm-genome-assembly-siscowet"
+author: "Sam White"
+date: "2026-03-31"
+output: 
+  github_document:
+    toc: true
+    number_sections: true
+  bookdown::html_document2:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+bibliography: references.bib
+citeproc: true
+---
+
+# BACKGROUND
+
+Use [hifiasm](https://github.com/chhylp123/hifiasm)(GitHub) to assemble PacBio reads for _S.namaycush_ `siscowet` ecotype.
+
+# SETUP
+
+## Libraries
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+
+knitr::opts_chunk$set(
+  echo = TRUE,         # Display code chunks
+    eval = FALSE,        # Evaluate code chunks
+    results = "hold",   # Hold outputs and show them after the full code chunk
+  warning = FALSE,     # Hide warnings
+        collapse = FALSE,    # Keep code and output in separate blocks
+        warning = FALSE,     # Hide warnings
+        message = FALSE,     # Hide messages
+        comment = "##"      # Prefix output lines with '##' so output is visually distinct
+)
+```
+
+## Set R variables
+
+```{r R-variables, eval=TRUE}
+# OUTPUT DIRECTORY
+data_dir <- "/mmfs1/gscratch/scrubbed/samwhite/gitrepos/RobertsLab/project-lake-trout/data/pacbio-siscowet"
+output_dir <- "../output/13.1-hifiasm-genome-assembly-siscowet"
+
+# PROGRAMS
+hifiasm <- c("/srlab/programs/miniforge3-24.7.1-0/envs/hifiasm-0.25.0_env/bin/hifiasm")
+
+
+# SETTINGS
+threads <- "40"
+
+
+# Export these as environment variables for bash chunks.
+Sys.setenv(
+  data_dir = data_dir,
+  hifiasm=hifiasm,
+  output_dir = output_dir,
+  threads = threads
+)
+
+```
+
+
+
+```{r hifiasm, engine='bash'}
+# Make output directory, if it doesn't exist
+mkdir --parents "${output_dir}"
+
+cd "${output_dir}"
+
+# Create an array of .fastq.gz files
+fastqs=(${data_dir}/*.fastq.gz)
+
+# Print the result (optional, for verification)
+## newline-delimited format
+echo "List of FastQs used for assembly:"
+
+printf "%s\n" "${fastqs[@]}" \
+| tee input_fastqs.txt
+
+# Run hifiasm assembly
+"${hifiasm}" \
+-o pb-hifiasm-siscowet-assembly.asm \
+-t "${threads}" \
+"${fastqs[@]}" \
+> pb-hifiasm-siscowet-assembly.log 2>&1
+
+```
