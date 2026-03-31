@@ -52,7 +52,7 @@ knitr::opts_chunk$set(
 
 ```{r R-variables, eval=TRUE}
 # OUTPUT DIRECTORY
-data_dir <- "../data/pacbio-lean"
+data_dir <- "/mmfs1/gscratch/scrubbed/samwhite/gitrepos/RobertsLab/project-lake-trout/data/pacbio-lean"
 output_dir <- "../output/13.1-hifiasm-genome-assembly-lean"
 
 # PROGRAMS
@@ -66,6 +66,7 @@ threads <- "40"
 # Export these as environment variables for bash chunks.
 Sys.setenv(
   data_dir = data_dir,
+  hifiasm=hifiasm,
   output_dir = output_dir,
   threads = threads
 )
@@ -78,6 +79,8 @@ Sys.setenv(
 # Make output directory, if it doesn't exist
 mkdir --parents "${output_dir}"
 
+cd "${output_dir}"
+
 # Create an array of .fastq.gz files
 fastqs=(${data_dir}/*.fastq.gz)
 
@@ -86,13 +89,13 @@ fastqs=(${data_dir}/*.fastq.gz)
 echo "List of FastQs used for assembly:"
 
 printf "%s\n" "${fastqs[@]}" \
-| tee "${output_dir}/input_fastqs.txt"
+| tee input_fastqs.txt
 
 # Run hifiasm assembly
 "${hifiasm}" \
--o "${output_dir}" \
+-o pb-hifiasm-lean-assembly.asm \
 -t "${threads}" \
 "${fastqs[@]}" \
-> "${output_dir}"/pb-hifiasm-lean-assembly.log 2>&1
+> pb-hifiasm-lean-assembly.log 2>&1
 
 ```
