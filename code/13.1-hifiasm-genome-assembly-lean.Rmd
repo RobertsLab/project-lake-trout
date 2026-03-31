@@ -89,7 +89,7 @@ printf "%s\n" "${fastqs[@]}" \
 | tee "${output_dir}/input_fastqs.txt"
 
 # Run hifiasm assembly
-hifiasm \
+"${hifiasm}" \
 -o "${output_dir}" \
 -t "${threads}" \
 "${fastqs[@]}" \
