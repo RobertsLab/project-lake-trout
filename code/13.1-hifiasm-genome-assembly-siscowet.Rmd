@@ -155,7 +155,7 @@ for fasta in *.fa
 do
   md5sum "${fasta}" \
   | tee "${fasta}".md5
-
+done
 ```
 
 # REFERENCES
