@@ -56,8 +56,8 @@ knitr::opts_chunk$set(
 data_dir <- "../data/pacbio-lean"
 output_dir <- "../output/13.1-genome-assembly-lean"
 
-#INPUT FILE(S)
-
+#OUTPUT FILE(S)
+prefix <- "snam-lean-pb-flye"
 
 
 # CONDA
@@ -74,6 +74,7 @@ Sys.setenv(
   data_dir = data_dir,
   genome_size = genome_size,
   output_dir = output_dir,
+  prefix = prefix,
   threads = threads
 )
 
@@ -115,4 +116,54 @@ flye \
 --threads "${threads}" \
 > "${output_dir}"/pb-lean-assembly.log 2>&1
 
+```
+
+# OUTPUTS
+
+## List files
+```{r list-files, engine='bash'}
+ls -ltrh "${output_dir}"
+```
+
+## Rename files
+
+Files have generic "assembly_*" naming.
+
+Renaming to reflect specific species-ecotype-data-assembly_method.
+
+```{r rename-files, engine='bash'}
+cd "${output_dir}"
+
+for file in assembly*
+do
+  mv "${file}" ${prefix}-${file}
+done
+```
+
+## Create FastA Index
+
+```{r, fasta-index, engine='bash'}
+"${output_dir}"
+
+samtools ${prefix}-assembly.fasta
+```
+
+## Create checksums
+
+```{r checksums, engine='bash'}
+"${output_dir}"
+
+for file in ${prefix}*
+do
+  md5sum "${file}" \
+  | tee "${file}".md5
+done
+```
+
+## Assembly stats
+
+```{r assembly-stats, engine='bash'}
+"${output_dir}"
+
+tail flye.log
 ```
