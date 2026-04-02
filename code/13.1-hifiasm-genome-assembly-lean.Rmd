@@ -26,7 +26,7 @@ citeproc: true
 
 # BACKGROUND
 
-Use [hifiasm](https://github.com/chhylp123/hifiasm)(GitHub) to assemble PacBio reads for _S.namaycush_ `lean` ecotype.
+Use [hifiasm](https://github.com/chhylp123/hifiasm) (GitHub) [@cheng2021; @cheng2022; @cheng2024] to assemble PacBio reads for _S.namaycush_ `lean` ecotype.
 
 # SETUP
 
@@ -56,6 +56,7 @@ data_dir <- "/mmfs1/gscratch/scrubbed/samwhite/gitrepos/RobertsLab/project-lake-
 output_dir <- "../output/13.1-hifiasm-genome-assembly-lean"
 
 # PROGRAMS
+gfatools <- c("/srlab/programs/gfatools/gfatools")
 hifiasm <- c("/srlab/programs/miniforge3-24.7.1-0/envs/hifiasm-0.25.0_env/bin/hifiasm")
 
 
@@ -66,6 +67,7 @@ threads <- "40"
 # Export these as environment variables for bash chunks.
 Sys.setenv(
   data_dir = data_dir,
+  gfatools = gfatools,
   hifiasm=hifiasm,
   output_dir = output_dir,
   threads = threads
@@ -99,3 +101,62 @@ printf "%s\n" "${fastqs[@]}" \
 > pb-hifiasm-lean-assembly.log 2>&1
 
 ```
+
+
+# GFATOOLS
+
+## Primary contigs to FastA
+
+This will extract a FastA file from the graph files output by hifiasm.
+
+```{r gfatools-primary-contigs, engine='bash'}
+cd "${output_dir}"
+
+"${gfatools}" gfa2fa \
+pb-hifiasm-lean-assembly.asm.bp.p_ctg.gfa \
+> pb-hifiasm-lean-assembly.fa
+
+samtools faidx pb-hifiasm-lean-assembly.fa
+```
+
+## Haplotype 1 contigs to FastA
+
+This will extract a FastA file from the graph files output by hifiasm.
+
+```{r gfatools-hap1-contigs, engine='bash'}
+cd "${output_dir}"
+
+"${gfatools}" gfa2fa \
+pb-hifiasm-lean-assembly.asm.bp.hap1.p_ctg.gfa \
+> pb-hifiasm-lean-hap1-assembly.fa
+
+samtools faidx pb-hifiasm-lean-hap1-assembly.fa
+```
+
+## Haplotype 2 contigs to FastA
+
+This will extract a FastA file from the graph files output by hifiasm.
+
+```{r gfatools-hap2-contigs, engine='bash'}
+cd "${output_dir}"
+
+"${gfatools}" gfa2fa \
+pb-hifiasm-lean-assembly.asm.bp.hap2.p_ctg.gfa \
+> pb-hifiasm-lean-hap2-assembly.fa
+
+samtools faidx pb-hifiasm-lean-hap2-assembly.fa
+```
+
+## Generate checksums
+
+```{r checksums, engine='bash', eval=TRUE}
+cd "${output_dir}"
+
+for fasta in *.fa
+do
+  md5sum "${fasta}" \
+  | tee "${fasta}".md5
+done
+```
+
+# REFERENCES
