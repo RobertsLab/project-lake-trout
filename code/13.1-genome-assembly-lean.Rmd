@@ -32,7 +32,7 @@ Use [Flye](https://github.com/mikolmogorov/Flye)(GitHub) [@kolmogorov2019] to as
 
 ## Libraries
 
-```{r setup, include=FALSE}
+```{r setup, include=TRUE}
 library(knitr)
 library(tidyverse)
 library(reticulate)
@@ -121,7 +121,7 @@ flye \
 # OUTPUTS
 
 ## List files
-```{r list-files, engine='bash'}
+```{r list-files, engine='bash', eval=TRUE}
 ls -ltrh "${output_dir}"
 ```
 
@@ -131,7 +131,7 @@ Files have generic "assembly_*" naming.
 
 Renaming to reflect specific species-ecotype-data-assembly_method.
 
-```{r rename-files, engine='bash'}
+```{r rename-files, engine='bash', eval=TRUE}
 cd "${output_dir}"
 
 for file in assembly*
@@ -142,16 +142,16 @@ done
 
 ## Create FastA Index
 
-```{r, fasta-index, engine='bash'}
-"${output_dir}"
+```{r, fasta-index, engine='bash', eval=TRUE}
+cd "${output_dir}"
 
-samtools ${prefix}-assembly.fasta
+samtools faidx ${prefix}-assembly.fasta
 ```
 
 ## Create checksums
 
-```{r checksums, engine='bash'}
-"${output_dir}"
+```{r checksums, engine='bash', eval=TRUE}
+cd "${output_dir}"
 
 for file in ${prefix}*
 do
@@ -162,8 +162,8 @@ done
 
 ## Assembly stats
 
-```{r assembly-stats, engine='bash'}
-"${output_dir}"
+```{r assembly-stats, engine='bash', eval=TRUE}
+cd "${output_dir}"
 
 tail flye.log
 ```
