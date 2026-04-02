@@ -26,7 +26,7 @@ citeproc: true
 
 # BACKGROUND
 
-Use [hifiasm](https://github.com/chhylp123/hifiasm)(GitHub) to assemble PacBio reads for _S.namaycush_ `siscowet` ecotype.
+Use [hifiasm](https://github.com/chhylp123/hifiasm) (GitHub) [@cheng2021; @cheng2022; @cheng2024] to assemble PacBio reads for *S.namaycush* `siscowet` ecotype.
 
 # SETUP
 
@@ -75,7 +75,6 @@ Sys.setenv(
 
 ```
 
-
 # RUN HIFIASM
 
 ```{r hifiasm, engine='bash'}
@@ -107,8 +106,7 @@ printf "%s\n" "${fastqs[@]}" \
 
 ## Primary contigs to FastA
 
-This will extract a FastA file from the graph files output
-by hifiasm.
+This will extract a FastA file from the graph files output by hifiasm.
 
 ```{r gfatools-primary-contigs, engine='bash'}
 cd "${output_dir}"
@@ -121,8 +119,8 @@ samtools faidx pb-hifiasm-siscowet-assembly.fa
 ```
 
 ## Haplotype 1 contigs to FastA
-This will extract a FastA file from the graph files output
-by hifiasm.
+
+This will extract a FastA file from the graph files output by hifiasm.
 
 ```{r gfatools-hap1-contigs, engine='bash'}
 cd "${output_dir}"
@@ -135,8 +133,8 @@ samtools faidx pb-hifiasm-siscowet-hap1-assembly.fa
 ```
 
 ## Haplotype 2 contigs to FastA
-This will extract a FastA file from the graph files output
-by hifiasm.
+
+This will extract a FastA file from the graph files output by hifiasm.
 
 ```{r gfatools-hap2-contigs, engine='bash'}
 cd "${output_dir}"
@@ -147,3 +145,17 @@ pb-hifiasm-siscowet-assembly.asm.bp.hap2.p_ctg.gfa \
 
 samtools faidx pb-hifiasm-siscowet-hap2-assembly.fa
 ```
+
+## Generate checksums
+
+```{r checksums, engine='bash', eval=TRUE}
+cd "${output_dir}"
+
+for fasta in *.fa
+do
+  md5sum "${fasta}" \
+  | tee "${fasta}".md5
+
+```
+
+# REFERENCES
