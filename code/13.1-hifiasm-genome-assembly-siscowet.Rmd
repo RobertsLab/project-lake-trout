@@ -56,6 +56,7 @@ data_dir <- "/mmfs1/gscratch/scrubbed/samwhite/gitrepos/RobertsLab/project-lake-
 output_dir <- "../output/13.1-hifiasm-genome-assembly-siscowet"
 
 # PROGRAMS
+gfatools <- c("/srlab/programs/gfatools/gfatools")
 hifiasm <- c("/srlab/programs/miniforge3-24.7.1-0/envs/hifiasm-0.25.0_env/bin/hifiasm")
 
 
@@ -66,6 +67,7 @@ threads <- "40"
 # Export these as environment variables for bash chunks.
 Sys.setenv(
   data_dir = data_dir,
+  gfatools = gfatools,
   hifiasm=hifiasm,
   output_dir = output_dir,
   threads = threads
@@ -74,6 +76,7 @@ Sys.setenv(
 ```
 
 
+# RUN HIFIASM
 
 ```{r hifiasm, engine='bash'}
 # Make output directory, if it doesn't exist
@@ -98,4 +101,49 @@ printf "%s\n" "${fastqs[@]}" \
 "${fastqs[@]}" \
 > pb-hifiasm-siscowet-assembly.log 2>&1
 
+```
+
+# GFATOOLS
+
+## Primary contigs to FastA
+
+This will extract a FastA file from the graph files output
+by hifiasm.
+
+```{r gfatools-primary-contigs, engine='bash'}
+cd "${output_dir}"
+
+"${gfatools}" gfa2fa \
+pb-hifiasm-siscowet-assembly.asm.bp.p_ctg.gfa \
+> pb-hifiasm-siscowet-assembly.fa
+
+samtools faidx pb-hifiasm-siscowet-assembly.fa
+```
+
+## Haplotype 1 contigs to FastA
+This will extract a FastA file from the graph files output
+by hifiasm.
+
+```{r gfatools-hap1-contigs, engine='bash'}
+cd "${output_dir}"
+
+"${gfatools}" gfa2fa \
+pb-hifiasm-siscowet-assembly.asm.bp.hap1.p_ctg.gfa \
+> pb-hifiasm-siscowet-hap1-assembly.fa
+
+samtools faidx pb-hifiasm-siscowet-hap1-assembly.fa
+```
+
+## Haplotype 2 contigs to FastA
+This will extract a FastA file from the graph files output
+by hifiasm.
+
+```{r gfatools-hap2-contigs, engine='bash'}
+cd "${output_dir}"
+
+"${gfatools}" gfa2fa \
+pb-hifiasm-siscowet-assembly.asm.bp.hap2.p_ctg.gfa \
+> pb-hifiasm-siscowet-hap2-assembly.fa
+
+samtools faidx pb-hifiasm-siscowet-hap2-assembly.fa
 ```
