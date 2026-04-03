@@ -28,6 +28,10 @@ citeproc: true
 
 Use [hifiasm](https://github.com/chhylp123/hifiasm) (GitHub) [@cheng2021; @cheng2022; @cheng2024] to assemble PacBio reads for _S.namaycush_ `lean` ecotype.
 
+Due to large file sizes, the outputs will not be on GitHub. They may be found here instead:
+
+- [https://gannet.fish.washington.edu/gitrepos/project-lake-trout/output/13.1-hifiasm-genome-assembly-lean/](https://gannet.fish.washington.edu/gitrepos/project-lake-trout/output/13.1-hifiasm-genome-assembly-lean/)
+
 # SETUP
 
 ## Libraries
