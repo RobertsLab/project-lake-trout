@@ -65,7 +65,7 @@ hifiasm <- c("/srlab/programs/miniforge3-24.7.1-0/envs/hifiasm-0.25.0_env/bin/hi
 
 
 # SETTINGS
-threads <- "40"
+threads <- "100"
 
 
 # Export these as environment variables for bash chunks.
