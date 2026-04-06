@@ -66,7 +66,7 @@ conda_path <- c("/srlab/programs/miniforge3-24.7.1-0/bin/conda")
 
 # SETTINGS
 genome_size <- "2.3g"
-threads <- "32"
+threads <- "100"
 
 
 # Export these as environment variables for bash chunks.
