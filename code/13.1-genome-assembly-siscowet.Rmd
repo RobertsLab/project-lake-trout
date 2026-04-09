@@ -75,6 +75,7 @@ Sys.setenv(
   data_dir = data_dir,
   genome_size = genome_size,
   output_dir = output_dir,
+  prefix = prefix,
   threads = threads
 )
 
