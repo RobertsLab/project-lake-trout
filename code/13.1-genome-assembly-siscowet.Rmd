@@ -56,7 +56,8 @@ knitr::opts_chunk$set(
 data_dir <- "../data/pacbio-siscowet"
 output_dir <- "../output/13.1-genome-assembly-siscowet"
 
-#INPUT FILE(S)
+#OUTPUT FILE(S)
+prefix <- "snam-siscowet-pb-flye"
 
 
 
@@ -92,7 +93,7 @@ use_condaenv(condaenv = conda_env_name, conda = conda_path)
 py_config()
 ```
 
-
+# FLYE
 ```{r flye, engine='bash'}
 # Make output directory, if it doesn't exist
 mkdir --parents "${output_dir}"
@@ -115,4 +116,54 @@ flye \
 --threads "${threads}" \
 > "${output_dir}"/pb-siscowet-assembly.log 2>&1
 
+```
+
+# OUTPUTS
+
+## List files
+```{r list-files, engine='bash', eval=TRUE}
+ls -ltrh "${output_dir}"
+```
+
+## Rename files
+
+Files have generic "assembly_*" naming.
+
+Renaming to reflect specific species-ecotype-data-assembly_method.
+
+```{r rename-files, engine='bash', eval=TRUE}
+cd "${output_dir}"
+
+for file in assembly*
+do
+  mv "${file}" ${prefix}-${file}
+done
+```
+
+## Create FastA Index
+
+```{r, fasta-index, engine='bash', eval=TRUE}
+cd "${output_dir}"
+
+samtools faidx ${prefix}-assembly.fasta
+```
+
+## Create checksums
+
+```{r checksums, engine='bash', eval=TRUE}
+cd "${output_dir}"
+
+for file in ${prefix}*
+do
+  md5sum "${file}" \
+  | tee "${file}".md5
+done
+```
+
+## Assembly stats
+
+```{r assembly-stats, engine='bash', eval=TRUE}
+cd "${output_dir}"
+
+tail flye.log
 ```
