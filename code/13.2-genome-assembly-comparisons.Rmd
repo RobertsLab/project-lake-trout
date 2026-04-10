@@ -67,7 +67,6 @@ threads <- "40"
 
 # Export these as environment variables for bash chunks.
 Sys.setenv(
-  data_dir = data_dir,
   flye_lean_fasta = flye_lean_fasta,
   flye_siscowet_fasta = flye_siscowet_fasta,
   hifiasm_lean_fasta = hifiasm_lean_fasta,
@@ -81,17 +80,16 @@ Sys.setenv(
 
 # Run QUAST
 
-```{r quast, engine='bash'}
+```{r quast, engine='bash', eval=TRUE}
 # Make output directory, if it doesn't exist
 mkdir --parents "${output_dir}"
 
-python quast.py \
+quast.py \
 "${flye_lean_fasta}" \
 "${hifiasm_lean_fasta}" \
 "${flye_siscowet_fasta}" \
 "${hifiasm_siscowet_fasta}" \
 --output-dir "${output_dir}" \
---threads "${threads}"
+--threads "${threads}" \
 --labels "lean_flye, lean_hifiasm, siscowet_flye, siscowet_hifiasm"
-
 ```
