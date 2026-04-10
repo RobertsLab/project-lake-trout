@@ -1,0 +1,97 @@
+---
+title: "13.2-genome-assembly-comparisons"
+author: "Sam White"
+date: "2026-04-10"
+output: 
+  github_document:
+    toc: true
+    number_sections: true
+  bookdown::html_document2:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+bibliography: references.bib
+citeproc: true
+---
+
+# BACKGROUND
+
+This will use [QUAST](https://quast.sourceforge.net/docs/manual.html) [@mikheenko2018; @mikheenko2023] to evaluate the two sets of PacBio genome assemblies produced with [Flye](https://github.com/mikolmogorov/Flye)(GitHub) and [hifiasm](https://github.com/chhylp123/hifiasm) (GitHub) for both ecotypes.
+
+# SETUP
+
+## Libraries
+
+```{r setup, include=TRUE}
+library(knitr)
+library(tidyverse)
+library(reticulate)
+
+knitr::opts_chunk$set(
+  echo = TRUE,         # Display code chunks
+    eval = FALSE,        # Evaluate code chunks
+    results = "hold",   # Hold outputs and show them after the full code chunk
+  warning = FALSE,     # Hide warnings
+        collapse = FALSE,    # Keep code and output in separate blocks
+        warning = FALSE,     # Hide warnings
+        message = FALSE,     # Hide messages
+        comment = "##"      # Prefix output lines with '##' so output is visually distinct
+)
+```
+
+## Set R variables
+
+```{r R-variables, eval=TRUE}
+# OUTPUT DIRECTORY
+output_dir <- "../output/13.2-genome-assembly-comparisons"
+
+# INPUT FILES
+flye_lean_fasta <- "../output/13.1-genome-assembly-lean/snam-lean-pb-flye-assembly.fasta"
+flye_siscowet_fasta <- "../output/13.1-genome-assembly-siscowet/snam-siscowet-pb-flye-assembly.fasta"
+hifiasm_lean_fasta <- "../output/13.1-hifiasm-genome-assembly-lean/pb-hifiasm-lean-assembly.fa"
+hifiasm_siscowet_fasta <- "../output/13.1-hifiasm-genome-assembly-siscowet/pb-hifiasm-siscowet-assembly.fa"
+
+# SETTINGS
+threads <- "40"
+
+
+# Export these as environment variables for bash chunks.
+Sys.setenv(
+  data_dir = data_dir,
+  flye_lean_fasta = flye_lean_fasta,
+  flye_siscowet_fasta = flye_siscowet_fasta,
+  hifiasm_lean_fasta = hifiasm_lean_fasta,
+  hifiasm_siscowet_fasta = hifiasm_siscowet_fasta,
+  output_dir = output_dir,
+  threads = threads
+)
+
+```
+
+
+# Run QUAST
+
+```{r quast, engine='bash'}
+# Make output directory, if it doesn't exist
+mkdir --parents "${output_dir}"
+
+python quast.py \
+"${flye_lean_fasta}" \
+"${hifiasm_lean_fasta}" \
+"${flye_siscowet_fasta}" \
+"${hifiasm_siscowet_fasta}" \
+--output-dir "${output_dir}" \
+--threads "${threads}"
+--labels "lean_flye, lean_hifiasm, siscowet_flye, siscowet_hifiasm"
+
+```
