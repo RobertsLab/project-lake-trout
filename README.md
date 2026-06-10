@@ -51,6 +51,7 @@ Whole-genome DNA methylation profiling using PacBio HiFi sequencing with 5mC mod
 **Analysis Files:**
 - [`code/04-pacbio/`](code/04-pacbio/) - PacBio workflow (alignment, QC, methylation calling)
 - [`code/10-mCG-call.Rmd`](code/10-mCG-call.Rmd) - Methylation calling
+- [`code/13.3-hifiasm-differential-methylation-plan.md`](code/13.3-hifiasm-differential-methylation-plan.md) - Plan for extending differential methylation analysis to ecotype-specific hifiasm assemblies
 - [`code/14-diff-meth.Rmd`](code/14-diff-meth.Rmd) - Differential methylation analysis
 - [`code/14-diff-meth.py`](code/14-diff-meth.py) - Python implementation for DMR identification
 
@@ -99,6 +100,7 @@ project-lake-trout/
 │   ├── 07-pacbio-QC.Rmd               # PacBio quality control
 │   ├── 10-mCG-call.Rmd                # Methylation calling
 │   ├── 11-pav.Rmd                     # PAV analysis
+│   ├── 13.3-hifiasm-differential-methylation-plan.md # Plan for hifiasm-based differential methylation
 │   ├── 14-diff-meth.Rmd/py            # Differential methylation
 │   └── 15-diff-pav.py                 # Differential PAV
 ├── data/                    # Raw data and metadata
