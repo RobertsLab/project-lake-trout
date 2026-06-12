@@ -1,22 +1,22 @@
 ---
-title: "16-pacbio-align"
+title: "17-pacbio-align"
 output: html_document
 date: "2025-10-18"
 ---
 
 
-Doing alignment on new HiFASM Genomes LEAN 
+Doing alignment on new HiFASM Genomes SISCOWET
 
 ```{bash}
-04-pacbio/tools/pbmm2 index ../data/genome/pb-hifiasm-lean-assembly.fa ../data/genome/pb-hifiasm-lean-assembly.fa.pacbio.mmi
+04-pacbio/tools/pbmm2 index ../data/genome/pb-hifiasm-siscowet-assembly.fa ../data/genome/pb-hifiasm-siscowet-assembly.fa.pacbio.mmi
 ```
 
 
 ```{bash}
 04-pacbio/tools/pbmm2 align \
-../data/genome/pb-hifiasm-lean-assembly.fa \
+../data/genome/pb-hifiasm-siscowet-assembly.fa \
 ../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.demux.bc2041--bc2041.bam \
-../analyses/16-pacbio-align/l-bc2041.bam \
+../analyses/17-pacbio-align/s-bc2041.bam \
 --preset CCS --sort --num-threads 48
 
 ```
@@ -25,7 +25,7 @@ Doing alignment on new HiFASM Genomes LEAN
 ```{bash}
 samtools view \
 -H \
-../analyses/16-pacbio-align/l-bc2041.bam \
+../analyses/17-pacbio-align/s-bc2041.bam \
 | grep '^@RG'
 ```
 
@@ -33,14 +33,14 @@ samtools view \
 
 ```{bash}
 04-pacbio/tools/pbmm2 align \
-../data/genome/pb-hifiasm-lean-assembly.fa \
+../data/genome/pb-hifiasm-siscowet-assembly.fa \
 ../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.demux.bc2071--bc2071.bam \
-../analyses/16-pacbio-align/l-bc2071.bam \
+../analyses/17-pacbio-align/s-bc2071.bam \
 --preset CCS --sort --num-threads 48
 
 samtools view \
 -H \
-../analyses/16-pacbio-align/l-bc2071.bam \
+../analyses/17-pacbio-align/s-bc2071.bam \
 | grep '^@RG'
 
 ```
@@ -51,14 +51,14 @@ samtools view \
 
 ```{bash}
 04-pacbio/tools/pbmm2 align \
-../data/genome/pb-hifiasm-lean-assembly.fa \
+../data/genome/pb-hifiasm-siscowet-assembly.fa \
 ../data/pacbio-reads/m84082_250614_081210_s3.hifi_reads.demux.bc2072--bc2072.bam \
-../analyses/16-pacbio-align/l-bc2072.bam \
+../analyses/17-pacbio-align/s-bc2072.bam \
 --preset CCS --sort --num-threads 48
 
 samtools view \
 -H \
-../analyses/16-pacbio-align/l-bc2072.bam \
+../analyses/17-pacbio-align/s-bc2072.bam \
 | grep '^@RG'
 
 ```
@@ -66,14 +66,14 @@ samtools view \
 
 ```{bash}
 04-pacbio/tools/pbmm2 align \
-../data/genome/pb-hifiasm-lean-assembly.fa \
+../data/genome/pb-hifiasm-siscowet-assembly.fa \
 ../data/pacbio-reads/m84082_250614_101514_s4.hifi_reads.demux.bc2069--bc2069.bam \
-../analyses/16-pacbio-align/l-bc2069.bam \
+../analyses/17-pacbio-align/s-bc2069.bam \
 --preset CCS --sort --num-threads 48
 
 samtools view \
 -H \
-../analyses/16-pacbio-align/l-bc2069.bam \
+../analyses/17-pacbio-align/s-bc2069.bam \
 | grep '^@RG'
 
 ```
@@ -82,14 +82,14 @@ samtools view \
 
 ```{bash}
 04-pacbio/tools/pbmm2 align \
-../data/genome/pb-hifiasm-lean-assembly.fa \
+../data/genome/pb-hifiasm-siscowet-assembly.fa \
 ../data/pacbio-reads/m84082_250614_101514_s4.hifi_reads.demux.bc2070--bc2070.bam \
-../analyses/16-pacbio-align/l-bc2070.bam \
+../analyses/17-pacbio-align/s-bc2070.bam \
 --preset CCS --sort --num-threads 48
 
 samtools view \
 -H \
-../analyses/16-pacbio-align/l-bc2070.bam \
+../analyses/17-pacbio-align/s-bc2070.bam \
 | grep '^@RG'
 
 ```
@@ -98,14 +98,14 @@ samtools view \
 
 ```{bash}
 04-pacbio/tools/pbmm2 align \
-../data/genome/pb-hifiasm-lean-assembly.fa \
+../data/genome/pb-hifiasm-siscowet-assembly.fa \
 ../data/pacbio-reads/m84082_250614_101514_s4.hifi_reads.demux.bc2073--bc2073.bam \
-../analyses/16-pacbio-align/l-bc2073.bam \
+../analyses/17-pacbio-align/s-bc2073.bam \
 --preset CCS --sort --num-threads 48
 
 samtools view \
 -H \
-../analyses/16-pacbio-align/l-bc2073.bam \
+../analyses/17-pacbio-align/s-bc2073.bam \
 | grep '^@RG'
 
 ```
@@ -115,14 +115,14 @@ samtools view \
 
 ```{bash}
 04-pacbio/tools/pbmm2 align \
-../data/genome/pb-hifiasm-lean-assembly.fa \
+../data/genome/pb-hifiasm-siscowet-assembly.fa \
 ../data/pacbio-reads/m84082_251001_025627_s2.hifi_reads.bc2068.bam \
-../analyses/16-pacbio-align/l-bc2068.bam \
+../analyses/17-pacbio-align/s-bc2068.bam \
 --preset CCS --sort --num-threads 48
 
 samtools view \
 -H \
-../analyses/16-pacbio-align/l-bc2068.bam \
+../analyses/17-pacbio-align/s-bc2068.bam \
 | grep '^@RG'
 
 ```
@@ -131,14 +131,14 @@ samtools view \
 
 ```{bash}
 04-pacbio/tools/pbmm2 align \
-../data/genome/pb-hifiasm-lean-assembly.fa \
+../data/genome/pb-hifiasm-siscowet-assembly.fa \
 ../data/pacbio-reads/m84082_251001_025627_s2.hifi_reads.bc2096.bam \
-../analyses/16-pacbio-align/l-bc2096.bam \
+../analyses/17-pacbio-align/s-bc2096.bam \
 --preset CCS --sort --num-threads 48
 
 samtools view \
 -H \
-../analyses/16-pacbio-align/l-bc2096.bam \
+../analyses/17-pacbio-align/s-bc2096.bam \
 | grep '^@RG'
 
 ```
