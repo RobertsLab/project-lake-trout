@@ -1,0 +1,294 @@
+dmr_id	chrom	dmr_start	dmr_end	direction	meth_diff	n_cpgs	gene_id	symbol	product	biotype	location_class	in_promoter	exon_overlap	gene_body_overlap	distance_bp	n_go
+DMR_2	NC_052308.1	72362697	72363096	hyper_siscowet	18.13	13	gene-LOC120017961	LOC120017961	histone H1-like	protein_coding	downstream<=5kb	0	0	0	4351	4
+DMR_2	NC_052308.1	72362697	72363096	hyper_siscowet	18.13	13	gene-LOC120018007	LOC120018007	histone H2A	protein_coding	downstream<=5kb	0	0	0	3217	4
+DMR_2	NC_052308.1	72362697	72363096	hyper_siscowet	18.13	13	gene-LOC120017972	LOC120017972	histone H3	protein_coding	downstream<=5kb	0	0	0	2241	4
+DMR_2	NC_052308.1	72362697	72363096	hyper_siscowet	18.13	13	gene-LOC120018068	LOC120018068	histone H4	protein_coding	upstream<=5kb	0	0	0	2251	5
+DMR_2	NC_052308.1	72362697	72363096	hyper_siscowet	18.13	13	gene-LOC120027990	LOC120027990	histone H2B	protein_coding	upstream<=5kb	0	0	0	3219	4
+DMR_2	NC_052308.1	72362697	72363096	hyper_siscowet	18.13	13	gene-LOC120017932	LOC120017932	histone H1	protein_coding	upstream<=5kb	0	0	0	4818	4
+DMR_4	NC_052309.1	97923272	97923394	hyper_siscowet	16.51	3	gene-LOC120043843	LOC120043843	septin-9-like	protein_coding	intron	0	0	1	0	8
+DMR_7	NC_052313.1	18549740	18550074	hyper_siscowet	22.93	5	gene-LOC120051056	LOC120051056	myosin-7-like	protein_coding	downstream<=5kb	0	0	0	3815	4
+DMR_8	NC_052313.1	60038615	60038736	hypo_siscowet	-34.52	4	gene-LOC120051555	LOC120051555	zinc finger protein 665-like	protein_coding	promoter	1	0	0	1865	4
+DMR_9	NC_052314.1	189932	190464	hyper_siscowet	22.80	12	gene-LOC120051620	LOC120051620	NACHT, LRR and PYD domains-containing protein 3-like	protein_coding	upstream<=5kb	0	0	0	2151	2
+DMR_10	NC_052314.1	1013880	1014166	hypo_siscowet	-17.71	4	gene-LOC120051637	LOC120051637	alpha-mannosidase 2C1-like	protein_coding	downstream<=5kb	0	0	0	1646	3
+DMR_12	NC_052315.1	361135	361204	hypo_siscowet	-17.12	3	gene-LOC120054234	LOC120054234	18S ribosomal RNA	rRNA	promoter	1	0	0	1526	0
+DMR_12	NC_052315.1	361135	361204	hypo_siscowet	-17.12	3	gene-LOC120054224	LOC120054224	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3929	0
+DMR_14	NC_052324.1	37597725	37597878	hypo_siscowet	-20.91	3	gene-LOC120062940	LOC120062940	calcium/calmodulin-dependent protein kinase type II subunit beta-like	protein_coding	intron	0	0	1	0	3
+DMR_16	NC_052335.1	25694473	25694679	hyper_siscowet	21.88	3	gene-LOC120024464	LOC120024464	gamma-aminobutyric acid receptor subunit rho-2-like	protein_coding	downstream<=5kb	0	0	0	4161	12
+DMR_17	NC_052341.1	4526455	4526956	hypo_siscowet	-44.54	6	gene-LOC120029926	LOC120029926	epoxide hydrolase 1-like	protein_coding	promoter	1	0	1	0	3
+DMR_18	NC_052343.1	27242658	27242906	hyper_siscowet	32.77	8	gene-rbm24b	rbm24b	RNA binding motif protein 24b	protein_coding	promoter	1	1	1	0	2
+DMR_19	NC_052343.1	28911863	28911945	hypo_siscowet	-16.90	4	gene-ano10a	ano10a	anoctamin 10a	protein_coding	intron	0	0	1	0	3
+DMR_20	NC_052345.1	2143493	2143535	hypo_siscowet	-50.76	3	gene-LOC120032453	LOC120032453	B-cell receptor CD22-like	protein_coding	intron	0	0	1	0	2
+DMR_21	NC_052345.1	3790780	3791331	hyper_siscowet	28.77	7	gene-LOC120032414	LOC120032414	zinc finger protein 883-like	protein_coding	exon	0	1	1	0	5
+DMR_23	NC_052345.1	3968440	3968654	hypo_siscowet	-23.55	10	gene-LOC120032412	LOC120032412	zinc finger protein 883-like	protein_coding	downstream<=5kb	0	0	0	1967	5
+DMR_24	NC_052345.1	4049178	4049420	hypo_siscowet	-16.55	4	gene-LOC120032416	LOC120032416	zinc finger protein 883-like	protein_coding	exon	0	1	1	0	4
+DMR_25	NC_052345.1	4049711	4050691	hypo_siscowet	-20.86	26	gene-LOC120032416	LOC120032416	zinc finger protein 883-like	protein_coding	exon	0	1	1	0	4
+DMR_30	NC_052347.1	18150575	18150722	hypo_siscowet	-17.21	3	gene-LOC120033896	LOC120033896	small G protein signaling modulator 3-like	protein_coding	promoter	1	0	1	0	1
+DMR_34	NW_024057705.1	43130	43200	hypo_siscowet	-21.63	4	gene-LOC120035322	LOC120035322	olfactory receptor 4S1-like	protein_coding	downstream<=5kb	0	0	0	4085	4
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnap-agg-66	trnap-agg	tRNA-Pro	tRNA	downstream<=5kb	0	0	0	4392	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnag-ucc-80	trnag-ucc	tRNA-Gly	tRNA	upstream<=5kb	0	0	0	4033	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnap-agg-65	trnap-agg	tRNA-Pro	tRNA	downstream<=5kb	0	0	0	3200	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnag-ucc-79	trnag-ucc	tRNA-Gly	tRNA	upstream<=5kb	0	0	0	2842	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnap-agg-64	trnap-agg	tRNA-Pro	tRNA	downstream<=5kb	0	0	0	2008	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnag-ucc-78	trnag-ucc	tRNA-Gly	tRNA	promoter	1	0	0	1650	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnap-agg-63	trnap-agg	tRNA-Pro	tRNA	promoter	1	0	0	817	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnag-ucc-77	trnag-ucc	tRNA-Gly	tRNA	promoter	1	0	0	458	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnap-agg-62	trnap-agg	tRNA-Pro	tRNA	promoter	1	0	0	200	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnap-agg-61	trnap-agg	tRNA-Pro	tRNA	promoter	1	0	0	1576	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnag-ucc-76	trnag-ucc	tRNA-Gly	tRNA	downstream<=5kb	0	0	0	1934	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnap-agg-60	trnap-agg	tRNA-Pro	tRNA	upstream<=5kb	0	0	0	2767	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnag-ucc-75	trnag-ucc	tRNA-Gly	tRNA	downstream<=5kb	0	0	0	3125	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnap-agg-59	trnap-agg	tRNA-Pro	tRNA	upstream<=5kb	0	0	0	3958	0
+DMR_35	NW_024057744.1	74083	74186	hypo_siscowet	-17.81	3	gene-trnag-ucc-74	trnag-ucc	tRNA-Gly	tRNA	downstream<=5kb	0	0	0	4316	0
+DMR_36	NW_024057744.1	75311	75378	hypo_siscowet	-15.36	3	gene-trnap-agg-66	trnap-agg	tRNA-Pro	tRNA	downstream<=5kb	0	0	0	3200	0
+DMR_36	NW_024057744.1	75311	75378	hypo_siscowet	-15.36	3	gene-trnag-ucc-80	trnag-ucc	tRNA-Gly	tRNA	upstream<=5kb	0	0	0	2841	0
+DMR_36	NW_024057744.1	75311	75378	hypo_siscowet	-15.36	3	gene-trnap-agg-65	trnap-agg	tRNA-Pro	tRNA	downstream<=5kb	0	0	0	2008	0
+DMR_36	NW_024057744.1	75311	75378	hypo_siscowet	-15.36	3	gene-trnag-ucc-79	trnag-ucc	tRNA-Gly	tRNA	promoter	1	0	0	1650	0
+DMR_36	NW_024057744.1	75311	75378	hypo_siscowet	-15.36	3	gene-trnap-agg-64	trnap-agg	tRNA-Pro	tRNA	promoter	1	0	0	816	0
+DMR_36	NW_024057744.1	75311	75378	hypo_siscowet	-15.36	3	gene-trnag-ucc-78	trnag-ucc	tRNA-Gly	tRNA	promoter	1	0	0	458	0
+DMR_36	NW_024057744.1	75311	75378	hypo_siscowet	-15.36	3	gene-trnap-agg-63	trnap-agg	tRNA-Pro	tRNA	promoter	1	0	0	237	0
+DMR_36	NW_024057744.1	75311	75378	hypo_siscowet	-15.36	3	gene-trnag-ucc-77	trnag-ucc	tRNA-Gly	tRNA	promoter	1	0	0	596	0
+DMR_36	NW_024057744.1	75311	75378	hypo_siscowet	-15.36	3	gene-trnap-agg-62	trnap-agg	tRNA-Pro	tRNA	promoter	1	0	0	1428	0
+DMR_36	NW_024057744.1	75311	75378	hypo_siscowet	-15.36	3	gene-trnap-agg-61	trnap-agg	tRNA-Pro	tRNA	upstream<=5kb	0	0	0	2804	0
+DMR_36	NW_024057744.1	75311	75378	hypo_siscowet	-15.36	3	gene-trnag-ucc-76	trnag-ucc	tRNA-Gly	tRNA	downstream<=5kb	0	0	0	3162	0
+DMR_36	NW_024057744.1	75311	75378	hypo_siscowet	-15.36	3	gene-trnap-agg-60	trnap-agg	tRNA-Pro	tRNA	upstream<=5kb	0	0	0	3995	0
+DMR_36	NW_024057744.1	75311	75378	hypo_siscowet	-15.36	3	gene-trnag-ucc-75	trnag-ucc	tRNA-Gly	tRNA	downstream<=5kb	0	0	0	4353	0
+DMR_37	NW_024057744.1	76503	76570	hypo_siscowet	-18.93	3	gene-trnap-agg-66	trnap-agg	tRNA-Pro	tRNA	downstream<=5kb	0	0	0	2008	0
+DMR_37	NW_024057744.1	76503	76570	hypo_siscowet	-18.93	3	gene-trnag-ucc-80	trnag-ucc	tRNA-Gly	tRNA	promoter	1	0	0	1649	0
+DMR_37	NW_024057744.1	76503	76570	hypo_siscowet	-18.93	3	gene-trnap-agg-65	trnap-agg	tRNA-Pro	tRNA	promoter	1	0	0	816	0
+DMR_37	NW_024057744.1	76503	76570	hypo_siscowet	-18.93	3	gene-trnag-ucc-79	trnag-ucc	tRNA-Gly	tRNA	promoter	1	0	0	458	0
+DMR_37	NW_024057744.1	76503	76570	hypo_siscowet	-18.93	3	gene-trnap-agg-64	trnap-agg	tRNA-Pro	tRNA	promoter	1	0	0	238	0
+DMR_37	NW_024057744.1	76503	76570	hypo_siscowet	-18.93	3	gene-trnag-ucc-78	trnag-ucc	tRNA-Gly	tRNA	promoter	1	0	0	596	0
+DMR_37	NW_024057744.1	76503	76570	hypo_siscowet	-18.93	3	gene-trnap-agg-63	trnap-agg	tRNA-Pro	tRNA	promoter	1	0	0	1429	0
+DMR_37	NW_024057744.1	76503	76570	hypo_siscowet	-18.93	3	gene-trnag-ucc-77	trnag-ucc	tRNA-Gly	tRNA	promoter	1	0	0	1788	0
+DMR_37	NW_024057744.1	76503	76570	hypo_siscowet	-18.93	3	gene-trnap-agg-62	trnap-agg	tRNA-Pro	tRNA	upstream<=5kb	0	0	0	2620	0
+DMR_37	NW_024057744.1	76503	76570	hypo_siscowet	-18.93	3	gene-trnap-agg-61	trnap-agg	tRNA-Pro	tRNA	upstream<=5kb	0	0	0	3996	0
+DMR_37	NW_024057744.1	76503	76570	hypo_siscowet	-18.93	3	gene-trnag-ucc-76	trnag-ucc	tRNA-Gly	tRNA	downstream<=5kb	0	0	0	4354	0
+DMR_38	NW_024057793.1	16506	18707	hypo_siscowet	-26.03	46	gene-LOC120035744	LOC120035744	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3055	0
+DMR_39	NW_024057793.1	20165	20293	hypo_siscowet	-20.52	10	gene-LOC120035749	LOC120035749	28S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4395	0
+DMR_39	NW_024057793.1	20165	20293	hypo_siscowet	-20.52	10	gene-LOC120035754	LOC120035754	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3872	0
+DMR_39	NW_024057793.1	20165	20293	hypo_siscowet	-20.52	10	gene-LOC120035744	LOC120035744	18S ribosomal RNA	rRNA	promoter	1	0	0	1469	0
+DMR_40	NW_024057793.1	44525	44542	hypo_siscowet	-17.64	3	gene-LOC120035750	LOC120035750	28S ribosomal RNA	rRNA	promoter	1	1	1	0	0
+DMR_40	NW_024057793.1	44525	44542	hypo_siscowet	-17.64	3	gene-LOC120035755	LOC120035755	5.8S ribosomal RNA	rRNA	promoter	1	0	0	1096	0
+DMR_40	NW_024057793.1	44525	44542	hypo_siscowet	-17.64	3	gene-LOC120035745	LOC120035745	18S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	1817	0
+DMR_41	NW_024057793.1	76027	76251	hypo_siscowet	-26.95	7	gene-LOC120035747	LOC120035747	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	2912	0
+DMR_42	NW_024057793.1	77557	77635	hypo_siscowet	-23.45	7	gene-LOC120035752	LOC120035752	28S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4454	0
+DMR_42	NW_024057793.1	77557	77635	hypo_siscowet	-23.45	7	gene-LOC120035757	LOC120035757	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3931	0
+DMR_42	NW_024057793.1	77557	77635	hypo_siscowet	-23.45	7	gene-LOC120035747	LOC120035747	18S ribosomal RNA	rRNA	promoter	1	0	0	1528	0
+DMR_43	NW_024057893.1	49429	49694	hypo_siscowet	-25.63	6	gene-LOC120036048	LOC120036048	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4684	0
+DMR_43	NW_024057893.1	49429	49694	hypo_siscowet	-25.63	6	gene-LOC120036051	LOC120036051	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	2281	0
+DMR_44	NW_024057893.1	50124	50447	hypo_siscowet	-27.96	8	gene-LOC120036047	LOC120036047		pseudogene	upstream<=5kb	0	0	0	4454	0
+DMR_44	NW_024057893.1	50124	50447	hypo_siscowet	-27.96	8	gene-LOC120036048	LOC120036048	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3931	0
+DMR_44	NW_024057893.1	50124	50447	hypo_siscowet	-27.96	8	gene-LOC120036051	LOC120036051	18S ribosomal RNA	rRNA	promoter	1	0	0	1528	0
+DMR_55	NW_024058031.1	62695	63412	hypo_siscowet	-20.34	13	gene-LOC120036375	LOC120036375	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	2104	0
+DMR_55	NW_024058031.1	62695	63412	hypo_siscowet	-20.34	13	gene-LOC120036374	LOC120036374	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4507	0
+DMR_56	NW_024058055.1	21129	21474	hypo_siscowet	-20.70	17	gene-LOC120036470	LOC120036470	protein transport protein Sec16A-like	protein_coding	upstream<=5kb	0	0	0	4158	0
+DMR_59	NW_024058159.1	21726	21800	hypo_siscowet	-30.73	3	gene-LOC120036681	LOC120036681	OCIA domain-containing protein 1-like	protein_coding	promoter	1	0	0	1885	1
+DMR_59	NW_024058159.1	21726	21800	hypo_siscowet	-30.73	3	gene-LOC120036686	LOC120036686	U1 spliceosomal RNA	snRNA	promoter	1	0	0	450	0
+DMR_59	NW_024058159.1	21726	21800	hypo_siscowet	-30.73	3	gene-LOC120036685	LOC120036685	U1 spliceosomal RNA	snRNA	upstream<=5kb	0	0	0	4959	0
+DMR_60	NW_024058207.1	15701	15734	hyper_siscowet	16.63	5	gene-LOC120036801	LOC120036801	5S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	4935	0
+DMR_60	NW_024058207.1	15701	15734	hyper_siscowet	16.63	5	gene-LOC120036788	LOC120036788		pseudogene	downstream<=5kb	0	0	0	4092	0
+DMR_61	NW_024058234.1	8050	8109	hypo_siscowet	-17.92	4	gene-LOC120036895	LOC120036895		pseudogene	upstream<=5kb	0	0	0	4454	0
+DMR_61	NW_024058234.1	8050	8109	hypo_siscowet	-17.92	4	gene-LOC120036893	LOC120036893	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3931	0
+DMR_61	NW_024058234.1	8050	8109	hypo_siscowet	-17.92	4	gene-LOC120036897	LOC120036897	18S ribosomal RNA	rRNA	promoter	1	0	0	1528	0
+DMR_62	NW_024058275.1	61264	61344	hypo_siscowet	-22.62	4	gene-LOC120037005	LOC120037005		pseudogene	promoter	1	0	0	378	0
+DMR_63	NW_024058275.1	61622	63075	hypo_siscowet	-28.85	30	gene-LOC120037005	LOC120037005		pseudogene	promoter	1	0	0	736	0
+DMR_64	NW_024058275.1	64022	64406	hypo_siscowet	-23.53	6	gene-LOC120037005	LOC120037005		pseudogene	upstream<=5kb	0	0	0	3136	0
+DMR_74	NW_024058595.1	7778	7953	hypo_siscowet	-18.29	3	gene-LOC120037711	LOC120037711	uncharacterized LOC120037711	protein_coding	intron	0	0	1	0	1
+DMR_75	NW_024058595.1	34219	34387	hyper_siscowet	21.40	5	gene-LOC120037712	LOC120037712	zona pellucida sperm-binding protein 4-like	protein_coding	upstream<=5kb	0	0	0	4205	0
+DMR_75	NW_024058595.1	34219	34387	hyper_siscowet	21.40	5	gene-LOC120037713	LOC120037713	U1 spliceosomal RNA	snRNA	promoter	1	0	0	1466	0
+DMR_76	NW_024058631.1	39552	40023	hypo_siscowet	-19.65	19	gene-LOC120037768	LOC120037768	5.8S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	4315	0
+DMR_76	NW_024058631.1	39552	40023	hypo_siscowet	-19.65	19	gene-LOC120037770	LOC120037770	28S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	14	0
+DMR_77	NW_024058631.1	43229	43250	hypo_siscowet	-17.11	3	gene-LOC120037769	LOC120037769	18S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	1809	0
+DMR_77	NW_024058631.1	43229	43250	hypo_siscowet	-17.11	3	gene-LOC120037768	LOC120037768	5.8S ribosomal RNA	rRNA	promoter	1	0	0	1088	0
+DMR_77	NW_024058631.1	43229	43250	hypo_siscowet	-17.11	3	gene-LOC120037770	LOC120037770	28S ribosomal RNA	rRNA	promoter	1	1	1	0	0
+DMR_78	NW_024058631.1	47966	48479	hypo_siscowet	-19.97	27	gene-LOC120037769	LOC120037769	18S ribosomal RNA	rRNA	promoter	1	0	0	1072	0
+DMR_78	NW_024058631.1	47966	48479	hypo_siscowet	-19.97	27	gene-LOC120037768	LOC120037768	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3475	0
+DMR_78	NW_024058631.1	47966	48479	hypo_siscowet	-19.97	27	gene-LOC120037770	LOC120037770	28S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3998	0
+DMR_79	NW_024058641.1	65205	65271	hypo_siscowet	-36.37	3	gene-LOC120037787	LOC120037787	ovochymase-2-like	protein_coding	intron	0	0	1	0	2
+DMR_89	NW_024058782.1	39497	39600	hypo_siscowet	-18.00	3	gene-LOC120037963	LOC120037963	18S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	4934	0
+DMR_89	NW_024058782.1	39497	39600	hypo_siscowet	-18.00	3	gene-LOC120037962	LOC120037962	5.8S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	4213	0
+DMR_89	NW_024058782.1	39497	39600	hypo_siscowet	-18.00	3	gene-LOC120037964	LOC120037964	28S ribosomal RNA	rRNA	exon	0	1	1	0	0
+DMR_100	NW_024058826.1	33607	33958	hypo_siscowet	-21.65	9	gene-LOC120038015	LOC120038015	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4339	0
+DMR_101	NW_024058826.1	34486	36410	hypo_siscowet	-24.24	40	gene-LOC120038017	LOC120038017	28S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4813	0
+DMR_101	NW_024058826.1	34486	36410	hypo_siscowet	-24.24	40	gene-LOC120038013	LOC120038013	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4290	0
+DMR_101	NW_024058826.1	34486	36410	hypo_siscowet	-24.24	40	gene-LOC120038015	LOC120038015	18S ribosomal RNA	rRNA	promoter	1	0	0	1887	0
+DMR_102	NW_024058826.1	36710	37604	hypo_siscowet	-18.89	38	gene-LOC120038017	LOC120038017	28S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3619	0
+DMR_102	NW_024058826.1	36710	37604	hypo_siscowet	-18.89	38	gene-LOC120038013	LOC120038013	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3096	0
+DMR_102	NW_024058826.1	36710	37604	hypo_siscowet	-18.89	38	gene-LOC120038015	LOC120038015	18S ribosomal RNA	rRNA	promoter	1	0	0	693	0
+DMR_103	NW_024058826.1	45154	45167	hypo_siscowet	-16.15	3	gene-LOC120038017	LOC120038017	28S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	0	0
+DMR_103	NW_024058826.1	45154	45167	hypo_siscowet	-16.15	3	gene-LOC120038013	LOC120038013	5.8S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	4301	0
+DMR_106	NW_024058840.1	35598	35858	hypo_siscowet	-24.09	8	gene-LOC120038040	LOC120038040	18S ribosomal RNA	rRNA	promoter	1	0	0	1335	0
+DMR_106	NW_024058840.1	35598	35858	hypo_siscowet	-24.09	8	gene-LOC120038038	LOC120038038	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3738	0
+DMR_106	NW_024058840.1	35598	35858	hypo_siscowet	-24.09	8	gene-LOC120038041	LOC120038041	28S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4261	0
+DMR_108	NW_024058907.1	36601	36712	hypo_siscowet	-15.71	4	gene-LOC120038221	LOC120038221	NACHT, LRR and PYD domains-containing protein 3-like	protein_coding	downstream<=5kb	0	0	0	1368	2
+DMR_109	NW_024058907.1	37270	37408	hypo_siscowet	-17.05	6	gene-LOC120038221	LOC120038221	NACHT, LRR and PYD domains-containing protein 3-like	protein_coding	downstream<=5kb	0	0	0	2037	2
+DMR_110	NW_024058907.1	38793	39009	hypo_siscowet	-15.85	4	gene-LOC120038221	LOC120038221	NACHT, LRR and PYD domains-containing protein 3-like	protein_coding	downstream<=5kb	0	0	0	3560	2
+DMR_111	NW_024058907.1	39507	39588	hypo_siscowet	-18.14	5	gene-LOC120038221	LOC120038221	NACHT, LRR and PYD domains-containing protein 3-like	protein_coding	downstream<=5kb	0	0	0	4274	2
+DMR_118	NW_024058936.1	9363	9629	hypo_siscowet	-26.83	6	gene-LOC120038331	LOC120038331	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	2399	0
+DMR_118	NW_024058936.1	9363	9629	hypo_siscowet	-26.83	6	gene-LOC120038330	LOC120038330	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4802	0
+DMR_119	NW_024058936.1	10257	10618	hypo_siscowet	-24.20	3	gene-LOC120038331	LOC120038331	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3293	0
+DMR_120	NW_024058936.1	10901	11902	hypo_siscowet	-25.00	23	gene-LOC120038331	LOC120038331	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3937	0
+DMR_124	NW_024058945.1	24257	24964	hypo_siscowet	-22.49	17	gene-LOC120038347	LOC120038347	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4888	0
+DMR_125	NW_024058945.1	27963	28324	hypo_siscowet	-21.84	8	gene-LOC120038348	LOC120038348		pseudogene	upstream<=5kb	0	0	0	4454	0
+DMR_125	NW_024058945.1	27963	28324	hypo_siscowet	-21.84	8	gene-LOC120038345	LOC120038345	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3931	0
+DMR_125	NW_024058945.1	27963	28324	hypo_siscowet	-21.84	8	gene-LOC120038347	LOC120038347	18S ribosomal RNA	rRNA	promoter	1	0	0	1528	0
+DMR_129	NW_024058979.1	10451	10535	hypo_siscowet	-22.22	5	gene-LOC120038389	LOC120038389		pseudogene	downstream<=5kb	0	0	0	184	0
+DMR_130	NW_024058979.1	21218	21440	hypo_siscowet	-21.03	10	gene-LOC120038391	LOC120038391	18S ribosomal RNA	rRNA	promoter	1	0	0	1444	0
+DMR_130	NW_024058979.1	21218	21440	hypo_siscowet	-21.03	10	gene-LOC120038388	LOC120038388	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3847	0
+DMR_130	NW_024058979.1	21218	21440	hypo_siscowet	-21.03	10	gene-LOC120038389	LOC120038389		pseudogene	upstream<=5kb	0	0	0	4370	0
+DMR_131	NW_024058979.1	23346	24638	hypo_siscowet	-22.53	20	gene-LOC120038391	LOC120038391	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3572	0
+DMR_134	NW_024058979.1	34109	34388	hypo_siscowet	-18.70	13	gene-LOC120038390	LOC120038390	5.8S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	4507	0
+DMR_134	NW_024058979.1	34109	34388	hypo_siscowet	-18.70	13	gene-LOC120038393	LOC120038393	28S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	205	0
+DMR_135	NW_024058979.1	37780	37797	hypo_siscowet	-16.67	3	gene-LOC120038392	LOC120038392	18S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	1819	0
+DMR_135	NW_024058979.1	37780	37797	hypo_siscowet	-16.67	3	gene-LOC120038390	LOC120038390	5.8S ribosomal RNA	rRNA	promoter	1	0	0	1098	0
+DMR_135	NW_024058979.1	37780	37797	hypo_siscowet	-16.67	3	gene-LOC120038393	LOC120038393	28S ribosomal RNA	rRNA	promoter	1	1	1	0	0
+DMR_137	NW_024059010.1	34645	35246	hypo_siscowet	-19.34	15	gene-LOC120038434	LOC120038434	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4539	0
+DMR_138	NW_024059023.1	4635	6286	hypo_siscowet	-24.51	31	gene-LOC120038479	LOC120038479	18S ribosomal RNA	rRNA	promoter	1	0	0	1521	0
+DMR_138	NW_024059023.1	4635	6286	hypo_siscowet	-24.51	31	gene-LOC120038477	LOC120038477	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3924	0
+DMR_139	NW_024059023.1	6606	6966	hypo_siscowet	-32.10	9	gene-LOC120038479	LOC120038479	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3492	0
+DMR_140	NW_024059023.1	7248	9339	hypo_siscowet	-26.64	41	gene-LOC120038479	LOC120038479	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4134	0
+DMR_141	NW_024059023.1	30770	30840	hypo_siscowet	-19.29	3	gene-LOC120038480	LOC120038480	18S ribosomal RNA	rRNA	promoter	1	0	0	1926	0
+DMR_141	NW_024059023.1	30770	30840	hypo_siscowet	-19.29	3	gene-LOC120038478	LOC120038478	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4329	0
+DMR_141	NW_024059023.1	30770	30840	hypo_siscowet	-19.29	3	gene-LOC120038481	LOC120038481		pseudogene	upstream<=5kb	0	0	0	4852	0
+DMR_142	NW_024059030.1	27447	32453	hypo_siscowet	-26.97	96	gene-LOC120038491	LOC120038491	28S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4395	0
+DMR_142	NW_024059030.1	27447	32453	hypo_siscowet	-26.97	96	gene-LOC120038487	LOC120038487	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3872	0
+DMR_142	NW_024059030.1	27447	32453	hypo_siscowet	-26.97	96	gene-LOC120038489	LOC120038489	18S ribosomal RNA	rRNA	promoter	1	0	0	1469	0
+DMR_143	NW_024059030.1	41204	41212	hypo_siscowet	-19.60	3	gene-LOC120038491	LOC120038491	28S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	425	0
+DMR_143	NW_024059030.1	41204	41212	hypo_siscowet	-19.60	3	gene-LOC120038487	LOC120038487	5.8S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	4726	0
+DMR_146	NW_024059200.1	2564	2581	hypo_siscowet	-17.54	3	gene-LOC120038742	LOC120038742	28S ribosomal RNA	rRNA	promoter	1	1	1	0	0
+DMR_146	NW_024059200.1	2564	2581	hypo_siscowet	-17.54	3	gene-LOC120038741	LOC120038741	5.8S ribosomal RNA	rRNA	promoter	1	0	0	1096	0
+DMR_147	NW_024059200.1	6027	6230	hypo_siscowet	-16.24	4	gene-LOC120038742	LOC120038742	28S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	258	0
+DMR_147	NW_024059200.1	6027	6230	hypo_siscowet	-16.24	4	gene-LOC120038741	LOC120038741	5.8S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	4559	0
+DMR_156	NW_024059240.1	8068	8140	hypo_siscowet	-22.74	7	gene-LOC120038859	LOC120038859	18S ribosomal RNA	rRNA	promoter	1	0	0	1523	0
+DMR_156	NW_024059240.1	8068	8140	hypo_siscowet	-22.74	7	gene-LOC120038856	LOC120038856	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3926	0
+DMR_156	NW_024059240.1	8068	8140	hypo_siscowet	-22.74	7	gene-LOC120038861	LOC120038861		pseudogene	upstream<=5kb	0	0	0	4449	0
+DMR_157	NW_024059240.1	8430	8650	hypo_siscowet	-24.03	6	gene-LOC120038859	LOC120038859	18S ribosomal RNA	rRNA	promoter	1	0	0	1885	0
+DMR_157	NW_024059240.1	8430	8650	hypo_siscowet	-24.03	6	gene-LOC120038856	LOC120038856	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4288	0
+DMR_157	NW_024059240.1	8430	8650	hypo_siscowet	-24.03	6	gene-LOC120038861	LOC120038861		pseudogene	upstream<=5kb	0	0	0	4811	0
+DMR_158	NW_024059240.1	9421	9807	hypo_siscowet	-24.53	14	gene-LOC120038859	LOC120038859	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	2876	0
+DMR_159	NW_024059240.1	10879	11238	hypo_siscowet	-22.45	10	gene-LOC120038859	LOC120038859	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4334	0
+DMR_160	NW_024059240.1	29874	30091	hypo_siscowet	-22.55	4	gene-LOC120038860	LOC120038860	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	2104	0
+DMR_160	NW_024059240.1	29874	30091	hypo_siscowet	-22.55	4	gene-LOC120038858	LOC120038858	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4507	0
+DMR_161	NW_024059240.1	32062	32422	hypo_siscowet	-27.36	11	gene-LOC120038860	LOC120038860	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4292	0
+DMR_167	NW_024059257.1	15001	15399	hypo_siscowet	-19.54	10	gene-LOC120038884	LOC120038884		pseudogene	downstream<=5kb	0	0	0	86	0
+DMR_168	NW_024059257.1	26146	26505	hypo_siscowet	-20.23	11	gene-LOC120038883	LOC120038883	18S ribosomal RNA	rRNA	promoter	1	0	0	1236	0
+DMR_168	NW_024059257.1	26146	26505	hypo_siscowet	-20.23	11	gene-LOC120038882	LOC120038882	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3639	0
+DMR_168	NW_024059257.1	26146	26505	hypo_siscowet	-20.23	11	gene-LOC120038884	LOC120038884		pseudogene	upstream<=5kb	0	0	0	4162	0
+DMR_169	NW_024059257.1	26795	27528	hypo_siscowet	-20.15	9	gene-LOC120038883	LOC120038883	18S ribosomal RNA	rRNA	promoter	1	0	0	1885	0
+DMR_169	NW_024059257.1	26795	27528	hypo_siscowet	-20.15	9	gene-LOC120038882	LOC120038882	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4288	0
+DMR_169	NW_024059257.1	26795	27528	hypo_siscowet	-20.15	9	gene-LOC120038884	LOC120038884		pseudogene	upstream<=5kb	0	0	0	4811	0
+DMR_170	NW_024059257.1	28046	29684	hypo_siscowet	-25.03	33	gene-LOC120038883	LOC120038883	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3136	0
+DMR_172	NW_024059262.1	26428	29228	hypo_siscowet	-31.25	64	gene-LOC120038927	LOC120038927	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3575	0
+DMR_173	NW_024059262.1	29593	29665	hypo_siscowet	-30.92	3	gene-LOC120038927	LOC120038927	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3138	0
+DMR_174	NW_024059262.1	30805	30916	hypo_siscowet	-24.76	4	gene-LOC120038925	LOC120038925	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4290	0
+DMR_174	NW_024059262.1	30805	30916	hypo_siscowet	-24.76	4	gene-LOC120038927	LOC120038927	18S ribosomal RNA	rRNA	promoter	1	0	0	1887	0
+DMR_175	NW_024059262.1	31206	31280	hypo_siscowet	-30.28	8	gene-LOC120038925	LOC120038925	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3926	0
+DMR_175	NW_024059262.1	31206	31280	hypo_siscowet	-30.28	8	gene-LOC120038927	LOC120038927	18S ribosomal RNA	rRNA	promoter	1	0	0	1523	0
+DMR_178	NW_024059385.1	6239	6354	hypo_siscowet	-29.93	8	gene-LOC120039107	LOC120039107	18S ribosomal RNA	rRNA	promoter	1	0	0	1470	0
+DMR_178	NW_024059385.1	6239	6354	hypo_siscowet	-29.93	8	gene-LOC120039105	LOC120039105	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3873	0
+DMR_179	NW_024059385.1	7676	9223	hypo_siscowet	-23.60	31	gene-LOC120039107	LOC120039107	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	2907	0
+DMR_180	NW_024059385.1	9542	9767	hypo_siscowet	-28.00	3	gene-LOC120039107	LOC120039107	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4773	0
+DMR_181	NW_024059406.1	27178	27500	hypo_siscowet	-18.48	9	gene-LOC120039129	LOC120039129	18S ribosomal RNA	rRNA	promoter	1	0	0	1564	0
+DMR_181	NW_024059406.1	27178	27500	hypo_siscowet	-18.48	9	gene-LOC120039128	LOC120039128	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3967	0
+DMR_183	NW_024059411.1	15735	15824	hypo_siscowet	-16.33	3	gene-LOC120039140	LOC120039140	uncharacterized LOC120039140	lncRNA	downstream<=5kb	0	0	0	1315	0
+DMR_183	NW_024059411.1	15735	15824	hypo_siscowet	-16.33	3	gene-LOC120039139	LOC120039139		pseudogene	promoter	1	0	0	1121	0
+DMR_184	NW_024059442.1	1612	1654	hypo_siscowet	-18.56	5	gene-LOC120039165	LOC120039165	28S ribosomal RNA	rRNA	promoter	1	1	1	0	0
+DMR_184	NW_024059442.1	1612	1654	hypo_siscowet	-18.56	5	gene-LOC120039164	LOC120039164	5.8S ribosomal RNA	rRNA	promoter	1	0	0	1071	0
+DMR_185	NW_024059442.1	5075	5303	hypo_siscowet	-17.44	5	gene-LOC120039165	LOC120039165	28S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	233	0
+DMR_185	NW_024059442.1	5075	5303	hypo_siscowet	-17.44	5	gene-LOC120039164	LOC120039164	5.8S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	4534	0
+DMR_190	NW_024059513.1	23672	24039	hypo_siscowet	-36.14	7	gene-LOC120039353	LOC120039353	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4009	0
+DMR_196	NW_024059568.1	6979	7053	hypo_siscowet	-21.80	8	gene-LOC120039426	LOC120039426	18S ribosomal RNA	rRNA	promoter	1	0	0	1521	0
+DMR_196	NW_024059568.1	6979	7053	hypo_siscowet	-21.80	8	gene-LOC120039425	LOC120039425	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3924	0
+DMR_197	NW_024059568.1	7977	8206	hypo_siscowet	-18.43	6	gene-LOC120039426	LOC120039426	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	2519	0
+DMR_197	NW_024059568.1	7977	8206	hypo_siscowet	-18.43	6	gene-LOC120039425	LOC120039425	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4922	0
+DMR_198	NW_024059568.1	8552	13487	hypo_siscowet	-25.10	106	gene-LOC120039426	LOC120039426	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3094	0
+DMR_199	NW_024059570.1	4199	4331	hypo_siscowet	-26.23	3	gene-LOC120039430	LOC120039430	18S ribosomal RNA	rRNA	promoter	1	0	0	1526	0
+DMR_199	NW_024059570.1	4199	4331	hypo_siscowet	-26.23	3	gene-LOC120039428	LOC120039428	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3929	0
+DMR_200	NW_024059636.1	12137	12930	hypo_siscowet	-22.18	41	gene-LOC120039512	LOC120039512	18S ribosomal RNA	rRNA	promoter	1	0	0	802	0
+DMR_200	NW_024059636.1	12137	12930	hypo_siscowet	-22.18	41	gene-LOC120039509	LOC120039509	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3205	0
+DMR_200	NW_024059636.1	12137	12930	hypo_siscowet	-22.18	41	gene-LOC120039510	LOC120039510		pseudogene	upstream<=5kb	0	0	0	3728	0
+DMR_201	NW_024059636.1	13220	17971	hypo_siscowet	-25.36	98	gene-LOC120039512	LOC120039512	18S ribosomal RNA	rRNA	promoter	1	0	0	1885	0
+DMR_201	NW_024059636.1	13220	17971	hypo_siscowet	-25.36	98	gene-LOC120039509	LOC120039509	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4288	0
+DMR_201	NW_024059636.1	13220	17971	hypo_siscowet	-25.36	98	gene-LOC120039510	LOC120039510		pseudogene	upstream<=5kb	0	0	0	4811	0
+DMR_202	NW_024059641.1	123292	123828	hypo_siscowet	-32.95	6	gene-LOC120039524	LOC120039524	zinc finger protein 271-like	protein_coding	intron	0	0	1	0	2
+DMR_203	NW_024059641.1	136581	136796	hypo_siscowet	-25.28	4	gene-LOC120039520	LOC120039520		pseudogene	upstream<=5kb	0	0	0	4461	0
+DMR_203	NW_024059641.1	136581	136796	hypo_siscowet	-25.28	4	gene-LOC120039524	LOC120039524	zinc finger protein 271-like	protein_coding	intron	0	0	1	0	2
+DMR_205	NW_024059740.1	4102	4988	hypo_siscowet	-27.71	16	gene-LOC120039625	LOC120039625	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4725	0
+DMR_205	NW_024059740.1	4102	4988	hypo_siscowet	-27.71	16	gene-LOC120039627	LOC120039627	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	2322	0
+DMR_206	NW_024059740.1	5348	5782	hypo_siscowet	-23.28	12	gene-LOC120039629	LOC120039629		pseudogene	upstream<=5kb	0	0	0	4454	0
+DMR_206	NW_024059740.1	5348	5782	hypo_siscowet	-23.28	12	gene-LOC120039625	LOC120039625	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3931	0
+DMR_206	NW_024059740.1	5348	5782	hypo_siscowet	-23.28	12	gene-LOC120039627	LOC120039627	18S ribosomal RNA	rRNA	promoter	1	0	0	1528	0
+DMR_207	NW_024059740.1	22673	22995	hypo_siscowet	-23.04	5	gene-LOC120039628	LOC120039628	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4373	0
+DMR_208	NW_024059740.1	25771	25845	hypo_siscowet	-25.29	7	gene-LOC120039626	LOC120039626	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3926	0
+DMR_208	NW_024059740.1	25771	25845	hypo_siscowet	-25.29	7	gene-LOC120039628	LOC120039628	18S ribosomal RNA	rRNA	promoter	1	0	0	1523	0
+DMR_209	NW_024059745.1	24215	24575	hypo_siscowet	-20.63	5	gene-LOC120039639	LOC120039639	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4292	0
+DMR_211	NW_024059814.1	21743	21771	hypo_siscowet	-20.69	4	gene-LOC120039704	LOC120039704	18S ribosomal RNA	rRNA	promoter	1	0	0	1567	0
+DMR_211	NW_024059814.1	21743	21771	hypo_siscowet	-20.69	4	gene-LOC120039703	LOC120039703	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3970	0
+DMR_212	NW_024059827.1	3834	3908	hypo_siscowet	-20.49	8	gene-LOC120039709	LOC120039709	18S ribosomal RNA	rRNA	promoter	1	0	0	1521	0
+DMR_213	NW_024059827.1	5426	8765	hypo_siscowet	-21.52	92	gene-LOC120039709	LOC120039709	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3113	0
+DMR_216	NW_024059896.1	296205	296266	hypo_siscowet	-20.40	3	gene-LOC120039781	LOC120039781		pseudogene	intron	0	0	1	0	0
+DMR_217	NW_024059900.1	21042	22372	hypo_siscowet	-30.56	32	gene-LOC120039810	LOC120039810	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4608	0
+DMR_218	NW_024059900.1	23284	25019	hypo_siscowet	-25.85	35	gene-LOC120039809	LOC120039809	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4366	0
+DMR_218	NW_024059900.1	23284	25019	hypo_siscowet	-25.85	35	gene-LOC120039810	LOC120039810	18S ribosomal RNA	rRNA	promoter	1	0	0	1961	0
+DMR_219	NW_024059900.1	25383	25511	hypo_siscowet	-20.37	8	gene-LOC120039809	LOC120039809	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3874	0
+DMR_219	NW_024059900.1	25383	25511	hypo_siscowet	-20.37	8	gene-LOC120039810	LOC120039810	18S ribosomal RNA	rRNA	promoter	1	0	0	1469	0
+DMR_220	NW_024059900.1	27643	27660	hypo_siscowet	-18.60	4	gene-LOC120039809	LOC120039809	5.8S ribosomal RNA	rRNA	promoter	1	0	0	1725	0
+DMR_220	NW_024059900.1	27643	27660	hypo_siscowet	-18.60	4	gene-LOC120039810	LOC120039810	18S ribosomal RNA	rRNA	promoter	1	1	1	0	0
+DMR_226	NW_024059927.1	6171	6455	hypo_siscowet	-18.33	6	gene-LOC120039824	LOC120039824	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3254	0
+DMR_227	NW_024059927.1	8112	8181	hypo_siscowet	-21.91	5	gene-LOC120039825	LOC120039825		pseudogene	upstream<=5kb	0	0	0	4454	0
+DMR_227	NW_024059927.1	8112	8181	hypo_siscowet	-21.91	5	gene-LOC120039823	LOC120039823	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3931	0
+DMR_227	NW_024059927.1	8112	8181	hypo_siscowet	-21.91	5	gene-LOC120039824	LOC120039824	18S ribosomal RNA	rRNA	promoter	1	0	0	1528	0
+DMR_228	NW_024059973.1	10191	10476	hypo_siscowet	-21.49	3	gene-LOC120039903	LOC120039903	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4708	0
+DMR_229	NW_024059973.1	11237	11359	hypo_siscowet	-22.50	3	gene-LOC120039903	LOC120039903	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3825	0
+DMR_231	NW_024060001.1	5406	6407	hypo_siscowet	-18.58	14	gene-LOC120039922	LOC120039922	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4298	0
+DMR_233	NW_024060070.1	21504	25732	hypo_siscowet	-32.03	94	gene-LOC120039979	LOC120039979	18S ribosomal RNA	rRNA	promoter	1	0	0	1523	0
+DMR_233	NW_024060070.1	21504	25732	hypo_siscowet	-32.03	94	gene-LOC120039978	LOC120039978	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3926	0
+DMR_233	NW_024060070.1	21504	25732	hypo_siscowet	-32.03	94	gene-LOC120039980	LOC120039980		pseudogene	upstream<=5kb	0	0	0	4449	0
+DMR_237	NW_024060071.1	4083	4197	hypo_siscowet	-18.62	3	gene-LOC120039982	LOC120039982	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4959	0
+DMR_238	NW_024060071.1	4889	5090	hypo_siscowet	-25.25	3	gene-LOC120039982	LOC120039982	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4066	0
+DMR_239	NW_024060071.1	5416	5580	hypo_siscowet	-25.60	5	gene-LOC120039982	LOC120039982	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3576	0
+DMR_240	NW_024060071.1	7559	8004	hypo_siscowet	-21.03	15	gene-LOC120039983	LOC120039983		pseudogene	upstream<=5kb	0	0	0	4078	0
+DMR_240	NW_024060071.1	7559	8004	hypo_siscowet	-21.03	15	gene-LOC120039981	LOC120039981	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3555	0
+DMR_240	NW_024060071.1	7559	8004	hypo_siscowet	-21.03	15	gene-LOC120039982	LOC120039982	18S ribosomal RNA	rRNA	promoter	1	0	0	1152	0
+DMR_242	NW_024060233.1	7533	7592	hypo_siscowet	-20.70	5	gene-LOC120040166	LOC120040166	18S ribosomal RNA	rRNA	promoter	1	0	0	1526	0
+DMR_242	NW_024060233.1	7533	7592	hypo_siscowet	-20.70	5	gene-LOC120040165	LOC120040165	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3929	0
+DMR_244	NW_024060266.1	4360	6371	hypo_siscowet	-17.78	33	gene-LOC120040188	LOC120040188	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4455	0
+DMR_245	NW_024060266.1	9239	9687	hypo_siscowet	-22.07	12	gene-LOC120040189	LOC120040189		pseudogene	upstream<=5kb	0	0	0	4065	0
+DMR_245	NW_024060266.1	9239	9687	hypo_siscowet	-22.07	12	gene-LOC120040187	LOC120040187	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3542	0
+DMR_245	NW_024060266.1	9239	9687	hypo_siscowet	-22.07	12	gene-LOC120040188	LOC120040188	18S ribosomal RNA	rRNA	promoter	1	0	0	1139	0
+DMR_248	NW_024060346.1	9310	9824	hypo_siscowet	-21.98	9	gene-LOC120040311	LOC120040311	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3897	0
+DMR_249	NW_024060346.1	10182	10812	hypo_siscowet	-21.83	9	gene-LOC120040311	LOC120040311	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	2909	0
+DMR_250	NW_024060346.1	12142	12384	hypo_siscowet	-19.06	9	gene-LOC120040312	LOC120040312		pseudogene	upstream<=5kb	0	0	0	4263	0
+DMR_250	NW_024060346.1	12142	12384	hypo_siscowet	-19.06	9	gene-LOC120040310	LOC120040310	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3740	0
+DMR_250	NW_024060346.1	12142	12384	hypo_siscowet	-19.06	9	gene-LOC120040311	LOC120040311	18S ribosomal RNA	rRNA	promoter	1	0	0	1337	0
+DMR_256	NW_024060452.1	394875	395076	hypo_siscowet	-56.06	7	gene-LOC120040411	LOC120040411	gastrula zinc finger protein XlCGF57.1-like	protein_coding	intron	0	0	1	0	3
+DMR_257	NW_024060549.1	20502	20769	hypo_siscowet	-21.74	13	gene-LOC120040513	LOC120040513	18S ribosomal RNA	rRNA	promoter	1	0	0	1328	0
+DMR_257	NW_024060549.1	20502	20769	hypo_siscowet	-21.74	13	gene-LOC120040512	LOC120040512	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3731	0
+DMR_257	NW_024060549.1	20502	20769	hypo_siscowet	-21.74	13	gene-LOC120040514	LOC120040514		pseudogene	upstream<=5kb	0	0	0	4254	0
+DMR_258	NW_024060549.1	21022	21279	hypo_siscowet	-26.66	4	gene-LOC120040513	LOC120040513	18S ribosomal RNA	rRNA	promoter	1	0	0	1848	0
+DMR_258	NW_024060549.1	21022	21279	hypo_siscowet	-26.66	4	gene-LOC120040512	LOC120040512	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4251	0
+DMR_258	NW_024060549.1	21022	21279	hypo_siscowet	-26.66	4	gene-LOC120040514	LOC120040514		pseudogene	upstream<=5kb	0	0	0	4774	0
+DMR_261	NW_024060731.1	16717	18047	hypo_siscowet	-24.21	29	gene-LOC120040706	LOC120040706	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3407	0
+DMR_262	NW_024060761.1	15386	15618	hypo_siscowet	-21.91	6	gene-LOC120040743	LOC120040743	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	2433	0
+DMR_262	NW_024060761.1	15386	15618	hypo_siscowet	-21.91	6	gene-LOC120040742	LOC120040742	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4836	0
+DMR_263	NW_024061101.1	191507	191554	hypo_siscowet	-18.28	7	gene-LOC120041195	LOC120041195	28S ribosomal RNA	rRNA	promoter	1	1	1	0	0
+DMR_263	NW_024061101.1	191507	191554	hypo_siscowet	-18.28	7	gene-LOC120041193	LOC120041193	5.8S ribosomal RNA	rRNA	promoter	1	0	0	1071	0
+DMR_263	NW_024061101.1	191507	191554	hypo_siscowet	-18.28	7	gene-LOC120041194	LOC120041194	18S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	1792	0
+DMR_264	NW_024061101.1	194291	194358	hypo_siscowet	-21.29	3	gene-LOC120041195	LOC120041195	28S ribosomal RNA	rRNA	exon	0	1	1	0	0
+DMR_264	NW_024061101.1	194291	194358	hypo_siscowet	-21.29	3	gene-LOC120041193	LOC120041193	5.8S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	3855	0
+DMR_264	NW_024061101.1	194291	194358	hypo_siscowet	-21.29	3	gene-LOC120041194	LOC120041194	18S ribosomal RNA	rRNA	downstream<=5kb	0	0	0	4576	0
+DMR_280	NW_024061301.1	106321	106404	hypo_siscowet	-24.72	4	gene-LOC120041954	LOC120041954	uncharacterized LOC120041954	lncRNA	downstream<=5kb	0	0	0	2807	0
+DMR_280	NW_024061301.1	106321	106404	hypo_siscowet	-24.72	4	gene-LOC120041959	LOC120041959	uncharacterized LOC120041959	protein_coding	promoter	1	0	0	20	0
+DMR_283	NW_024061316.1	32724	32777	hypo_siscowet	-17.14	3	gene-LOC120042042	LOC120042042	uncharacterized LOC120042042	lncRNA	promoter	1	0	0	862	0
+DMR_284	NW_024061316.1	34513	34596	hypo_siscowet	-29.62	3	gene-LOC120042042	LOC120042042	uncharacterized LOC120042042	lncRNA	upstream<=5kb	0	0	0	2651	0
+DMR_285	NW_024061319.1	8327	8398	hypo_siscowet	-19.10	3	gene-LOC120042061	LOC120042061	uncharacterized LOC120042061	lncRNA	downstream<=5kb	0	0	0	4969	0
+DMR_285	NW_024061319.1	8327	8398	hypo_siscowet	-19.10	3	gene-LOC120042062	LOC120042062	uncharacterized LOC120042062	lncRNA	promoter	1	0	0	1286	0
+DMR_286	NW_024061370.1	7787	7815	hypo_siscowet	-20.34	3	gene-LOC120042329	LOC120042329	18S ribosomal RNA	rRNA	promoter	1	0	0	1567	0
+DMR_286	NW_024061370.1	7787	7815	hypo_siscowet	-20.34	3	gene-LOC120042327	LOC120042327	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	3970	0
+DMR_287	NW_024061370.1	8540	8654	hypo_siscowet	-17.89	4	gene-LOC120042329	LOC120042329	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	2320	0
+DMR_287	NW_024061370.1	8540	8654	hypo_siscowet	-17.89	4	gene-LOC120042327	LOC120042327	5.8S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	4723	0
+DMR_288	NW_024061370.1	8925	9170	hypo_siscowet	-17.48	3	gene-LOC120042329	LOC120042329	18S ribosomal RNA	rRNA	upstream<=5kb	0	0	0	2705	0
+DMR_292	NW_024061372.1	53606	53802	hypo_siscowet	-40.01	3	gene-LOC120042335	LOC120042335	E3 ubiquitin/ISG15 ligase TRIM25-like	protein_coding	downstream<=5kb	0	0	0	3992	1
+DMR_293	NW_024061431.1	177470	177648	hypo_siscowet	-24.89	3	gene-LOC120042551	LOC120042551	uncharacterized LOC120042551	lncRNA	promoter	1	0	0	1310	0
+DMR_294	NW_024061431.1	177921	178438	hypo_siscowet	-32.90	10	gene-LOC120042551	LOC120042551	uncharacterized LOC120042551	lncRNA	promoter	1	0	0	1761	0
+DMR_298	NW_024061529.1	52664	53153	hypo_siscowet	-21.47	8	gene-LOC120042897	LOC120042897	transport and Golgi organization protein 1 homolog	protein_coding	intron	0	0	1	0	5

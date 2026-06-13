@@ -31,7 +31,14 @@ acquires it; everything downstream reuses bedtools intersects the repo already d
 
 ## Plan of work
 
-### Step 0 — Build a functional annotation table for SaNama_1.0 genes
+### Step 0 — Build a functional annotation table for SaNama_1.0 genes  ✅ DONE
+
+> Implemented in `code/18-build-gene-function-table.py` →
+> `analyses/18-annotation/gene_function_table.tsv` (see `analyses/18-annotation/README.md`).
+> All 46,359 BED genes covered; 9,738 symbols, 46,231 products, 34,367 with GO. GO came
+> straight from NCBI's `gene_ontology.gaf.gz`, so the eggNOG/DIAMOND ortholog pass below was
+> not needed for first-pass coverage (revisit only for symbol-less + product-less LOC genes).
+
 
 - Pull the NCBI annotation for GCF_016432855.1 (the `*_genomic.gff.gz` and the
   feature/`gene_ontology` or protein tables from the RefSeq `Annotation_comparison` /
@@ -43,7 +50,12 @@ acquires it; everything downstream reuses bedtools intersects the repo already d
 - Deliverable: `analyses/18-annotation/gene_function_table.tsv` keyed on the same
   `gene-XXX` IDs used in `data/...genes.bed`. This is the join key for all later steps.
 
-### Step 1 — Assign DMRs (and DMCs) to genes with positional context
+### Step 1 — Assign DMRs (and DMCs) to genes with positional context  ✅ DONE
+
+> `code/18.1-assign-features-to-genes.py` → `analyses/18-annotation/dmr_gene_assignments.tsv`
+> + `dmc_gene_assignments.tsv`. 149/302 DMRs within 5 kb of a gene (26 gene-body, matches the
+> report's 25); 88 DMRs land in promoters. Promoter=TSS±2kb, flanking=gene±5kb.
+
 
 - Reuse the existing `bedtools intersect` pattern. Beyond exact overlap, add **proximity
   classes** because regulatory methylation often sits in promoters: intersect DMRs against
@@ -54,7 +66,13 @@ acquires it; everything downstream reuses bedtools intersects the repo already d
   302-DMR set misses.
 - Deliverable: `analyses/18-annotation/dmr_gene_assignments.tsv`.
 
-### Step 2 — Assign differential PAVs to genes, by overlap type
+### Step 2 — Assign differential PAVs to genes, by overlap type  ✅ DONE
+
+> `code/18.1-assign-features-to-genes.py` → `analyses/18-annotation/pav_gene_assignments.tsv`
+> (stringent siscowet-specific deletions: 1,543/3,465 near a gene, **54 with exon overlap**)
+> + `pav_gene_burden.tsv` (lenient lean/siscowet del+ins per-gene burden, 22,450 genes;
+> reference-bias caveat carried in-file).
+
 
 - **Lead with `stringent.siscowet_specific.deletions.bed`** (cleanest signal). Intersect
   with gene bodies and exons; classify as `exon-overlapping` (potential loss-of-function /
@@ -65,7 +83,14 @@ acquires it; everything downstream reuses bedtools intersects the repo already d
   exploratory only.
 - Deliverable: `analyses/18-annotation/pav_gene_assignments.tsv` with a confidence tier.
 
-### Step 3 — Integrate the two layers and add expression evidence
+### Step 3 — Integrate the two layers and add expression evidence  ✅ DONE
+
+> `code/18.2-integrate-candidates.py` → `analyses/18-annotation/integrated_candidate_genes.tsv`
+> (2,036 candidate genes; **4 convergent** DMR+stringent-PAV genes). Liver RNAseq joined on
+> `gene_id`; expression linkage weak (different individuals/tissue) so used as support only.
+> Ranked view deprioritizes repetitive ncRNA via a `caution` flag. Lipid-metabolism genes
+> (`angptl5`, `mogat2`, epoxide hydrolase 1) flagged for Step 5.
+
 
 - Join DMR-genes and PAV-genes on the Step 0 table to produce one master gene list with
   flags: `has_DMR`, `DMR_direction`, `in_promoter`, `has_stringent_PAV`, `PAV_exonic`.
@@ -76,7 +101,15 @@ acquires it; everything downstream reuses bedtools intersects the repo already d
   so treat as supporting, not confirmatory.
 - Deliverable: `analyses/18-annotation/integrated_candidate_genes.tsv` (ranked).
 
-### Step 4 — Functional enrichment
+### Step 4 — Functional enrichment  ✅ DONE (GO; KEGG deferred)
+
+> `code/18.3-go-enrichment.py` → `analyses/18-annotation/go_enrichment_{dmr,pav,union}.tsv`.
+> Self-contained hypergeometric ORA on local GO with DAG propagation (go-basic.obo), BH-FDR.
+> **Robust signal: calcium ion transport/channels (FDR 3e-3) in the PAV set.** DMR enrichment
+> is a histone + znf883 tandem-cluster artifact; lipid/growth terms only suggestive (FDR>0.1).
+> Confounders flagged in README: gene-length bias (PAV ORA), reference bias, IEA annotations,
+> gene clustering. KEGG deferred (needs KO/ortholog mapping; GO is the substantive result).
+
 
 - Run GO/KEGG over-representation on the DMR-gene set, the PAV-gene set, and the union,
   each against the full annotated gene set as background (gprofiler2 / clusterProfiler with
@@ -87,7 +120,14 @@ acquires it; everything downstream reuses bedtools intersects the repo already d
   lipid content) ecotypes.
 - Deliverable: enrichment tables + a couple of summary plots in `analyses/18-annotation/`.
 
-### Step 5 — Phenotype interpretation
+### Step 5 — Phenotype interpretation  ✅ DONE
+
+> `code/18-diff-annotation-phenotype.Rmd` (base-R, render-ready; renders where pandoc is
+> available, e.g. RStudio) + figure `figures/18-top-candidates.png`. Per-axis evidence blocks
+> (lipid/energy, body-shape/growth/muscle, calcium/sensory-neural, immune, chromatin-artifact),
+> anchored to the morphometric `data/measurements.xlsx`, with the full causality/reference
+> caveat set. Verified by knitting to markdown (all chunks execute, tables + figure populate).
+
 
 - For the top convergent/enriched candidates, write a short evidence block each: gene,
   function, methylation/PAV/expression evidence, and the **specific lake-trout phenotype**

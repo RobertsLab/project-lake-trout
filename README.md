@@ -7,6 +7,7 @@ Comprehensive genomic analysis of _Salvelinus namaycush_ (lake trout) comparing 
 - **RNAseq differential expression analysis** using parasitized/non-parasitized liver tissue
 - **PacBio HiFi DNA methylation profiling** and differential methylation analysis
 - **Presence-Absence Variation (PAV) analysis** to identify structural genomic variations
+- **Functional annotation & phenotype interpretation** linking DMRs and PAVs to candidate genes
 - **Interactive genome browser** for visualizing genomic features
 
 ### Reference Genome
@@ -86,6 +87,35 @@ Web-based genome browser for exploring PAV and methylation data across the genom
 
 **Documentation:** [`genome-browser/README.md`](genome-browser/README.md)
 
+### 5. Functional Annotation & Phenotype Interpretation
+
+The interpretive layer that turns DMR and PAV coordinates into genes and plausible ecotype
+phenotypes. A genome-wide RefSeq annotation backbone is built, differential features are assigned to
+genes with positional context, candidates are ranked, GO over-representation is tested, and the
+results are synthesized into hypothesized phenotype axes.
+
+**Key Results:**
+- **46,359 genes** annotated (46,231 with a product, 34,367 with ≥1 GO term)
+- **2,036 candidate genes** within 5 kb of a DMR/DMC/stringent-PAV; **4 convergent** (DMR *and*
+  stringent siscowet deletion), led by `znf883-like` (LOC120032414)
+- Exonic siscowet deletions in **lipid-metabolism genes** (`angptl5`, `mogat2`, epoxide hydrolase 1)
+- Most defensible GO enrichment (deletion set): **calcium ion transport** (FDR 3×10⁻³), with
+  gene-length and lean-reference caveats carried throughout
+- 0 DMCs survive q < 0.1 — interpretation leads with DMR-level and stringent-PAV sets
+
+> **Caveat:** the reference is a lean-background doubled-haploid genome, so siscowet-specific
+> deletions are divergence-inflated and not magnitude-comparable to lean. All links are associations
+> on a single reference, not validated mechanisms.
+
+**Analysis Files:**
+- [`code/18-diff-annotation-phenotype-plan.md`](code/18-diff-annotation-phenotype-plan.md) - Plan of work
+- [`code/18-build-gene-function-table.py`](code/18-build-gene-function-table.py) - Annotation backbone
+- [`code/18.1-assign-features-to-genes.py`](code/18.1-assign-features-to-genes.py) - DMR/PAV → gene assignment
+- [`code/18.2-integrate-candidates.py`](code/18.2-integrate-candidates.py) - Ranked candidate integration
+- [`code/18.3-go-enrichment.py`](code/18.3-go-enrichment.py) - GO over-representation
+- [`code/18-diff-annotation-phenotype.Rmd`](code/18-diff-annotation-phenotype.Rmd) - Phenotype synthesis report
+- [`analyses/18-annotation/README.md`](analyses/18-annotation/README.md) - Outputs & provenance
+
 ---
 
 ## Repository Structure
@@ -102,7 +132,8 @@ project-lake-trout/
 │   ├── 11-pav.Rmd                     # PAV analysis
 │   ├── 13.3-hifiasm-differential-methylation-plan.md # Plan for hifiasm-based differential methylation
 │   ├── 14-diff-meth.Rmd/py            # Differential methylation
-│   └── 15-diff-pav.py                 # Differential PAV
+│   ├── 15-diff-pav.py                 # Differential PAV
+│   └── 18-*                           # Annotation, candidate integration, GO, phenotype
 ├── data/                    # Raw data and metadata
 │   ├── SraRunTable.csv                # RNAseq sample information
 │   ├── ballgown-metadata.csv          # Ballgown metadata
