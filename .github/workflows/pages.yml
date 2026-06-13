@@ -1,0 +1,73 @@
+name: Deploy site to GitHub Pages
+
+# The repository working tree is ~2 GB (photos/, raw analysis outputs, genome
+# data) which exceeds the 1 GB Pages artifact limit. This workflow assembles a
+# trimmed _site/ containing only the files the published site actually serves,
+# then deploys that.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; don't cancel an in-progress one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Assemble trimmed site
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+
+          # Landing page
+          cp index.html _site/
+
+          # Interactive genome browsers (self-contained, relative asset paths)
+          cp -r genome-browser _site/genome-browser
+          cp -r jbrowse        _site/jbrowse
+
+          # Assets the landing page links to
+          cp -r img     _site/img
+          cp -r figures _site/figures
+
+          # Annotation analysis outputs + downloadable tables linked from the page
+          mkdir -p _site/analyses/18-annotation
+          # README + .tsv outputs only (raw/ reference downloads are gitignored / large)
+          cp analyses/18-annotation/README.md _site/analyses/18-annotation/ 2>/dev/null || true
+          cp analyses/18-annotation/*.tsv     _site/analyses/18-annotation/ 2>/dev/null || true
+
+          # Rendered annotation report linked from the page
+          mkdir -p _site/code
+          cp code/18-diff-annotation-phenotype.html _site/code/ 2>/dev/null || true
+
+          echo "Assembled site size:"
+          du -sh _site
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
