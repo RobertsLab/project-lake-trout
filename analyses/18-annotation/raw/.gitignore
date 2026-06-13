@@ -1,0 +1,5 @@
+# Large, re-downloadable reference files (NCBI RefSeq + GO). Re-fetch via
+# code/18-build-gene-function-table.py (URLs in analyses/18-annotation/README.md)
+# and the go-basic.obo download in code/18.3-go-enrichment.py.
+*.gz
+*.obo

@@ -1,0 +1,293 @@
+---
+title: "18 - Differential Methylation & PAV: Gene Annotation and Phenotype Synthesis"
+subtitle: "Lean vs Siscowet Lake Trout on GCF_016432855.1 (SaNama_1.0)"
+author: "project-lake-trout"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_knit$set(root.dir = normalizePath(".."))
+```
+
+```{r helpers, include=FALSE}
+ann <- "analyses/18-annotation"
+rd  <- function(f) read.delim(file.path(ann, f), check.names = FALSE,
+                              stringsAsFactors = FALSE, quote = "")
+kt  <- function(df, cap) knitr::kable(df, row.names = FALSE, caption = cap)
+```
+
+# Overview
+
+This report synthesizes the gene-annotation work (Steps 0–4 of
+[`code/18-diff-annotation-phenotype-plan.md`](18-diff-annotation-phenotype-plan.md))
+into a ranked candidate-gene interpretation and a set of **hypothesized
+phenotypic consequences** for the lean and siscowet ecotypes. It does
+not generate new variant calls; it asks *where* the existing
+differential methylation (DMRs/DMCs) and differential PAVs fall, *what*
+those genes do, and *which ecotype phenotypes* they could plausibly
+affect.
+
+> ## Read-this-first caveat: the reference is a *lean* genome
+>
+> GCF_016432855.1 was assembled from a female gynogenetic **doubled
+> haploid** of the **Seneca Lake (NY) brood stock** — a documented
+> **lean** morphotype (Smith et al. 2022, *Mol Ecol Resour*). Every
+> ecotype-asymmetric result here is therefore **lean-reference biased**:
+> siscowet diverges more from the reference, inflating apparent
+> siscowet-specific PAVs and reducing siscowet CpG coverage in divergent
+> regions. Interpret all PAV magnitudes comparatively, never as absolute
+> counts, and treat siscowet-specific gene *content* as partially
+> invisible to a reference-only analysis.
+
+# Inputs
+
+| Layer | File | Built by |
+|------------------------|------------------------|------------------------|
+| Gene function table | `gene_function_table.tsv` | `code/18-build-gene-function-table.py` |
+| DMR → gene | `dmr_gene_assignments.tsv` | `code/18.1-assign-features-to-genes.py` |
+| DMC → gene | `dmc_gene_assignments.tsv` | `code/18.1-...` |
+| Stringent PAV → gene | `pav_gene_assignments.tsv` | `code/18.1-...` |
+| Lenient PAV burden | `pav_gene_burden.tsv` | `code/18.1-...` |
+| Integrated candidates | `integrated_candidate_genes.tsv` | `code/18.2-integrate-candidates.py` |
+| GO enrichment | `go_enrichment_{dmr,pav,union}.tsv` | `code/18.3-go-enrichment.py` |
+
+Positional windows: promoter = TSS ± 2 kb (strand-aware); flanking =
+gene body ± 5 kb. GO ORA is hypergeometric on local NCBI GO annotations
+with DAG propagation, BH-FDR within each set.
+
+# Results
+
+```{r load}
+cand <- rd("integrated_candidate_genes.tsv")
+dmr  <- rd("dmr_gene_assignments.tsv")
+pav  <- rd("pav_gene_assignments.tsv")
+go_pav <- rd("go_enrichment_pav.tsv")
+num <- function(x) suppressWarnings(as.numeric(x))
+```
+
+## Summary
+
+```{r summary}
+summ <- data.frame(
+  Metric = c("Candidate genes (DMR/DMC/stringent-PAV within 5 kb)",
+             "  with a DMR within 5 kb",
+             "  with a stringent siscowet-specific deletion within 5 kb",
+             "  CONVERGENT (DMR and stringent PAV)",
+             "DMRs landing in a promoter (TSS +/- 2 kb)",
+             "Genes with an EXON-overlapping siscowet-specific deletion",
+             "GO terms FDR<0.1 (PAV set)"),
+  Value = c(nrow(cand),
+            sum(num(cand$dmr_n) > 0),
+            sum(num(cand$pav_strin_n) > 0),
+            sum(cand$convergent == 1),
+            sum(dmr$in_promoter == 1),
+            length(unique(pav$gene_id[pav$exon_overlap == 1])),
+            sum(num(go_pav$fdr) < 0.1)))
+kt(summ, "Headline numbers")
+```
+
+## Convergent genes (methylation *and* structural variation)
+
+The strongest candidates carry both a DMR and a stringent
+siscowet-specific deletion.
+
+```{r convergent}
+cv <- cand[cand$convergent == 1,
+           c("symbol","product","dmr_directions","dmr_best_class","dmr_max_absdiff",
+             "pav_strin_best_class","pav_strin_exonic","pav_strin_maxsize","rank_score")]
+kt(cv, "Convergent candidate genes")
+```
+
+Two of the four (`znf883`-like paralogs, `XlCGF57.1`-like) are
+rapidly-evolving, tandemly-arrayed zinc-finger genes — convergence there
+partly reflects **repetitive-region mapping**, so they are flagged
+rather than asserted.
+
+## Protein-coding genes with promoter methylation
+
+Promoter DMRs are the most interpretable methylation signal (regulatory
+potential). Repetitive ncRNA (rDNA/snRNA) loci are excluded.
+
+```{r promoter}
+pc <- cand[cand$dmr_promoter == 1 & cand$biotype == "protein_coding" & cand$caution == "",
+           c("symbol","product","dmr_directions","dmr_max_absdiff",
+             "log2fc_sisco_lean","meth_expr_concordant")]
+pc <- pc[order(-num(pc$dmr_max_absdiff)), ]
+kt(head(pc, 15), "Protein-coding promoter-DMR genes (top 15 by methylation difference)")
+```
+
+## Exonic siscowet-specific deletions (candidate copy-number / loss-of-function)
+
+```{r exonic-pav}
+ex <- pav[pav$exon_overlap == 1, c("symbol","product","size_bp","chrom","start","end")]
+ex <- ex[order(-num(ex$size_bp)), ]
+ex <- ex[!duplicated(ex$symbol), ]
+kt(head(ex, 15), "Largest exon-overlapping siscowet-specific deletions (one row per gene)")
+```
+
+## GO enrichment — the defensible signal
+
+```{r go}
+g <- go_pav[num(go_pav$fdr) < 0.25,
+            c("name","namespace","study_k","fold_enrichment","fdr","phenotype")]
+g <- g[order(num(g$fdr)), ]
+kt(head(g, 20), "PAV-set GO terms at FDR<0.25 (phenotype-relevant flagged in 'phenotype')")
+```
+
+Only **calcium ion transport / channel** terms pass FDR\<0.1. Lipid- and
+growth-related terms are *suggestive* (FDR 0.1–0.5); broad
+`lipid metabolic process` is actually depleted. The calcium signal is
+also subject to a **gene-length confounder** (long channel genes
+accumulate deletions by chance) — see Limitations.
+
+## Top candidates figure
+
+```{r figure, fig.width=9, fig.height=6, dev='png'}
+top <- cand[cand$caution == "" & cand$biotype == "protein_coding", ]
+top <- top[order(-num(top$rank_score), -num(top$dmr_max_absdiff)), ]
+top <- head(top, 15)
+lab <- ifelse(top$symbol == "" | grepl("^LOC", top$symbol),
+              substr(top$product, 1, 28), top$symbol)
+lab[lab == ""] <- top$gene_id[lab == ""]
+col <- ifelse(top$convergent == 1, "#b2182b",
+       ifelse(top$pav_strin_exonic == 1, "#ef8a62",
+       ifelse(top$dmr_promoter == 1, "#2166ac", "#67a9cf")))
+op <- par(mar = c(4, 16, 3, 1))
+bp <- barplot(rev(num(top$rank_score)), horiz = TRUE, names.arg = rev(lab),
+              las = 1, col = rev(col), xlab = "integrated rank score",
+              main = "Top protein-coding candidate genes", cex.names = 0.8)
+legend("bottomright", bty = "n", cex = 0.8,
+       fill = c("#b2182b","#ef8a62","#2166ac","#67a9cf"),
+       legend = c("convergent (meth+PAV)","exonic siscowet deletion",
+                  "promoter DMR","other"))
+par(op)
+dir.create("figures", showWarnings = FALSE)
+png("figures/18-top-candidates.png", width = 900, height = 600)
+par(mar = c(4, 16, 3, 1))
+barplot(rev(num(top$rank_score)), horiz = TRUE, names.arg = rev(lab), las = 1,
+        col = rev(col), xlab = "integrated rank score",
+        main = "Top protein-coding candidate genes", cex.names = 0.8)
+invisible(dev.off())
+```
+
+# Phenotype interpretation
+
+Lean and siscowet differ along well-characterized axes: **lipid content
+/ energy storage** (siscowet are fatty, deep-water; lean are
+lean-bodied, shallow), **body shape and size**, **depth / pressure /
+buoyancy**, and **sensory–neuromuscular** performance. The repository's
+own `data/measurements.xlsx` is a 17-landmark **geometric-morphometric**
+data set (body shape + centroid size) for \~100 fish per group — direct
+evidence that the ecotypes differ in *body form and size*, which is the
+phenotype the growth/muscle candidates below would feed into. Each block
+states the evidence and an explicitly **hypothesized** link.
+
+### Lipid metabolism / energy storage *(gene-level, not genome-wide)*
+
+- **`angptl5`** (angiopoietin-related protein 5-like) — exonic
+  siscowet-specific deletion. ANGPTL family members regulate
+  **triglyceride / lipoprotein-lipase activity**. Hypothesis: altered
+  lipid-handling capacity, consistent with the defining lean/siscowet
+  fat-content difference. *Caveat: lean-reference bias means this is a
+  candidate, not a confirmed siscowet loss.*
+- **`mogat2`** (2-acylglycerol O-acyltransferase 2-A-like) — exonic
+  deletion. Catalyses **triacylglycerol synthesis** (monoacylglycerol
+  pathway). Hypothesis: differential dietary lipid re-esterification /
+  fat deposition.
+- **Epoxide hydrolase 1-like** (LOC120029926) — promoter DMR (hypo in
+  siscowet). Roles in lipid-epoxide and xenobiotic metabolism.
+- **Genome-wide caveat:** GO enrichment does **not** support a broad
+  lipid-metabolism program (broad lipid terms are depleted; only narrow
+  lipid-binding sub-terms are weakly enriched, FDR\>0.1). The lipid
+  signal here is **individual-gene**, not pathway-level.
+
+### Body shape, growth, and muscle
+
+- **`rbm24b`** (RNA-binding motif protein 24b) — promoter DMR,
+  **hyper-methylated in siscowet** (Δ33%), the largest-effect promoter
+  DMR. Rbm24 is a conserved regulator of **muscle and heart development
+  / sarcomere mRNA stability**. Hypothesis: promoter hypermethylation →
+  reduced expression → contributes to ecotype differences in musculature
+  / body form captured by the morphometric data.
+- **Myosin-7-like**, **striated-muscle / contractile-fiber** GO terms,
+  and suggestive **developmental-growth** GO enrichment (FDR\~0.15)
+  point the same direction.
+
+### Calcium signalling, excitability, and sensory–neural
+
+- **Calcium ion transport** is the one phenotype-relevant GO block
+  passing FDR\<0.1 in the PAV set; **calcium-channel** and
+  **axon-guidance / neuron-projection** terms top the list. Specific
+  genes include a **T-type calcium channel α-1I-like** subunit (exonic
+  deletion), **CaMKII β-like** (near a DMR), and **anoctamin-10a**
+  (Ca-gated channel, near a DMR). Hypothesis: differences in
+  neuromuscular excitability / sensory tuning relevant to deep-water
+  (siscowet) vs shallow (lean) life history. *Strong gene-length caveat
+  applies.*
+
+### Immune / cell-surface recognition
+
+- Exonic siscowet-specific deletions cluster in **immune & adhesion**
+  genes: CEACAM1-like, CD200/OX-2-like, DMBT1-like, NLRP3-like,
+  α-2-macroglobulin-like, TRIM25-like, CD22-like. These gene families
+  are **rapidly evolving and copy-number-variable** across vertebrates,
+  so some of this is expected background rather than ecotype-specific
+  selection. Hypothesis: ecotype differences in pathogen/parasite
+  exposure (note the companion liver RNAseq is a
+  parasitized/non-parasitized study) — but this is the class **most**
+  confounded by reference bias and gene-family CNV.
+
+### Chromatin / transcriptional regulation *(flagged as artifact)*
+
+- The DMR GO enrichment (chromatin/nucleosome, transcription-repressor)
+  is driven by **one histone gene cluster** (6 co-located histones) and
+  **three adjacent `znf883` paralogs** — a tandem-cluster artifact, not
+  broad regulatory convergence. Reported for completeness only.
+
+# Limitations
+
+1.  **Reference is lean** — all ecotype-asymmetric signals are
+    divergence-biased; siscowet gene content absent from the reference
+    is invisible. The per-ecotype hifiasm track (`code/13.3-...plan.md`)
+    is the needed complement.
+2.  **No DMC survives FDR** (q\<0.1 = 0 in the diff-meth report);
+    interpretation leans on DMR-level and stringent-PAV sets. Single-CpG
+    and lenient-PAV signals are hypothesis-generating only.
+3.  **Expression is orthogonal, not confirmatory** — the liver RNAseq is
+    a *different study / different individuals*; most candidates are not
+    liver-expressed (`log2fc=NA`).
+4.  **Gene-length bias** inflates PAV-based GO enrichment toward long
+    genes (calcium channels); a length-matched permutation null is the
+    proper test (not yet run).
+5.  **Tandem-cluster / paralog inflation** and **IEA-only GO
+    annotations** affect enrichment.
+6.  **Associative, not causal** — promoter-hypermethylation → silencing
+    is a hypothesis; no functional validation, single reference, no
+    replication across additional assemblies.
+
+# Conclusions
+
+The cleanest, most defensible findings are: (i) a small set of
+**convergent** genes (led by a `znf883` paralog), (ii) a
+**calcium-transport / channel** GO signal in the structural-variant set
+(with a gene-length caveat), and (iii) **individual** lipid-metabolism
+genes (`angptl5`, `mogat2`) and a high-effect **muscle-development**
+promoter DMR (`rbm24b`) that align with the known lipid- and body-shape
+differences between the ecotypes — the latter directly relevant to the
+morphometric phenotypes recorded in `data/measurements.xlsx`. None of
+these are confirmed; they are prioritized hypotheses for targeted
+follow-up on ecotype-specific (hifiasm) assemblies and in matched
+tissue.
+
+```{r session, include=FALSE}
+# sessionInfo()
+```
