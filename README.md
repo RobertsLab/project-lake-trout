@@ -1,5 +1,9 @@
 # Lake Trout Genomics: Comparative Analysis of Lean and Siscowet Ecotypes
 
+> 🌐 **Project website:** **[robertslab.github.io/project-lake-trout](https://robertslab.github.io/project-lake-trout/)** — the
+> annotation & phenotype landing page, top candidate genes, GO enrichment, interpretation guardrails,
+> and links to both interactive genome browsers.
+
 ## Overview
 
 Comprehensive genomic analysis of _Salvelinus namaycush_ (lake trout) comparing two distinct ecotypes: **lean** and **siscowet**. This repository contains multiple integrated analyses including:
@@ -73,17 +77,19 @@ Genome-wide structural variation analysis identifying insertions and deletions b
 - [`code/12-pav.py`](code/12-pav.py) - Python implementation
 - [`code/15-diff-pav.py`](code/15-diff-pav.py) - Differential PAV analysis
 
-### 4. Interactive Genome Browser
+### 4. Interactive Genome Browsers
 
-Web-based genome browser for exploring PAV and methylation data across the genome.
+Web-based genome browsers for exploring PAV and methylation data across the SaNama_1.0 assembly.
 
 **Features:**
 - Visualize ecotype-specific insertions and deletions
-- View differential methylation tracks
+- View differential methylation tracks (CpG methylation, 8 samples; DMRs)
 - Gene annotations with interactive navigation
 - Mobile-responsive design
 
-**Live Demo:** [https://sr320.github.io/project-lake-trout/genome-browser/](https://sr320.github.io/project-lake-trout/genome-browser/)
+**Live Demos:**
+- **IGV.js** (quick exploration): [robertslab.github.io/project-lake-trout/genome-browser/](https://robertslab.github.io/project-lake-trout/genome-browser/)
+- **JBrowse 2** (advanced analysis): [robertslab.github.io/project-lake-trout/jbrowse/](https://robertslab.github.io/project-lake-trout/jbrowse/)
 
 **Documentation:** [`genome-browser/README.md`](genome-browser/README.md)
 
@@ -122,6 +128,7 @@ results are synthesized into hypothesized phenotype axes.
 
 ```
 project-lake-trout/
+├── index.html / index.qmd  # Project website landing page (GitHub Pages)
 ├── code/                    # Analysis scripts and notebooks
 │   ├── 01-ballgown-analysis.Rmd       # RNAseq differential expression
 │   ├── 02-gene-explore.qmd            # Gene exploration
@@ -144,10 +151,11 @@ project-lake-trout/
 │   ├── 04-pacbio/                     # PacBio analysis outputs
 │   ├── 14-diff-meth/                  # Methylation results
 │   └── 15-diff-pav/                   # PAV results
-├── genome-browser/          # Interactive genome browser
+├── genome-browser/          # Interactive IGV.js genome browser
 │   ├── index.html                     # Browser interface
 │   ├── prepare_data.py                # Data preparation script
 │   └── data/                          # Browser data files
+├── jbrowse/                 # JBrowse 2 genome browser
 └── figures/                 # Generated figures and plots
 ```
 
@@ -203,6 +211,7 @@ The following data processing steps were performed prior to analyses in this rep
 
 If you use data or methods from this repository, please cite:
 
+- Project website: [robertslab.github.io/project-lake-trout](https://robertslab.github.io/project-lake-trout/)
 - Lake Trout RNAseq data: [NCBI BioProject PRJNA316738](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA316738)
 - Reference genome: GCF_016432855.1 (SaNama_1.0)
 
