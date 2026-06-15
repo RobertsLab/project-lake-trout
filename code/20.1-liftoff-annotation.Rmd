@@ -1,0 +1,327 @@
+---
+title: "20.1-liftoff-annotation"
+author: "Steven Roberts"
+date: "2026-06-15"
+output:
+  github_document:
+    toc: true
+    number_sections: true
+  bookdown::html_document2:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+bibliography: references.bib
+citeproc: true
+---
+
+# BACKGROUND
+
+Liftoff-only structural annotation of the two ecotype-specific PacBio HiFi assemblies
+(`lean`, `siscowet`), per [`code/20-ecotype-genomes.md`](20-ecotype-genomes.md) (Track A).
+
+Because both assemblies are the **same species** as the annotated NCBI reference
+**GCF_016432855.1 (SaNama_1.0)**, we transfer the reference annotation directly onto each
+assembly with [Liftoff](https://github.com/agshumate/Liftoff) [@shumate2021] rather than
+predicting genes de novo. Lifted genes inherit the existing functional annotation in
+`analyses/18-annotation/gene_function_table.tsv` via the shared `gene-XXX` ID.
+
+This notebook does **not** do repeat masking or de novo prediction (BRAKER3) — those are
+the optional Track B added later.
+
+Due to large file sizes, the outputs are not committed to GitHub. They may be found here:
+
+- [https://gannet.fish.washington.edu/gitrepos/project-lake-trout/output/20.1-liftoff-annotation/](https://gannet.fish.washington.edu/gitrepos/project-lake-trout/output/20.1-liftoff-annotation/)
+
+# SETUP
+
+## Libraries
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+
+knitr::opts_chunk$set(
+  echo = TRUE,         # Display code chunks
+  eval = FALSE,        # Evaluate code chunks
+  results = "hold",    # Hold outputs and show them after the full code chunk
+  warning = FALSE,     # Hide warnings
+  collapse = FALSE,    # Keep code and output in separate blocks
+  message = FALSE,     # Hide messages
+  comment = "##"       # Prefix output lines with '##' so output is visually distinct
+)
+```
+
+## Set R variables
+
+```{r R-variables, eval=TRUE}
+# DIRECTORIES
+project_dir <- "/mmfs1/gscratch/scrubbed/samwhite/gitrepos/RobertsLab/project-lake-trout"
+genome_dir  <- file.path(project_dir, "data/genome")
+ref_dir     <- file.path(project_dir, "data/genome/ref-GCF_016432855.1")
+output_dir  <- "../output/20.1-liftoff-annotation"
+
+# INPUT ASSEMBLIES (frozen references for annotation)
+lean_fasta     <- file.path(genome_dir, "pb-hifiasm-lean-assembly.fa")
+siscowet_fasta <- file.path(genome_dir, "pb-hifiasm-siscowet-assembly.fa")
+
+# REFERENCE ANNOTATION SOURCE
+ref_accession  <- "GCF_016432855.1"
+ref_fasta      <- file.path(ref_dir, "GCF_016432855.1_SaNama_1.0_genomic.fna")
+ref_gff        <- file.path(ref_dir, "genomic.gff")
+
+# EXISTING FUNCTIONAL TABLE (reference genes -> symbol/product/GO)
+func_table <- file.path(project_dir, "analyses/18-annotation/gene_function_table.tsv")
+
+# PROGRAMS (Klone /srlab conda envs, matching repo convention)
+datasets <- "/srlab/programs/miniforge3-24.7.1-0/envs/ncbi-datasets_env/bin/datasets"
+liftoff  <- "/srlab/programs/miniforge3-24.7.1-0/envs/liftoff-1.6.3_env/bin/liftoff"
+gffread  <- "/srlab/programs/miniforge3-24.7.1-0/envs/gffread-0.12.7_env/bin/gffread"
+samtools <- "/srlab/programs/samtools-1.20/samtools"
+
+# SETTINGS
+threads <- "40"
+
+# Export to env vars for bash chunks.
+Sys.setenv(
+  project_dir    = project_dir,
+  genome_dir     = genome_dir,
+  ref_dir        = ref_dir,
+  output_dir     = output_dir,
+  lean_fasta     = lean_fasta,
+  siscowet_fasta = siscowet_fasta,
+  ref_accession  = ref_accession,
+  ref_fasta      = ref_fasta,
+  ref_gff        = ref_gff,
+  func_table     = func_table,
+  datasets       = datasets,
+  liftoff        = liftoff,
+  gffread        = gffread,
+  samtools       = samtools,
+  threads        = threads
+)
+```
+
+```{r make-output-dir, engine='bash'}
+mkdir --parents "${output_dir}"
+mkdir --parents "${ref_dir}"
+```
+
+# REFERENCE ANNOTATION
+
+Download the reference genome FASTA and GFF for `GCF_016432855.1` (SaNama_1.0). This is the
+source annotation Liftoff transfers from. Run once; skip if `${ref_gff}` already exists.
+
+```{r download-reference, engine='bash'}
+cd "${ref_dir}"
+
+if [ -s "${ref_gff}" ] && [ -s "${ref_fasta}" ]; then
+  echo "Reference already present; skipping download."
+else
+  # NCBI datasets CLI: genome FASTA + GFF3
+  "${datasets}" download genome accession "${ref_accession}" \
+    --include genome,gff3 \
+    --filename "${ref_accession}.zip"
+
+  unzip -o "${ref_accession}.zip"
+
+  # datasets lays files out under ncbi_dataset/data/<accession>/
+  cp ncbi_dataset/data/"${ref_accession}"/*_genomic.fna "${ref_fasta}"
+  cp ncbi_dataset/data/"${ref_accession}"/genomic.gff   "${ref_gff}"
+fi
+
+ls -lh "${ref_dir}"
+```
+
+# LIFTOFF
+
+For each ecotype: transfer the reference annotation onto the assembly. Flags:
+
+- `-g` source GFF, `-p` threads
+- `-polish` re-aligns to fix gene/exon boundaries (writes `<out>_polished`)
+- `-copies -sc 0.95` reports additional gene copies (expansions) at ≥95% identity
+- `-u` records reference genes that could **not** be lifted (ecotype-specific loss / PAV candidates)
+
+## Lean
+
+```{r liftoff-lean, engine='bash'}
+cd "${output_dir}"
+
+samtools faidx "${lean_fasta}"
+
+"${liftoff}" \
+  "${lean_fasta}" \
+  "${ref_fasta}" \
+  -g "${ref_gff}" \
+  -o lean.liftoff.gff3 \
+  -u lean.unmapped_features.txt \
+  -dir lean_intermediate \
+  -p "${threads}" \
+  -polish \
+  -copies -sc 0.95 \
+  > lean.liftoff.log 2>&1
+
+echo "Lean unmapped reference features: $(wc -l < lean.unmapped_features.txt)"
+```
+
+## Siscowet
+
+```{r liftoff-siscowet, engine='bash'}
+cd "${output_dir}"
+
+samtools faidx "${siscowet_fasta}"
+
+"${liftoff}" \
+  "${siscowet_fasta}" \
+  "${ref_fasta}" \
+  -g "${ref_gff}" \
+  -o siscowet.liftoff.gff3 \
+  -u siscowet.unmapped_features.txt \
+  -dir siscowet_intermediate \
+  -p "${threads}" \
+  -polish \
+  -copies -sc 0.95 \
+  > siscowet.liftoff.log 2>&1
+
+echo "Siscowet unmapped reference features: $(wc -l < siscowet.unmapped_features.txt)"
+```
+
+# DERIVED FILES
+
+Build the genes-only BED (matching the `data/...genes.bed` convention: `chrom start end
+gene-ID 0 strand`) and extract protein FASTAs. `-polish` writes `*.gff3_polished`; use that
+when present, otherwise the plain `*.gff3`.
+
+```{r derive-lean, engine='bash'}
+cd "${output_dir}"
+
+LEAN_GFF=lean.liftoff.gff3_polished
+[ -s "$LEAN_GFF" ] || LEAN_GFF=lean.liftoff.gff3
+
+# Genes-only BED
+awk 'BEGIN{OFS="\t"} $3=="gene"{
+  id=""; n=split($9,a,";");
+  for(i=1;i<=n;i++){ if(a[i]~/^ID=/){ sub(/^ID=/,"",a[i]); id=a[i] } }
+  print $1, $4-1, $5, id, 0, $7
+}' "$LEAN_GFF" > lean.liftoff.genes.bed
+
+# Protein FASTA
+"${gffread}" -y lean.liftoff.proteins.faa -g "${lean_fasta}" "$LEAN_GFF"
+
+echo "Lean lifted genes: $(wc -l < lean.liftoff.genes.bed)"
+```
+
+```{r derive-siscowet, engine='bash'}
+cd "${output_dir}"
+
+SISCO_GFF=siscowet.liftoff.gff3_polished
+[ -s "$SISCO_GFF" ] || SISCO_GFF=siscowet.liftoff.gff3
+
+awk 'BEGIN{OFS="\t"} $3=="gene"{
+  id=""; n=split($9,a,";");
+  for(i=1;i<=n;i++){ if(a[i]~/^ID=/){ sub(/^ID=/,"",a[i]); id=a[i] } }
+  print $1, $4-1, $5, id, 0, $7
+}' "$SISCO_GFF" > siscowet.liftoff.genes.bed
+
+"${gffread}" -y siscowet.liftoff.proteins.faa -g "${siscowet_fasta}" "$SISCO_GFF"
+
+echo "Siscowet lifted genes: $(wc -l < siscowet.liftoff.genes.bed)"
+```
+
+# INHERIT FUNCTIONAL ANNOTATION
+
+Lifted gene IDs are the reference `gene-XXX` IDs, which are the join key in
+`analyses/18-annotation/gene_function_table.tsv`. Join so each ecotype's lifted genes carry
+symbol / product / GO with no new computation, and report lift-over coverage.
+
+```{r functional-join, eval=TRUE}
+func <- readr::read_tsv(func_table, show_col_types = FALSE)
+
+bed_cols <- c("chrom", "start", "end", "gene_id", "score", "strand")
+
+join_ecotype <- function(bed_path, ecotype) {
+  if (!file.exists(bed_path)) {
+    message("Skipping ", ecotype, " — ", bed_path, " not found (run Liftoff first).")
+    return(invisible(NULL))
+  }
+  genes <- readr::read_tsv(bed_path, col_names = bed_cols, show_col_types = FALSE)
+
+  out <- genes %>%
+    dplyr::select(gene_id, eco_chrom = chrom, eco_start = start,
+                  eco_end = end, eco_strand = strand) %>%
+    dplyr::left_join(func, by = "gene_id")
+
+  out_path <- file.path(output_dir,
+                        paste0(ecotype, ".liftoff.gene_function_table.tsv"))
+  readr::write_tsv(out, out_path)
+
+  n_total  <- nrow(out)
+  n_func   <- sum(!is.na(out$product) & out$product != "")
+  n_named  <- sum(!is.na(out$symbol)  & out$symbol  != "")
+  n_go     <- sum(!is.na(out$n_go) & out$n_go > 0)
+  ref_n    <- length(unique(func$gene_id))
+  lifted_u <- length(unique(out$gene_id))
+
+  message(sprintf(
+    "%s: %d gene records (%d unique ref genes, %.1f%% of %d reference genes)\n  %d with product, %d named, %d with GO\n  -> %s",
+    ecotype, n_total, lifted_u, 100 * lifted_u / ref_n, ref_n,
+    n_func, n_named, n_go, out_path))
+}
+
+join_ecotype(file.path(output_dir, "lean.liftoff.genes.bed"), "lean")
+join_ecotype(file.path(output_dir, "siscowet.liftoff.genes.bed"), "siscowet")
+```
+
+# QC SUMMARY
+
+Quick feature counts and unmapped tallies per ecotype.
+
+```{r qc-summary, engine='bash'}
+cd "${output_dir}"
+
+for eco in lean siscowet; do
+  GFF=${eco}.liftoff.gff3_polished
+  [ -s "$GFF" ] || GFF=${eco}.liftoff.gff3
+  echo "=== ${eco} (${GFF}) ==="
+  echo "  genes:        $(awk '$3=="gene"' "$GFF" | wc -l)"
+  echo "  mRNAs:        $(awk '$3=="mRNA"' "$GFF" | wc -l)"
+  echo "  unmapped ref: $(wc -l < ${eco}.unmapped_features.txt)"
+done
+```
+
+# CHECKSUMS
+
+```{r checksums, engine='bash'}
+cd "${output_dir}"
+
+for f in *.gff3 *.gff3_polished *.genes.bed *.proteins.faa *.gene_function_table.tsv; do
+  [ -s "$f" ] && md5sum "$f" | tee "$f".md5
+done
+```
+
+# DELIVERABLES
+
+Per ecotype, written to `output/20.1-liftoff-annotation/`:
+
+| File | Description |
+|---|---|
+| `{eco}.liftoff.gff3[_polished]` | Lifted gene models on the ecotype assembly |
+| `{eco}.liftoff.genes.bed` | Genes-only BED (`data/...genes.bed` convention) |
+| `{eco}.liftoff.proteins.faa` | Predicted proteins |
+| `{eco}.liftoff.gene_function_table.tsv` | Lifted genes joined to symbol/product/GO |
+| `{eco}.unmapped_features.txt` | Reference genes not lifted (PAV / loss candidates) |
+
+These feed the ecotype-coordinate version of
+[`code/13.3-hifiasm-differential-methylation-plan.md`](13.3-hifiasm-differential-methylation-plan.md)
+and let the PAV results in `code/15-diff-pav.py` be checked against per-ecotype gene models.
+
+# REFERENCES
