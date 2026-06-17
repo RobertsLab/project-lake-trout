@@ -65,7 +65,7 @@ knitr::opts_chunk$set(
 
 ```{r R-variables, eval=TRUE}
 # DIRECTORIES
-project_dir <- "/mmfs1/gscratch/scrubbed/samwhite/gitrepos/RobertsLab/project-lake-trout"
+project_dir <- "/home/shared/16TB_HDD_01/sr320/github/project-lake-trout"
 genome_dir  <- file.path(project_dir, "data/genome")
 ref_dir     <- file.path(project_dir, "data/genome/ref-GCF_016432855.1")
 output_dir  <- "../output/20.1-liftoff-annotation"
@@ -83,10 +83,10 @@ ref_gff        <- file.path(ref_dir, "genomic.gff")
 func_table <- file.path(project_dir, "analyses/18-annotation/gene_function_table.tsv")
 
 # PROGRAMS (Klone /srlab conda envs, matching repo convention)
-datasets <- "/srlab/programs/miniforge3-24.7.1-0/envs/ncbi-datasets_env/bin/datasets"
-liftoff  <- "/srlab/programs/miniforge3-24.7.1-0/envs/liftoff-1.6.3_env/bin/liftoff"
-gffread  <- "/srlab/programs/miniforge3-24.7.1-0/envs/gffread-0.12.7_env/bin/gffread"
-samtools <- "/srlab/programs/samtools-1.20/samtools"
+datasets <- "/home/shared/ncbi-datasets-v13.34.0/datasets"
+gffread <- "/home/shared/gffread-0.12.7.Linux_x86_64/gffread"
+liftoff <- "/opt/anaconda/anaconda3/envs/liftoff_env/bin/liftoff"
+samtools <- "/home/shared/samtools-1.12/samtools"
 
 # SETTINGS
 threads <- "40"
