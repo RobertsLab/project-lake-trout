@@ -127,9 +127,11 @@ cd "${ref_dir}"
 if [ -s "${ref_gff}" ] && [ -s "${ref_fasta}" ]; then
   echo "Reference already present; skipping download."
 else
-  # NCBI datasets CLI: genome FASTA + GFF3
+  # NCBI datasets CLI: genome FASTA + GFF3 (default; exclude other file types)
   "${datasets}" download genome accession "${ref_accession}" \
-    --include genome,gff3 \
+    --exclude-rna \
+    --exclude-protein \
+    --exclude-genomic-cds \
     --filename "${ref_accession}.zip"
 
   unzip -o "${ref_accession}.zip"
