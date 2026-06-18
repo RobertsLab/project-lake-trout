@@ -1,0 +1,440 @@
+---
+title: "21.1-gene-anchored-synteny"
+author: "Steven Roberts"
+date: "2026-06-18"
+output:
+  github_document:
+    toc: true
+    number_sections: true
+  bookdown::html_document2:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+bibliography: references.bib
+citeproc: true
+---
+
+# BACKGROUND
+
+Gene-anchored synteny comparison of the two ecotype assemblies (`lean`, `siscowet`),
+following Track B of [`code/21-ecotype-genome-comparison-plan.md`](21-ecotype-genome-comparison-plan.md).
+
+Two things make this pass cheap and clean:
+
+1. **Haplotigs are purged first.** The raw hifiasm assemblies are size-inflated
+   (lean 3.73 Gb / 33,035 contigs; siscowet 4.0 Gb / 24,184 contigs vs. ~2.5 Gb expected),
+   indicating retained haplotigs that would appear as spurious duplications in any synteny
+   map. We run **purge_dups** [@guan2020] on each assembly before annotating, then **re-lift**
+   the reference annotation onto the purged sequences (a condensed re-run of
+   [`code/20.1-liftoff-annotation.Rmd`](20.1-liftoff-annotation.Rmd)).
+2. **Orthology is already solved.** Liftoff assigned every lifted gene the reference
+   `gene-XXX` ID. A gene shared by lean and siscowet (or by either ecotype and the reference)
+   carries the **same base ID**, so we synthesize MCScanX [@wang2012] anchor pairs directly
+   from ID identity — no OrthoFinder / DIAMOND ortholog inference needed. Liftoff `-copies`
+   appends a `_N` suffix to extra copies (e.g. `gene-LOC120041454_1`); stripping that suffix
+   recovers the base ID used for matching and lets expansions form multiple anchor pairs.
+
+We build three synteny maps: **reference↔lean**, **reference↔siscowet**, and **lean↔siscowet**.
+Because both ecotypes anchor to the same 42-chromosome reference, the cross-ecotype comparison
+is interpretable despite the fragmented contigs.
+
+Due to large file sizes, outputs are not committed to GitHub. They may be found here:
+
+- [https://gannet.fish.washington.edu/gitrepos/project-lake-trout/output/21.1-gene-anchored-synteny/](https://gannet.fish.washington.edu/gitrepos/project-lake-trout/output/21.1-gene-anchored-synteny/)
+
+# SETUP
+
+## Libraries
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+
+knitr::opts_chunk$set(
+  echo = TRUE,         # Display code chunks
+  eval = FALSE,        # Evaluate code chunks
+  results = "hold",    # Hold outputs and show them after the full code chunk
+  warning = FALSE,     # Hide warnings
+  collapse = FALSE,    # Keep code and output in separate blocks
+  message = FALSE,     # Hide messages
+  comment = "##"       # Prefix output lines with '##' so output is visually distinct
+)
+```
+
+## Set R variables
+
+```{r R-variables, eval=TRUE}
+# DIRECTORIES
+project_dir <- "/home/shared/16TB_HDD_01/sr320/github/project-lake-trout"
+genome_dir  <- file.path(project_dir, "data/genome")
+ref_dir     <- file.path(project_dir, "data/genome/ref-GCF_016432855.1")
+reads_dir   <- file.path(project_dir, "data/pacbio-reads/fastq2")
+liftoff_dir <- file.path(project_dir, "output/20.1-liftoff-annotation")
+output_dir  <- "../output/21.1-gene-anchored-synteny"
+
+# RAW INPUT ASSEMBLIES (to be purged)
+lean_fasta     <- file.path(genome_dir, "pb-hifiasm-lean-assembly.fa")
+siscowet_fasta <- file.path(genome_dir, "pb-hifiasm-siscowet-assembly.fa")
+
+# PacBio HiFi reads per ecotype (barcode -> ecotype per data/pacbio-{lean,siscowet}/README.md)
+lean_reads <- paste(
+  file.path(reads_dir, "m84082_250614_081210_s3.hifi_reads.demux.bc2041--bc2041.fastq.gz"),
+  file.path(reads_dir, "m84082_250614_101514_s4.hifi_reads.demux.bc2069--bc2069.fastq.gz"),
+  file.path(reads_dir, "m84082_250614_101514_s4.hifi_reads.demux.bc2070--bc2070.fastq.gz"),
+  file.path(reads_dir, "m84082_251001_025627_s2.hifi_reads.bc2068.fastq.gz")
+)
+siscowet_reads <- paste(
+  file.path(reads_dir, "m84082_250614_081210_s3.hifi_reads.demux.bc2071--bc2071.fastq.gz"),
+  file.path(reads_dir, "m84082_250614_081210_s3.hifi_reads.demux.bc2072--bc2072.fastq.gz"),
+  file.path(reads_dir, "m84082_250614_101514_s4.hifi_reads.demux.bc2073--bc2073.fastq.gz"),
+  file.path(reads_dir, "m84082_251001_025627_s2.hifi_reads.bc2096.fastq.gz")
+)
+
+# REFERENCE ANNOTATION SOURCE (same as 20.1)
+ref_accession <- "GCF_016432855.1"
+ref_fasta     <- file.path(ref_dir, "GCF_016432855.1_SaNama_1.0_genomic.fna")
+ref_gff       <- file.path(ref_dir, "genomic.gff")
+ref_genes_bed <- file.path(project_dir,
+                  "data/20220818-snam-GCF_016432855.1_SaNama_1.0_genes.bed")
+
+# PROGRAMS
+liftoff      <- "/opt/anaconda/anaconda3/envs/liftoff_env/bin/liftoff"
+minimap2     <- "/opt/anaconda/anaconda3/envs/liftoff_env/bin/minimap2"
+gffread      <- "/home/shared/gffread-0.12.7.Linux_x86_64/gffread"
+samtools     <- "/home/shared/samtools-1.12/samtools"
+# Built from source (see Install chunk); adjust to where you put them:
+purgedups_bin <- "/home/shared/purge_dups/bin"   # pbcstat, calcuts, split_fa, purge_dups, get_seqs
+mcscanx_bin   <- "/home/shared/MCScanX"          # MCScanX, duplicate_gene_classifier
+
+# SETTINGS
+threads <- "40"
+
+Sys.setenv(
+  project_dir    = project_dir,
+  genome_dir     = genome_dir,
+  ref_dir        = ref_dir,
+  reads_dir      = reads_dir,
+  liftoff_dir    = liftoff_dir,
+  output_dir     = output_dir,
+  lean_fasta     = lean_fasta,
+  siscowet_fasta = siscowet_fasta,
+  lean_reads     = lean_reads,
+  siscowet_reads = siscowet_reads,
+  ref_accession  = ref_accession,
+  ref_fasta      = ref_fasta,
+  ref_gff        = ref_gff,
+  ref_genes_bed  = ref_genes_bed,
+  liftoff        = liftoff,
+  minimap2       = minimap2,
+  gffread        = gffread,
+  samtools       = samtools,
+  purgedups_bin  = purgedups_bin,
+  mcscanx_bin    = mcscanx_bin,
+  threads        = threads
+)
+```
+
+```{r make-output-dir, engine='bash'}
+mkdir --parents "${output_dir}"
+```
+
+## Install tooling (run once)
+
+`purge_dups` and `MCScanX` are not in the existing conda envs. Build them once and point the
+`*_bin` variables above at the result. `minimap2`, `liftoff`, `gffread`, `samtools` are already
+available (`liftoff_env` + `/home/shared`).
+
+```{r install-tools, engine='bash'}
+# purge_dups
+cd /home/shared
+[ -d purge_dups ] || git clone https://github.com/dfguan/purge_dups.git
+cd purge_dups/src && make
+ls ../bin   # pbcstat calcuts split_fa purge_dups get_seqs
+
+# MCScanX
+cd /home/shared
+[ -d MCScanX ] || git clone https://github.com/wyp1125/MCScanX.git
+cd MCScanX && make
+ls MCScanX duplicate_gene_classifier
+```
+
+# STEP 1 — PURGE HAPLOTIGS
+
+Standard purge_dups HiFi pipeline per ecotype: (1) map reads back to the assembly for read-depth,
+(2) compute base coverage + automatic cutoffs, (3) self-align the split assembly to find
+overlapping haplotigs, (4) purge, (5) extract the purged primary set. `minimap2` takes the four
+per-ecotype read files directly (no concatenation needed).
+
+## Lean
+
+```{r purge-lean, engine='bash'}
+cd "${output_dir}"
+mkdir -p purge/lean && cd purge/lean
+
+# 1. reads -> assembly (HiFi)
+"${minimap2}" -t "${threads}" -x map-hifi "${lean_fasta}" ${lean_reads} \
+  2> lean.readmap.log | gzip -c > lean.reads.paf.gz
+
+# 2. base coverage + cutoffs
+"${purgedups_bin}/pbcstat" lean.reads.paf.gz            # -> PB.base.cov, PB.stat
+"${purgedups_bin}/calcuts" PB.stat > cutoffs 2> calcuts.log
+
+# 3. split assembly + self-align
+"${purgedups_bin}/split_fa" "${lean_fasta}" > lean.split.fa
+"${minimap2}" -t "${threads}" -x asm5 -DP lean.split.fa lean.split.fa \
+  2> lean.self.log | gzip -c > lean.split.self.paf.gz
+
+# 4. purge
+"${purgedups_bin}/purge_dups" -2 -T cutoffs -c PB.base.cov lean.split.self.paf.gz \
+  > lean.dups.bed 2> lean.purge_dups.log
+
+# 5. extract purged primary set (-> purged.fa = primary, hap.fa = removed haplotigs)
+"${purgedups_bin}/get_seqs" -e lean.dups.bed "${lean_fasta}" -p lean
+
+mv lean.purged.fa "${output_dir}/lean.purged.fa"
+"${samtools}" faidx "${output_dir}/lean.purged.fa"
+awk '{s+=$2} END{print "lean purged: "NR" contigs, "s" bp"}' "${output_dir}/lean.purged.fa.fai"
+```
+
+## Siscowet
+
+```{r purge-siscowet, engine='bash'}
+cd "${output_dir}"
+mkdir -p purge/siscowet && cd purge/siscowet
+
+"${minimap2}" -t "${threads}" -x map-hifi "${siscowet_fasta}" ${siscowet_reads} \
+  2> siscowet.readmap.log | gzip -c > siscowet.reads.paf.gz
+
+"${purgedups_bin}/pbcstat" siscowet.reads.paf.gz
+"${purgedups_bin}/calcuts" PB.stat > cutoffs 2> calcuts.log
+
+"${purgedups_bin}/split_fa" "${siscowet_fasta}" > siscowet.split.fa
+"${minimap2}" -t "${threads}" -x asm5 -DP siscowet.split.fa siscowet.split.fa \
+  2> siscowet.self.log | gzip -c > siscowet.split.self.paf.gz
+
+"${purgedups_bin}/purge_dups" -2 -T cutoffs -c PB.base.cov siscowet.split.self.paf.gz \
+  > siscowet.dups.bed 2> siscowet.purge_dups.log
+
+"${purgedups_bin}/get_seqs" -e siscowet.dups.bed "${siscowet_fasta}" -p siscowet
+
+mv siscowet.purged.fa "${output_dir}/siscowet.purged.fa"
+"${samtools}" faidx "${output_dir}/siscowet.purged.fa"
+awk '{s+=$2} END{print "siscowet purged: "NR" contigs, "s" bp"}' "${output_dir}/siscowet.purged.fa.fai"
+```
+
+# STEP 2 — RE-LIFT ANNOTATION ONTO PURGED ASSEMBLIES
+
+Condensed re-run of [`20.1`](20.1-liftoff-annotation.Rmd) against the purged FASTAs so gene
+coordinates match the sequences we compare. Same flags (`-polish -copies -sc 0.95 -u`). Produces
+a genes-only BED per ecotype in the `chrom start end gene-ID 0 strand` convention.
+
+```{r relift, engine='bash'}
+cd "${output_dir}"
+
+for eco in lean siscowet; do
+  ASM="${output_dir}/${eco}.purged.fa"
+  "${samtools}" faidx "$ASM"
+
+  "${liftoff}" \
+    "$ASM" \
+    "${ref_fasta}" \
+    -g "${ref_gff}" \
+    -o ${eco}.purged.liftoff.gff3 \
+    -u ${eco}.purged.unmapped_features.txt \
+    -dir ${eco}_purged_intermediate \
+    -m "${minimap2}" \
+    -p "${threads}" \
+    -polish \
+    -copies -sc 0.95 \
+    > ${eco}.purged.liftoff.log 2>&1
+
+  GFF=${eco}.purged.liftoff.gff3_polished
+  [ -s "$GFF" ] || GFF=${eco}.purged.liftoff.gff3
+
+  awk 'BEGIN{OFS="\t"} $3=="gene"{
+    id=""; n=split($9,a,";");
+    for(i=1;i<=n;i++){ if(a[i]~/^ID=/){ sub(/^ID=/,"",a[i]); id=a[i] } }
+    print $1, $4-1, $5, id, 0, $7
+  }' "$GFF" > ${eco}.purged.liftoff.genes.bed
+
+  echo "${eco} purged lifted genes: $(wc -l < ${eco}.purged.liftoff.genes.bed)  (unmapped: $(wc -l < ${eco}.purged.unmapped_features.txt))"
+done
+```
+
+# STEP 3 — BUILD MCScanX INPUTS FROM SHARED IDs
+
+For each pair of genomes, MCScanX needs two files sharing a prefix:
+
+- `<prefix>.gff` — `chrTag<TAB>geneUID<TAB>start<TAB>end`; the first 2 chars of `chrTag` are
+  the genome code (`rf` reference, `ln` lean, `si` siscowet), so MCScanX can tell intra- from
+  inter-genome blocks.
+- `<prefix>.blast` — BLAST `-m8` pairs. **We synthesize these from shared base IDs** instead of
+  running an aligner: every gene shared between the two genomes becomes a high-score pair. Extra
+  Liftoff copies (`_N`) keep their own UID but share the base ID, so expansions yield multiple
+  pairs.
+
+Genome codes and gene UIDs are prefixed (`rf_`, `ln_`, `si_`) to keep names unique in the combined
+files. Chromosome/contig labels are stripped of non-alphanumerics (MCScanX dislikes the `.` in
+`NC_052307.1`).
+
+```{r mcscanx-inputs, engine='bash'}
+cd "${output_dir}"
+
+REF_BED="${ref_genes_bed}"
+LEAN_BED="${output_dir}/lean.purged.liftoff.genes.bed"
+SISCO_BED="${output_dir}/siscowet.purged.liftoff.genes.bed"
+
+# bed -> MCScanX gff  (tag = 2-char genome code; clean chrom; prefix UID)
+bed2gff () {  # $1 bed  $2 code
+  awk -v c="$2" 'BEGIN{OFS="\t"}{
+    chr=$1; gsub(/[^A-Za-z0-9]/,"",chr);
+    print c chr, c"_"$4, $2, $3
+  }' "$1"
+}
+# bed -> "baseID<TAB>UID"  (strip trailing _N copy suffix to get base ID)
+bed2map () {  # $1 bed  $2 code
+  awk -v c="$2" 'BEGIN{OFS="\t"}{ b=$4; sub(/_[0-9]+$/,"",b); print b, c"_"$4 }' "$1" | sort -k1,1
+}
+
+# Precompute per-genome maps
+bed2map "$REF_BED"   rf > rf.map
+bed2map "$LEAN_BED"  ln > ln.map
+bed2map "$SISCO_BED" si > si.map
+
+# pair builder: join two maps on base ID -> reciprocal synthetic blast hits
+make_pair () {  # $1 prefix  $2 bedA $3 codeA  $4 bedB $5 codeB  $6 mapA $7 mapB
+  bed2gff "$2" "$3"  > "$1.gff"
+  bed2gff "$4" "$5" >> "$1.gff"
+  join -t"$(printf '\t')" "$6" "$7" \
+    | awk 'BEGIN{OFS="\t"}{
+        print $2,$3,100,100,0,0,1,100,1,100,"1e-100",500;
+        print $3,$2,100,100,0,0,1,100,1,100,"1e-100",500 }' > "$1.blast"
+  echo "$1: $(wc -l < $1.blast) synthetic hits, $(wc -l < $1.gff) gene rows"
+}
+
+make_pair ref_lean   "$REF_BED" rf "$LEAN_BED"  ln rf.map ln.map
+make_pair ref_sisco  "$REF_BED" rf "$SISCO_BED" si rf.map si.map
+make_pair lean_sisco "$LEAN_BED" ln "$SISCO_BED" si ln.map si.map
+```
+
+# STEP 4 — RUN MCScanX
+
+MCScanX reads `<prefix>.gff` + `<prefix>.blast` (it strips the extensions, so pass the prefix
+only) and writes `<prefix>.collinearity` (collinear gene blocks) plus an `html/` directory.
+`-a` would emit alignment only; defaults are fine here.
+
+```{r run-mcscanx, engine='bash'}
+cd "${output_dir}"
+
+for prefix in ref_lean ref_sisco lean_sisco; do
+  echo "=== MCScanX ${prefix} ==="
+  "${mcscanx_bin}/MCScanX" "${output_dir}/${prefix}" 2> ${prefix}.mcscanx.log
+  echo "  collinear blocks: $(grep -c '^## Alignment' ${prefix}.collinearity)"
+  echo "  genes in blocks:  $(grep -cE '^\s*[0-9]+-' ${prefix}.collinearity)"
+done
+```
+
+# STEP 5 — SUMMARIZE COLLINEARITY
+
+Parse each `.collinearity` into a tidy block table (block id, the two chromosomes/contigs it
+spans, number of anchor genes, orientation) and a per-chromosome summary. This is the table that
+answers "which ecotype contig maps to which reference chromosome, and is gene order preserved."
+
+```{r summarize, eval=FALSE}
+library(tidyverse)
+
+parse_collinearity <- function(path, comparison) {
+  lines <- readLines(path)
+  blocks <- list(); cur <- NULL
+  for (ln in lines) {
+    if (str_detect(ln, "^## Alignment")) {
+      # e.g. "## Alignment 0: score=... e_value=... N=12 lnptg1&rfNC052307 plus"
+      m <- str_match(ln, "Alignment (\\d+):.*N=(\\d+)\\s+(\\S+)&(\\S+)\\s+(plus|minus)")
+      cur <- tibble(comparison = comparison, block = as.integer(m[2]),
+                    n_anchors = as.integer(m[3]),
+                    chr_a = m[4], chr_b = m[5],
+                    orientation = m[6])
+      blocks[[length(blocks) + 1]] <- cur
+    }
+  }
+  bind_rows(blocks)
+}
+
+cmp <- c(ref_lean = "reference_vs_lean",
+         ref_sisco = "reference_vs_siscowet",
+         lean_sisco = "lean_vs_siscowet")
+
+blocks <- imap_dfr(cmp, ~ parse_collinearity(
+  file.path(output_dir, paste0(.y, ".collinearity")), .x))
+
+readr::write_tsv(blocks, file.path(output_dir, "synteny_blocks.tsv"))
+
+# Per-comparison summary
+blocks %>%
+  group_by(comparison) %>%
+  summarise(n_blocks = n(),
+            anchor_genes = sum(n_anchors),
+            median_block = median(n_anchors),
+            inverted_blocks = sum(orientation == "minus")) %>%
+  print()
+
+# Contig -> reference chromosome assignment (ecotype-vs-reference comparisons)
+blocks %>%
+  filter(comparison != "lean_vs_siscowet") %>%
+  group_by(comparison, chr_a, chr_b) %>%
+  summarise(anchors = sum(n_anchors), .groups = "drop") %>%
+  arrange(comparison, desc(anchors)) %>%
+  readr::write_tsv(file.path(output_dir, "contig_to_chromosome.tsv"))
+```
+
+# STEP 6 — PLOTS (OPTIONAL)
+
+MCScanX ships Java plotters (`dot_plotter`, `dual_synteny_plotter`, `circle_plotter`) driven by a
+small control file listing which chromosomes to draw. For publication-grade dotplots / riparian
+plots, **jcvi (MCscan Python)** is the easier path and can ingest the same BED + a `.anchors` file
+derived from the `.collinearity` output. Install note:
+
+```{r plots, engine='bash'}
+# jcvi for dotplots / synteny ribbons (separate env recommended)
+# conda create -n jcvi -c bioconda -c conda-forge jcvi
+# Example dotplot once .anchors are exported from the collinearity blocks:
+#   python -m jcvi.graphics.dotplot ref_lean.anchors
+echo "Optional: see jcvi (https://github.com/tanghaibao/jcvi) for dotplot/riparian figures."
+```
+
+# CHECKSUMS
+
+```{r checksums, engine='bash'}
+cd "${output_dir}"
+for f in *.purged.fa *.purged.liftoff.genes.bed *.collinearity synteny_blocks.tsv contig_to_chromosome.tsv; do
+  [ -s "$f" ] && md5sum "$f" | tee "$f".md5
+done
+```
+
+# DELIVERABLES
+
+Written to `output/21.1-gene-anchored-synteny/`:
+
+| File | Description |
+|---|---|
+| `{eco}.purged.fa` | Haplotig-purged primary assembly |
+| `{eco}.purged.liftoff.genes.bed` | Re-lifted genes on purged assembly |
+| `{ref_lean,ref_sisco,lean_sisco}.collinearity` | MCScanX collinear blocks per comparison |
+| `synteny_blocks.tsv` | Tidy block table (chromosomes, anchor counts, orientation) |
+| `contig_to_chromosome.tsv` | Ecotype contig → reference chromosome assignment |
+
+These feed the structural-variant / overlay steps in
+[`code/21-ecotype-genome-comparison-plan.md`](21-ecotype-genome-comparison-plan.md) (Track A
+whole-genome alignment, PAV and DMR overlay).
+
+# REFERENCES
