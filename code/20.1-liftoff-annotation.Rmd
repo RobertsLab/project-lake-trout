@@ -83,9 +83,10 @@ ref_gff        <- file.path(ref_dir, "genomic.gff")
 func_table <- file.path(project_dir, "analyses/18-annotation/gene_function_table.tsv")
 
 # PROGRAMS (Klone /srlab conda envs, matching repo convention)
-datasets <- "/home/shared/ncbi-datasets-v13.34.0/datasets"
+datasets <- "/home/shared/datasets"
 gffread <- "/home/shared/gffread-0.12.7.Linux_x86_64/gffread"
 liftoff <- "/opt/anaconda/anaconda3/envs/liftoff_env/bin/liftoff"
+minimap2 <- "/opt/anaconda/anaconda3/envs/liftoff_env/bin/minimap2"
 samtools <- "/home/shared/samtools-1.12/samtools"
 
 # SETTINGS
@@ -105,6 +106,7 @@ Sys.setenv(
   func_table     = func_table,
   datasets       = datasets,
   liftoff        = liftoff,
+  minimap2       = minimap2,
   gffread        = gffread,
   samtools       = samtools,
   threads        = threads
@@ -167,6 +169,7 @@ samtools faidx "${lean_fasta}"
   -o lean.liftoff.gff3 \
   -u lean.unmapped_features.txt \
   -dir lean_intermediate \
+  -m "${minimap2}" \
   -p "${threads}" \
   -polish \
   -copies -sc 0.95 \
@@ -189,6 +192,7 @@ samtools faidx "${siscowet_fasta}"
   -o siscowet.liftoff.gff3 \
   -u siscowet.unmapped_features.txt \
   -dir siscowet_intermediate \
+  -m "${minimap2}" \
   -p "${threads}" \
   -polish \
   -copies -sc 0.95 \
