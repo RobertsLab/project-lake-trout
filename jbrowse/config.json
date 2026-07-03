@@ -23,8 +23,12 @@
       "type": "FeatureTrack",
       "trackId": "genes",
       "name": "Genes",
-      "category": ["Annotation"],
-      "assemblyNames": ["SaNama_1.0"],
+      "category": [
+        "Annotation"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
@@ -34,10 +38,66 @@
     },
     {
       "type": "FeatureTrack",
+      "trackId": "genes_annotated",
+      "name": "Genes (functional annotation)",
+      "category": [
+        "Annotation"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
+      "adapter": {
+        "type": "Gff3Adapter",
+        "gffLocation": {
+          "uri": "data/lake-trout/genes_annotated.gff3"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "synteny_lean_blocks",
+      "name": "Synteny blocks \u2014 Lean contigs",
+      "category": [
+        "Synteny"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/lake-trout/synteny_lean_blocks.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "synteny_siscowet_blocks",
+      "name": "Synteny blocks \u2014 Siscowet contigs",
+      "category": [
+        "Synteny"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/lake-trout/synteny_siscowet_blocks.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
       "trackId": "lean_insertions",
       "name": "Lean-specific Insertions",
-      "category": ["PAV", "Lean"],
-      "assemblyNames": ["SaNama_1.0"],
+      "category": [
+        "PAV",
+        "Lean"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
@@ -49,8 +109,13 @@
       "type": "FeatureTrack",
       "trackId": "lean_deletions",
       "name": "Lean-specific Deletions",
-      "category": ["PAV", "Lean"],
-      "assemblyNames": ["SaNama_1.0"],
+      "category": [
+        "PAV",
+        "Lean"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
@@ -62,8 +127,13 @@
       "type": "FeatureTrack",
       "trackId": "siscowet_insertions",
       "name": "Siscowet-specific Insertions",
-      "category": ["PAV", "Siscowet"],
-      "assemblyNames": ["SaNama_1.0"],
+      "category": [
+        "PAV",
+        "Siscowet"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
@@ -75,8 +145,13 @@
       "type": "FeatureTrack",
       "trackId": "siscowet_deletions",
       "name": "Siscowet-specific Deletions",
-      "category": ["PAV", "Siscowet"],
-      "assemblyNames": ["SaNama_1.0"],
+      "category": [
+        "PAV",
+        "Siscowet"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
@@ -88,8 +163,14 @@
       "type": "FeatureTrack",
       "trackId": "stringent_siscowet_deletions",
       "name": "Stringent Siscowet-specific Deletions (>100bp, all 4 samples)",
-      "category": ["PAV", "Siscowet", "Stringent"],
-      "assemblyNames": ["SaNama_1.0"],
+      "category": [
+        "PAV",
+        "Siscowet",
+        "Stringent"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
@@ -101,8 +182,13 @@
       "type": "FeatureTrack",
       "trackId": "shared_insertions",
       "name": "Shared Insertions",
-      "category": ["PAV", "Shared"],
-      "assemblyNames": ["SaNama_1.0"],
+      "category": [
+        "PAV",
+        "Shared"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
@@ -114,8 +200,13 @@
       "type": "FeatureTrack",
       "trackId": "shared_deletions",
       "name": "Shared Deletions",
-      "category": ["PAV", "Shared"],
-      "assemblyNames": ["SaNama_1.0"],
+      "category": [
+        "PAV",
+        "Shared"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
@@ -127,8 +218,12 @@
       "type": "QuantitativeTrack",
       "trackId": "methylation_diff",
       "name": "Methylation Difference",
-      "category": ["Methylation"],
-      "assemblyNames": ["SaNama_1.0"],
+      "category": [
+        "Methylation"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
       "adapter": {
         "type": "BedGraphAdapter",
         "bedGraphLocation": {
@@ -140,8 +235,13 @@
       "type": "FeatureTrack",
       "trackId": "dmrs_hyper_siscowet",
       "name": "DMRs Hyper in Siscowet",
-      "category": ["Methylation", "DMRs"],
-      "assemblyNames": ["SaNama_1.0"],
+      "category": [
+        "Methylation",
+        "DMRs"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
@@ -153,8 +253,13 @@
       "type": "FeatureTrack",
       "trackId": "dmrs_hypo_siscowet",
       "name": "DMRs Hypo in Siscowet",
-      "category": ["Methylation", "DMRs"],
-      "assemblyNames": ["SaNama_1.0"],
+      "category": [
+        "Methylation",
+        "DMRs"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {
@@ -166,8 +271,13 @@
       "type": "FeatureTrack",
       "trackId": "significant_dmcs",
       "name": "Significant DMCs",
-      "category": ["Methylation", "DMCs"],
-      "assemblyNames": ["SaNama_1.0"],
+      "category": [
+        "Methylation",
+        "DMCs"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
       "adapter": {
         "type": "BedAdapter",
         "bedLocation": {

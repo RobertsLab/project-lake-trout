@@ -84,6 +84,19 @@ genome-browser/
 
 ## Data Files
 
+### Synteny & Functional Annotation Tracks
+
+Built by [`code/22-synteny-browser-tracks.py`](../code/22-synteny-browser-tracks.py), which
+projects the gene-anchored ecotype synteny ([`code/21.1`](../code/21.1-gene-anchored-synteny.Rmd))
+and the liftoff functional annotation ([`code/20.1`](../code/20.1-liftoff-annotation.Rmd)) onto the
+reference SaNama_1.0 coordinate system. Files land in `data/synteny/`.
+
+| Track | Description | Count | Color |
+|-------|-------------|-------|-------|
+| Genes (functional annotation) | Reference genes carrying symbol, product, biotype, GO terms, and which ecotypes retain them (GFF3; click a gene to view) | 46,359 (45,069 annotated) | Green |
+| Synteny blocks — Lean contigs | Reference footprint of each reference↔lean collinear block; strand = orientation (− = inverted) | 1,897 | Blue |
+| Synteny blocks — Siscowet contigs | Reference footprint of each reference↔siscowet collinear block; strand = orientation (− = inverted) | 1,966 | Red |
+
 ### PAV Tracks
 
 | Track | Description | Count | Color |

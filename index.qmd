@@ -150,18 +150,21 @@ Full write-up: [`code/18-diff-annotation-phenotype.html`](code/18-diff-annotatio
 
 ## Interactive Genome Browsers
 
-Explore methylation, PAV, and gene tracks directly across the SaNama_1.0 assembly.
+Explore methylation, PAV, gene, and ecotype-synteny tracks directly across the SaNama_1.0 assembly.
+Genes now carry functional annotation (symbol, product, GO terms, and which ecotypes retain them),
+and lean/siscowet **synteny blocks** are projected onto the reference so you can see, at any locus,
+which ecotype contig maps there and whether it is inverted.
 
 ::: {.columns}
 ::: {.column width="50%"}
 ### 🔬 IGV.js — *quick exploration*
-Gene annotations · PAV insertions & deletions · CpG methylation (8 samples) · DMRs
+Functionally-annotated genes · lean & siscowet synteny blocks · PAV insertions & deletions · CpG methylation (8 samples) · DMRs
 
 <a href="genome-browser/index.html" class="browser-link">Launch IGV Browser →</a>
 :::
 ::: {.column width="50%"}
 ### 🧬 JBrowse 2 — *advanced analysis*
-Gene annotations (BED) · PAV structural variants · CpG methylation BigWig · differential methylation
+Functionally-annotated genes (GFF3) · lean & siscowet synteny blocks · PAV structural variants · CpG methylation · differential methylation
 
 <a href="jbrowse/index.html" class="browser-link">Launch JBrowse 2 →</a>
 :::
