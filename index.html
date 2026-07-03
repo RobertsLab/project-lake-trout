@@ -1,512 +1,827 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lake Trout EpiGenomics — Lean vs. Siscowet Ecotypes</title>
-<meta name="description" content="Comparative epigenomic and structural-variant analysis of lean and siscowet lake trout (Salvelinus namaycush), with functional annotation linking differential methylation and presence–absence variation to candidate genes and ecotype phenotypes.">
+<meta name="generator" content="quarto-1.4.552">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Rick Goetz, Sam White, Cristian Gallardo-Escarate, and Steven Roberts">
+<meta name="dcterms.date" content="2026-07-02">
+
+<title>Lake Trout EpiGenomics Project</title>
 <style>
-  :root{
-    --lean:#3b82f6; --lean-dark:#1d4ed8;
-    --sisco:#f97316; --sisco-dark:#c2410c;
-    --ink:#1f2933; --muted:#52606d; --line:#e4e7eb;
-    --bg:#ffffff; --bg-soft:#f7f9fb;
-    --accent:#0e7490; --accent-dark:#155e75;
-    --warn-bg:#fff7ed; --warn-line:#f59e0b;
-    --good:#16a34a; --bad:#dc2626;
-    --maxw:1080px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
-  a{color:var(--accent-dark)}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem}
-
-  /* ---- top nav ---- */
-  nav.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
-    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  nav.top .wrap{display:flex;align-items:center;gap:1rem;height:54px;flex-wrap:wrap}
-  nav.top .brand{font-weight:700;color:var(--ink);text-decoration:none;margin-right:auto;font-size:.98rem}
-  nav.top .brand span{color:var(--accent-dark)}
-  nav.top a.link{color:var(--muted);text-decoration:none;font-size:.86rem;font-weight:500}
-  nav.top a.link:hover{color:var(--accent-dark)}
-  @media(max-width:680px){nav.top a.link{display:none}}
-
-  /* ---- hero ---- */
-  header.hero{background:linear-gradient(135deg,#0b2942 0%,#15506b 55%,#1d6b7d 100%);color:#fff;
-    padding:3.4rem 0 3rem}
-  header.hero .eyebrow{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;
-    font-weight:700;opacity:.8}
-  header.hero h1{font-size:2.45rem;line-height:1.12;margin:.5rem 0 .4rem;font-weight:800}
-  header.hero h1 em{font-style:italic;font-weight:600;opacity:.92}
-  header.hero p.sub{font-size:1.06rem;max-width:60ch;opacity:.92;margin:.4rem 0 1.3rem}
-  header.hero .authors{font-size:.85rem;opacity:.8}
-  .eco-pills{display:flex;gap:.6rem;flex-wrap:wrap;margin:1.3rem 0 0}
-  .eco-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);
-    border:1px solid rgba(255,255,255,.22);padding:.45rem .8rem;border-radius:999px;font-size:.85rem}
-  .dot{width:.7rem;height:.7rem;border-radius:50%}
-  .dot.lean{background:var(--lean)} .dot.sisco{background:var(--sisco)}
-
-  /* ---- stat strip ---- */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:-1.6rem 0 0;
-    position:relative;z-index:5}
-  .stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.1rem 1rem;
-    box-shadow:0 10px 30px rgba(13,42,66,.08);text-align:center}
-  .stat .num{font-size:1.7rem;font-weight:800;color:var(--accent-dark);line-height:1}
-  .stat .lbl{font-size:.76rem;color:var(--muted);margin-top:.35rem;font-weight:600}
-  @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}}
-
-  /* ---- sections ---- */
-  section{padding:2.6rem 0;border-bottom:1px solid var(--line)}
-  section h2{font-size:1.55rem;font-weight:800;margin:0 0 .4rem;letter-spacing:-.01em}
-  section .kicker{color:var(--accent-dark);font-weight:700;font-size:.78rem;
-    letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem}
-  section p.lead{font-size:1.05rem;color:var(--muted);max-width:70ch}
-  h3{font-size:1.12rem;margin:1.6rem 0 .4rem}
-
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.3rem}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:1.3rem}
-  @media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr}}
-
-  .card{border:1px solid var(--line);border-radius:14px;padding:1.3rem;background:var(--bg-soft)}
-  .card h3{margin-top:0}
-  .card .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.06em;
-    text-transform:uppercase;padding:.2rem .55rem;border-radius:6px;margin-bottom:.6rem}
-  .tag.meth{background:#e0f2fe;color:#075985}
-  .tag.pav{background:#f3e8ff;color:#6b21a8}
-  .tag.anno{background:#dcfce7;color:#166534}
-
-  ul.clean{list-style:none;padding:0;margin:.6rem 0}
-  ul.clean li{padding:.28rem 0 .28rem 1.4rem;position:relative;font-size:.95rem}
-  ul.clean li::before{content:"›";position:absolute;left:.2rem;color:var(--accent);font-weight:700}
-
-  /* ---- candidate table ---- */
-  .tablewrap{overflow-x:auto;margin-top:1.2rem;border:1px solid var(--line);border-radius:12px}
-  table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:560px}
-  th,td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid var(--line);vertical-align:top}
-  thead th{background:var(--bg-soft);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;
-    color:var(--muted)}
-  tbody tr:last-child td{border-bottom:none}
-  code.gene{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;color:var(--ink)}
-  .badge{display:inline-block;font-size:.72rem;font-weight:700;padding:.12rem .45rem;border-radius:5px}
-  .b-hyper{background:#fee2e2;color:#991b1b}
-  .b-hypo{background:#dbeafe;color:#1e40af}
-  .b-exon{background:#fef3c7;color:#92400e}
-  .b-conv{background:#dcfce7;color:#166534}
-
-  .figbox{margin-top:1.4rem;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
-  .figbox img{display:block;width:100%;height:auto}
-  .figbox .cap{padding:.7rem 1rem;font-size:.82rem;color:var(--muted);background:var(--bg-soft);
-    border-top:1px solid var(--line)}
-
-  /* ---- callouts ---- */
-  .callout{border-left:4px solid var(--accent);background:#f0f9ff;border-radius:0 10px 10px 0;
-    padding:1rem 1.2rem;margin:1.2rem 0}
-  .callout.warn{border-left-color:var(--warn-line);background:var(--warn-bg)}
-  .callout strong{color:var(--ink)}
-  .callout p{margin:.4rem 0}
-
-  /* ---- browser cards ---- */
-  .browser-card{border:2px solid var(--line);border-radius:16px;padding:1.5rem;background:#fff;
-    transition:.25s;display:flex;flex-direction:column;height:100%}
-  .browser-card:hover{border-color:var(--accent);box-shadow:0 14px 34px rgba(14,116,144,.14);
-    transform:translateY(-3px)}
-  .browser-card h3{margin:0 0 .15rem;font-size:1.25rem}
-  .browser-card .role{color:var(--accent-dark);font-weight:600;font-size:.9rem;margin-bottom:.7rem}
-  .btn{display:inline-block;margin-top:auto;align-self:flex-start;background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);
-    color:#fff;text-decoration:none;padding:.7rem 1.3rem;border-radius:9px;font-weight:600;font-size:.92rem;
-    transition:.2s}
-  .btn:hover{transform:scale(1.04);box-shadow:0 6px 18px rgba(14,116,144,.35)}
-  .btn.ghost{background:transparent;color:var(--accent-dark);border:1.5px solid var(--accent)}
-
-  /* ---- methods table ---- */
-  .meta-table td:first-child{font-weight:600;white-space:nowrap;color:var(--muted)}
-
-  footer{padding:2.4rem 0 3rem;color:var(--muted);font-size:.88rem}
-  footer a{color:var(--accent-dark)}
-  .lean{color:var(--lean-dark);font-weight:700}
-  .sisco{color:var(--sisco-dark);font-weight:700}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
 </style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
 </head>
+
 <body>
 
-<nav class="top">
-  <div class="wrap">
-    <a class="brand" href="#top">🐟 Lake Trout <span>EpiGenomics</span></a>
-    <a class="link" href="#findings">Findings</a>
-    <a class="link" href="#layers">Data Layers</a>
-    <a class="link" href="#genes">Candidate Genes</a>
-    <a class="link" href="#phenotype">Phenotype</a>
-    <a class="link" href="#browsers">Browsers</a>
-    <a class="link" href="#caveats">Caveats</a>
-  </div>
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#two-ecotypes-one-lake-system" id="toc-two-ecotypes-one-lake-system" class="nav-link active" data-scroll-target="#two-ecotypes-one-lake-system">Two Ecotypes, One Lake System</a></li>
+  <li><a href="#how-the-evidence-stacks-three-integrated-layers" id="toc-how-the-evidence-stacks-three-integrated-layers" class="nav-link" data-scroll-target="#how-the-evidence-stacks-three-integrated-layers">How the Evidence Stacks: Three Integrated Layers</a>
+  <ul class="collapse">
+  <li><a href="#differential-methylation" id="toc-differential-methylation" class="nav-link" data-scroll-target="#differential-methylation">Differential methylation</a></li>
+  <li><a href="#presenceabsence-variation-pav" id="toc-presenceabsence-variation-pav" class="nav-link" data-scroll-target="#presenceabsence-variation-pav">Presence–absence variation (PAV)</a></li>
+  <li><a href="#functional-annotation-new" id="toc-functional-annotation-new" class="nav-link" data-scroll-target="#functional-annotation-new">Functional annotation <em>(new)</em></a></li>
+  </ul></li>
+  <li><a href="#convergent-top-ranked-candidate-genes" id="toc-convergent-top-ranked-candidate-genes" class="nav-link" data-scroll-target="#convergent-top-ranked-candidate-genes">Convergent &amp; Top-Ranked Candidate Genes</a>
+  <ul class="collapse">
+  <li><a href="#gene-ontology-enrichment-deletion-set" id="toc-gene-ontology-enrichment-deletion-set" class="nav-link" data-scroll-target="#gene-ontology-enrichment-deletion-set">Gene Ontology enrichment (deletion set)</a></li>
+  </ul></li>
+  <li><a href="#hypothesized-links-to-ecotype-biology" id="toc-hypothesized-links-to-ecotype-biology" class="nav-link" data-scroll-target="#hypothesized-links-to-ecotype-biology">Hypothesized Links to Ecotype Biology</a></li>
+  <li><a href="#interactive-genome-browsers" id="toc-interactive-genome-browsers" class="nav-link" data-scroll-target="#interactive-genome-browsers">Interactive Genome Browsers</a></li>
+  <li><a href="#interpretation-guardrails" id="toc-interpretation-guardrails" class="nav-link" data-scroll-target="#interpretation-guardrails">Interpretation Guardrails</a></li>
+  <li><a href="#data-methods" id="toc-data-methods" class="nav-link" data-scroll-target="#data-methods">Data &amp; Methods</a>
+  <ul class="collapse">
+  <li><a href="#reference-genome" id="toc-reference-genome" class="nav-link" data-scroll-target="#reference-genome">Reference Genome</a></li>
+  <li><a href="#samples" id="toc-samples" class="nav-link" data-scroll-target="#samples">Samples</a></li>
+  <li><a href="#analysis-pipeline" id="toc-analysis-pipeline" class="nav-link" data-scroll-target="#analysis-pipeline">Analysis Pipeline</a></li>
+  </ul></li>
+  <li><a href="#citation-resources" id="toc-citation-resources" class="nav-link" data-scroll-target="#citation-resources">Citation &amp; Resources</a></li>
+  </ul>
 </nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content column-page-right" id="quarto-document-content">
 
-<header class="hero" id="top">
-  <div class="wrap">
-    <div class="eyebrow">Comparative Epigenomics · <em>Salvelinus namaycush</em></div>
-    <h1>From methylation &amp; structural variation<br>to candidate genes</h1>
-    <p class="sub">A comparative analysis of <strong>lean</strong> and <strong>siscowet</strong> lake
-      trout ecotypes — integrating PacBio HiFi DNA methylation, presence–absence variation, and a new
-      functional-annotation layer that links these differences to genes and plausible phenotypes.</p>
-    <div class="eco-pills">
-      <span class="eco-pill"><span class="dot lean"></span> Lean — shallow-water, lean-bodied</span>
-      <span class="eco-pill"><span class="dot sisco"></span> Siscowet — deep-water, high-lipid</span>
-    </div>
-    <p class="authors" style="margin-top:1.2rem">Rick Goetz · Sam White · Cristian Gallardo-Escárate · Steven Roberts</p>
-  </div>
-</header>
-
-<div class="wrap">
-  <div class="stats">
-    <div class="stat"><div class="num">302</div><div class="lbl">Differentially methylated regions</div></div>
-    <div class="stat"><div class="num">3,465</div><div class="lbl">High-confidence siscowet deletions</div></div>
-    <div class="stat"><div class="num">2,036</div><div class="lbl">Annotated candidate genes</div></div>
-    <div class="stat"><div class="num">4</div><div class="lbl">Convergent (methylation + PAV)</div></div>
-  </div>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lake Trout EpiGenomics Project</h1>
+<p class="subtitle lead">From Methylation &amp; Structural Variation to Candidate Genes — <em>Salvelinus namaycush</em> Ecotypes</p>
 </div>
 
-<!-- ============ THE QUESTION ============ -->
-<section id="question">
-  <div class="wrap">
-    <div class="kicker">The biological question</div>
-    <h2>Two ecotypes, one lake system</h2>
-    <p class="lead">Lake trout in the Great Lakes occur as divergent ecotypes that share water but not
-      lifestyle. <span class="lean">Lean</span> trout are shallow-water, elongate, and low-lipid;
-      <span class="sisco">siscowet</span> trout are deep-water specialists with robust bodies and high
-      lipid storage. We ask a focused question: <strong>which genes carry the epigenetic and structural
-      differences between the ecotypes, and what phenotypes might they shape?</strong></p>
-    <p class="lead" style="margin-top:.8rem">Earlier stages of this project produced the raw differences —
-      differentially methylated regions and presence–absence variants. The work featured here adds the
-      missing interpretive layer: a genome-wide <strong>functional annotation</strong> that turns
-      coordinates into gene names, products, and Gene Ontology terms, then ranks candidates and reasons —
-      carefully — about phenotype.</p>
+
+
+<div class="quarto-title-meta column-page-right">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rick Goetz, Sam White, Cristian Gallardo-Escarate, and Steven Roberts </p>
+          </div>
   </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 2, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<blockquote class="blockquote">
+<p><strong>Note:</strong> The published landing page (<code>index.html</code>) is a hand-authored, self-contained page. This <code>.qmd</code> mirrors its content as the editable source. If you re-render with Quarto, review the result against <code>index.html</code> before publishing so the polished layout is preserved.</p>
+</blockquote>
+<style>
+.stat-box{background:linear-gradient(135deg,#0e7490 0%,#155e75 100%);color:#fff;padding:1rem;
+  border-radius:8px;text-align:center;margin:.5rem;flex:1;min-width:150px}
+.stat-number{font-size:2rem;font-weight:bold}
+.stats-container{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin:2rem 0}
+.lean-color{color:#1d4ed8;font-weight:700}.siscowet-color{color:#c2410c;font-weight:700}
+.finding-box{background:#f0f9ff;border-left:4px solid #0ea5e9;padding:1rem;margin:1rem 0;border-radius:0 8px 8px 0}
+.warn-box{background:#fff7ed;border-left:4px solid #f59e0b;padding:1rem;margin:1rem 0;border-radius:0 8px 8px 0}
+.browser-link{display:inline-block;background:linear-gradient(135deg,#0e7490 0%,#155e75 100%);
+  color:#fff !important;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600}
+</style>
+<section id="two-ecotypes-one-lake-system" class="level2">
+<h2 class="anchored" data-anchor-id="two-ecotypes-one-lake-system">Two Ecotypes, One Lake System</h2>
+<p>Lake trout (<em>Salvelinus namaycush</em>) in the Great Lakes occur as divergent ecotypes that share water but not lifestyle:</p>
+<ul>
+<li><strong><span class="lean-color">Lean</span></strong>: shallow-water dwelling, elongate body, low lipid content</li>
+<li><strong><span class="siscowet-color">Siscowet</span></strong>: deep-water specialist, robust body, high lipid storage</li>
+</ul>
+<p>This project asks a focused question: <strong>which genes carry the epigenetic and structural differences between the ecotypes, and what phenotypes might they shape?</strong> Earlier stages produced the raw differences — differentially methylated regions (DMRs) and presence–absence variants (PAVs). The work featured here adds the missing interpretive layer: a genome-wide <strong>functional annotation</strong> that turns coordinates into gene names, products, and Gene Ontology terms, then ranks candidates and reasons — carefully — about phenotype.</p>
+<div class="stats-container">
+  <div class="stat-box"><div class="stat-number">302</div>Differentially methylated regions</div>
+  <div class="stat-box"><div class="stat-number">3,465</div>High-confidence siscowet deletions</div>
+  <div class="stat-box"><div class="stat-number">2,036</div>Annotated candidate genes</div>
+  <div class="stat-box"><div class="stat-number">4</div>Convergent (methylation + PAV)</div>
+</div>
+<div class="finding-box">
+<p><strong>Read this as hypothesis-generating.</strong> Every link below is an <em>association</em> on a single lean-background reference genome — no functional validation, and no single CpG survives genome-wide multiple-testing correction. The value is a ranked, annotated shortlist, not a causal claim.</p>
+</div>
+<hr>
+</section>
+<section id="how-the-evidence-stacks-three-integrated-layers" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-evidence-stacks-three-integrated-layers">How the Evidence Stacks: Three Integrated Layers</h2>
+<section id="differential-methylation" class="level3">
+<h3 class="anchored" data-anchor-id="differential-methylation">Differential methylation</h3>
+<ul>
+<li><strong>540,040</strong> CpG sites tested</li>
+<li><strong>302</strong> DMRs (20 hyper- / 282 hypo-methylated in siscowet)</li>
+<li><strong>149</strong> DMRs within 5 kb of a gene; <strong>88</strong> in promoters</li>
+<li>0 single CpGs survive q &lt; 0.1 — lead with the DMR level</li>
+</ul>
+</section>
+<section id="presenceabsence-variation-pav" class="level3">
+<h3 class="anchored" data-anchor-id="presenceabsence-variation-pav">Presence–absence variation (PAV)</h3>
+<ul>
+<li><strong>3,465</strong> stringent siscowet-specific deletions (&gt;100 bp, all-4-vs-none)</li>
+<li><strong>1,543</strong> within 5 kb of a gene; <strong>54</strong> overlap an exon (candidate copy/LOF changes)</li>
+<li>Reference-bias aware: a lean-background genome inflates siscowet deletions</li>
+</ul>
+</section>
+<section id="functional-annotation-new" class="level3">
+<h3 class="anchored" data-anchor-id="functional-annotation-new">Functional annotation <em>(new)</em></h3>
+<ul>
+<li><strong>46,359</strong> genes annotated from NCBI RefSeq</li>
+<li><strong>46,231</strong> with a product description; <strong>34,367</strong> with ≥1 Gene Ontology term</li>
+<li>The join key that turns variants into interpretable candidates</li>
+</ul>
+<p>See <a href="analyses/18-annotation/README.md"><code>analyses/18-annotation/README.md</code></a> for the annotation methods and provenance.</p>
+<hr>
+</section>
+</section>
+<section id="convergent-top-ranked-candidate-genes" class="level2">
+<h2 class="anchored" data-anchor-id="convergent-top-ranked-candidate-genes">Convergent &amp; Top-Ranked Candidate Genes</h2>
+<p>Genes were ranked by convergence (methylation <em>and</em> deletion), promoter/exon placement, expression support, and methylation↔︎expression concordance. The four <strong>convergent</strong> loci — carrying both a DMR and a high-confidence siscowet deletion — are the strongest candidates.</p>
+<table class="table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Gene</th>
+<th>Product</th>
+<th>Methylation</th>
+<th>Deletion</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>znf883-like</code> (LOC120032414)</td>
+<td>Zinc finger protein 883-like</td>
+<td>exon · hyper</td>
+<td>exonic</td>
+<td><strong>top convergent</strong></td>
+</tr>
+<tr class="even">
+<td><code>XlCGF57.1-like</code> (LOC120040411)</td>
+<td>Gastrula zinc finger protein XlCGF57.1-like</td>
+<td>intron · hypo</td>
+<td>nearby</td>
+<td>convergent</td>
+</tr>
+<tr class="odd">
+<td><code>septin-9-like</code> (LOC120043843)</td>
+<td>Septin-9-like</td>
+<td>intron · hyper</td>
+<td>nearby</td>
+<td>convergent</td>
+</tr>
+<tr class="even">
+<td>LOC120039781</td>
+<td>Uncharacterized locus</td>
+<td>intron · hypo</td>
+<td>nearby</td>
+<td>convergent</td>
+</tr>
+<tr class="odd">
+<td><code>angptl5</code></td>
+<td>Angiopoietin-related protein 5-like</td>
+<td>—</td>
+<td>exonic</td>
+<td>lipid axis</td>
+</tr>
+<tr class="even">
+<td><code>mogat2</code></td>
+<td>2-acylglycerol O-acyltransferase 2-A-like</td>
+<td>—</td>
+<td>exonic</td>
+<td>lipid axis</td>
+</tr>
+<tr class="odd">
+<td><code>ephx1-like</code></td>
+<td>Epoxide hydrolase 1-like</td>
+<td>promoter</td>
+<td>—</td>
+<td>lipid / xenobiotic</td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/18-top-candidates.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Top protein-coding candidate genes by integrated rank score. Convergent (methylation + deletion) loci are highlighted; methylation-led and deletion-led candidates are shown by color.</figcaption>
+</figure>
+</div>
+<p>Source: <a href="analyses/18-annotation/integrated_candidate_genes.tsv"><code>integrated_candidate_genes.tsv</code></a>.</p>
+<section id="gene-ontology-enrichment-deletion-set" class="level3">
+<h3 class="anchored" data-anchor-id="gene-ontology-enrichment-deletion-set">Gene Ontology enrichment (deletion set)</h3>
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>GO term</th>
+<th>Fold</th>
+<th>FDR</th>
+<th>Read as</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Calcium ion transmembrane transport</td>
+<td>3.7</td>
+<td>5.6×10⁻⁴</td>
+<td>most defensible signal</td>
+</tr>
+<tr class="even">
+<td>Neuron projection development</td>
+<td>2.4</td>
+<td>2.6×10⁻³</td>
+<td>sensory / neural</td>
+</tr>
+<tr class="odd">
+<td>Calcium channel complex</td>
+<td>4.6</td>
+<td>3.0×10⁻³</td>
+<td>length-bias caveat</td>
+</tr>
+<tr class="even">
+<td>Calcium ion transport</td>
+<td>3.0</td>
+<td>3.0×10⁻³</td>
+<td>ion homeostasis</td>
+</tr>
+<tr class="odd">
+<td>Lipid / phospholipid binding</td>
+<td>1.5</td>
+<td>ns (0.3)</td>
+<td>suggestive only</td>
+</tr>
+</tbody>
+</table>
+<p>Hypergeometric over-representation vs.&nbsp;all GO-annotated genes (BH-FDR). The DMR set’s enrichment is dominated by a single histone cluster and adjacent <code>znf883</code> paralogs — a tandem-cluster artifact, not broad convergence. Full tables: <a href="analyses/18-annotation/go_enrichment_pav.tsv">PAV</a>, <a href="analyses/18-annotation/go_enrichment_dmr.tsv">DMR</a>, <a href="analyses/18-annotation/go_enrichment_union.tsv">union</a>.</p>
+<hr>
+</section>
+</section>
+<section id="hypothesized-links-to-ecotype-biology" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesized-links-to-ecotype-biology">Hypothesized Links to Ecotype Biology</h2>
+<p>Each axis pairs annotated candidate genes with a known or measured difference between the ecotypes. These are <strong>hypotheses</strong> anchored to morphometric data, not validated mechanisms.</p>
+<ul>
+<li><strong>🫧 Lipid &amp; energy storage</strong> — exonic siscowet deletions in <code>angptl5</code>, <code>mogat2</code>, and a promoter DMR at epoxide hydrolase 1 touch lipid handling, consistent with the defining high-lipid siscowet phenotype and deep-water buoyancy.</li>
+<li><strong>🐠 Body shape, growth &amp; muscle</strong> — methylation-led candidates including <code>rbm24b</code> (muscle/cardiac splicing) and growth-associated GO terms align with the elongate-lean vs.&nbsp;robust-siscowet contrast captured in the 17-landmark morphometric data.</li>
+<li><strong>⚡ Calcium / sensory-neural</strong> — calcium-transport and neuron-projection GO enrichment in the deletion set hints at sensory or excitability differences relevant to a deep, dark, high-pressure habitat (length-bias-aware).</li>
+<li><strong>🛡️ Immune &amp; adhesion</strong> — exonic deletions hit immune/adhesion genes (alpha-2-macroglobulin, CEACAM, DMBT1); some signal is real divergence, some reflects rapidly evolving, reference-divergent families.</li>
+</ul>
+<p>Full write-up: <a href="code/18-diff-annotation-phenotype.html"><code>code/18-diff-annotation-phenotype.html</code></a>.</p>
+<hr>
+</section>
+<section id="interactive-genome-browsers" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-genome-browsers">Interactive Genome Browsers</h2>
+<p>Explore methylation, PAV, gene, and ecotype-synteny tracks directly across the SaNama_1.0 assembly. Genes now carry functional annotation (symbol, product, GO terms, and which ecotypes retain them), and lean/siscowet <strong>synteny blocks</strong> are projected onto the reference so you can see, at any locus, which ecotype contig maps there and whether it is inverted.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="igv.js-quick-exploration" class="level3">
+<h3 class="anchored" data-anchor-id="igv.js-quick-exploration">🔬 IGV.js — <em>quick exploration</em></h3>
+<p>Functionally-annotated genes · lean &amp; siscowet synteny blocks · PAV insertions &amp; deletions · CpG methylation (8 samples) · DMRs</p>
+<p><a href="genome-browser/index.html" class="browser-link">Launch IGV Browser →</a></p>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="jbrowse-2-advanced-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="jbrowse-2-advanced-analysis">🧬 JBrowse 2 — <em>advanced analysis</em></h3>
+<p>Functionally-annotated genes (GFF3) · lean &amp; siscowet synteny blocks · PAV structural variants · CpG methylation · differential methylation · <strong>lean ↔︎ siscowet Linear Synteny View</strong></p>
+<p><a href="jbrowse/index.html" class="browser-link">Launch JBrowse 2 →</a></p>
+<p><small>For the side-by-side ecotype comparison, open JBrowse’s <em>Linear synteny view</em> and pick the <strong>lean_purged</strong> and <strong>siscowet_purged</strong> assemblies with the <em>Lean ↔︎ Siscowet synteny</em> track.</small></p>
+</section>
+</div>
+</div>
+<hr>
+</section>
+<section id="interpretation-guardrails" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-guardrails">Interpretation Guardrails</h2>
+<p>This analysis is deliberately conservative. The constraints below shape every claim above and are baked into the candidate rankings.</p>
+<div class="warn-box">
+<p><strong>The reference is a lean-background genome.</strong> SaNama_1.0 was built from a doubled-haploid Seneca Lake (lean-morphotype) fish. Siscowet diverges more from it, so siscowet reads map less completely — inflating apparent siscowet-specific deletions and reducing methylation power in the most divergent regions. Siscowet and lean variant counts are <em>not</em> magnitude-comparable.</p>
+</div>
+<div class="warn-box">
+<p><strong>No single CpG survives genome-wide correction</strong> (0 DMCs at q &lt; 0.1). Interpretation leads with DMR-level and stringent-PAV sets; single-CpG and lenient-PAV hits are hypothesis-generating only.</p>
+</div>
+<div class="warn-box">
+<p><strong>Expression support is weak by design.</strong> The liver RNA-seq is from a separate parasite study with different individuals — orthogonal support, never confirmation.</p>
+</div>
+<div class="warn-box">
+<p><strong>Enrichment confounders.</strong> The PAV GO signal carries a gene-length bias (long calcium/ion-channel genes accumulate deletions by chance); the DMR GO signal is a tandem-cluster artifact. Associations, not causation — no functional validation was performed.</p>
+</div>
+<hr>
+</section>
+<section id="data-methods" class="level2">
+<h2 class="anchored" data-anchor-id="data-methods">Data &amp; Methods</h2>
+<section id="reference-genome" class="level3">
+<h3 class="anchored" data-anchor-id="reference-genome">Reference Genome</h3>
+<ul>
+<li><strong>Assembly</strong>: NCBI <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_016432855.1/">GCF_016432855.1 (SaNama_1.0)</a></li>
+<li><strong>Source</strong>: NCBI BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA674328">PRJNA674328</a></li>
+<li><strong>Annotation</strong>: NCBI RefSeq GFF + GO (GAF)</li>
+</ul>
+</section>
+<section id="samples" class="level3">
+<h3 class="anchored" data-anchor-id="samples">Samples</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Ecotype</th>
+<th>Sample Size</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Lean</strong></td>
+<td>n=4</td>
+<td>Shallow-water ecotype (PacBio HiFi)</td>
+</tr>
+<tr class="even">
+<td><strong>Siscowet</strong></td>
+<td>n=4</td>
+<td>Deep-water ecotype (PacBio HiFi)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="analysis-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-pipeline">Analysis Pipeline</h3>
+<ol type="1">
+<li>PacBio HiFi sequencing with 5mC modification calling</li>
+<li>CpG methylation profiling &amp; DMR identification</li>
+<li>Coverage/CIGAR-based PAV detection (lenient + stringent tiers)</li>
+<li>RefSeq functional annotation backbone (gene → product → GO)</li>
+<li>Strand-aware DMR/PAV-to-gene assignment (promoter ±2 kb, flank ±5 kb)</li>
+<li>Hypergeometric GO over-representation with BH-FDR</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="citation-resources" class="level2">
+<h2 class="anchored" data-anchor-id="citation-resources">Citation &amp; Resources</h2>
+<ul>
+<li><strong>GitHub Repository</strong>: <a href="https://github.com/RobertsLab/project-lake-trout">RobertsLab/project-lake-trout</a></li>
+<li><strong>Annotation plan</strong>: <a href="code/18-diff-annotation-phenotype-plan.md"><code>code/18-diff-annotation-phenotype-plan.md</code></a></li>
+</ul>
 </section>
 
-<!-- ============ KEY FINDINGS ============ -->
-<section id="findings">
-  <div class="wrap">
-    <div class="kicker">At a glance</div>
-    <h2>What the integration shows</h2>
-    <div class="grid3">
-      <div class="card">
-        <h3>A short list of convergent genes</h3>
-        <p>Of 2,036 annotated candidates, only <strong>4 genes</strong> are hit by <em>both</em> a
-          differentially methylated region and a high-confidence structural deletion — led by a
-          <code class="gene">znf883-like</code> zinc-finger locus with an exonic DMR and an exonic deletion.</p>
-      </div>
-      <div class="card">
-        <h3>A lipid-metabolism thread</h3>
-        <p>Exonic siscowet-specific deletions fall in lipid genes — <code class="gene">angptl5</code>,
-          <code class="gene">mogat2</code>, epoxide hydrolase 1 — the very axis separating the lean and
-          high-lipid ecotypes. Suggestive at the gene level, not genome-wide.</p>
-      </div>
-      <div class="card">
-        <h3>A calcium / neural GO signal</h3>
-        <p>The strongest enrichment in the deletion set is <strong>calcium-ion transport</strong>
-          (FDR&nbsp;3×10⁻³) and <strong>neuron-projection development</strong> — read with a gene-length
-          caveat, but the most defensible enrichment we see.</p>
-      </div>
-    </div>
-    <div class="callout">
-      <p><strong>Read this as hypothesis-generating.</strong> Every link below is an
-        <em>association</em> on a single lean-background reference genome — no functional validation, and
-        no single CpG survives genome-wide multiple-testing correction. The value is a ranked, annotated
-        shortlist, not a causal claim. See <a href="#caveats">interpretation guardrails</a>.</p>
-    </div>
-  </div>
-</section>
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
 
-<!-- ============ DATA LAYERS ============ -->
-<section id="layers">
-  <div class="wrap">
-    <div class="kicker">Three integrated layers</div>
-    <h2>How the evidence stacks</h2>
-    <div class="grid3">
-      <div class="card">
-        <span class="tag meth">Methylation</span>
-        <h3>Differential methylation</h3>
-        <ul class="clean">
-          <li><strong>540,040</strong> CpG sites tested</li>
-          <li><strong>302</strong> DMRs (20 hyper- / 282 hypo-methylated in siscowet)</li>
-          <li><strong>149</strong> DMRs within 5&nbsp;kb of a gene; <strong>88</strong> in promoters</li>
-          <li>0 single CpGs survive q&nbsp;&lt;&nbsp;0.1 — lead with the DMR level</li>
-        </ul>
-      </div>
-      <div class="card">
-        <span class="tag pav">Structural variation</span>
-        <h3>Presence–absence variation</h3>
-        <ul class="clean">
-          <li><strong>3,465</strong> stringent siscowet-specific deletions (&gt;100&nbsp;bp, all-4-vs-none)</li>
-          <li><strong>1,543</strong> fall within 5&nbsp;kb of a gene</li>
-          <li><strong>54</strong> overlap an exon — candidate copy/LOF changes</li>
-          <li>Reference-bias aware: lean-background genome inflates siscowet deletions</li>
-        </ul>
-      </div>
-      <div class="card">
-        <span class="tag anno">Annotation</span>
-        <h3>Functional backbone <small>(new)</small></h3>
-        <ul class="clean">
-          <li><strong>46,359</strong> genes annotated from NCBI RefSeq</li>
-          <li><strong>46,231</strong> with a product description</li>
-          <li><strong>34,367</strong> with ≥1 Gene Ontology term</li>
-          <li>The join key that turns variants into interpretable candidates</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ CANDIDATE GENES ============ -->
-<section id="genes">
-  <div class="wrap">
-    <div class="kicker">Ranked candidates</div>
-    <h2>Convergent &amp; top-ranked genes</h2>
-    <p class="lead">Genes were ranked by convergence (methylation <em>and</em> deletion), promoter/exon
-      placement, expression support, and methylation↔expression concordance. The four convergent loci —
-      carrying both a DMR and a high-confidence siscowet deletion — are the strongest candidates.</p>
 
-    <div class="tablewrap">
-      <table>
-        <thead>
-          <tr><th>Gene</th><th>Product</th><th>Methylation</th><th>Deletion</th><th>Note</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code class="gene">znf883-like</code><br><small>LOC120032414</small></td>
-            <td>Zinc finger protein 883-like</td>
-            <td><span class="badge b-exon">exon</span> <span class="badge b-hyper">hyper</span></td>
-            <td><span class="badge b-exon">exonic</span></td>
-            <td><span class="badge b-conv">top convergent</span></td>
-          </tr>
-          <tr>
-            <td><code class="gene">XlCGF57.1-like</code><br><small>LOC120040411</small></td>
-            <td>Gastrula zinc finger protein XlCGF57.1-like</td>
-            <td><span class="badge b-hypo">intron · hypo</span></td>
-            <td>nearby</td>
-            <td><span class="badge b-conv">convergent</span></td>
-          </tr>
-          <tr>
-            <td><code class="gene">septin-9-like</code><br><small>LOC120043843</small></td>
-            <td>Septin-9-like</td>
-            <td><span class="badge b-hyper">intron · hyper</span></td>
-            <td>nearby</td>
-            <td><span class="badge b-conv">convergent</span></td>
-          </tr>
-          <tr>
-            <td><code class="gene">LOC120039781</code></td>
-            <td>Uncharacterized locus</td>
-            <td><span class="badge b-hypo">intron · hypo</span></td>
-            <td>nearby</td>
-            <td><span class="badge b-conv">convergent</span></td>
-          </tr>
-          <tr>
-            <td><code class="gene">angptl5</code></td>
-            <td>Angiopoietin-related protein 5-like</td>
-            <td>—</td>
-            <td><span class="badge b-exon">exonic</span></td>
-            <td>lipid axis</td>
-          </tr>
-          <tr>
-            <td><code class="gene">mogat2</code></td>
-            <td>2-acylglycerol O-acyltransferase 2-A-like</td>
-            <td>—</td>
-            <td><span class="badge b-exon">exonic</span></td>
-            <td>lipid axis</td>
-          </tr>
-          <tr>
-            <td><code class="gene">ephx1-like</code></td>
-            <td>Epoxide hydrolase 1-like</td>
-            <td><span class="badge b-hypo">promoter</span></td>
-            <td>—</td>
-            <td>lipid / xenobiotic</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 
-    <div class="figbox">
-      <img src="figures/18-top-candidates.png" alt="Bar chart of top protein-coding candidate genes ranked by integrated score, colored by evidence type">
-      <div class="cap">Top protein-coding candidate genes by integrated rank score. Dark-red bars mark
-        convergent (methylation + deletion) loci; blue, methylation-led; orange, deletion-led.
-        Source: <a href="analyses/18-annotation/integrated_candidate_genes.tsv">integrated_candidate_genes.tsv</a>.</div>
-    </div>
-
-    <h3 style="margin-top:1.8rem">Gene Ontology enrichment (deletion set)</h3>
-    <div class="tablewrap">
-      <table>
-        <thead><tr><th>GO term</th><th>Fold</th><th>FDR</th><th>Read as</th></tr></thead>
-        <tbody>
-          <tr><td>Calcium ion transmembrane transport</td><td>3.7</td><td>5.6×10⁻⁴</td><td>most defensible signal</td></tr>
-          <tr><td>Neuron projection development</td><td>2.4</td><td>2.6×10⁻³</td><td>sensory / neural</td></tr>
-          <tr><td>Calcium channel complex</td><td>4.6</td><td>3.0×10⁻³</td><td>length-bias caveat</td></tr>
-          <tr><td>Calcium ion transport <span class="badge b-exon">phenotype-flagged</span></td><td>3.0</td><td>3.0×10⁻³</td><td>ion homeostasis</td></tr>
-          <tr><td>Lipid / phospholipid binding</td><td>1.5</td><td>ns (0.3)</td><td>suggestive only</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="font-size:.86rem;color:var(--muted);margin-top:.7rem">Hypergeometric over-representation
-      vs. all GO-annotated genes (BH-FDR). The DMR set's enrichment is dominated by a single histone
-      cluster and adjacent <code>znf883</code> paralogs — a tandem-cluster artifact, not broad convergence.
-      Full tables:
-      <a href="analyses/18-annotation/go_enrichment_pav.tsv">PAV</a> ·
-      <a href="analyses/18-annotation/go_enrichment_dmr.tsv">DMR</a> ·
-      <a href="analyses/18-annotation/go_enrichment_union.tsv">union</a>.</p>
-  </div>
-</section>
-
-<!-- ============ PHENOTYPE ============ -->
-<section id="phenotype">
-  <div class="wrap">
-    <div class="kicker">Phenotype synthesis</div>
-    <h2>Hypothesized links to ecotype biology</h2>
-    <p class="lead">Each axis pairs annotated candidate genes with a measured or known difference between
-      the ecotypes. These are <strong>hypotheses</strong> anchored to morphometric data, not validated
-      mechanisms.</p>
-    <div class="grid2">
-      <div class="card">
-        <h3>🫧 Lipid &amp; energy storage</h3>
-        <p>Exonic siscowet deletions in <code class="gene">angptl5</code>, <code class="gene">mogat2</code>,
-          and a promoter DMR at epoxide hydrolase 1 touch lipid handling — consistent with the defining
-          high-lipid siscowet phenotype and its role in deep-water buoyancy.</p>
-      </div>
-      <div class="card">
-        <h3>🐠 Body shape, growth &amp; muscle</h3>
-        <p>Methylation-led candidates including <code class="gene">rbm24b</code> (muscle/cardiac splicing)
-          and growth-associated GO terms align with the elongate-lean vs. robust-siscowet body-form
-          contrast captured in the 17-landmark morphometric data.</p>
-      </div>
-      <div class="card">
-        <h3>⚡ Calcium / sensory-neural</h3>
-        <p>The calcium-transport and neuron-projection GO enrichment in the deletion set hints at
-          sensory or excitability differences relevant to a deep, dark, high-pressure habitat — flagged
-          but length-bias-aware.</p>
-      </div>
-      <div class="card">
-        <h3>🛡️ Immune &amp; adhesion</h3>
-        <p>Exonic deletions hit immune/adhesion genes (alpha-2-macroglobulin, CEACAM, DMBT1). Some
-          signal is real ecotype divergence; some reflects rapidly evolving, reference-divergent gene
-          families — interpret comparatively.</p>
-      </div>
-    </div>
-    <p style="margin-top:1.3rem">
-      <a class="btn ghost" href="code/18-diff-annotation-phenotype.html">Read the full annotation report →</a>
-    </p>
-  </div>
-</section>
-
-<!-- ============ BROWSERS ============ -->
-<section id="browsers">
-  <div class="wrap">
-    <div class="kicker">Explore the data</div>
-    <h2>Interactive genome browsers</h2>
-    <p class="lead">Inspect methylation, PAV, and gene tracks directly across the SaNama_1.0 assembly.</p>
-    <div class="grid2">
-      <div class="browser-card">
-        <h3>🔬 IGV.js</h3>
-        <div class="role">Best for quick exploration</div>
-        <ul class="clean">
-          <li>Gene annotations</li>
-          <li>PAV insertions &amp; deletions (lean / siscowet)</li>
-          <li>CpG methylation across 8 samples</li>
-          <li>Differentially methylated regions</li>
-        </ul>
-        <a class="btn" href="genome-browser/index.html">Launch IGV browser →</a>
-      </div>
-      <div class="browser-card">
-        <h3>🧬 JBrowse 2</h3>
-        <div class="role">Best for advanced analysis</div>
-        <ul class="clean">
-          <li>Gene annotations (BED)</li>
-          <li>PAV structural variants</li>
-          <li>CpG methylation BigWig tracks</li>
-          <li>Differential methylation results</li>
-        </ul>
-        <a class="btn" href="jbrowse/index.html">Launch JBrowse 2 →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CAVEATS ============ -->
-<section id="caveats">
-  <div class="wrap">
-    <div class="kicker">Read before you cite</div>
-    <h2>Interpretation guardrails</h2>
-    <p class="lead">This analysis is deliberately conservative. The constraints below shape every claim
-      on this page and are baked into the candidate rankings.</p>
-    <div class="callout warn">
-      <p><strong>The reference is a lean-background genome.</strong> SaNama_1.0 was built from a
-        doubled-haploid Seneca Lake (lean-morphotype) fish. Siscowet diverges more from it, so siscowet
-        reads map less completely — inflating apparent siscowet-specific deletions and reducing
-        methylation power in the most divergent regions. Siscowet and lean variant counts are
-        <em>not</em> magnitude-comparable.</p>
-    </div>
-    <div class="callout warn">
-      <p><strong>No single CpG survives genome-wide correction.</strong> 0 DMCs at q&nbsp;&lt;&nbsp;0.1.
-        Interpretation leads with DMR-level and stringent-PAV sets; single-CpG and lenient-PAV hits are
-        hypothesis-generating only.</p>
-    </div>
-    <div class="callout warn">
-      <p><strong>Expression support is weak by design.</strong> The liver RNA-seq is from a separate
-        parasite study with different individuals, so it serves as orthogonal support — never confirmation.</p>
-    </div>
-    <div class="callout warn">
-      <p><strong>Enrichment confounders.</strong> The PAV GO signal carries a gene-length bias (long
-        calcium/ion-channel genes accumulate deletions by chance); the DMR GO signal is a tandem-cluster
-        artifact. Associations, not causation — no functional validation was performed.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ METHODS ============ -->
-<section id="methods">
-  <div class="wrap">
-    <div class="kicker">Data &amp; methods</div>
-    <h2>Reference, samples &amp; pipeline</h2>
-    <div class="grid2">
-      <div>
-        <div class="tablewrap">
-          <table class="meta-table">
-            <tbody>
-              <tr><td>Assembly</td><td><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_016432855.1/">GCF_016432855.1</a> (SaNama_1.0)</td></tr>
-              <tr><td>Species</td><td><em>Salvelinus namaycush</em></td></tr>
-              <tr><td>BioProject</td><td><a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA674328">PRJNA674328</a></td></tr>
-              <tr><td>Samples</td><td><span class="lean">Lean n=4</span> · <span class="sisco">Siscowet n=4</span> (PacBio HiFi)</td></tr>
-              <tr><td>Annotation</td><td>NCBI RefSeq GFF + GO (GAF)</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div>
-        <h3 style="margin-top:0">Pipeline</h3>
-        <ul class="clean">
-          <li>PacBio HiFi sequencing, 5mC modification calling</li>
-          <li>CpG methylation profiling &amp; DMR identification</li>
-          <li>Coverage/CIGAR-based PAV detection (lenient + stringent tiers)</li>
-          <li>RefSeq functional annotation backbone (gene → product → GO)</li>
-          <li>Strand-aware DMR/PAV-to-gene assignment (promoter ±2&nbsp;kb, flank ±5&nbsp;kb)</li>
-          <li>Hypergeometric GO over-representation with BH-FDR</li>
-        </ul>
-      </div>
-    </div>
-    <p style="margin-top:1.2rem">
-      <a class="btn ghost" href="analyses/18-annotation/README.md">Annotation methods &amp; provenance →</a>
-    </p>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <p><strong>Lake Trout EpiGenomics Project</strong> — comparative analysis of
-      <em>Salvelinus namaycush</em> ecotypes.</p>
-    <p>Code &amp; data: <a href="https://github.com/RobertsLab/project-lake-trout">RobertsLab/project-lake-trout</a>
-      · Annotation analysis: <code>code/18-diff-annotation-phenotype-plan.md</code></p>
-    <p style="margin-top:1rem;opacity:.75">Rick Goetz · Sam White · Cristian Gallardo-Escárate · Steven Roberts</p>
-  </div>
-</footer>
-
-</body>
-</html>
+</body></html>
