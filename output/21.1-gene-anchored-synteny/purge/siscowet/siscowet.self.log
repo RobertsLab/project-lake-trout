@@ -1,0 +1,18 @@
+[M::mm_idx_gen::54.266*1.35] collected minimizers
+[M::mm_idx_gen::56.661*2.63] sorted minimizers
+[M::main::56.661*2.63] loaded/built the index for 24184 target sequence(s)
+[M::mm_mapopt_update::59.091*2.56] mid_occ = 500
+[M::mm_idx_stat] kmer size: 19; skip: 19; is_hpc: 0; #seq: 24184
+[M::mm_idx_stat::60.703*2.52] distinct minimizers: 111580803 (63.53% are singletons); average occurrences: 3.654; average spacing: 9.830; total length: 4008351139
+[M::worker_pipeline::529.513*23.17] mapped 533 sequences
+[M::worker_pipeline::843.304*23.16] mapped 662 sequences
+[M::worker_pipeline::1170.955*24.73] mapped 917 sequences
+[M::worker_pipeline::1555.331*27.76] mapped 1261 sequences
+[M::worker_pipeline::1938.838*30.21] mapped 1956 sequences
+[M::worker_pipeline::2368.827*31.74] mapped 2722 sequences
+[M::worker_pipeline::2759.290*31.69] mapped 5201 sequences
+[M::worker_pipeline::2997.621*29.23] mapped 10616 sequences
+[M::worker_pipeline::3001.026*29.20] mapped 316 sequences
+[M::main] Version: 2.31-r1302
+[M::main] CMD: /opt/anaconda/anaconda3/envs/liftoff_env/bin/minimap2 -t 40 -x asm5 -DP siscowet.split.fa siscowet.split.fa
+[M::main] Real time: 3001.596 sec; CPU: 87620.598 sec; Peak RSS: 38.755 GB

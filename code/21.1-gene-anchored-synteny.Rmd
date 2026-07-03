@@ -80,7 +80,7 @@ genome_dir  <- file.path(project_dir, "data/genome")
 ref_dir     <- file.path(project_dir, "data/genome/ref-GCF_016432855.1")
 reads_dir   <- file.path(project_dir, "data/pacbio-reads/fastq2")
 liftoff_dir <- file.path(project_dir, "output/20.1-liftoff-annotation")
-output_dir  <- "../output/21.1-gene-anchored-synteny"
+output_dir  <- file.path(project_dir, "output/21.1-gene-anchored-synteny")
 
 # RAW INPUT ASSEMBLIES (to be purged)
 lean_fasta     <- file.path(genome_dir, "pb-hifiasm-lean-assembly.fa")
@@ -397,19 +397,207 @@ blocks %>%
   readr::write_tsv(file.path(output_dir, "contig_to_chromosome.tsv"))
 ```
 
-# STEP 6 — PLOTS (OPTIONAL)
+# STEP 6 — PLOTS
 
-MCScanX ships Java plotters (`dot_plotter`, `dual_synteny_plotter`, `circle_plotter`) driven by a
-small control file listing which chromosomes to draw. For publication-grade dotplots / riparian
-plots, **jcvi (MCscan Python)** is the easier path and can ingest the same BED + a `.anchors` file
-derived from the `.collinearity` output. Install note:
+Generate three figure types directly from files already written in this workflow:
 
-```{r plots, engine='bash'}
-# jcvi for dotplots / synteny ribbons (separate env recommended)
-# conda create -n jcvi -c bioconda -c conda-forge jcvi
-# Example dotplot once .anchors are exported from the collinearity blocks:
-#   python -m jcvi.graphics.dotplot ref_lean.anchors
-echo "Optional: see jcvi (https://github.com/tanghaibao/jcvi) for dotplot/riparian figures."
+1. **Comparison summary bars** from `synteny_blocks.tsv`.
+2. **Contig-to-chromosome heatmaps** from `contig_to_chromosome.tsv`.
+3. **Gene-level synteny dotplots** from `{ref_lean,ref_sisco,lean_sisco}.collinearity` + `.gff`.
+
+All plots are written to `output/21.1-gene-anchored-synteny/plots/` as PNG and SVG.
+
+```{r plots, eval=TRUE}
+library(tidyverse)
+
+plot_dir <- file.path(output_dir, "plots")
+dir.create(plot_dir, showWarnings = FALSE, recursive = TRUE)
+
+cmp_meta <- tribble(
+  ~prefix,       ~comparison,
+  "ref_lean",   "reference_vs_lean",
+  "ref_sisco",  "reference_vs_siscowet",
+  "lean_sisco", "lean_vs_siscowet"
+)
+
+read_gff_mcscan <- function(path) {
+  read_tsv(path,
+           col_names = c("chr", "gene", "start", "end"),
+           col_types = "ccdd",
+           show_col_types = FALSE) %>%
+    mutate(mid = (start + end) / 2)
+}
+
+parse_collinearity_pairs <- function(path, comparison) {
+  lines <- readLines(path)
+  current <- NULL
+  out <- vector("list", length(lines))
+  k <- 0
+
+  for (ln in lines) {
+    if (str_detect(ln, "^## Alignment")) {
+      m <- str_match(
+        ln,
+        "Alignment (\\d+):.*N=(\\d+)\\s+(\\S+)&(\\S+)\\s+(plus|minus)"
+      )
+      current <- list(
+        block = as.integer(m[, 2]),
+        n_anchors = as.integer(m[, 3]),
+        chr_a = m[, 4],
+        chr_b = m[, 5],
+        orientation = m[, 6]
+      )
+    } else if (str_detect(ln, "^\\s*[0-9]+-\\s*[0-9]+:")) {
+      m <- str_match(ln, "^\\s*([0-9]+)-\\s*([0-9]+):\\s+(\\S+)\\s+(\\S+)\\s+([0-9.eE+-]+)$")
+      if (!all(is.na(m)) && !is.null(current)) {
+        k <- k + 1
+        out[[k]] <- tibble(
+          comparison = comparison,
+          block = current$block,
+          n_anchors = current$n_anchors,
+          chr_a = current$chr_a,
+          chr_b = current$chr_b,
+          orientation = current$orientation,
+          anchor_idx_a = as.integer(m[, 2]),
+          anchor_idx_b = as.integer(m[, 3]),
+          gene_a = m[, 4],
+          gene_b = m[, 5],
+          evalue = m[, 6]
+        )
+      }
+    }
+  }
+
+  bind_rows(out[seq_len(k)])
+}
+
+# 1) Comparison summary bars
+blocks <- read_tsv(file.path(output_dir, "synteny_blocks.tsv"), show_col_types = FALSE)
+
+summary_tbl <- blocks %>%
+  group_by(comparison) %>%
+  summarise(
+    n_blocks = n(),
+    anchor_genes = sum(n_anchors),
+    pct_inverted = 100 * mean(orientation == "minus"),
+    .groups = "drop"
+  )
+
+p_summary <- summary_tbl %>%
+  pivot_longer(
+    cols = c(n_blocks, anchor_genes, pct_inverted),
+    names_to = "metric",
+    values_to = "value"
+  ) %>%
+  ggplot(aes(x = comparison, y = value, fill = comparison)) +
+  geom_col(width = 0.75, show.legend = FALSE) +
+  facet_wrap(~ metric, scales = "free_y", nrow = 1) +
+  theme_bw(base_size = 11) +
+  theme(axis.text.x = element_text(angle = 20, hjust = 1)) +
+  labs(
+    title = "Synteny block summary",
+    x = NULL,
+    y = NULL
+  )
+
+ggsave(file.path(plot_dir, "01_synteny_summary.png"), p_summary,
+       width = 12, height = 3.8, dpi = 300)
+ggsave(file.path(plot_dir, "01_synteny_summary.svg"), p_summary,
+       width = 12, height = 3.8)
+
+# 2) Contig-to-chromosome heatmap (reference comparisons)
+ctc <- read_tsv(file.path(output_dir, "contig_to_chromosome.tsv"), show_col_types = FALSE)
+
+ctc_top <- ctc %>%
+  filter(comparison %in% c("reference_vs_lean", "reference_vs_siscowet")) %>%
+  group_by(comparison, chr_a) %>%
+  summarise(total = sum(anchors), .groups = "drop") %>%
+  arrange(comparison, desc(total)) %>%
+  group_by(comparison) %>%
+  slice_head(n = 60) %>%
+  select(comparison, chr_a) %>%
+  left_join(ctc, by = c("comparison", "chr_a"))
+
+p_heat <- ctc_top %>%
+  ggplot(aes(x = chr_b, y = fct_reorder(chr_a, anchors, .fun = max), fill = anchors)) +
+  geom_tile() +
+  facet_wrap(~ comparison, scales = "free_y") +
+  scale_fill_viridis_c(option = "C", trans = "sqrt") +
+  theme_bw(base_size = 9) +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1),
+    panel.grid = element_blank()
+  ) +
+  labs(
+    title = "Top contig-to-reference chromosome assignments",
+    x = "Reference chromosome",
+    y = "Ecotype contig",
+    fill = "Anchors"
+  )
+
+ggsave(file.path(plot_dir, "02_contig_to_chrom_heatmap.png"), p_heat,
+       width = 14, height = 11, dpi = 300)
+ggsave(file.path(plot_dir, "02_contig_to_chrom_heatmap.svg"), p_heat,
+       width = 14, height = 11)
+
+# 3) Gene-level synteny dotplots
+for (i in seq_len(nrow(cmp_meta))) {
+  prefix <- cmp_meta$prefix[i]
+  comparison <- cmp_meta$comparison[i]
+
+  pairs <- parse_collinearity_pairs(
+    file.path(output_dir, paste0(prefix, ".collinearity")),
+    comparison
+  )
+
+  gff <- read_gff_mcscan(file.path(output_dir, paste0(prefix, ".gff")))
+
+  pairs_xy <- pairs %>%
+    left_join(gff %>% select(gene, chr, mid), by = c("gene_a" = "gene")) %>%
+    rename(chr_a_check = chr, pos_a = mid) %>%
+    left_join(gff %>% select(gene, chr, mid), by = c("gene_b" = "gene")) %>%
+    rename(chr_b_check = chr, pos_b = mid) %>%
+    mutate(
+      chr_pair = paste(chr_a, chr_b, sep = " | "),
+      orientation = factor(orientation, levels = c("plus", "minus"))
+    )
+
+  top_pairs <- pairs_xy %>%
+    count(chr_pair, name = "n") %>%
+    arrange(desc(n)) %>%
+    slice_head(n = 24) %>%
+    pull(chr_pair)
+
+  p_dot <- pairs_xy %>%
+    filter(chr_pair %in% top_pairs) %>%
+    ggplot(aes(x = pos_a / 1e6, y = pos_b / 1e6, color = orientation)) +
+    geom_point(size = 0.25, alpha = 0.5) +
+    facet_wrap(~ chr_pair, scales = "free", ncol = 6) +
+    scale_color_manual(values = c(plus = "#1f77b4", minus = "#d62728")) +
+    theme_bw(base_size = 8) +
+    theme(
+      strip.text = element_text(size = 6),
+      legend.position = "top"
+    ) +
+    labs(
+      title = paste("Gene-anchored dotplots:", comparison),
+      x = "Genome A gene position (Mb)",
+      y = "Genome B gene position (Mb)",
+      color = "Orientation"
+    )
+
+  ggsave(file.path(plot_dir, paste0("03_dotplot_", comparison, ".png")), p_dot,
+         width = 16, height = 10, dpi = 300)
+  ggsave(file.path(plot_dir, paste0("03_dotplot_", comparison, ".svg")), p_dot,
+         width = 16, height = 10)
+
+  readr::write_tsv(
+    pairs_xy,
+    file.path(plot_dir, paste0(prefix, ".anchor_pairs.tsv"))
+  )
+}
+
+list.files(plot_dir)
 ```
 
 # CHECKSUMS

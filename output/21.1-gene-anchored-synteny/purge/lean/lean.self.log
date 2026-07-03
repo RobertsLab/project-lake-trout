@@ -1,0 +1,17 @@
+[M::mm_idx_gen::50.430*1.36] collected minimizers
+[M::mm_idx_gen::52.955*2.82] sorted minimizers
+[M::main::52.955*2.82] loaded/built the index for 33035 target sequence(s)
+[M::mm_mapopt_update::55.517*2.74] mid_occ = 500
+[M::mm_idx_stat] kmer size: 19; skip: 19; is_hpc: 0; #seq: 33035
+[M::mm_idx_stat::57.104*2.69] distinct minimizers: 110114288 (67.46% are singletons); average occurrences: 3.446; average spacing: 9.838; total length: 3733314870
+[M::worker_pipeline::495.477*20.42] mapped 734 sequences
+[M::worker_pipeline::790.444*21.52] mapped 1013 sequences
+[M::worker_pipeline::1139.157*23.32] mapped 1310 sequences
+[M::worker_pipeline::1482.192*27.21] mapped 1990 sequences
+[M::worker_pipeline::1908.789*29.29] mapped 3196 sequences
+[M::worker_pipeline::2223.863*30.71] mapped 4605 sequences
+[M::worker_pipeline::2591.118*29.59] mapped 10764 sequences
+[M::worker_pipeline::2709.451*28.32] mapped 9423 sequences
+[M::main] Version: 2.31-r1302
+[M::main] CMD: /opt/anaconda/anaconda3/envs/liftoff_env/bin/minimap2 -t 40 -x asm5 -DP lean.split.fa lean.split.fa
+[M::main] Real time: 2709.829 sec; CPU: 76722.721 sec; Peak RSS: 37.190 GB
