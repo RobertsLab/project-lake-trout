@@ -97,6 +97,15 @@ reference SaNama_1.0 coordinate system. Files land in `data/synteny/`.
 | Synteny blocks — Lean contigs | Reference footprint of each reference↔lean collinear block; strand = orientation (− = inverted) | 1,897 | Blue |
 | Synteny blocks — Siscowet contigs | Reference footprint of each reference↔siscowet collinear block; strand = orientation (− = inverted) | 1,966 | Red |
 
+**JBrowse 2 Linear Synteny View (lean ↔ siscowet).** Built by
+[`code/22.2-jbrowse-synteny-view.py`](../code/22.2-jbrowse-synteny-view.py), which converts the
+lean↔siscowet MCScanX collinearity into a JBrowse anchors trio (`lean_siscowet.anchors` +
+`lean_purged.mcscan.bed` + `siscowet_purged.mcscan.bed`). `jbrowse/config.json` declares the two
+purged ecotype assemblies (FASTAs streamed from Gannet, `.fai` served locally) plus a
+`SyntenyTrack`. In JBrowse, open **Add → Linear synteny view**, choose the `lean_purged` and
+`siscowet_purged` assemblies, and add the *Lean ↔ Siscowet synteny (MCScanX)* track to see the two
+ecotype assemblies stacked with connecting synteny ribbons.
+
 ### PAV Tracks
 
 | Track | Description | Count | Color |

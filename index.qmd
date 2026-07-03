@@ -164,9 +164,13 @@ Functionally-annotated genes · lean & siscowet synteny blocks · PAV insertions
 :::
 ::: {.column width="50%"}
 ### 🧬 JBrowse 2 — *advanced analysis*
-Functionally-annotated genes (GFF3) · lean & siscowet synteny blocks · PAV structural variants · CpG methylation · differential methylation
+Functionally-annotated genes (GFF3) · lean & siscowet synteny blocks · PAV structural variants · CpG methylation · differential methylation · **lean ↔ siscowet Linear Synteny View**
 
 <a href="jbrowse/index.html" class="browser-link">Launch JBrowse 2 →</a>
+
+<small>For the side-by-side ecotype comparison, open JBrowse's *Linear synteny view* and pick
+the **lean_purged** and **siscowet_purged** assemblies with the *Lean ↔ Siscowet synteny*
+track.</small>
 :::
 :::
 

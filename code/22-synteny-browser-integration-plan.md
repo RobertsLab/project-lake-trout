@@ -125,7 +125,18 @@ functional annotation and synteny visible together.
     `ecotypes=` presence tag.
   - `synteny_lean_blocks.bed` — 1,897 blocks; `synteny_siscowet_blocks.bed` — 1,966 blocks
     (name = `ecotype:contig|block#|n=anchors`, strand = orientation).
-- **Phase 2 (Path B):** JBrowse 2 Linear Synteny View with ecotype assemblies + saved session.
+- **Phase 2 (Path B) — ✅ DONE (lean↔siscowet).** JBrowse 2 Linear Synteny View data.
+  Implemented by [`code/22.2-jbrowse-synteny-view.py`](22.2-jbrowse-synteny-view.py):
+  converts `lean_sisco.collinearity` → `lean_siscowet.anchors` (4,113 blocks / 77,628 anchor
+  pairs) and the combined `lean_sisco.gff` → `lean_purged.mcscan.bed` (55,437 genes) +
+  `siscowet_purged.mcscan.bed` (59,968 genes), un-sanitizing contig names against the FASTA
+  `.fai` so BED chromosomes match the assemblies exactly (verified: 0 mismatches). `config.json`
+  now declares `lean_purged` + `siscowet_purged` assemblies (FASTAs streamed from Gannet,
+  `.fai` served locally), a `SyntenyTrack` (`MCScanAnchorsAdapter`), and a gene FeatureTrack per
+  ecotype. Open via JBrowse's *Linear synteny view* selecting the two ecotype assemblies.
+  - Remaining Phase 2 polish: ship a pre-built Linear Synteny **saved session** so the browser
+    link opens straight into the lean-vs-siscowet ribbon view; optionally add `ref↔lean` /
+    `ref↔sisco` synteny tracks the same way.
 - **Phase 3:** breakpoint/rearrangement track + polish (colors, feature-detail formatting, GO links out).
 
 ## 5. Open decisions

@@ -16,6 +16,40 @@
           }
         }
       }
+    },
+    {
+      "name": "lean_purged",
+      "displayName": "Lake Trout \u2014 Lean (purged assembly)",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "lean_purged_refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/output/21.1-gene-anchored-synteny/lean.purged.fa"
+          },
+          "faiLocation": {
+            "uri": "data/lake-trout/lean.purged.fa.fai"
+          }
+        }
+      }
+    },
+    {
+      "name": "siscowet_purged",
+      "displayName": "Lake Trout \u2014 Siscowet (purged assembly)",
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "siscowet_purged_refseq",
+        "adapter": {
+          "type": "IndexedFastaAdapter",
+          "fastaLocation": {
+            "uri": "https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/output/21.1-gene-anchored-synteny/siscowet.purged.fa"
+          },
+          "faiLocation": {
+            "uri": "data/lake-trout/siscowet.purged.fa.fai"
+          }
+        }
+      }
     }
   ],
   "tracks": [
@@ -282,6 +316,68 @@
         "type": "BedAdapter",
         "bedLocation": {
           "uri": "data/lake-trout/significant_dmcs.bed"
+        }
+      }
+    },
+    {
+      "type": "SyntenyTrack",
+      "trackId": "synteny_lean_siscowet",
+      "name": "Lean \u2194 Siscowet synteny (MCScanX)",
+      "category": [
+        "Synteny"
+      ],
+      "assemblyNames": [
+        "lean_purged",
+        "siscowet_purged"
+      ],
+      "adapter": {
+        "type": "MCScanAnchorsAdapter",
+        "mcscanAnchorsLocation": {
+          "uri": "data/lake-trout/lean_siscowet.anchors"
+        },
+        "bed1Location": {
+          "uri": "data/lake-trout/lean_purged.mcscan.bed"
+        },
+        "bed2Location": {
+          "uri": "data/lake-trout/siscowet_purged.mcscan.bed"
+        },
+        "assemblyNames": [
+          "lean_purged",
+          "siscowet_purged"
+        ]
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "lean_purged_genes",
+      "name": "Lean genes (liftoff, purged)",
+      "category": [
+        "Synteny"
+      ],
+      "assemblyNames": [
+        "lean_purged"
+      ],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/lake-trout/lean_purged.mcscan.bed"
+        }
+      }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "siscowet_purged_genes",
+      "name": "Siscowet genes (liftoff, purged)",
+      "category": [
+        "Synteny"
+      ],
+      "assemblyNames": [
+        "siscowet_purged"
+      ],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/lake-trout/siscowet_purged.mcscan.bed"
         }
       }
     }
