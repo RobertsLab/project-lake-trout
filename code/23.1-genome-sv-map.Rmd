@@ -1,0 +1,510 @@
+---
+title: "23.1-genome-sv-map"
+author: "Steven Roberts"
+date: "2026-07-03"
+output:
+  github_document:
+    toc: true
+    number_sections: true
+  bookdown::html_document2:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+bibliography: references.bib
+citeproc: true
+---
+
+# BACKGROUND
+
+**Phase 1 of [`code/23-next-phase-research-plan.md`](23-next-phase-research-plan.md) — a
+whole-genome structural-variant (SV) map between the two ecotypes.** This completes Track A of
+[`code/21-ecotype-genome-comparison-plan.md`](21-ecotype-genome-comparison-plan.md), which was
+scoped but never run: only the gene-anchored synteny (Track B,
+[`21.1`](21.1-gene-anchored-synteny.Rmd)) exists. No inversion, translocation, duplication, or
+large-indel calls have been made yet.
+
+The two purged assemblies from [`21.1`](21.1-gene-anchored-synteny.Rmd) are now at biologically
+sensible salmonid haploid sizes, so a sequence-level comparison is finally interpretable:
+
+| Assembly | Path | Contigs | Size |
+|---|---|---|---|
+| lean | `output/21.1-gene-anchored-synteny/lean.purged.fa` | 12,700 | 2.58 Gb |
+| siscowet | `output/21.1-gene-anchored-synteny/siscowet.purged.fa` | 8,159 | 2.84 Gb |
+
+**Strategy (identical logic to plan 21).** The purged assemblies are still contig-level (thousands
+of contigs), and SyRI [@goel2019] needs near-chromosome-level, homologous, 1-to-1 input. So we
+first **anchor** each assembly to the 42 chromosome-scale reference chromosomes
+(`GCF_016432855.1`, SaNama_1.0) with **RagTag** [@alonge2022] `scaffold`, giving both ecotypes a
+shared 42-chromosome axis where placed scaffolds carry the reference chromosome name. We then run
+three pairwise comparisons through that frame — **lean↔reference**, **siscowet↔reference**, and
+**lean↔siscowet** — calling SVs with SyRI on whole-genome **minimap2** [@li2018] `asm5`
+alignments.
+
+**Why minimap2 and not the MUMmer `nucmer` named in the plan.** The `nucmer` at `/usr/bin` is
+MUMmer **v3.1** — single-threaded and impractical on 2.5 Gb genomes. SyRI's own recommended
+large-genome input is a `minimap2 -ax asm5 --eqx` alignment, and minimap2 is already the aligner
+used throughout this project ([`20.1`](20.1-liftoff-annotation.Rmd),
+[`21.1`](21.1-gene-anchored-synteny.Rmd)). We therefore install a modern **MUMmer4** `nucmer`
+inside the analysis env for the optional `dnadiff` identity report (Step 6), but drive SV calling
+from minimap2.
+
+The cross-validation against the reference-based PAV calls ([`15`](15-diff-pav.py)) is a separate,
+lighter step in [`code/23.2-sv-pav-crossvalidate.py`](23.2-sv-pav-crossvalidate.py); this notebook
+produces the SV calls it consumes.
+
+Due to large file sizes, outputs are not committed to GitHub. They may be found here:
+
+- [https://gannet.fish.washington.edu/gitrepos/project-lake-trout/analyses/23-genome-sv/](https://gannet.fish.washington.edu/gitrepos/project-lake-trout/analyses/23-genome-sv/)
+
+# SETUP
+
+## Libraries
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+
+knitr::opts_chunk$set(
+  echo = TRUE,         # Display code chunks
+  eval = FALSE,        # Evaluate code chunks
+  results = "hold",    # Hold outputs and show them after the full code chunk
+  warning = FALSE,     # Hide warnings
+  collapse = FALSE,    # Keep code and output in separate blocks
+  message = FALSE,     # Hide messages
+  comment = "##"       # Prefix output lines with '##' so output is visually distinct
+)
+```
+
+## Set R variables
+
+```{r R-variables, eval=TRUE}
+# DIRECTORIES
+project_dir <- "/home/shared/16TB_HDD_01/sr320/github/project-lake-trout"
+ref_dir     <- file.path(project_dir, "data/genome/ref-GCF_016432855.1")
+synteny_dir <- file.path(project_dir, "output/21.1-gene-anchored-synteny")
+output_dir  <- file.path(project_dir, "analyses/23-genome-sv")
+
+# PURGED ECOTYPE ASSEMBLIES (from 21.1)
+lean_fasta     <- file.path(synteny_dir, "lean.purged.fa")
+siscowet_fasta <- file.path(synteny_dir, "siscowet.purged.fa")
+
+# CHROMOSOME-SCALE REFERENCE (the anchor)
+ref_fasta <- file.path(ref_dir, "GCF_016432855.1_SaNama_1.0_genomic.fna")
+
+# PROGRAMS
+# minimap2 is available in liftoff_env; everything else lives in the syri_env built below.
+syri_bin  <- "/home/sr320/miniconda3/envs/syri_env/bin"
+minimap2  <- file.path(syri_bin, "minimap2")
+samtools  <- file.path(syri_bin, "samtools")
+ragtag    <- file.path(syri_bin, "ragtag.py")
+syri      <- file.path(syri_bin, "syri")
+plotsr    <- file.path(syri_bin, "plotsr")
+dnadiff   <- file.path(syri_bin, "dnadiff")   # MUMmer4
+
+# SETTINGS
+threads <- "40"
+min_chrom_bp <- "10000000"   # reference sequences > 10 Mb are the 42 chromosomes
+
+Sys.setenv(
+  project_dir    = project_dir,
+  ref_dir        = ref_dir,
+  synteny_dir    = synteny_dir,
+  output_dir     = output_dir,
+  lean_fasta     = lean_fasta,
+  siscowet_fasta = siscowet_fasta,
+  ref_fasta      = ref_fasta,
+  syri_bin       = syri_bin,
+  minimap2       = minimap2,
+  samtools       = samtools,
+  ragtag         = ragtag,
+  syri           = syri,
+  plotsr         = plotsr,
+  dnadiff        = dnadiff,
+  threads        = threads,
+  min_chrom_bp   = min_chrom_bp
+)
+```
+
+```{r make-output-dirs, engine='bash'}
+mkdir --parents "${output_dir}"/{anchor,wga,syri,plots,logs}
+ls -d "${output_dir}"/*
+```
+
+## Install tooling (run once)
+
+`ragtag`, `syri`, `plotsr`, and a threaded MUMmer4 `nucmer`/`dnadiff` are not in the existing
+conda envs. Create one env for the whole phase. `minimap2` and `samtools` are pulled into the same
+env so every tool this notebook calls resolves from `${syri_bin}`.
+
+```{r install-tools, engine='bash'}
+CONDA=/home/sr320/miniconda3
+
+if [ ! -x "${syri_bin}/syri" ]; then
+  "${CONDA}/bin/conda" create -y -n syri_env -c conda-forge -c bioconda \
+    python=3.10 syri plotsr ragtag minimap2 samtools mummer4 bedtools numpy pandas
+fi
+
+"${syri}"      --version
+"${ragtag}"    --version
+"${minimap2}"  --version
+"${dnadiff}"   -h 2>&1 | head -1
+echo "tooling OK"
+```
+
+# STEP 1 — ANCHOR EACH ASSEMBLY TO THE REFERENCE CHROMOSOMES
+
+RagTag `scaffold` aligns each ecotype's purged contigs to the reference and orders/orients them
+into one scaffold per reference chromosome, named `<refchrom>_RagTag` (unplaced contigs keep their
+original names). We then keep only the scaffolds corresponding to the **42 reference chromosomes**
+(`NC_*` > 10 Mb) and strip the `_RagTag` suffix so their IDs match the reference exactly — SyRI
+matches homologous sequences by identical name.
+
+The contig→chromosome seed from [`21.1`](21.1-gene-anchored-synteny.Rmd)
+(`output/21.1-gene-anchored-synteny/contig_to_chromosome.tsv`) already confirmed these contigs map
+cleanly onto the 42 chromosomes; RagTag reproduces that placement at sequence level with
+coordinates.
+
+```{r anchor, engine='bash'}
+cd "${output_dir}/anchor"
+
+anchor_one () {   # $1 name   $2 purged.fa
+  local name="$1" asm="$2"
+  echo "=== RagTag scaffold: ${name} ==="
+
+  "${ragtag}" scaffold "${ref_fasta}" "${asm}" \
+    -o "${output_dir}/anchor/${name}" \
+    -t "${threads}" \
+    --aligner "${minimap2}" \
+    -w \
+    > "${output_dir}/logs/${name}.ragtag.log" 2>&1
+
+  local scaf="${output_dir}/anchor/${name}/ragtag.scaffold.fasta"
+  "${samtools}" faidx "${scaf}"
+
+  # Keep only the 42 chromosome scaffolds (NC_*_RagTag); strip the _RagTag suffix so IDs
+  # equal the reference chromosome names.
+  grep -E '^NC_[0-9]+\.[0-9]+_RagTag' "${scaf}.fai" | cut -f1 \
+    > "${output_dir}/anchor/${name}.placed.list"
+
+  "${samtools}" faidx "${scaf}" $(cat "${output_dir}/anchor/${name}.placed.list") \
+    | sed -E 's/^>(NC_[0-9]+\.[0-9]+)_RagTag/>\1/' \
+    > "${output_dir}/anchor/${name}.anchored.fa"
+  "${samtools}" faidx "${output_dir}/anchor/${name}.anchored.fa"
+
+  awk -v n="${name}" '{s+=$2} END{print n" anchored: "NR" chromosomes, "s" bp"}' \
+    "${output_dir}/anchor/${name}.anchored.fa.fai"
+}
+
+anchor_one lean     "${lean_fasta}"
+anchor_one siscowet "${siscowet_fasta}"
+```
+
+Build the matching **42-chromosome reference subset** (drop the small `NC_*` mitochondrion and all
+`NW_*` scaffolds) so the reference axis is the same 42 sequences the ecotypes were anchored to.
+
+```{r ref-chroms, engine='bash'}
+cd "${output_dir}/anchor"
+
+"${samtools}" faidx "${ref_fasta}"
+awk -v m="${min_chrom_bp}" '$1 ~ /^NC_/ && $2 > m {print $1}' "${ref_fasta}.fai" \
+  > ref.chroms.list
+wc -l ref.chroms.list   # expect 42
+
+"${samtools}" faidx "${ref_fasta}" $(cat ref.chroms.list) > ref.chroms.fa
+"${samtools}" faidx ref.chroms.fa
+awk '{s+=$2} END{print "reference chromosomes: "NR", "s" bp"}' ref.chroms.fa.fai
+```
+
+# STEP 2 — WHOLE-GENOME ALIGNMENT (minimap2 asm5)
+
+One `asm5` alignment per comparison, emitted as `--eqx` SAM (base-level `=`/`X` CIGAR, which SyRI
+requires) and sorted to BAM. Target (`-r` for SyRI) is listed first, query (`-q`) second.
+
+- `lean_vs_ref` : reference chromosomes ← lean
+- `sisco_vs_ref`: reference chromosomes ← siscowet
+- `lean_vs_sisco`: lean ← siscowet  (both share reference chromosome names after Step 1)
+
+```{r wga, engine='bash'}
+cd "${output_dir}/wga"
+
+REF="${output_dir}/anchor/ref.chroms.fa"
+LEAN="${output_dir}/anchor/lean.anchored.fa"
+SISCO="${output_dir}/anchor/siscowet.anchored.fa"
+
+align_pair () {   # $1 tag   $2 target.fa   $3 query.fa
+  local tag="$1" t="$2" q="$3"
+  echo "=== minimap2 asm5: ${tag} ==="
+  "${minimap2}" -t "${threads}" -ax asm5 --eqx "${t}" "${q}" \
+    2> "${output_dir}/logs/${tag}.minimap2.log" \
+    | "${samtools}" sort -@ "${threads}" -O BAM -o "${output_dir}/wga/${tag}.bam" -
+  "${samtools}" index "${output_dir}/wga/${tag}.bam"
+  "${samtools}" flagstat "${output_dir}/wga/${tag}.bam" \
+    > "${output_dir}/wga/${tag}.flagstat.txt"
+  echo "  wrote ${tag}.bam"
+}
+
+align_pair lean_vs_ref   "${REF}"  "${LEAN}"
+align_pair sisco_vs_ref  "${REF}"  "${SISCO}"
+align_pair lean_vs_sisco "${LEAN}" "${SISCO}"
+```
+
+# STEP 3 — CALL STRUCTURAL VARIANTS (SyRI)
+
+SyRI classifies every region of each alignment into **syntenic** blocks and **structural
+rearrangements** (inversions `INV`, translocations `TRANS`/`INVTR`, duplications `DUP`/`INVDP`)
+and, within aligned regions, **local variants** (SNPs, insertions `INS`, deletions `DEL`, copy
+gains/losses `CPG`/`CPL`, highly-diverged regions `HDR`, tandem repeats `TDM`). Reference and
+query IDs already match by construction (Step 1), so we run each comparison whole-genome; SyRI
+processes homologous chromosomes and reports cross-chromosome placements as translocations.
+
+```{r syri, engine='bash'}
+cd "${output_dir}/syri"
+
+REF="${output_dir}/anchor/ref.chroms.fa"
+LEAN="${output_dir}/anchor/lean.anchored.fa"
+SISCO="${output_dir}/anchor/siscowet.anchored.fa"
+
+call_svs () {   # $1 tag   $2 target.fa   $3 query.fa
+  local tag="$1" t="$2" q="$3"
+  echo "=== SyRI: ${tag} ==="
+  "${syri}" \
+    -c "${output_dir}/wga/${tag}.bam" \
+    -r "${t}" \
+    -q "${q}" \
+    -F B \
+    --nc "${threads}" \
+    --dir "${output_dir}/syri" \
+    --prefix "${tag}." \
+    > "${output_dir}/logs/${tag}.syri.log" 2>&1
+
+  echo "  ${tag}.syri.out rows: $(wc -l < ${output_dir}/syri/${tag}.syri.out)"
+  cut -f11 "${output_dir}/syri/${tag}.syri.out" | sort | uniq -c | sort -rn
+}
+
+call_svs lean_vs_ref   "${REF}"  "${LEAN}"
+call_svs sisco_vs_ref  "${REF}"  "${SISCO}"
+call_svs lean_vs_sisco "${LEAN}" "${SISCO}"
+```
+
+# STEP 4 — MERGED SV TABLE & SUMMARY
+
+Parse the three `*.syri.out` files into one tidy, typed SV table plus a per-comparison,
+per-type summary. `*.syri.out` is 11-column TSV (no header): reference `chr/start/end`, ref &
+query sequence, query `chr/start/end`, unique id, parent id, and the **annotation type** (col 11).
+We keep rows with numeric reference coordinates and tag each with a coarse class.
+
+```{r merged-sv-table, eval=TRUE}
+library(tidyverse)
+
+syri_dir <- file.path(output_dir, "syri")
+
+# Coarse classes over SyRI's fine-grained annotation types.
+sv_class <- tribble(
+  ~type,   ~class,
+  "SYN",   "syntenic",
+  "SYNAL", "syntenic",
+  "INV",   "inversion",     "INVAL",  "inversion",
+  "TRANS", "translocation", "TRANSAL","translocation",
+  "INVTR", "translocation", "INVTRAL","translocation",
+  "DUP",   "duplication",   "INVDP",  "duplication",
+  "INS",   "indel",         "DEL",    "indel",
+  "CPG",   "copy_var",      "CPL",    "copy_var",
+  "HDR",   "diverged",      "TDM",    "tandem_repeat",
+  "SNP",   "snp",
+  "NOTAL", "unaligned"
+)
+
+read_syri <- function(tag) {
+  path <- file.path(syri_dir, paste0(tag, ".syri.out"))
+  if (!file.exists(path)) return(tibble())
+  read_tsv(
+    path,
+    col_names = c("ref_chr", "ref_start", "ref_end", "ref_seq", "qry_seq",
+                  "qry_chr", "qry_start", "qry_end", "uid", "parent", "type"),
+    col_types = cols(.default = "c"),
+    na = c("", "-", "NA"),
+    show_col_types = FALSE
+  ) %>%
+    mutate(comparison = tag,
+           ref_start = suppressWarnings(as.numeric(ref_start)),
+           ref_end   = suppressWarnings(as.numeric(ref_end)),
+           qry_start = suppressWarnings(as.numeric(qry_start)),
+           qry_end   = suppressWarnings(as.numeric(qry_end)))
+}
+
+sv <- c("lean_vs_ref", "sisco_vs_ref", "lean_vs_sisco") %>%
+  map_dfr(read_syri) %>%
+  left_join(sv_class, by = "type") %>%
+  mutate(class = replace_na(class, "other"))
+
+# Full merged table (all rows, coarse-classed)
+readr::write_tsv(sv, file.path(output_dir, "syri", "merged_sv_table.tsv"))
+
+# Per-comparison / per-class summary (structural + local variants only; drop syntenic backbone)
+sv_summary <- sv %>%
+  filter(!class %in% c("syntenic", "unaligned"), !is.na(ref_start)) %>%
+  mutate(ref_len = pmax(ref_end - ref_start, 0)) %>%
+  group_by(comparison, class) %>%
+  summarise(n = n(), total_ref_bp = sum(ref_len, na.rm = TRUE), .groups = "drop") %>%
+  arrange(comparison, desc(n))
+
+readr::write_tsv(sv_summary, file.path(output_dir, "syri", "sv_summary.tsv"))
+print(sv_summary, n = Inf)
+```
+
+# STEP 5 — PLOTS
+
+Two figure families, written to `analyses/23-genome-sv/plots/`:
+
+1. **SV-class summary bars** from `sv_summary.tsv` (counts and bp per comparison).
+2. **Genome-wide structural-rearrangement plots** with `plotsr`, one per comparison, showing
+   syntenic / inverted / translocated / duplicated segments across the 42 chromosomes.
+
+```{r plots-summary, eval=TRUE}
+library(tidyverse)
+
+plot_dir <- file.path(output_dir, "plots")
+dir.create(plot_dir, showWarnings = FALSE, recursive = TRUE)
+
+sv_summary <- read_tsv(file.path(output_dir, "syri", "sv_summary.tsv"),
+                       show_col_types = FALSE)
+
+comp_levels <- c("lean_vs_ref", "sisco_vs_ref", "lean_vs_sisco")
+
+p_counts <- sv_summary %>%
+  mutate(comparison = factor(comparison, levels = comp_levels)) %>%
+  ggplot(aes(x = class, y = n, fill = comparison)) +
+  geom_col(position = position_dodge(width = 0.8), width = 0.75) +
+  scale_y_log10() +
+  theme_bw(base_size = 11) +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1)) +
+  labs(title = "Structural-variant counts by class",
+       x = NULL, y = "SV count (log10)", fill = "Comparison")
+
+ggsave(file.path(plot_dir, "01_sv_counts.png"), p_counts, width = 10, height = 5, dpi = 300)
+ggsave(file.path(plot_dir, "01_sv_counts.svg"), p_counts, width = 10, height = 5)
+
+p_bp <- sv_summary %>%
+  mutate(comparison = factor(comparison, levels = comp_levels)) %>%
+  ggplot(aes(x = class, y = total_ref_bp / 1e6, fill = comparison)) +
+  geom_col(position = position_dodge(width = 0.8), width = 0.75) +
+  theme_bw(base_size = 11) +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1)) +
+  labs(title = "Structural-variant span on reference coordinates",
+       x = NULL, y = "Total reference span (Mb)", fill = "Comparison")
+
+ggsave(file.path(plot_dir, "02_sv_span_mb.png"), p_bp, width = 10, height = 5, dpi = 300)
+ggsave(file.path(plot_dir, "02_sv_span_mb.svg"), p_bp, width = 10, height = 5)
+
+list.files(plot_dir)
+```
+
+```{r plots-plotsr, engine='bash'}
+cd "${output_dir}/plots"
+
+REF="${output_dir}/anchor/ref.chroms.fa"
+LEAN="${output_dir}/anchor/lean.anchored.fa"
+SISCO="${output_dir}/anchor/siscowet.anchored.fa"
+
+# plotsr reads a genomes.txt (fasta<TAB>display-name, in plotting order) plus one --sr per
+# adjacent pair. We draw each pairwise comparison on its own.
+plotsr_pair () {   # $1 tag   $2 target.fa  $3 target-name   $4 query.fa  $5 query-name
+  local tag="$1"
+  printf '%s\t%s\n%s\t%s\n' "$2" "$3" "$4" "$5" > "${tag}.genomes.txt"
+  "${plotsr}" \
+    --sr "${output_dir}/syri/${tag}.syri.out" \
+    --genomes "${tag}.genomes.txt" \
+    -H 8 -W 10 \
+    -o "${output_dir}/plots/03_plotsr_${tag}.png" \
+    > "${output_dir}/logs/${tag}.plotsr.log" 2>&1 \
+    && echo "  wrote 03_plotsr_${tag}.png" \
+    || echo "  plotsr ${tag} failed (see logs/${tag}.plotsr.log)"
+}
+
+plotsr_pair lean_vs_ref   "${REF}"  ref  "${LEAN}"  lean
+plotsr_pair sisco_vs_ref  "${REF}"  ref  "${SISCO}" siscowet
+plotsr_pair lean_vs_sisco "${LEAN}" lean "${SISCO}" siscowet
+```
+
+# STEP 6 — (OPTIONAL) dnadiff IDENTITY REPORT
+
+The plan calls for a `dnadiff` alignment-identity/coverage report. This uses the MUMmer4 `nucmer`
+in `syri_env` (threaded, unlike the v3.1 at `/usr/bin`). It is the heaviest step here and is not
+required for SV calling or the PAV cross-validation — run it for the manuscript's assembly-identity
+numbers. The `.report` files carry AvgIdentity, aligned bases, and rearrangement/indel/SNP counts.
+
+```{r dnadiff, engine='bash'}
+cd "${output_dir}/wga"
+
+REF="${output_dir}/anchor/ref.chroms.fa"
+LEAN="${output_dir}/anchor/lean.anchored.fa"
+SISCO="${output_dir}/anchor/siscowet.anchored.fa"
+
+run_dnadiff () {   # $1 tag  $2 ref.fa  $3 qry.fa
+  local tag="$1"
+  echo "=== dnadiff: ${tag} ==="
+  "${dnadiff}" -p "${output_dir}/wga/${tag}.dnadiff" "$2" "$3" \
+    > "${output_dir}/logs/${tag}.dnadiff.log" 2>&1
+  grep -E 'AvgIdentity|AlignedBases|TotalIndels|TotalSNPs' \
+    "${output_dir}/wga/${tag}.dnadiff.report" || true
+}
+
+run_dnadiff lean_vs_ref   "${REF}"  "${LEAN}"
+run_dnadiff sisco_vs_ref  "${REF}"  "${SISCO}"
+run_dnadiff lean_vs_sisco "${LEAN}" "${SISCO}"
+```
+
+# CROSS-VALIDATION WITH REFERENCE-BASED PAV
+
+Once the reference comparisons (`lean_vs_ref`, `sisco_vs_ref`) have SyRI output, run
+[`code/23.2-sv-pav-crossvalidate.py`](23.2-sv-pav-crossvalidate.py). It intersects the
+reference-based PAV calls from [`15`](15-diff-pav.py) with SyRI-confirmed SV regions (both on
+reference coordinates) and emits the high-confidence set.
+
+```{r crossvalidate, engine='bash'}
+cd "${project_dir}"
+python3 code/23.2-sv-pav-crossvalidate.py
+```
+
+# CHECKSUMS
+
+```{r checksums, engine='bash'}
+cd "${output_dir}"
+for f in anchor/lean.anchored.fa anchor/siscowet.anchored.fa anchor/ref.chroms.fa \
+         syri/lean_vs_ref.syri.out syri/sisco_vs_ref.syri.out syri/lean_vs_sisco.syri.out \
+         syri/merged_sv_table.tsv syri/sv_summary.tsv; do
+  [ -s "$f" ] && md5sum "$f" | tee "$f".md5
+done
+```
+
+# DELIVERABLES
+
+Written to `analyses/23-genome-sv/`:
+
+| File | Description |
+|---|---|
+| `anchor/{lean,siscowet}.anchored.fa` | Purged assembly RagTag-scaffolded onto the 42 reference chromosomes (IDs = reference chromosome names) |
+| `anchor/ref.chroms.fa` | 42-chromosome reference subset (shared axis) |
+| `wga/{tag}.bam` | minimap2 `asm5` whole-genome alignment per comparison |
+| `syri/{tag}.syri.out` / `.vcf` | SyRI structural + local variant calls per comparison |
+| `syri/merged_sv_table.tsv` | All SVs, coarse-classed, across the three comparisons |
+| `syri/sv_summary.tsv` | Per-comparison / per-class SV counts and reference span |
+| `plots/01_sv_counts.*`, `02_sv_span_mb.*` | SV summary bars |
+| `plots/03_plotsr_{tag}.png` | Genome-wide structural-rearrangement plots |
+| `wga/{tag}.dnadiff.report` | (Optional) alignment identity/coverage report |
+
+These feed the reference-vs-SyRI PAV cross-validation
+([`23.2`](23.2-sv-pav-crossvalidate.py)) and the browser/manuscript integration in Phase 5 of
+[`code/23-next-phase-research-plan.md`](23-next-phase-research-plan.md).
+
+# REFERENCES
