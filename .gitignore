@@ -49,3 +49,5 @@ output/21.1-gene-anchored-synteny/siscowet_purged_intermediate/reference_all_gen
 output/21.1-gene-anchored-synteny/siscowet_purged_intermediate/reference_all_to_target_all.sam
 output/21.1-gene-anchored-synteny/siscowet.purged.liftoff.gff3
 output/21.1-gene-anchored-synteny/siscowet.purged.liftoff.gff3_polished
+
+analyses/23-genome-sv/

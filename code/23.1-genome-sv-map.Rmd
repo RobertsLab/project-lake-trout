@@ -102,7 +102,10 @@ siscowet_fasta <- file.path(synteny_dir, "siscowet.purged.fa")
 ref_fasta <- file.path(ref_dir, "GCF_016432855.1_SaNama_1.0_genomic.fna")
 
 # PROGRAMS
-# minimap2 is available in liftoff_env; everything else lives in the syri_env built below.
+# All tools for this phase live in one env (built below): minimap2, samtools, ragtag, syri,
+# plotsr, MUMmer4. Kept as one env because ragtag.py / syri shell out to sibling scripts
+# (ragtag_scaffold.py, etc.) and MUMmer wrapper scripts (nucmer, dnadiff) by bare name via
+# PATH, not by full path -- so this env's bin/ must be on PATH, not just referenced directly.
 syri_bin  <- "/home/sr320/miniconda3/envs/syri_env/bin"
 minimap2  <- file.path(syri_bin, "minimap2")
 samtools  <- file.path(syri_bin, "samtools")
@@ -114,6 +117,10 @@ dnadiff   <- file.path(syri_bin, "dnadiff")   # MUMmer4
 # SETTINGS
 threads <- "40"
 min_chrom_bp <- "10000000"   # reference sequences > 10 Mb are the 42 chromosomes
+
+# Prepend syri_bin to PATH for this R session so every engine='bash' chunk below (which
+# inherits the R process environment) can resolve ragtag's/syri's/dnadiff's sibling scripts.
+Sys.setenv(PATH = paste(syri_bin, Sys.getenv("PATH"), sep = .Platform$path.sep))
 
 Sys.setenv(
   project_dir    = project_dir,
