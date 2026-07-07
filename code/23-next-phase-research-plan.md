@@ -125,3 +125,53 @@ Track B of plan [`20`](20-ecotype-genomes.md) — the larger compute item.
   contig-level (thousands of contigs). If Hi-C or a linkage map is obtainable, scaffolding at least
   one ecotype to chromosomes would make it a standalone reference and sharpen every comparison here.
   Absent that, reference-anchoring (Phase 1) is the pragmatic substitute — decide before Phase 4.
+
+---
+
+## Progress log
+
+### Phase 1 — DONE (see [`23.1`](23.1-genome-sv-map.Rmd), [`23.2`](23.2-sv-pav-crossvalidate.py))
+SV map + PAV cross-validation for all three comparisons. A repaired step is noted below.
+
+### Phase 2 — DONE (2026-07)
+
+**Step 0 — repaired the Phase-1 siscowet SV gap** ([`23.3`](23.3-sisco-sv-repair.py)). `sisco_vs_ref`
+SyRI had aborted ("Unequal number of chromosomes"): RagTag had scaffolded a 15 kb siscowet contig
+onto the reference **mitochondrion** `NC_036392.1`, giving 43 anchored scaffolds vs the reference's
+42 nuclear chromosomes. Fixed by trimming the mito from `siscowet.anchored.fa` and dropping its
+record from the reused WGA BAM, then re-running SyRI. Regenerated `merged_sv_table.tsv` /
+`sv_summary.tsv` (now symmetric across all three comparisons) and re-ran [`23.2`](23.2-sv-pav-crossvalidate.py):
+siscowet PAV is now SV-confirmed (insertions 17.6 %, deletions 18.8 %; cf. lean 18.3 % / 20.4 %).
+The [`23.1`](23.1-genome-sv-map.Rmd) anchor chunk was patched (size filter on `NC_*_RagTag`
+scaffolds) so the mito cannot re-enter.
+
+**Step 1 — reciprocal PAV** ([`23.4`](23.4-reciprocal-pav.py), `analyses/23-reciprocal-pav/`). Each
+ecotype's 4 HiFi samples aligned (pbmm2, CCS) to the *other* ecotype's purged assembly (8
+alignments, ~100 % mapped). `11-pav`-style mosdepth + CIGAR calling, then 4-sample consensus on
+native coordinates. Interior consensus-absent regions (present in the target ecotype's own genome,
+absent from all 4 querying-ecotype read sets) give ecotype-specific presence without lean-reference
+inflation:
+
+| Direction | target-specific present | genes | querying-specific novel seq |
+|---|---|---|---|
+| lean reads → siscowet | 340 regions / 0.70 Mb (siscowet) | 71 | 115,171 lean clusters / 10.3 Mb |
+| siscowet reads → lean | 343 regions / 0.87 Mb (lean) | 44 | 175,748 siscowet clusters / 17.2 Mb |
+
+**Step 2 — gene sets + CNV** ([`23.5`](23.5-gene-set-ops.py), `analyses/23-gene-sets/`).
+50,379 shared, 5,058 lean-only, 9,589 siscowet-only genes; 2,359 CNV-divergent (copy count dominated
+by tRNA/repeat families). Ecotype-"only" calls partly corroborated by the other assembly's
+`unmapped_features` (1,474/5,058 lean-only; 3,040/9,589 siscowet-only — capped by the unmapped list
+sizes).
+
+**Step 3 — integration + GO re-run** ([`23.6`](23.6-integrate-phase2.py), `analyses/23-integration/`).
+Gene-level evidence matrix over 6 lines (reciprocal_pav 115, ecotype_only 14,647, cnv 2,359, sv
+13,519, dmr 181, ref_pav 1,263). **2,895 two-genome candidates** carry ≥2 independent lines including
+a Phase-2 line (109 with ≥3). GO ORA re-run (reusing [`18.3`](18.3-go-enrichment.py) machinery):
+the **calcium-transport / depth-adaptation signal survives strongly on native two-genome
+coordinates** — lean-only genes are enriched for voltage-gated calcium channel activity (FDR 9e-4)
+and calcium ion transport (FDR 9e-3); reciprocal-PAV genes for calcium ion binding (FDR 0.09).
+**The lipid-metabolism / buoyancy signal did NOT reach FDR<0.25 in any two-genome set**, i.e. it was
+more reference-dependent than the calcium signal and should be treated cautiously pending Phase 3
+(native methylation) and Phase 4 (de novo genes). See `analyses/23-integration/phenotype_survival.tsv`.
+
+**Next:** Phase 3 (ecotype-native differential methylation) and Phase 4 (BRAKER3) remain.

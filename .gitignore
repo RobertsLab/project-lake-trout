@@ -51,3 +51,13 @@ output/21.1-gene-anchored-synteny/siscowet.purged.liftoff.gff3
 output/21.1-gene-anchored-synteny/siscowet.purged.liftoff.gff3_polished
 
 analyses/23-genome-sv/
+
+# Phase 2 reciprocal PAV (23.4) — large alignment binaries not committed: BAMs and minimap2
+# indexes are >99MB; the .bai indexes are useless without them. flagstats + analysis outputs kept.
+analyses/23-reciprocal-pav/align/*.bam
+analyses/23-reciprocal-pav/align/*.bam.bai
+analyses/23-reciprocal-pav/align/*.mmi
+
+# Python bytecode
+__pycache__/
+*.pyc

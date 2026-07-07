@@ -1,0 +1,3 @@
+direction,target_specific_ecotype,present_regions,present_bp,present_genes,querying_specific_ecotype,novel_seq_clusters,novel_seq_bp
+lean_reads_to_siscowet_asm,siscowet,340,697000,71,lean,115171,10269719
+siscowet_reads_to_lean_asm,lean,343,870000,44,siscowet,175748,17176221

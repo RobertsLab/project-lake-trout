@@ -199,9 +199,13 @@ anchor_one () {   # $1 name   $2 purged.fa
   "${samtools}" faidx "${scaf}"
 
   # Keep only the 42 chromosome scaffolds (NC_*_RagTag); strip the _RagTag suffix so IDs
-  # equal the reference chromosome names.
-  grep -E '^NC_[0-9]+\.[0-9]+_RagTag' "${scaf}.fai" | cut -f1 \
-    > "${output_dir}/anchor/${name}.placed.list"
+  # equal the reference chromosome names. The size filter (> min_chrom_bp) is essential:
+  # the reference FASTA also contains the mitochondrion (NC_036392.1, 16.6 kb), and RagTag
+  # will emit an NC_036392.1_RagTag scaffold whenever a contig lands on the mito. Keeping it
+  # gives one ecotype 43 scaffolds vs the reference's 42, which makes SyRI abort with
+  # "Unequal number of chromosomes" (originally hit for siscowet; see code/23.3-sisco-sv-repair.py).
+  awk -v m="${min_chrom_bp}" '$1 ~ /^NC_[0-9]+\.[0-9]+_RagTag$/ && $2 > m {print $1}' \
+    "${scaf}.fai" > "${output_dir}/anchor/${name}.placed.list"
 
   "${samtools}" faidx "${scaf}" $(cat "${output_dir}/anchor/${name}.placed.list") \
     | sed -E 's/^>(NC_[0-9]+\.[0-9]+)_RagTag/>\1/' \
