@@ -1,0 +1,94 @@
+---
+title: "23.7 - Two-Genome Evidence: Reciprocal PAV, Ecotype-Specific Genes, and What Survives"
+format: markdown_github
+editor: visual
+---
+
+## Where we left off
+
+In [23.1](23.1-genome-sv-map.qmd) we built the first whole-genome map of how the **lean** and **siscowet** lake trout genomes are structurally rearranged. But almost every biological result in this project so far --- differentially methylated regions, presence/absence variation (PAV), candidate genes --- was measured against a single **lean-background reference genome**. That builds in a bias: because the reference is more closely related to lean, anything "siscowet-specific" looks inflated simply because siscowet is further from the reference, not necessarily because the biology is stronger.
+
+Now that we have each ecotype's *own* assembled genome, this round of work (scripts [23.3](23.3-sisco-sv-repair.py) → [23.6](23.6-integrate-phase2.py)) re-does the key comparisons **on native coordinates** and **in both directions**, then asks a sharper question: *which findings still hold up when the reference bias is removed?*
+
+## First, a snag we had to fix
+
+Before building anything new, we discovered that one Phase-1 comparison --- siscowet-vs-reference --- had silently failed. The variant caller (SyRI) had quit with "unequal number of chromosomes." The cause turned out to be small and specific: the scaffolding step had accidentally glued a 15 kb siscowet fragment onto the reference **mitochondrion** (a tiny 16 kb "extra chromosome"), leaving siscowet with 43 chromosomes to the reference's 42. Lean happened to dodge this, which is why only siscowet broke.
+
+The fix ([23.3](23.3-sisco-sv-repair.py)) was to drop that stray mitochondrial piece and re-run the comparison. With siscowet's structural variants finally in hand, we re-ran the cross-check from [23.2](23.2-sv-pav-crossvalidate.py) --- and it now covers **both** ecotypes symmetrically:
+
+| Ecotype                 | PAV-flagged regions | Confirmed by SyRI | Fraction confirmed |
+|------------------|------------------|------------------|------------------|
+| lean insertions         | 770,891             | 141,159           | 18.3%              |
+| lean deletions          | 225,337             | 45,948            | 20.4%              |
+| **siscowet insertions** | 1,086,799           | 191,266           | **17.6%**          |
+| **siscowet deletions**  | 245,906             | 46,136            | **18.8%**          |
+
+The siscowet numbers land right next to lean's --- reassuring, because a lopsided result would have hinted the fix left something crooked. We also patched the original scaffolding step so the mitochondrion can never sneak back in.
+
+## Reciprocal PAV: reading each genome in the other's mirror
+
+"Presence/absence variation" asks a simple question: *is this chunk of DNA present in one fish but missing in the other?* The old approach mapped everyone's reads onto the lean reference, so it always saw the world through a lean lens. The new approach ([23.4](23.4-reciprocal-pav.py)) is **reciprocal**:
+
+-   We take **lean's** sequencing reads and map them onto **siscowet's** genome. Any stretch of the siscowet genome that lean's reads *can't* cover is sequence that siscowet has and lean lacks --- measured against siscowet's real genome, not a stand-in.
+-   Then we do the mirror image: **siscowet's** reads onto **lean's** genome.
+
+To be conservative, we only keep a region if **all four fish** of the querying ecotype agree it's missing, *and* the DNA on either side is well-covered (so we know reads really do map there and it isn't just an unmappable edge). That gives a clean, native-coordinate call for each ecotype:
+
+| Direction                    | Sequence present in one ecotype, absent in the other | Genes affected | Novel sequence in the reads                  |
+|------------------|------------------|------------------|------------------|
+| lean reads → siscowet genome | 340 siscowet regions (0.70 Mb)                       | 71             | 115,171 lean-specific clusters (10.3 Mb)     |
+| siscowet reads → lean genome | 343 lean regions (0.87 Mb)                           | 44             | 175,748 siscowet-specific clusters (17.2 Mb) |
+
+Two things stand out. The strict "present in one, absent in the other" regions are relatively few (\~340 each way) --- as expected once you demand agreement across all four fish and covered flanks. But the **novel sequence** each ecotype carries relative to the other is large: **10--17 Mb**, with siscowet carrying more, consistent with siscowet having the bigger genome overall.
+
+## Which genes are ecotype-specific?
+
+Because both genomes were annotated from the same reference gene list, we can line up their gene catalogs directly ([23.5](23.5-gene-set-ops.py)):
+
+| Category                               | Genes  |
+|----------------------------------------|--------|
+| Shared (found in both ecotypes)        | 50,379 |
+| Lean-only                              | 5,058  |
+| Siscowet-only                          | 9,589  |
+| Copy-number different between ecotypes | 2,359  |
+
+The arithmetic closes exactly (shared + lean-only = lean's total; shared + siscowet-only = siscowet's total), a good internal consistency check. Most copy-number differences are in repetitive families (tRNA genes and the like), which is expected and easy to set aside when looking for trait-relevant signals.
+
+## Putting it all together --- and what survives
+
+Finally ([23.6](23.6-integrate-phase2.py)) we asked, for every gene: *how many independent lines of evidence say it differs between the ecotypes?* We tallied six --- the two new native ones (reciprocal PAV, ecotype-only presence), copy-number change, structural variants, differential methylation, and the old reference-based PAV.
+
+**2,895 genes are now supported by at least two independent lines, including at least one of the new native lines** --- meaning they are no longer single-reference associations. 109 genes carry three or more lines (histone clusters, ADAMTS proteases, ABC transporters, a corticotropin-releasing-factor receptor, and others).
+
+Then the sharpest test. This project has two long-standing candidate stories: a **lipid/buoyancy** signal (siscowet are the fat, deep-water fish) and a **calcium-transport/depth-adaptation** signal. We re-ran the gene-set enrichment on the native, two-genome gene sets to see which survives:
+
+-   **The calcium signal holds up strongly.** Genes present in lean but not siscowet are significantly enriched for **voltage-gated calcium channel activity** (FDR 9 × 10⁻⁴) and **calcium ion transport** (FDR 9 × 10⁻³); reciprocal-PAV genes are enriched for calcium ion binding.
+-   **The lipid/buoyancy signal does not.** No lipid- or buoyancy-related category reached significance in any of the native two-genome sets.
+
+That is an honest and important result: the depth-adaptation (calcium) story is robust to removing the reference bias, while the lipid story appears to have been at least partly an artifact of measuring everything against a lean-background reference. It should be treated cautiously until the next phases weigh in.
+
+## Where to explore
+
+The ecotype-specific gene lists are the natural starting point (each row has the gene ID, symbol, product name, copy number, and a GO-term count):
+
+-   Genes present in **lean but not siscowet** --- [lean_only.tsv](https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/23-gene-sets/lean_only.tsv) (5,058 genes)
+-   Genes present in **siscowet but not lean** --- [siscowet_only.tsv](https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/23-gene-sets/siscowet_only.tsv) (9,589 genes)
+-   **Copy-number differences** between the ecotypes --- [cnv.tsv](https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/23-gene-sets/cnv.tsv) (2,359 genes) --- and [shared.tsv](https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/23-gene-sets/shared.tsv) for contrast
+
+In the "-only" tables an `in_{other}_unmapped = Y` flag means the other assembly independently confirms the gene failed to transfer, so those rows are the most confident calls --- a good filter to start from.
+
+Two complementary views for going deeper:
+
+-   **Read-based ecotype-specific genes** (genes inside regions genuinely uncovered by the *other* ecotype's sequencing reads, a different signal than annotation) --- [lean_specific.genes.tsv](https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/23-reciprocal-pav/lean_specific.genes.tsv) and [siscowet_specific.genes.tsv](https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/23-reciprocal-pav/siscowet_specific.genes.tsv). A gene appearing here **and** in the gene-set list above is the strongest case.
+-   **Everything joined** --- one row per gene with all six evidence flags and an `n_lines` count: [two_genome_candidates.tsv](https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/23-integration/two_genome_candidates.tsv) (≥2 lines incl. a native line) and the full [gene_evidence_matrix.tsv](https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/23-integration/gene_evidence_matrix.tsv). The re-run enrichment results, including the calcium-vs-lipid test, are in [analyses/23-integration/](https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/23-integration/).
+
+## Why this matters
+
+This round converts "single-reference associations" into **two-genome evidence**. For the first time we can say which ecotype differences are visible from *both* genomes' points of view, rank candidate genes by how many independent methods flag them, and --- crucially --- see which of our prior headline findings survive once the built-in reference bias is stripped out.
+
+## What's next
+
+-   **Phase 3 --- ecotype-native methylation.** Re-call DNA methylation with each ecotype's reads mapped to its *own* genome, then compare on shared coordinates, to see which of the original 302 differentially methylated regions are real versus reference artifacts. The calcium-vs-lipid result above is exactly the kind of thing native methylation can corroborate or overturn.
+-   Fold the reciprocal-PAV and two-genome candidate tracks into the genome browsers alongside the synteny and SV views.
+
+The large intermediate files (the 8 read-to-genome alignments, full coverage tables, etc.) are too big for GitHub; the committed outputs are the analysis tables in `analyses/23-reciprocal-pav/`, `analyses/23-gene-sets/`, and `analyses/23-integration/`.

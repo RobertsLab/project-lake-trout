@@ -1,0 +1,6 @@
+> calculated chunk size: 57, interval size 100000, processing 5700000 positions concurrently
+> filtering to only CpG motifs
+> attempting to sample 10042 reads
+> Using filter threshold 0.9941406 for A.
+> Threshold of 0.6933594 for base C is low. Consider increasing the filter-percentile or specifying a higher threshold.
+> Done, processed 47033296 rows. Processed ~3527398 reads and skipped ~19 reads.

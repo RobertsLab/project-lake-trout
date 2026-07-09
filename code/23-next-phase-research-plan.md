@@ -174,4 +174,38 @@ and calcium ion transport (FDR 9e-3); reciprocal-PAV genes for calcium ion bindi
 more reference-dependent than the calcium signal and should be treated cautiously pending Phase 3
 (native methylation) and Phase 4 (de novo genes). See `analyses/23-integration/phenotype_survival.tsv`.
 
-**Next:** Phase 3 (ecotype-native differential methylation) and Phase 4 (BRAKER3) remain.
+### Phase 3 — DONE (2026-07)
+
+Ecotype-native differential methylation, gene-anchored ([`23.8`](23.8-native-meth-pipeline.py),
+[`23.9`](23.9-native-meth-dmg.py), `analyses/23-native-methylation/`).
+
+**Step A — native calling** ([`23.8`](23.8-native-meth-pipeline.py)). Each ecotype's 4 HiFi samples
+aligned (pbmm2 CCS, MM/ML preserved, reusing the Phase-2 purged indexes) to its OWN purged assembly;
+5mC called with `modkit pileup --cpg --combine-strands`. Tooling note: modkit was not installed, and
+the current **v0.6.4 rejects these reads** (no `MN` tag + dual 6mA/5mC mods); dropped to **v0.5.0**
+(the version 10-mCG-call used) which processes them cleanly. Per-sample CpGs at cov≥10 ranged widely
+(bc2069 0.68 M → bc2096 27 M), reflecting uneven per-sample depth.
+
+**Step B — gene-anchored DMG** ([`23.9`](23.9-native-meth-dmg.py)). Coordinate harmonization by the
+shared Liftoff gene ID (per approved plan): each CpG assigned to a gene on its native assembly,
+coverage-weighted mean methylation per gene per sample (`bedtools map`, ≥3 CpGs/gene), then
+Mann-Whitney lean vs siscowet per gene (14-diff-meth recipe: 15% diff, BH-FDR).
+
+Result: **10,838 genes testable** (limited by native coverage in ≥3 samples/ecotype);
+**63 nominal DMGs** (p<0.05, |Δ|≥15%; 37 hyper / 26 hypo in siscowet) but **0 at FDR<0.10** — with
+only 4 vs 4 samples the Mann-Whitney floor is p≈0.029, so nothing survives multiple testing. Of the
+181 reference-DMR genes, only **45 were testable natively** and **0 were confirmed** as native DMGs
+(chance overlap ≈0.3), i.e. the reference-based methylation differences do **not** reproduce on
+native two-genome coordinates.
+
+**Interpretation (with caveats).** This corroborates the Phase-2 theme that single-reference
+signals are fragile — the reference DMRs show no native confirmation. But the result is strongly
+**power- and coverage-limited**: n=4/group caps sensitivity, gene-level aggregation is coarser than
+per-CpG DMRs, and only ~1/5 of shared genes (and 45/181 reference-DMR genes) had enough native
+coverage to test. So this is best read as "reference DMRs are not corroborated natively at current
+depth," not "definitively artifacts." A deeper or CpG-level native test (or more samples) is the way
+to settle it. Outputs: `native_methylation_by_gene.tsv`, `dmg_results.tsv`, `dmg_significant.tsv`,
+`reference_dmr_confirmation.tsv`, `native_dmg_report.txt`.
+
+**Next:** Phase 4 (BRAKER3 de novo annotation) remains; Phases 1–3 (the scientific core that retires
+the single-reference caveat) are complete.
