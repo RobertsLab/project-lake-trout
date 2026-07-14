@@ -11,9 +11,6 @@ format:
     page-layout: full
 ---
 
-> **Note:** The published landing page (`index.html`) is a hand-authored, self-contained
-> page. This `.qmd` mirrors its content as the editable source. If you re-render with Quarto,
-> review the result against `index.html` before publishing so the polished layout is preserved.
 
 ```{=html}
 <style>

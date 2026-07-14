@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Rick Goetz, Sam White, Cristian Gallardo-Escarate, and Steven Roberts">
-<meta name="dcterms.date" content="2026-07-02">
+<meta name="dcterms.date" content="2026-07-14">
 
 <title>Lake Trout EpiGenomics Project</title>
 <style>
@@ -31,10 +31,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="index_files/libs/quarto-html/anchor.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-81e35ebdb4125010edbabe6010586085.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -95,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 2, 2026</p>
+      <p class="date">July 14, 2026</p>
     </div>
   </div>
   
@@ -107,9 +107,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<blockquote class="blockquote">
-<p><strong>Note:</strong> The published landing page (<code>index.html</code>) is a hand-authored, self-contained page. This <code>.qmd</code> mirrors its content as the editable source. If you re-render with Quarto, review the result against <code>index.html</code> before publishing so the polished layout is preserved.</p>
-</blockquote>
 <style>
 .stat-box{background:linear-gradient(135deg,#0e7490 0%,#155e75 100%);color:#fff;padding:1rem;
   border-radius:8px;text-align:center;margin:.5rem;flex:1;min-width:150px}
@@ -173,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="convergent-top-ranked-candidate-genes" class="level2">
 <h2 class="anchored" data-anchor-id="convergent-top-ranked-candidate-genes">Convergent &amp; Top-Ranked Candidate Genes</h2>
 <p>Genes were ranked by convergence (methylation <em>and</em> deletion), promoter/exon placement, expression support, and methylation↔︎expression concordance. The four <strong>convergent</strong> loci — carrying both a DMR and a high-confidence siscowet deletion — are the strongest candidates.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
 <col style="width: 20%">
@@ -244,14 +241,14 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/18-top-candidates.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="figures/18-top-candidates.png" class="img-fluid figure-img" style="width:100.0%" alt="Top candidate genes bar chart"></p>
 <figcaption>Top protein-coding candidate genes by integrated rank score. Convergent (methylation + deletion) loci are highlighted; methylation-led and deletion-led candidates are shown by color.</figcaption>
 </figure>
 </div>
 <p>Source: <a href="analyses/18-annotation/integrated_candidate_genes.tsv"><code>integrated_candidate_genes.tsv</code></a>.</p>
 <section id="gene-ontology-enrichment-deletion-set" class="level3">
 <h3 class="anchored" data-anchor-id="gene-ontology-enrichment-deletion-set">Gene Ontology enrichment (deletion set)</h3>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 25%">
@@ -365,7 +362,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="samples" class="level3">
 <h3 class="anchored" data-anchor-id="samples">Samples</h3>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Ecotype</th>
@@ -445,18 +442,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -488,7 +474,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -496,7 +502,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -593,7 +599,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
