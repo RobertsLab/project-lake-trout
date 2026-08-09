@@ -1,0 +1,10 @@
+# Enable CORS + range requests so JBrowse 2 / IGV.js (served from robertslab.github.io)
+# can stream the purged ecotype FASTAs hosted here on Gannet for the Linear Synteny View.
+# Mirrors jbrowse/data/.htaccess and genome-browser/data/genome/.htaccess in the repo.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(fa|fai|fna|gz|gzi|gff|gff3|bed|json|bam|bai|vcf|gtf)$">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, OPTIONS"
+    Header set Access-Control-Allow-Headers "Range"
+  </FilesMatch>
+</IfModule>

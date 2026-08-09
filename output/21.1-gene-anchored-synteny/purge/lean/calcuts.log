@@ -1,0 +1,3 @@
+[M::calcuts] Find 1 peaks
+[M::calcuts] mean: 17, peak: 14, mean larger than peak, treat as diploid assembly
+[W::calcuts] mean is not significantly different with peak, please recheck the cutoffs

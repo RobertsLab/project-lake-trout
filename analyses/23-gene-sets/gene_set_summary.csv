@@ -1,0 +1,7 @@
+category,n_genes,note
+lean_total,55437,genes lifted into lean
+siscowet_total,59968,genes lifted into siscowet
+shared,50379,lifted into both
+lean_only,5058,in lean not siscowet (1474 also in siscowet unmapped_features)
+siscowet_only,9589,in siscowet not lean (3040 also in lean unmapped_features)
+cnv_divergent,2359,shared genes with differing copy number

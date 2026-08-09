@@ -1,0 +1,2360 @@
+gene_id	symbol	product	copies_lean	copies_siscowet	delta_siscowet_minus_lean	n_go
+gene-trnas-gcu	trnas-gcu	tRNA-Ser	465	119	-346	0
+gene-trnae-uuc	trnae-uuc	tRNA-Glu	363	97	-266	0
+gene-trnac-gca	trnac-gca	tRNA-Cys	339	587	248	0
+gene-trnak-cuu	trnak-cuu	tRNA-Lys	826	616	-210	0
+gene-trnak-uuu	trnak-uuu	tRNA-Lys	377	571	194	0
+gene-trnar-acg	trnar-acg	tRNA-Arg	272	84	-188	0
+gene-trnai-aau	trnai-aau	tRNA-Ile	395	216	-179	0
+gene-trnan-guu	trnan-guu	tRNA-Asn	244	414	170	0
+gene-trnaf-gaa	trnaf-gaa	tRNA-Phe	341	507	166	0
+gene-trnat-ugu	trnat-ugu	tRNA-Thr	86	250	164	0
+gene-trnam-cau	trnam-cau	tRNA-Met	1065	907	-158	0
+gene-trnag-gcc	trnag-gcc	tRNA-Gly	358	512	154	0
+gene-trnaw-cca	trnaw-cca	tRNA-Trp	568	719	151	0
+gene-trnal-uag	trnal-uag	tRNA-Leu	230	350	120	0
+gene-trnas-aga	trnas-aga	tRNA-Ser	234	125	-109	0
+gene-trnar-ucu	trnar-ucu	tRNA-Arg	234	319	85	0
+gene-trnah-gug	trnah-gug	tRNA-His	306	391	85	0
+gene-trnat-agu	trnat-agu	tRNA-Thr	383	461	78	0
+gene-trnae-cuc	trnae-cuc	tRNA-Glu	248	171	-77	0
+gene-trnaa-agc	trnaa-agc	tRNA-Ala	168	235	67	0
+gene-trnav-cac	trnav-cac	tRNA-Val	317	377	60	0
+gene-trnap-cgg	trnap-cgg	tRNA-Pro	246	187	-59	0
+gene-trnap-ugg	trnap-ugg	tRNA-Pro	297	355	58	0
+gene-trnay-gua	trnay-gua	tRNA-Tyr	366	422	56	0
+gene-trnaq-uug	trnaq-uug	tRNA-Gln	212	253	41	0
+gene-LOC120040484	LOC120040484	5S ribosomal RNA	3	43	40	0
+gene-trnal-cag	trnal-cag	tRNA-Leu	187	147	-40	0
+gene-LOC120035580	LOC120035580	U1 spliceosomal RNA	5	45	40	0
+gene-LOC120035854	LOC120035854	U1 spliceosomal RNA	1	40	39	0
+gene-trnas-acu	trnas-acu	tRNA-Ser	38	76	38	0
+gene-trnap-agg	trnap-agg	tRNA-Pro	204	170	-34	0
+gene-LOC120043194	LOC120043194	5S ribosomal RNA	1	35	34	0
+gene-LOC120038785	LOC120038785	5S ribosomal RNA	2	35	33	0
+gene-trnav-uac	trnav-uac	tRNA-Val	235	266	31	0
+gene-LOC120024651	LOC120024651	small nucleolar RNA SNORD50	10	41	31	0
+gene-LOC120035855	LOC120035855	U1 spliceosomal RNA	1	31	30	0
+gene-LOC120035853	LOC120035853	U1 spliceosomal RNA	10	40	30	0
+gene-LOC120038357	LOC120038357	5S ribosomal RNA	30	1	-29	0
+gene-trnaq-cug	trnaq-cug	tRNA-Gln	183	211	28	0
+gene-LOC120024630	LOC120024630	small nucleolar RNA SNORD50	15	42	27	0
+gene-LOC120028563	LOC120028563	U4 spliceosomal RNA	18	45	27	0
+gene-LOC120058608	LOC120058608	U1 spliceosomal RNA	1	26	25	0
+gene-LOC120042444	LOC120042444		3	28	25	0
+gene-trnag-ucc	trnag-ucc	tRNA-Gly	304	281	-23	0
+gene-trnav-aac	trnav-aac	tRNA-Val	112	135	23	0
+gene-trnal-aag	trnal-aag	tRNA-Leu	156	178	22	0
+gene-LOC120035852	LOC120035852	5S ribosomal RNA	29	51	22	0
+gene-LOC120053090	LOC120053090	small nucleolar RNA U3	34	13	-21	0
+gene-LOC120035857	LOC120035857	U1 spliceosomal RNA	1	22	21	0
+gene-LOC120035856	LOC120035856	U1 spliceosomal RNA	1	21	20	0
+gene-LOC120040753	LOC120040753	U4 spliceosomal RNA	2	21	19	0
+gene-LOC120028286	LOC120028286	U4 spliceosomal RNA	2	21	19	0
+gene-LOC120035858	LOC120035858	U1 spliceosomal RNA	1	19	18	0
+gene-LOC120024652	LOC120024652	small nucleolar RNA SNORD50	1	19	18	0
+gene-LOC120040433	LOC120040433	5S ribosomal RNA	19	2	-17	0
+gene-trnar-ccu	trnar-ccu	tRNA-Arg	298	315	17	0
+gene-LOC120036706	LOC120036706	small nucleolar RNA U3	8	25	17	0
+gene-trnal-uaa	trnal-uaa	tRNA-Leu	166	183	17	0
+gene-LOC120063541	LOC120063541	uncharacterized LOC120063541	1	18	17	0
+gene-LOC120038292	LOC120038292	5S ribosomal RNA	19	3	-16	0
+gene-LOC120036709	LOC120036709	small nucleolar RNA U3	18	34	16	0
+gene-LOC120040583	LOC120040583	5S ribosomal RNA	16	1	-15	0
+gene-LOC120036978	LOC120036978	U1 spliceosomal RNA	40	25	-15	0
+gene-LOC120048909	LOC120048909	U1 spliceosomal RNA	14	29	15	0
+gene-LOC120035859	LOC120035859	U1 spliceosomal RNA	1	16	15	0
+gene-LOC120036968	LOC120036968	5S ribosomal RNA	1	16	15	0
+gene-LOC120017815	LOC120017815	alpha-2-macroglobulin-like	5	20	15	3
+gene-LOC120040765	LOC120040765	U4 spliceosomal RNA	1	15	14	0
+gene-LOC120037744	LOC120037744	U1 spliceosomal RNA	15	1	-14	0
+gene-LOC120035860	LOC120035860	U1 spliceosomal RNA	1	14	13	0
+gene-LOC120024631	LOC120024631	small nucleolar RNA SNORD50	1	14	13	0
+gene-LOC120061748	LOC120061748	5S ribosomal RNA	16	3	-13	0
+gene-LOC120028804	LOC120028804	U4 spliceosomal RNA	5	18	13	0
+gene-LOC120040913	LOC120040913	5S ribosomal RNA	14	1	-13	0
+gene-LOC120028616	LOC120028616	U4 spliceosomal RNA	17	29	12	0
+gene-trnad-guc	trnad-guc	tRNA-Asp	264	252	-12	0
+gene-LOC120036716	LOC120036716	small nucleolar RNA U3	8	20	12	0
+gene-LOC120028677	LOC120028677	U4 spliceosomal RNA	2	14	12	0
+gene-LOC120035548	LOC120035548	U1 spliceosomal RNA	6	17	11	0
+gene-LOC120028580	LOC120028580	U4 spliceosomal RNA	2	13	11	0
+gene-LOC120035862	LOC120035862	U1 spliceosomal RNA	1	12	11	0
+gene-LOC120037644	LOC120037644	NLR family CARD domain-containing protein 3-like	31	20	-11	1
+gene-LOC120035582	LOC120035582	U1 spliceosomal RNA	2	13	11	0
+gene-LOC120035861	LOC120035861	U1 spliceosomal RNA	1	12	11	0
+gene-LOC120038788	LOC120038788	5S ribosomal RNA	1	12	11	0
+gene-LOC120036972	LOC120036972	U1 spliceosomal RNA	1	12	11	0
+gene-LOC120035231	LOC120035231	uncharacterized LOC120035231	39	28	-11	0
+gene-LOC120031223	LOC120031223	uncharacterized LOC120031223	1	12	11	0
+gene-LOC120061724	LOC120061724	5S ribosomal RNA	36	25	-11	0
+gene-LOC120042087	LOC120042087	U1 spliceosomal RNA	15	5	-10	0
+gene-LOC120028289	LOC120028289	U4 spliceosomal RNA	1	11	10	0
+gene-LOC120028765	LOC120028765	U4 spliceosomal RNA	24	14	-10	0
+gene-LOC120062098	LOC120062098	syncytin-A-like	16	26	10	0
+gene-trnai-uau	trnai-uau	tRNA-Ile	126	136	10	0
+gene-LOC120063564	LOC120063564	uncharacterized LOC120063564	1	11	10	0
+gene-LOC120066639	LOC120066639	uncharacterized LOC120066639	5	15	10	0
+gene-LOC120028748	LOC120028748	U4 spliceosomal RNA	2	12	10	0
+gene-LOC120035730	LOC120035730	uncharacterized LOC120035730	17	27	10	0
+gene-LOC120058853	LOC120058853	uncharacterized LOC120058853	19	29	10	0
+gene-LOC120028294	LOC120028294	U4 spliceosomal RNA	1	11	10	0
+gene-LOC120028727	LOC120028727	U4 spliceosomal RNA	19	29	10	0
+gene-LOC120028151	LOC120028151	uncharacterized LOC120028151	11	1	-10	0
+gene-LOC120037900	LOC120037900	uncharacterized LOC120037900	23	32	9	0
+gene-LOC120063518	LOC120063518	uncharacterized LOC120063518	2	11	9	0
+gene-LOC120061737	LOC120061737	5S ribosomal RNA	16	7	-9	0
+gene-LOC120028231	LOC120028231	uncharacterized LOC120028231	4	13	9	0
+gene-LOC120036786	LOC120036786	5S ribosomal RNA	10	1	-9	0
+gene-LOC120037036	LOC120037036	U1 spliceosomal RNA	1	9	8	0
+gene-LOC120036686	LOC120036686	U1 spliceosomal RNA	1	9	8	0
+gene-LOC120028526	LOC120028526	U4 spliceosomal RNA	3	11	8	0
+gene-LOC120063557	LOC120063557	uncharacterized LOC120063557	1	9	8	0
+gene-LOC120018041	LOC120018041	histone H2B	2	10	8	4
+gene-LOC120043129	LOC120043129	U1 spliceosomal RNA	14	6	-8	0
+gene-LOC120045262	LOC120045262	5S ribosomal RNA	31	23	-8	0
+gene-LOC120036038	LOC120036038	U1 spliceosomal RNA	1	9	8	0
+gene-LOC120028297	LOC120028297	U4 spliceosomal RNA	1	9	8	0
+gene-LOC120061733	LOC120061733	5S ribosomal RNA	21	13	-8	0
+gene-LOC120018242	LOC120018242	uncharacterized LOC120018242	1	9	8	0
+gene-LOC120028743	LOC120028743	U4 spliceosomal RNA	2	10	8	0
+gene-LOC120059647	LOC120059647	U5 spliceosomal RNA	10	2	-8	0
+gene-LOC120063488	LOC120063488	uncharacterized LOC120063488	26	18	-8	0
+gene-LOC120028753	LOC120028753	U4 spliceosomal RNA	1	9	8	0
+gene-LOC120061735	LOC120061735	U1 spliceosomal RNA	12	4	-8	0
+gene-LOC120042254	LOC120042254	uncharacterized LOC120042254	16	24	8	24
+gene-LOC120063770	LOC120063770	uncharacterized LOC120063770	37	30	-7	0
+gene-LOC120043169	LOC120043169	5S ribosomal RNA	8	1	-7	0
+gene-LOC120035881	LOC120035881	piggyBac transposable element-derived protein 4-like	1	8	7	0
+gene-LOC120038879	LOC120038879	uncharacterized LOC120038879	1	8	7	0
+gene-trnal-caa	trnal-caa	tRNA-Leu	288	295	7	0
+gene-LOC120037054	LOC120037054	uncharacterized LOC120037054	13	6	-7	0
+gene-LOC120064770	LOC120064770	uncharacterized LOC120064770	25	32	7	0
+gene-LOC120036975	LOC120036975	U1 spliceosomal RNA	1	8	7	0
+gene-LOC120043164	LOC120043164	5S ribosomal RNA	8	1	-7	0
+gene-LOC120036974	LOC120036974	U1 spliceosomal RNA	1	8	7	0
+gene-LOC120063503	LOC120063503	uncharacterized LOC120063503	1	8	7	0
+gene-LOC120028759	LOC120028759	U4 spliceosomal RNA	1	8	7	0
+gene-LOC120048919	LOC120048919	5S ribosomal RNA	2	9	7	0
+gene-LOC120028776	LOC120028776	U4 spliceosomal RNA	1	8	7	0
+gene-LOC120018007	LOC120018007	histone H2A	1	8	7	4
+gene-LOC120043181	LOC120043181	U1 spliceosomal RNA	1	8	7	0
+gene-LOC120043201	LOC120043201	U1 spliceosomal RNA	10	3	-7	0
+gene-LOC120018068	LOC120018068	histone H4	3	10	7	5
+gene-LOC120036991	LOC120036991	5S ribosomal RNA	11	5	-6	0
+gene-LOC120036713	LOC120036713	small nucleolar RNA U3	7	1	-6	0
+gene-LOC120033339	LOC120033339	uncharacterized LOC120033339	1	7	6	0
+gene-LOC120035592	LOC120035592	U1 spliceosomal RNA	8	2	-6	0
+gene-LOC120035205	LOC120035205	small nucleolar RNA U3	8	2	-6	0
+gene-LOC120042088	LOC120042088	U1 spliceosomal RNA	1	7	6	0
+gene-LOC120020358	LOC120020358	uncharacterized LOC120020358	33	39	6	0
+gene-LOC120036705	LOC120036705	small nucleolar RNA U3	3	9	6	0
+gene-LOC120022305	LOC120022305	induced myeloid leukemia cell differentiation protein Mcl-1 homolog	26	32	6	9
+gene-LOC120039032	LOC120039032	U1 spliceosomal RNA	7	13	6	0
+gene-LOC120017807	LOC120017807	uncharacterized LOC120017807	1	7	6	0
+gene-LOC120041868	LOC120041868	uncharacterized LOC120041868	1	7	6	0
+gene-LOC120042319	LOC120042319	uncharacterized LOC120042319	44	38	-6	0
+gene-LOC120063991	LOC120063991	protein ZBED8-like	31	37	6	1
+gene-LOC120040402	LOC120040402	probable E3 ubiquitin-protein ligase makorin-1	13	19	6	3
+gene-LOC120049756	LOC120049756	uncharacterized LOC120049756	1	7	6	0
+gene-LOC120037004	LOC120037004	U2 spliceosomal RNA	4	10	6	0
+gene-LOC120037641	LOC120037641	uncharacterized LOC120037641	11	5	-6	0
+gene-LOC120038831	LOC120038831	U1 spliceosomal RNA	7	1	-6	0
+gene-LOC120061740	LOC120061740	U1 spliceosomal RNA	9	3	-6	0
+gene-LOC120040542	LOC120040542	U1 spliceosomal RNA	7	1	-6	0
+gene-LOC120036468	LOC120036468	uncharacterized LOC120036468	6	12	6	0
+gene-LOC120021716	LOC120021716	general transcription factor II-I repeat domain-containing protein 2-like	13	19	6	0
+gene-LOC120041875	LOC120041875	uncharacterized LOC120041875	13	7	-6	0
+gene-LOC120028737	LOC120028737	U4 spliceosomal RNA	7	13	6	0
+gene-LOC120022294	LOC120022294	serine/threonine-protein kinase pef1-like	27	32	5	5
+gene-LOC120025813	LOC120025813	uncharacterized LOC120025813	2	7	5	0
+gene-LOC120056766	LOC120056766	uncharacterized LOC120056766	31	36	5	2
+gene-LOC120043788	LOC120043788	uncharacterized LOC120043788	20	15	-5	0
+gene-LOC120045261	LOC120045261	5S ribosomal RNA	2	7	5	0
+gene-LOC120042904	LOC120042904	uncharacterized LOC120042904	3	8	5	0
+gene-LOC120063466	LOC120063466	uncharacterized LOC120063466	1	6	5	0
+gene-LOC120049759	LOC120049759	leukotriene B4 receptor 1-like	1	6	5	7
+gene-LOC120042668	LOC120042668	5S ribosomal RNA	6	1	-5	0
+gene-LOC120064863	LOC120064863	deoxyribonuclease gamma-like	6	1	-5	3
+gene-LOC120040658	LOC120040658	uncharacterized LOC120040658	12	7	-5	0
+gene-LOC120037151	LOC120037151	histone H3-like	5	10	5	4
+gene-LOC120022334	LOC120022334	flocculation protein FLO11-like	16	21	5	0
+gene-LOC120040806	LOC120040806	NLR family CARD domain-containing protein 3-like	28	23	-5	0
+gene-LOC120037043	LOC120037043	U1 spliceosomal RNA	1	6	5	0
+gene-LOC120037791	LOC120037791	U1 spliceosomal RNA	1	6	5	0
+gene-LOC120024667	LOC120024667	small nucleolar RNA SNORD50	8	13	5	0
+gene-LOC120039445	LOC120039445	uncharacterized LOC120039445	1	6	5	0
+gene-LOC120017932	LOC120017932	histone H1	2	7	5	4
+gene-LOC120040105	LOC120040105	NLR family CARD domain-containing protein 3-like	23	18	-5	0
+gene-LOC120035574	LOC120035574	5S ribosomal RNA	6	1	-5	0
+gene-LOC120038825	LOC120038825	U1 spliceosomal RNA	5	10	5	0
+gene-LOC120018058	LOC120018058	histone H4	6	11	5	5
+gene-LOC120042514	LOC120042514	uncharacterized LOC120042514	1	6	5	0
+gene-LOC120019306	LOC120019306	uncharacterized LOC120019306	1	6	5	0
+gene-LOC120047986	LOC120047986	uncharacterized LOC120047986	3	8	5	0
+gene-LOC120039181	LOC120039181	U1 spliceosomal RNA	2	7	5	0
+gene-LOC120017787	LOC120017787	uncharacterized LOC120017787	6	1	-5	0
+gene-LOC120042740	LOC120042740	uncharacterized LOC120042740	7	2	-5	0
+gene-LOC120024632	LOC120024632	small nucleolar RNA SNORD50	1	6	5	0
+gene-LOC120028732	LOC120028732	U4 spliceosomal RNA	1	6	5	0
+gene-trnar-ccg	trnar-ccg	tRNA-Arg	24	29	5	0
+gene-trnaa-cgc	trnaa-cgc	tRNA-Ala	44	49	5	0
+gene-LOC120017972	LOC120017972	histone H3	3	8	5	4
+gene-LOC120063490	LOC120063490	uncharacterized LOC120063490	1	6	5	0
+gene-LOC120051623	LOC120051623	protein NLRC3-like	1	5	4	0
+gene-LOC120038794	LOC120038794	U1 spliceosomal RNA	1	5	4	0
+gene-LOC120041717	LOC120041717	uncharacterized LOC120041717	4	8	4	0
+gene-LOC120041811	LOC120041811	U1 spliceosomal RNA	1	5	4	0
+gene-LOC120042222	LOC120042222	uncharacterized LOC120042222	6	2	-4	0
+gene-LOC120043101	LOC120043101	uncharacterized LOC120043101	5	1	-4	0
+gene-LOC120040859	LOC120040859	myelin-associated glycoprotein-like	2	6	4	0
+gene-LOC120043172	LOC120043172	5S ribosomal RNA	5	9	4	0
+gene-LOC120040535	LOC120040535	U1 spliceosomal RNA	5	1	-4	0
+gene-LOC120041406	LOC120041406	zinc finger protein 2-like	1	5	4	1
+gene-LOC120037044	LOC120037044	U1 spliceosomal RNA	1	5	4	0
+gene-LOC120042416	LOC120042416	stonustoxin subunit beta-like	6	10	4	1
+gene-LOC120052802	LOC120052802	uncharacterized LOC120052802	5	1	-4	0
+gene-LOC120039749	LOC120039749	5S ribosomal RNA	6	2	-4	0
+gene-LOC120051632	LOC120051632	NACHT, LRR and PYD domains-containing protein 1 homolog	1	5	4	2
+gene-LOC120049754	LOC120049754	uncharacterized LOC120049754	1	5	4	0
+gene-LOC120038793	LOC120038793	U1 spliceosomal RNA	1	5	4	0
+gene-LOC120040337	LOC120040337	L-rhamnose-binding lectin CSL3	5	1	-4	1
+gene-LOC120039928	LOC120039928	uncharacterized LOC120039928	4	8	4	0
+gene-LOC120063458	LOC120063458	uncharacterized LOC120063458	1	5	4	0
+gene-LOC120041427	LOC120041427	uncharacterized LOC120041427	31	35	4	0
+gene-LOC120028303	LOC120028303	U4 spliceosomal RNA	1	5	4	0
+gene-LOC120030375	LOC120030375	uncharacterized LOC120030375	1	5	4	0
+gene-LOC120035284	LOC120035284	U6 spliceosomal RNA	5	1	-4	0
+gene-LOC120052262	LOC120052262	uncharacterized LOC120052262	1	5	4	0
+gene-LOC120028320	LOC120028320	U4 spliceosomal RNA	1	5	4	0
+gene-LOC120045638	LOC120045638	uncharacterized LOC120045638	35	39	4	0
+gene-LOC120047682	LOC120047682	uncharacterized LOC120047682	6	2	-4	0
+gene-LOC120038363	LOC120038363	5S ribosomal RNA	5	1	-4	0
+gene-LOC120037037	LOC120037037	U1 spliceosomal RNA	1	5	4	0
+gene-LOC120039249	LOC120039249	U1 spliceosomal RNA	12	8	-4	0
+gene-LOC120022981	LOC120022981		1	5	4	0
+gene-LOC120028575	LOC120028575	U4 spliceosomal RNA	1	5	4	0
+gene-LOC120036791	LOC120036791	5S ribosomal RNA	5	1	-4	0
+gene-LOC120032456	LOC120032456	sialoadhesin-like	5	1	-4	0
+gene-LOC120027345	LOC120027345	uncharacterized LOC120027345	3	7	4	0
+gene-LOC120024653	LOC120024653	small nucleolar RNA SNORD50	1	5	4	0
+gene-LOC120044632	LOC120044632	uncharacterized LOC120044632	2	6	4	0
+gene-LOC120028552	LOC120028552	U4 spliceosomal RNA	1	5	4	0
+gene-LOC120044630	LOC120044630	uncharacterized LOC120044630	2	6	4	0
+gene-LOC120043847	LOC120043847	uncharacterized protein K02A2.6-like	13	17	4	5
+gene-LOC120037041	LOC120037041	U1 spliceosomal RNA	1	5	4	0
+gene-LOC120039158	LOC120039158	vicilin-like seed storage protein At2g18540	1	5	4	0
+gene-LOC120039042	LOC120039042	U1 spliceosomal RNA	5	1	-4	0
+gene-LOC120036718	LOC120036718	small nucleolar RNA U3	3	7	4	0
+gene-LOC120017911	LOC120017911	histone H2B	4	8	4	4
+gene-LOC120049757	LOC120049757	uncharacterized LOC120049757	2	6	4	0
+gene-LOC120036433	LOC120036433	uncharacterized LOC120036433	9	13	4	0
+gene-LOC120022979	LOC120022979		1	5	4	0
+gene-LOC120041810	LOC120041810	U1 spliceosomal RNA	1	5	4	0
+gene-LOC120041413	LOC120041413	uncharacterized LOC120041413	5	1	-4	0
+gene-LOC120042885	LOC120042885	U1 spliceosomal RNA	1	5	4	0
+gene-LOC120035594	LOC120035594	U1 spliceosomal RNA	5	1	-4	0
+gene-trnaa-ugc	trnaa-ugc	tRNA-Ala	100	104	4	0
+gene-LOC120042042	LOC120042042	uncharacterized LOC120042042	1	4	3	0
+gene-LOC120032718	LOC120032718	keratin, type I cytoskeletal 13-like	1	4	3	1
+gene-LOC120037218	LOC120037218	rRNA 2'-O-methyltransferase fibrillarin-like	1	4	3	0
+gene-LOC120032584	LOC120032584	uncharacterized LOC120032584	2	5	3	0
+gene-LOC120053385	LOC120053385	uncharacterized LOC120053385	15	18	3	0
+gene-LOC120053118	LOC120053118	U1 spliceosomal RNA	1	4	3	0
+gene-LOC120036220	LOC120036220	glyoxylate reductase/hydroxypyruvate reductase-like	1	4	3	5
+gene-LOC120036811	LOC120036811	5S ribosomal RNA	5	2	-3	0
+gene-LOC120037712	LOC120037712	zona pellucida sperm-binding protein 4-like	3	6	3	0
+gene-LOC120056787	LOC120056787	uncharacterized LOC120056787	12	9	-3	0
+gene-LOC120047826	LOC120047826	protocadherin beta-16-like	1	4	3	3
+gene-LOC120042542	LOC120042542	basic proline-rich protein-like	2	5	3	0
+gene-LOC120032449	LOC120032449	uncharacterized LOC120032449	2	5	3	0
+gene-LOC120040769	LOC120040769	U4 spliceosomal RNA	2	5	3	0
+gene-LOC120046934	LOC120046934	ribonuclease-like 3	1	4	3	1
+gene-LOC120030703	LOC120030703	equistatin-like	1	4	3	1
+gene-LOC120028589	LOC120028589	U4 spliceosomal RNA	1	4	3	0
+gene-LOC120019722	LOC120019722	uncharacterized LOC120019722	1	4	3	0
+gene-LOC120037782	LOC120037782	uncharacterized LOC120037782	5	8	3	0
+gene-LOC120035848	LOC120035848	uncharacterized LOC120035848	1	4	3	0
+gene-LOC120051925	LOC120051925	uncharacterized LOC120051925	2	5	3	0
+gene-LOC120056308	LOC120056308	ladderlectin-like	7	10	3	1
+gene-LOC120039080	LOC120039080	uncharacterized LOC120039080	4	7	3	0
+gene-LOC120024670	LOC120024670	small nucleolar RNA SNORD50	7	10	3	0
+gene-LOC120030186	LOC120030186	zonadhesin-like	10	7	-3	2
+gene-LOC120041012	LOC120041012	tripartite motif-containing protein 16-like	1	4	3	2
+gene-LOC120043575	LOC120043575	uncharacterized LOC120043575	8	5	-3	0
+gene-LOC120043200	LOC120043200	U1 spliceosomal RNA	1	4	3	0
+gene-LOC120042963	LOC120042963	5S ribosomal RNA	4	1	-3	0
+gene-LOC120036429	LOC120036429	uncharacterized LOC120036429	4	7	3	0
+gene-LOC120039044	LOC120039044	5S ribosomal RNA	8	5	-3	0
+gene-LOC120042925	LOC120042925	uncharacterized LOC120042925	1	4	3	0
+gene-LOC120036703	LOC120036703	small nucleolar RNA U3	8	5	-3	0
+gene-LOC120043196	LOC120043196	U1 spliceosomal RNA	1	4	3	0
+gene-LOC120040523	LOC120040523	uncharacterized LOC120040523	4	7	3	0
+gene-LOC120039311	LOC120039311	WAP four-disulfide core domain protein 18-like	9	12	3	4
+gene-LOC120037220	LOC120037220	uncharacterized LOC120037220	9	12	3	0
+gene-LOC120059834	LOC120059834	uncharacterized LOC120059834	25	28	3	0
+gene-LOC120044143	LOC120044143		1	4	3	0
+gene-LOC120043198	LOC120043198	U1 spliceosomal RNA	4	7	3	0
+gene-LOC120043599	LOC120043599	uncharacterized LOC120043599	1	4	3	0
+gene-LOC120035591	LOC120035591	U1 spliceosomal RNA	10	7	-3	0
+gene-LOC120036780	LOC120036780	U1 spliceosomal RNA	2	5	3	0
+gene-LOC120023130	LOC120023130	uncharacterized LOC120023130	6	3	-3	0
+gene-LOC120054212	LOC120054212	5S ribosomal RNA	1	4	3	0
+gene-LOC120017878	LOC120017878	uncharacterized LOC120017878	4	1	-3	0
+gene-LOC120034988	LOC120034988	uncharacterized LOC120034988	7	4	-3	0
+gene-LOC120031874	LOC120031874		1	4	3	0
+gene-LOC120036783	LOC120036783	U1 spliceosomal RNA	4	1	-3	0
+gene-LOC120043235	LOC120043235	5S ribosomal RNA	4	1	-3	0
+gene-LOC120021411	LOC120021411	uncharacterized LOC120021411	13	16	3	0
+gene-LOC120041726	LOC120041726	uncharacterized LOC120041726	2	5	3	0
+gene-LOC120041204	LOC120041204	uncharacterized LOC120041204	1	4	3	0
+gene-LOC120041812	LOC120041812	U1 spliceosomal RNA	1	4	3	0
+gene-LOC120040432	LOC120040432	5S ribosomal RNA	5	2	-3	0
+gene-LOC120037323	LOC120037323	uncharacterized LOC120037323	19	16	-3	0
+gene-LOC120040758	LOC120040758	U4 spliceosomal RNA	1	4	3	0
+gene-LOC120044476	LOC120044476	interferon a3-like	1	4	3	3
+gene-LOC120038364	LOC120038364	5S ribosomal RNA	4	1	-3	0
+gene-LOC120066594	LOC120066594	uncharacterized LOC120066594	50	47	-3	0
+gene-LOC120052000	LOC120052000	uncharacterized LOC120052000	3	6	3	0
+gene-LOC120036018	LOC120036018	uncharacterized LOC120036018	5	8	3	0
+gene-LOC120028050	LOC120028050	uncharacterized LOC120028050	1	4	3	0
+gene-LOC120017967	LOC120017967	NLR family CARD domain-containing protein 3-like	7	10	3	0
+gene-LOC120019186	LOC120019186	pancreatic secretory granule membrane major glycoprotein GP2-like	1	4	3	4
+gene-LOC120038353	LOC120038353	gap junction beta-4 protein-like	1	4	3	2
+gene-LOC120036021	LOC120036021	trichohyalin-like	4	7	3	0
+gene-LOC120039792	LOC120039792	zinc finger protein 79-like	1	4	3	4
+gene-LOC120039460	LOC120039460	saxiphilin-like	7	4	-3	3
+gene-LOC120052300	LOC120052300	uncharacterized LOC120052300	2	5	3	0
+gene-LOC120038795	LOC120038795	U1 spliceosomal RNA	1	4	3	0
+gene-LOC120027492	LOC120027492	golgin subfamily A member 6-like protein 2	8	5	-3	0
+gene-LOC120026808	LOC120026808	probable E3 ubiquitin-protein ligase makorin-1	5	8	3	3
+gene-LOC120041666	LOC120041666	uncharacterized LOC120041666	4	1	-3	0
+gene-LOC120036789	LOC120036789	5S ribosomal RNA	6	3	-3	0
+gene-LOC120024654	LOC120024654	small nucleolar RNA SNORD50	1	4	3	0
+gene-LOC120022977	LOC120022977		3	6	3	0
+gene-LOC120048781	LOC120048781	uncharacterized LOC120048781	1	4	3	0
+gene-LOC120033376	LOC120033376	uncharacterized LOC120033376	2	5	3	0
+gene-LOC120040917	LOC120040917	uncharacterized LOC120040917	14	17	3	24
+gene-LOC120042583	LOC120042583	uncharacterized protein K02A2.6-like	26	29	3	2
+gene-LOC120058780	LOC120058780	pepsin A-like	1	3	2	2
+gene-LOC120018585	LOC120018585	olfactory receptor 5F1-like	1	3	2	4
+gene-LOC120036402	LOC120036402	5S ribosomal RNA	3	1	-2	0
+gene-LOC120042321	LOC120042321	uncharacterized LOC120042321	42	44	2	0
+gene-LOC120032855	LOC120032855	beta-1,3-galactosyltransferase 2-like	1	3	2	3
+gene-LOC120043203	LOC120043203	U1 spliceosomal RNA	3	1	-2	0
+gene-LOC120059580	LOC120059580	SAP domain-containing ribonucleoprotein-like	1	3	2	0
+gene-LOC120049517	LOC120049517	uncharacterized LOC120049517	5	3	-2	1
+gene-LOC120026316	LOC120026316	uncharacterized LOC120026316	1	3	2	0
+gene-si:ch211-140l13.3	si:ch211-140l13.3	centromere protein J	1	3	2	6
+gene-LOC120056682	LOC120056682	uncharacterized LOC120056682	1	3	2	0
+gene-LOC120017951	LOC120017951	histone H1-like	4	6	2	4
+gene-LOC120036123	LOC120036123	U2 spliceosomal RNA	5	7	2	0
+gene-LOC120035595	LOC120035595	U1 spliceosomal RNA	3	1	-2	0
+gene-LOC120036685	LOC120036685	U1 spliceosomal RNA	1	3	2	0
+gene-LOC120047987	LOC120047987	protocadherin gamma-C5-like	1	3	2	3
+gene-LOC120039219	LOC120039219	uncharacterized LOC120039219	1	3	2	0
+gene-LOC120038796	LOC120038796	U1 spliceosomal RNA	1	3	2	0
+gene-LOC120042888	LOC120042888	5S ribosomal RNA	1	3	2	0
+gene-LOC120039932	LOC120039932	probable E3 ubiquitin-protein ligase makorin-1	2	4	2	3
+gene-LOC120040902	LOC120040902	5S ribosomal RNA	3	1	-2	0
+gene-LOC120043503	LOC120043503	5S ribosomal RNA	3	1	-2	0
+gene-LOC120017851	LOC120017851	histone H1-like	1	3	2	4
+gene-LOC120049016	LOC120049016	general transcription factor II-I repeat domain-containing protein 2-like	4	2	-2	1
+gene-LOC120057894	LOC120057894	interleukin-1 receptor-like 1	1	3	2	1
+gene-LOC120041814	LOC120041814	U1 spliceosomal RNA	1	3	2	0
+gene-LOC120038056	LOC120038056	glutathione S-transferase Mu 3-like	3	1	-2	2
+gene-LOC120017495	LOC120017495	mitogen-activated protein kinase 8-like	1	3	2	6
+gene-LOC120039613	LOC120039613	uncharacterized LOC120039613	8	6	-2	0
+gene-LOC120022826	LOC120022826	keratin, type I cytoskeletal 13-like	2	4	2	1
+gene-LOC120063178	LOC120063178	uncharacterized LOC120063178	1	3	2	0
+gene-LOC120027491	LOC120027491	trichohyalin-like	7	5	-2	0
+gene-LOC120022820	LOC120022820	keratin, type I cytoskeletal 13-like	1	3	2	1
+gene-LOC120023552	LOC120023552	uncharacterized LOC120023552	3	1	-2	0
+gene-spata1	spata1	spermatogenesis associated 1	1	3	2	0
+gene-c6ast1	c6ast1	six-cysteine containing astacin protease 1	5	3	-2	3
+gene-LOC120035200	LOC120035200	small nucleolar RNA U3	2	4	2	0
+gene-LOC120063549	LOC120063549	uncharacterized LOC120063549	4	6	2	0
+gene-LOC120028053	LOC120028053	uncharacterized LOC120028053	5	3	-2	0
+gene-LOC120022356	LOC120022356	NACHT, LRR and PYD domains-containing protein 3-like	1	3	2	1
+gene-LOC120060601	LOC120060601	uncharacterized LOC120060601	4	2	-2	0
+gene-LOC120051625	LOC120051625	NACHT, LRR and PYD domains-containing protein 1 homolog	1	3	2	2
+gene-LOC120028312	LOC120028312	U4 spliceosomal RNA	1	3	2	0
+gene-LOC120038204	LOC120038204	GTPase IMAP family member 7-like	1	3	2	1
+gene-LOC120053101	LOC120053101	small nucleolar RNA U3	3	1	-2	0
+gene-LOC120041806	LOC120041806	U1 spliceosomal RNA	1	3	2	0
+gene-LOC120042906	LOC120042906	uncharacterized LOC120042906	3	1	-2	0
+gene-LOC120018624	LOC120018624	murinoglobulin-2-like	3	1	-2	2
+gene-LOC120036936	LOC120036936	U1 spliceosomal RNA	1	3	2	0
+gene-LOC120037713	LOC120037713	U1 spliceosomal RNA	1	3	2	0
+gene-LOC120043165	LOC120043165	5S ribosomal RNA	3	1	-2	0
+gene-LOC120058792	LOC120058792	uncharacterized LOC120058792	1	3	2	0
+gene-LOC120019226	LOC120019226	uncharacterized LOC120019226	4	2	-2	0
+gene-LOC120053081	LOC120053081	small nucleolar RNA U3	3	1	-2	0
+gene-LOC120040099	LOC120040099	U1 spliceosomal RNA	1	3	2	0
+gene-LOC120030685	LOC120030685	uncharacterized LOC120030685	4	2	-2	0
+gene-LOC120035196	LOC120035196	small nucleolar RNA U3	1	3	2	0
+gene-LOC120047055	LOC120047055	protocadherin gamma-A11-like	1	3	2	3
+gene-LOC120040525	LOC120040525	uncharacterized LOC120040525	3	1	-2	0
+gene-LOC120028556	LOC120028556	U4 spliceosomal RNA	1	3	2	0
+gene-LOC120053171	LOC120053171	guanylyl cyclase-activating protein 2-like	1	3	2	6
+gene-LOC120050776	LOC120050776	uncharacterized LOC120050776	3	1	-2	0
+gene-LOC120044491	LOC120044491	interferon a3-like	1	3	2	3
+gene-snrpa1	snrpa1	small nuclear ribonucleoprotein polypeptide A'	1	3	2	4
+gene-LOC120019717	LOC120019717	probable tubulin polyglutamylase TTLL2	1	3	2	5
+gene-LOC120024038	LOC120024038	uncharacterized LOC120024038	6	4	-2	0
+gene-LOC120040486	LOC120040486	5S ribosomal RNA	3	1	-2	0
+gene-LOC120038018	LOC120038018	chymotrypsin A-like	1	3	2	2
+gene-LOC120035576	LOC120035576	5S ribosomal RNA	3	1	-2	0
+gene-LOC120035583	LOC120035583	U1 spliceosomal RNA	1	3	2	0
+gene-LOC120044791	LOC120044791	NLR family CARD domain-containing protein 3-like	31	29	-2	0
+gene-LOC120026640	LOC120026640	U2 spliceosomal RNA	1	3	2	0
+gene-LOC120042249	LOC120042249	uncharacterized LOC120042249	1	3	2	0
+gene-LOC120036205	LOC120036205	sodium-dependent neutral amino acid transporter B(0)AT1-like	1	3	2	2
+gene-LOC120044136	LOC120044136	NLR family CARD domain-containing protein 3-like	1	3	2	1
+gene-LOC120047067	LOC120047067	protocadherin beta-16-like	1	3	2	3
+gene-LOC120045412	LOC120045412	recoverin-like	2	4	2	1
+gene-LOC120043621	LOC120043621	zona pellucida sperm-binding protein 2-like	1	3	2	0
+gene-LOC120044396	LOC120044396	NEDD4 family-interacting protein 1-like	1	3	2	8
+gene-LOC120024634	LOC120024634	small nucleolar RNA SNORD50	1	3	2	0
+gene-LOC120035850	LOC120035850	uncharacterized LOC120035850	7	9	2	0
+gene-LOC120041807	LOC120041807	U1 spliceosomal RNA	1	3	2	0
+gene-LOC120039582	LOC120039582	stonustoxin subunit beta-like	3	1	-2	1
+gene-LOC120063176	LOC120063176	anaphase-promoting complex subunit 5-like	1	3	2	5
+gene-LOC120063177	LOC120063177	glutathione hydrolase 1 proenzyme-like	1	3	2	6
+gene-LOC120026925	LOC120026925	coiled-coil domain-containing protein 106-like	3	1	-2	1
+gene-LOC120036704	LOC120036704	small nucleolar RNA U3	15	17	2	0
+gene-LOC120025227	LOC120025227	uncharacterized LOC120025227	5	3	-2	0
+gene-LOC120028623	LOC120028623	U4 spliceosomal RNA	2	4	2	0
+gene-LOC120043933	LOC120043933	ankyrin repeat domain-containing protein 6-like	3	1	-2	4
+gene-LOC120050812	LOC120050812	phospholipid phosphatase-related protein type 3-like	6	4	-2	4
+gene-LOC120018265	LOC120018265	alpha-2-macroglobulin-like	3	1	-2	3
+gene-LOC120023649	LOC120023649	uromodulin-like	1	3	2	4
+gene-LOC120056736	LOC120056736	macrophage mannose receptor 1-like	1	3	2	0
+gene-LOC120063526	LOC120063526	uncharacterized LOC120063526	1	3	2	0
+gene-LOC120040988	LOC120040988	E3 ubiquitin/ISG15 ligase TRIM25-like	3	5	2	1
+gene-LOC120061739	LOC120061739	U1 spliceosomal RNA	8	10	2	0
+gene-LOC120052183	LOC120052183	T-cell surface antigen CD2-like	3	1	-2	0
+gene-LOC120020075	LOC120020075	uncharacterized LOC120020075	10	8	-2	0
+gene-LOC120029563	LOC120029563	cystatin-like	3	1	-2	2
+gene-LOC120030721	LOC120030721	small nucleolar RNA SNORD10	1	3	2	0
+gene-LOC120027007	LOC120027007	uncharacterized LOC120027007	2	4	2	0
+gene-ctbs	ctbs	chitobiase, di-N-acetyl-	1	3	2	5
+gene-LOC120036948	LOC120036948	U1 spliceosomal RNA	23	21	-2	0
+gene-LOC120042907	LOC120042907	stonustoxin subunit beta-like	3	1	-2	1
+gene-LOC120049192	LOC120049192	zeta-sarcoglycan-like	1	3	2	4
+gene-LOC120035207	LOC120035207	small nucleolar RNA U3	1	3	2	0
+gene-LOC120050149	LOC120050149	uncharacterized LOC120050149	2	4	2	0
+gene-LOC120042371	LOC120042371	NLR family CARD domain-containing protein 3-like	3	1	-2	1
+gene-LOC120058289	LOC120058289	ADP-ribosylation factor-like protein 4C	1	3	2	5
+gene-LOC120033033	LOC120033033	B-cell receptor CD22-like	1	3	2	0
+gene-LOC120053182	LOC120053182	guanylyl cyclase-activating protein 2-like	1	3	2	6
+gene-LOC120066901	LOC120066901	U2 spliceosomal RNA	1	3	2	0
+gene-LOC120028441	LOC120028441	U4 spliceosomal RNA	1	3	2	0
+gene-LOC120038371	LOC120038371	uncharacterized LOC120038371	1	3	2	0
+gene-LOC120023271	LOC120023271	nanos homolog 3-like	1	3	2	5
+gene-LOC120029934	LOC120029934	cystatin-like	2	4	2	2
+gene-LOC120057055	LOC120057055	guanylyl cyclase-activating protein 2-like	1	3	2	6
+gene-LOC120045451	LOC120045451	uncharacterized LOC120045451	18	20	2	0
+gene-LOC120037039	LOC120037039	U1 spliceosomal RNA	1	3	2	0
+gene-LOC120037237	LOC120037237	uncharacterized LOC120037237	2	4	2	0
+gene-LOC120035269	LOC120035269	stonustoxin subunit beta-like	3	1	-2	1
+gene-LOC120058698	LOC120058698	putative nuclease HARBI1	4	2	-2	0
+gene-LOC120043477	LOC120043477	uncharacterized LOC120043477	1	3	2	0
+gene-LOC120039235	LOC120039235	golgin subfamily A member 6-like protein 6	1	3	2	0
+gene-LOC120032377	LOC120032377	uncharacterized LOC120032377	1	3	2	0
+gene-LOC120040334	LOC120040334	L-rhamnose-binding lectin CSL3-like	4	2	-2	1
+gene-LOC120042448	LOC120042448		3	5	2	0
+gene-LOC120017647	LOC120017647	isoaspartyl peptidase/L-asparaginase-like	1	3	2	1
+gene-LOC120036712	LOC120036712	small nucleolar RNA U3	1	3	2	0
+gene-LOC120052015	LOC120052015	uncharacterized LOC120052015	3	1	-2	0
+gene-LOC120035558	LOC120035558	5S ribosomal RNA	1	3	2	0
+gene-LOC120040805	LOC120040805	uncharacterized LOC120040805	6	4	-2	0
+gene-LOC120033694	LOC120033694	uncharacterized LOC120033694	7	9	2	0
+gene-LOC120024633	LOC120024633	small nucleolar RNA SNORD50	1	3	2	0
+gene-LOC120047142	LOC120047142	sialic acid-binding Ig-like lectin 12	4	2	-2	0
+gene-LOC120036761	LOC120036761	uncharacterized LOC120036761	7	5	-2	0
+gene-LOC120049007	LOC120049007	natural killer cell receptor 2B4-like	1	3	2	0
+gene-LOC120042812	LOC120042812	uncharacterized LOC120042812	1	3	2	0
+gene-LOC120037042	LOC120037042	U1 spliceosomal RNA	1	3	2	0
+gene-LOC120034744	LOC120034744	uncharacterized LOC120034744	22	24	2	0
+gene-LOC120042117	LOC120042117	uncharacterized LOC120042117	4	2	-2	0
+gene-LOC120040534	LOC120040534	5S ribosomal RNA	3	1	-2	0
+gene-LOC120048908	LOC120048908	5S ribosomal RNA	7	9	2	0
+gene-LOC120063572	LOC120063572	uncharacterized LOC120063572	1	3	2	0
+gene-LOC120045425	LOC120045425	pepsin A-like	1	3	2	2
+gene-LOC120036790	LOC120036790	5S ribosomal RNA	3	1	-2	0
+gene-LOC120064667	LOC120064667	L-rhamnose-binding lectin CSL3-like	4	2	-2	1
+gene-LOC120035603	LOC120035603	uncharacterized LOC120035603	2	4	2	0
+gene-LOC120042810	LOC120042810	uncharacterized LOC120042810	3	5	2	0
+gene-LOC120041384	LOC120041384	interferon a3	1	3	2	4
+gene-LOC120035866	LOC120035866	uncharacterized LOC120035866	17	15	-2	0
+gene-LOC120041270	LOC120041270	uncharacterized LOC120041270	1	3	2	0
+gene-LOC120039201	LOC120039201	uncharacterized LOC120039201	3	5	2	0
+gene-LOC120041410	LOC120041410	uncharacterized LOC120041410	3	1	-2	0
+gene-LOC120017881	LOC120017881	histone H2A	1	3	2	4
+gene-LOC120063478	LOC120063478	uncharacterized LOC120063478	1	3	2	0
+gene-LOC120041339	LOC120041339	E3 ubiquitin-protein ligase TRIM47-like	1	3	2	1
+gene-LOC120039233	LOC120039233	uncharacterized LOC120039233	2	4	2	0
+gene-LOC120043620	LOC120043620	uncharacterized LOC120043620	6	8	2	0
+gene-LOC120065645	LOC120065645	uncharacterized LOC120065645	3	5	2	0
+gene-pax4	pax4	paired box 4	1	3	2	4
+gene-LOC120030659	LOC120030659	transcription factor Sox-19b-like	1	2	1	5
+gene-LOC120052620	LOC120052620	protein Dr1	1	2	1	9
+gene-mtres1	mtres1	mitochondrial transcription rescue factor 1	1	2	1	0
+gene-LOC120059492	LOC120059492	calcium-responsive transactivator-like	1	2	1	4
+gene-LOC120029979	LOC120029979	ubiquitin carboxyl-terminal hydrolase 22-like	1	2	1	3
+gene-LOC120044397	LOC120044397	NEDD4 family-interacting protein 1-like	1	2	1	8
+gene-LOC120030706	LOC120030706	uncharacterized LOC120030706	1	2	1	0
+gene-LOC120026196	LOC120026196	interferon-induced protein 44-like	1	2	1	0
+gene-lifra	lifra	LIF receptor subunit alpha a	1	2	1	1
+gene-LOC120052801	LOC120052801	uncharacterized LOC120052801	2	1	-1	0
+gene-LOC120020538	LOC120020538	neuromedin-U receptor 2-like	1	2	1	3
+gene-nog2	nog2	noggin 2	1	2	1	5
+gene-LOC120027220	LOC120027220	uncharacterized LOC120027220	2	1	-1	0
+gene-LOC120047309	LOC120047309	transcriptional repressor scratch 1-like	1	2	1	3
+gene-LOC120064467	LOC120064467	formimidoyltransferase-cyclodeaminase-like	1	2	1	2
+gene-traf6	traf6	TNF receptor-associated factor 6	1	2	1	10
+gene-LOC120025643	LOC120025643	TOG array regulator of axonemal microtubules protein 1-like	2	1	-1	4
+gene-LOC120032985	LOC120032985	cysteine-rich protein 2-binding protein-like	1	2	1	1
+gene-LOC120027458	LOC120027458	uncharacterized LOC120027458	49	50	1	0
+gene-impa2	impa2	inositol monophosphatase 2	1	2	1	4
+gene-LOC120060520	LOC120060520	dolichyl-diphosphooligosaccharide--protein glycosyltransferase subunit 1-like	1	2	1	3
+gene-LOC120033199	LOC120033199	beta-galactoside alpha-2,6-sialyltransferase 2-like	1	2	1	2
+gene-LOC120066365	LOC120066365	serine/threonine-protein kinase WNK1-like	1	2	1	12
+gene-LOC120038020	LOC120038020	chymotrypsin A-like	1	2	1	2
+gene-LOC120037750	LOC120037750	U1 spliceosomal RNA	5	6	1	0
+gene-LOC120027011	LOC120027011	uncharacterized LOC120027011	1	2	1	0
+gene-LOC120021779	LOC120021779	protein B4-like	1	2	1	3
+gene-LOC120065317	LOC120065317	green-sensitive opsin-like	1	2	1	6
+gene-LOC120039755	LOC120039755	WD repeat containing planar cell polarity effector	2	1	-1	5
+gene-LOC120041694	LOC120041694	uncharacterized LOC120041694	1	2	1	0
+gene-ccka	ccka	cholecystokinin a	2	1	-1	5
+gene-LOC120047322	LOC120047322	ATP-dependent translocase ABCB1-like	1	2	1	5
+gene-egf	egf	epidermal growth factor	1	2	1	0
+gene-LOC120044731	LOC120044731	uncharacterized LOC120044731	1	2	1	3
+gene-LOC120050795	LOC120050795		4	3	-1	0
+gene-LOC120052520	LOC120052520	uncharacterized LOC120052520	1	2	1	0
+gene-LOC120024202	LOC120024202	uncharacterized LOC120024202	1	2	1	0
+gene-LOC120058265	LOC120058265	cytochrome c-like	1	2	1	6
+gene-LOC120058284	LOC120058284	NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 10, mitochondrial-like	1	2	1	3
+gene-LOC120057574	LOC120057574	organic solute transporter subunit alpha-like	1	2	1	2
+gene-LOC120059594	LOC120059594	ubiquitin thioesterase OTU1	1	2	1	7
+gene-LOC120050796	LOC120050796		1	2	1	0
+gene-LOC120045700	LOC120045700	forkhead box protein L3-like	1	2	1	5
+gene-LOC120058291	LOC120058291	ADP-ribosylation factor-like protein 4C	2	1	-1	5
+gene-LOC120042742	LOC120042742	histone-lysine N-methyltransferase set-1-like	3	2	-1	1
+gene-LOC120028410	LOC120028410	small nucleolar RNA SNORA57	1	2	1	0
+gene-LOC120064423	LOC120064423	aspartate--tRNA ligase, cytoplasmic-like	1	2	1	7
+gene-LOC120050593	LOC120050593	sodium-dependent serotonin transporter-like	1	2	1	6
+gene-mthfs	mthfs	5,10-methenyltetrahydrofolate synthetase (5-formyltetrahydrofolate cyclo-ligase)	1	2	1	4
+gene-LOC120035389	LOC120035389	zinc finger protein OZF-like	1	2	1	4
+gene-vash1	vash1	vasohibin 1	1	2	1	2
+gene-LOC120062347	LOC120062347	forkhead box protein O4-like	1	2	1	4
+gene-LOC120051141	LOC120051141	neuropeptide Y receptor type 1-like	1	2	1	5
+gene-LOC120026473	LOC120026473	TOG array regulator of axonemal microtubules protein 1-like	2	3	1	4
+gene-LOC120033798	LOC120033798	ferritin, middle subunit-like	3	2	-1	6
+gene-LOC120063209	LOC120063209	leucine-rich repeat transmembrane neuronal protein 4-like	1	2	1	1
+gene-LOC120032358	LOC120032358	uncharacterized LOC120032358	1	2	1	0
+gene-LOC120064292	LOC120064292	guanylate-binding protein 1-like	2	1	-1	2
+gene-rfx1a	rfx1a	regulatory factor X, 1a (influences HLA class II expression)	1	2	1	4
+gene-LOC120033158	LOC120033158	gastrula zinc finger protein XlCGF7.1-like	2	1	-1	5
+gene-LOC120027556	LOC120027556	small nucleolar RNA SNORD99	1	2	1	0
+gene-LOC120021614	LOC120021614	uncharacterized LOC120021614	1	2	1	0
+gene-LOC120040405	LOC120040405	general transcription factor II-I repeat domain-containing protein 2-like	2	1	-1	0
+gene-LOC120050295	LOC120050295	protein atonal homolog 1-like	2	1	-1	1
+gene-LOC120060834	LOC120060834	meteorin-like	1	2	1	4
+gene-LOC120048224	LOC120048224	heterogeneous nuclear ribonucleoprotein A0-like	1	2	1	1
+gene-coq6	coq6	coenzyme Q6 monooxygenase	1	2	1	5
+gene-LOC120051821	LOC120051821	lipoxygenase homology domain-containing protein 1-like	1	2	1	1
+gene-LOC120022196	LOC120022196		1	2	1	0
+gene-rab42b	rab42b	RAB42, member RAS oncogene family	1	2	1	2
+gene-LOC120039840	LOC120039840	chymotrypsin A-like	1	2	1	2
+gene-LOC120041015	LOC120041015	tripartite motif-containing protein 16-like	1	2	1	2
+gene-LOC120020779	LOC120020779	small nucleolar RNA SNORD2	1	2	1	0
+gene-LOC120057822	LOC120057822	uncharacterized LOC120057822	1	2	1	0
+gene-zgc:194655	zgc:194655	uncharacterized protein LOC794380 homolog	1	2	1	1
+gene-noxo1a	noxo1a	NADPH oxidase organizer 1a	1	2	1	4
+gene-LOC120040483	LOC120040483	5S ribosomal RNA	2	1	-1	0
+gene-LOC120036994	LOC120036994	TSC22 domain family protein 1-like	1	2	1	1
+gene-LOC120037301	LOC120037301	zinc finger protein 135-like	2	1	-1	4
+gene-zglp1	zglp1	zinc finger GATA like protein 1	1	2	1	6
+gene-LOC120059167	LOC120059167	homeodomain-interacting protein kinase 1-like	1	2	1	10
+gene-LOC120056217	LOC120056217	mitochondrial ubiquitin ligase activator of nfkb 1-A-like	1	2	1	3
+gene-emb	emb	embigin	1	2	1	6
+gene-LOC120054008	LOC120054008	P2X purinoceptor 2-like	1	2	1	7
+gene-spcs2	spcs2	signal peptidase complex subunit 2	1	2	1	4
+gene-LOC120059740	LOC120059740	potassium voltage-gated channel subfamily S member 3-like	1	2	1	6
+gene-cd180	cd180	CD180 molecule	1	2	1	1
+gene-LOC120050644	LOC120050644	vascular cell adhesion protein 1-like	1	2	1	0
+gene-zgc:154075	zgc:154075	uncharacterized protein LOC556929 homolog	1	2	1	1
+gene-LOC120027495	LOC120027495	histone-lysine N-methyltransferase, H3 lysine-79 specific-like	2	1	-1	0
+gene-sar1aa	sar1aa	secretion associated, Ras related GTPase 1Aa	1	2	1	10
+gene-LOC120050408	LOC120050408	regulator of G-protein signaling 20-like	1	2	1	0
+gene-vps72a	vps72a	vacuolar protein sorting 72 homolog a	1	2	1	4
+gene-pde6gb	pde6gb	phosphodiesterase 6G, cGMP-specific, rod, gamma, paralog b	1	2	1	6
+gene-LOC120026216	LOC120026216	interferon-induced protein 44-like	1	2	1	0
+gene-fem1b	fem1b	fem-1 homolog b	2	1	-1	1
+gene-LOC120027231	LOC120027231	glucocorticoid modulatory element-binding protein 1-like	1	2	1	4
+gene-LOC120030031	LOC120030031	poly [ADP-ribose] polymerase tankyrase-2-like	1	2	1	4
+gene-LOC120033493	LOC120033493	gastrula zinc finger protein XlCGF17.1-like	1	2	1	3
+gene-pgd	pgd	phosphogluconate dehydrogenase	1	2	1	6
+gene-LOC120024896	LOC120024896	macrophage-stimulating protein receptor-like	1	2	1	12
+gene-LOC120047235	LOC120047235	carcinoembryonic antigen-related cell adhesion molecule 5-like	2	1	-1	0
+gene-LOC120020690	LOC120020690	SRSF protein kinase 3-like	1	2	1	5
+gene-LOC120034457	LOC120034457	membrane-spanning 4-domains subfamily A member 4A-like	1	2	1	1
+gene-LOC120032211	LOC120032211	NEDD4 family-interacting protein 1-like	1	2	1	8
+gene-LOC120047062	LOC120047062	protocadherin gamma-C3-like	1	2	1	3
+gene-LOC120057652	LOC120057652	U7 small nuclear RNA	1	2	1	0
+gene-LOC120052759	LOC120052759	guanine deaminase-like	1	2	1	4
+gene-scamp2l	scamp2l	secretory carrier membrane protein 2, like	1	2	1	3
+gene-LOC120060142	LOC120060142	histone-lysine N-methyltransferase SETMAR-like	1	2	1	5
+gene-LOC120035884	LOC120035884	uncharacterized LOC120035884	1	2	1	0
+gene-LOC120041835	LOC120041835	acid-sensing ion channel 2-like	2	1	-1	3
+gene-LOC120018266	LOC120018266	alpha-2-macroglobulin-like	1	2	1	3
+gene-LOC120034985	LOC120034985	uncharacterized LOC120034985	1	2	1	0
+gene-rnf213b	rnf213b	ring finger protein 213b	1	2	1	9
+gene-rnf14	rnf14	ring finger protein 14	1	2	1	8
+gene-LOC120041975	LOC120041975	N-acetylaspartate synthetase-like	2	1	-1	2
+gene-rdh14a	rdh14a	retinol dehydrogenase 14a	1	2	1	0
+gene-LOC120036265	LOC120036265	uncharacterized LOC120036265	2	1	-1	0
+gene-LOC120035894	LOC120035894	uncharacterized protein K02A2.6-like	7	8	1	5
+gene-LOC120020706	LOC120020706	uncharacterized LOC120020706	3	2	-1	0
+gene-LOC120049758	LOC120049758	complement C1q-like protein 2	1	2	1	1
+gene-LOC120028889	LOC120028889	protein YIF1B-like	1	2	1	5
+gene-LOC120064331	LOC120064331	ubiquitin-conjugating enzyme E2 variant 1-like	1	2	1	3
+gene-LOC120063134	LOC120063134	golgin subfamily A member 1-like	1	2	1	1
+gene-LOC120047829	LOC120047829	protocadherin beta-16-like	1	2	1	3
+gene-LOC120037643	LOC120037643	NLR family CARD domain-containing protein 3-like	2	1	-1	0
+gene-LOC120032454	LOC120032454	B-cell receptor CD22-like	2	1	-1	0
+gene-LOC120031497	LOC120031497	exocyst complex component 3-like	1	2	1	4
+gene-LOC120037031	LOC120037031	NACHT, LRR and PYD domains-containing protein 1 homolog	2	1	-1	1
+gene-LOC120020565	LOC120020565	gastrula zinc finger protein XlCGF17.1-like	1	2	1	5
+gene-LOC120033778	LOC120033778	U2 spliceosomal RNA	1	2	1	0
+gene-LOC120032819	LOC120032819	DNA-directed RNA polymerase III subunit RPC6	1	2	1	2
+gene-LOC120060897	LOC120060897	adaptin ear-binding coat-associated protein 2-like	2	1	-1	3
+gene-LOC120027316	LOC120027316	uncharacterized LOC120027316	4	3	-1	0
+gene-kctd10	kctd10	potassium channel tetramerization domain containing 10	1	2	1	7
+gene-LOC120031876	LOC120031876		1	2	1	0
+gene-ankk1	ankk1	ankyrin repeat and kinase domain containing 1	1	2	1	6
+gene-LOC120054193	LOC120054193	probable peptidyl-tRNA hydrolase	2	1	-1	1
+gene-LOC120024479	LOC120024479	uncharacterized protein KIAA0408-like	1	2	1	0
+gene-LOC120063109	LOC120063109	long-chain-fatty-acid--CoA ligase ACSBG2-like	1	2	1	3
+gene-LOC120053650	LOC120053650	TGF-beta-activated kinase 1 and MAP3K7-binding protein 3-like	1	2	1	2
+gene-LOC120065318	LOC120065318	green-sensitive opsin-like	1	2	1	6
+gene-LOC120021226	LOC120021226	mediator of RNA polymerase II transcription subunit 22	1	2	1	3
+gene-LOC120040408	LOC120040408	gastrula zinc finger protein XlCGF57.1-like	2	1	-1	3
+gene-LOC120030431	LOC120030431	odorant receptor 131-2-like	1	2	1	3
+gene-LOC120047894	LOC120047894	protocadherin beta-16-like	1	2	1	3
+gene-azin1b	azin1b	antizyme inhibitor 1b	2	1	-1	6
+gene-LOC120017876	LOC120017876	uncharacterized LOC120017876	2	1	-1	0
+gene-LOC120050321	LOC120050321	pyruvate dehydrogenase E1 component subunit alpha, mitochondrial-like	1	2	1	3
+gene-rassf11	rassf11	Ras association domain family member 11	1	2	1	1
+gene-LOC120035061	LOC120035061	up-regulator of cell proliferation-like	1	2	1	2
+gene-LOC120049497	LOC120049497	prostaglandin D2 receptor 2-like	1	2	1	7
+gene-LOC120045894	LOC120045894	inhibitory synaptic factor 2A-like	1	2	1	2
+gene-LOC120033005	LOC120033005	uncharacterized LOC120033005	1	2	1	0
+gene-LOC120031328	LOC120031328	gamma-aminobutyric acid receptor-associated protein-like 1	1	2	1	9
+gene-kpnb3	kpnb3	karyopherin (importin) beta 3	1	2	1	6
+gene-LOC120021795	LOC120021795	zinc finger and BTB domain-containing protein 43-like	1	2	1	4
+gene-nitr7b	nitr7b	novel immune-type receptor 7b	2	1	-1	0
+gene-LOC120021870	LOC120021870	interferon-induced protein 44-like	1	2	1	0
+gene-LOC120049493	LOC120049493	pescadillo homolog	1	2	1	5
+gene-LOC120034918	LOC120034918	zinc finger protein 708-like	1	2	1	4
+gene-LOC120056340	LOC120056340	small nucleolar RNA SNORD2	1	2	1	0
+gene-LOC120042559	LOC120042559	uncharacterized LOC120042559	2	3	1	0
+gene-LOC120066529	LOC120066529	uncharacterized LOC120066529	1	2	1	0
+gene-LOC120060502	LOC120060502	ras-related protein rab7	1	2	1	7
+gene-LOC120055700	LOC120055700	serine/threonine-protein kinase PRP4 homolog	1	2	1	5
+gene-LOC120055774	LOC120055774	selenoprotein F-like	1	2	1	2
+gene-LOC120031190	LOC120031190	uncharacterized LOC120031190	1	2	1	0
+gene-LOC120043027	LOC120043027	gastrula zinc finger protein XlCGF49.1-like	3	2	-1	3
+gene-LOC120029226	LOC120029226	olfactory receptor 2A25-like	2	3	1	4
+gene-LOC120063903	LOC120063903	OX-2 membrane glycoprotein-like	1	2	1	1
+gene-LOC120051789	LOC120051789	complement factor D-like	1	2	1	2
+gene-ccna1	ccna1	cyclin A1	1	2	1	6
+gene-LOC120021921	LOC120021921	small nucleolar RNA SNORD24	1	2	1	0
+gene-LOC120047436	LOC120047436	adhesion G protein-coupled receptor E3-like	1	2	1	2
+gene-LOC120046600	LOC120046600	polyribonucleotide nucleotidyltransferase 1, mitochondrial-like	1	2	1	7
+gene-LOC120055335	LOC120055335	lymphocyte expansion molecule-like	1	2	1	0
+gene-LOC120055206	LOC120055206	major facilitator superfamily domain-containing protein 12-like	2	1	-1	3
+gene-LOC120031449	LOC120031449	protein asteroid homolog 1-like	2	1	-1	1
+gene-LOC120047442	LOC120047442	zinc finger protein 436-like	1	2	1	3
+gene-LOC120017684	LOC120017684	histone-arginine methyltransferase CARM1-like	1	2	1	2
+gene-LOC120034917	LOC120034917	zinc finger protein 224-like	1	2	1	3
+gene-srsf1a	srsf1a	serine and arginine rich splicing factor 1a	1	2	1	4
+gene-LOC120022349	LOC120022349	splicing factor U2AF 65 kDa subunit-like	1	2	1	8
+gene-LOC120020781	LOC120020781	small nucleolar RNA SNORD2	1	2	1	0
+gene-LOC120048071	LOC120048071	uncharacterized LOC120048071	1	2	1	0
+gene-LOC120021774	LOC120021774	TNF receptor-associated factor 2-like	1	2	1	13
+gene-LOC120021750	LOC120021750	uncharacterized LOC120021750	3	2	-1	0
+gene-LOC120047439	LOC120047439	zinc-binding protein A33-like	1	2	1	2
+gene-LOC120062436	LOC120062436	pre-mRNA-processing factor 39-like	1	2	1	6
+gene-LOC120045870	LOC120045870	potassium channel subfamily K member 18-like	1	2	1	4
+gene-LOC120052870	LOC120052870	NACHT, LRR and PYD domains-containing protein 3-like	1	2	1	1
+gene-LOC120060182	LOC120060182	protein SAND-like	1	2	1	2
+gene-LOC120038521	LOC120038521	uncharacterized LOC120038521	2	1	-1	8
+gene-LOC120055599	LOC120055599	probable E3 ubiquitin-protein ligase TRIM8	1	2	1	1
+gene-LOC120063133	LOC120063133	60S ribosomal protein L35-like	1	2	1	6
+gene-LOC120019547	LOC120019547	uncharacterized LOC120019547	1	2	1	0
+gene-LOC120033678	LOC120033678	gastrula zinc finger protein XlCGF17.1-like	1	2	1	4
+gene-LOC120057918	LOC120057918	gamma-crystallin M3-like	1	2	1	3
+gene-LOC120035641	LOC120035641	neogenin-like	1	2	1	3
+gene-lins1	lins1	lines homolog 1	1	2	1	0
+gene-LOC120064750	LOC120064750	caveolin-3-like	2	1	-1	6
+gene-LOC120031752	LOC120031752	probable E3 ubiquitin-protein ligase DTX2	1	2	1	5
+gene-rergla	rergla	RERG/RAS-like a	1	2	1	2
+gene-LOC120030043	LOC120030043	uncharacterized LOC120030043	1	2	1	0
+gene-LOC120017648	LOC120017648	axin-1-like	2	1	-1	1
+gene-LOC120053945	LOC120053945	tetraspanin-3-like	1	2	1	4
+gene-LOC120018473	LOC120018473	uncharacterized LOC120018473	1	2	1	0
+gene-LOC120036574	LOC120036574	small nucleolar RNA SNORD31	2	1	-1	0
+gene-LOC120058283	LOC120058283	aryl hydrocarbon receptor-like	1	2	1	6
+gene-LOC120055680	LOC120055680	C-C motif chemokine 20-like	2	1	-1	16
+gene-gga3b	gga3b	golgi associated, gamma adaptin ear containing, ARF binding protein 3b	1	2	1	6
+gene-rrp15	rrp15	ribosomal RNA processing 15 homolog	1	2	1	3
+gene-LOC120048086	LOC120048086	catenin delta-1-like	1	2	1	7
+gene-LOC120059076	LOC120059076	tumor necrosis factor receptor superfamily member 14-like	1	2	1	13
+gene-LOC120064974	LOC120064974	uncharacterized LOC120064974	1	2	1	0
+gene-eme1	eme1	essential meiotic structure-specific endonuclease 1	1	2	1	8
+gene-LOC120050889	LOC120050889	gastrula zinc finger protein XlCGF17.1-like	2	1	-1	0
+gene-LOC120066646	LOC120066646	synaptic vesicle glycoprotein 2B-like	1	2	1	4
+gene-LOC120035708	LOC120035708	tripartite motif-containing protein 16-like	1	2	1	1
+gene-LOC120051494	LOC120051494	uncharacterized LOC120051494	2	1	-1	0
+gene-LOC120025161	LOC120025161	heat shock factor-binding protein 1-like	2	1	-1	4
+gene-LOC120032464	LOC120032464	adenylate cyclase type 9-like	2	1	-1	4
+gene-fancd2	fancd2	FA complementation group D2	1	2	1	7
+gene-sepsecs	sepsecs	Sep (O-phosphoserine) tRNA:Sec (selenocysteine) tRNA synthase	1	2	1	4
+gene-LOC120052137	LOC120052137	rho guanine nucleotide exchange factor 18-like	1	2	1	3
+gene-lyl1	lyl1	LYL1 basic helix-loop-helix family member	1	2	1	4
+gene-LOC120031014	LOC120031014	gasdermin-E-like	1	2	1	2
+gene-LOC120029595	LOC120029595	zinc finger protein 420-like	2	1	-1	0
+gene-LOC120037848	LOC120037848	uncharacterized LOC120037848	4	5	1	0
+gene-LOC120030595	LOC120030595	general transcription factor II-I repeat domain-containing protein 2B-like	3	2	-1	0
+gene-LOC120024463	LOC120024463	mitotic checkpoint serine/threonine-protein kinase BUB1-like	1	2	1	5
+gene-LOC120035187	LOC120035187	docking protein 1-like	1	2	1	3
+gene-LOC120037843	LOC120037843	uncharacterized LOC120037843	2	3	1	0
+gene-sst6	sst6	somatostatin 6	1	2	1	4
+gene-LOC120047943	LOC120047943	phospholipase A and acyltransferase 4-like	1	2	1	5
+gene-LOC120057644	LOC120057644	U5 spliceosomal RNA	1	2	1	0
+gene-grm6b	grm6b	glutamate receptor, metabotropic 6b	1	2	1	4
+gene-si:dkey-243k1.3	si:dkey-243k1.3	endonuclease domain-containing 1 protein-like	1	2	1	3
+gene-c15h2orf50	c15h2orf50	chromosome 15 C2orf50 homolog	1	2	1	0
+gene-LOC120043024	LOC120043024	zinc finger protein 271-like	2	1	-1	0
+gene-LOC120049249	LOC120049249	coatomer subunit beta-like	1	2	1	6
+gene-LOC120049644	LOC120049644	tapasin-related protein-like	1	2	1	0
+gene-LOC120047367	LOC120047367	uncharacterized LOC120047367	2	1	-1	0
+gene-LOC120058295	LOC120058295	rho GTPase-activating protein 15-like	1	2	1	3
+gene-LOC120053059	LOC120053059	uncharacterized LOC120053059	1	2	1	0
+gene-fgl2a	fgl2a	fibrinogen-like 2a	1	2	1	2
+gene-kdelr2b	kdelr2b	KDEL endoplasmic reticulum protein retention receptor 2b	2	1	-1	6
+gene-LOC120049781	LOC120049781	E3 ubiquitin/ISG15 ligase TRIM25-like	1	2	1	1
+gene-LOC120053662	LOC120053662	cytochrome P450 2J5-like	1	2	1	7
+gene-LOC120041266	LOC120041266	uncharacterized LOC120041266	1	2	1	0
+gene-LOC120062437	LOC120062437	UBX domain-containing protein 1-like	1	2	1	1
+gene-LOC120030016	LOC120030016	somatostatin receptor type 2-like	1	2	1	7
+gene-LOC120027201	LOC120027201	uncharacterized LOC120027201	1	2	1	0
+gene-LOC120021459	LOC120021459	ribosomal protein S6 kinase alpha-3	1	2	1	5
+gene-LOC120045609	LOC120045609	uncharacterized LOC120045609	1	2	1	1
+gene-comtb	comtb	catechol-O-methyltransferase b	1	2	1	4
+gene-LOC120021140	LOC120021140	cytochrome c oxidase assembly factor 4 homolog, mitochondrial-like	3	2	-1	2
+gene-ppie	ppie	peptidylprolyl isomerase E (cyclophilin E)	1	2	1	5
+gene-LOC120062697	LOC120062697	uncharacterized LOC120062697	1	2	1	0
+gene-LOC120053467	LOC120053467	uncharacterized LOC120053467	1	2	1	0
+gene-LOC120064033	LOC120064033	E3 ubiquitin-protein ligase HECW2-like	1	2	1	4
+gene-LOC120041320	LOC120041320	stonustoxin subunit beta-like	2	1	-1	1
+gene-LOC120036113	LOC120036113	NACHT, LRR and PYD domains-containing protein 1 homolog	1	2	1	1
+gene-LOC120053092	LOC120053092	small nucleolar RNA U3	2	1	-1	0
+gene-LOC120029195	LOC120029195	A disintegrin and metalloproteinase with thrombospondin motifs 15-like	1	2	1	4
+gene-LOC120019463	LOC120019463	ribonucleoside-diphosphate reductase subunit M2	1	2	1	3
+gene-LOC120037615	LOC120037615	probable E3 ubiquitin-protein ligase HERC4	1	2	1	2
+gene-LOC120058288	LOC120058288	SH3 domain-binding protein 4-like	1	2	1	2
+gene-cebp1	cebp1	CCAAT/enhancer binding protein (C/EBP) 1	1	2	1	5
+gene-LOC120063416	LOC120063416	tripartite motif-containing protein 35-like	1	2	1	2
+gene-LOC120064929	LOC120064929	V-set and transmembrane domain-containing protein 2-like protein	1	2	1	0
+gene-LOC120057397	LOC120057397	transmembrane protein 272-like	1	2	1	0
+gene-LOC120017908	LOC120017908	uncharacterized LOC120017908	1	2	1	1
+gene-LOC120050431	LOC120050431	hyaluronan and proteoglycan link protein 1-like	1	2	1	2
+gene-LOC120026501	LOC120026501	glutamate receptor ionotropic, NMDA 1-like	1	2	1	9
+gene-LOC120023889	LOC120023889	cannabinoid receptor type 1A-like	1	2	1	3
+gene-LOC120032428	LOC120032428	CMRF35-like molecule 6	1	2	1	0
+gene-LOC120058290	LOC120058290	protein ADP-ribosylarginine hydrolase-like	2	1	-1	3
+gene-paip2b	paip2b	poly(A) binding protein interacting protein 2B	1	2	1	3
+gene-LOC120032598	LOC120032598	transcription activator BRG1	1	2	1	7
+gene-LOC120053100	LOC120053100	small nucleolar RNA U3	8	7	-1	0
+gene-cdk18	cdk18	cyclin dependent kinase 18	1	2	1	6
+gene-LOC120042155	LOC120042155	uncharacterized LOC120042155	3	2	-1	0
+gene-LOC120048640	LOC120048640	CDKN2A interacting protein	1	2	1	2
+gene-LOC120055336	LOC120055336	leucine rich adaptor protein 1-like	1	2	1	2
+gene-LOC120053973	LOC120053973	zona pellucida sperm-binding protein 4-like	1	2	1	6
+gene-trnag-ccc	trnag-ccc	tRNA-Gly	6	7	1	0
+gene-LOC120040445	LOC120040445	U1 spliceosomal RNA	3	2	-1	0
+gene-LOC120022811	LOC120022811	keratin, type I cytoskeletal 13-like	1	2	1	1
+gene-LOC120051492	LOC120051492	protein jagunal homolog 1-B	1	2	1	4
+gene-LOC120043448	LOC120043448	myelin-associated glycoprotein-like	1	2	1	0
+gene-LOC120048084	LOC120048084	zinc finger and SCAN domain-containing protein 21-like	1	2	1	1
+gene-LOC120055775	LOC120055775	heparan sulfate 2-O-sulfotransferase 1-like	1	2	1	4
+gene-LOC120023350	LOC120023350	uncharacterized LOC120023350	8	9	1	2
+gene-LOC120055850	LOC120055850	5'-3' exoribonuclease 1-like	1	2	1	5
+gene-LOC120044423	LOC120044423	glutamate receptor 1-like	1	2	1	10
+gene-bglapl	bglapl	bone gamma-carboxyglutamate (gla) protein, like	2	1	-1	8
+gene-LOC120041417	LOC120041417	gastrula zinc finger protein XlCGF17.1-like	2	1	-1	5
+gene-LOC120043670	LOC120043670	protein Tob1-like	1	2	1	4
+gene-rln3a	rln3a	relaxin 3a	1	2	1	2
+gene-LOC120044239	LOC120044239	uncharacterized LOC120044239	1	2	1	6
+gene-LOC120063844	LOC120063844	ubiquitin-associated protein 2-like	1	2	1	3
+gene-LOC120046748	LOC120046748	serine protease 27-like	1	2	1	2
+gene-LOC120054062	LOC120054062	diphosphoinositol polyphosphate phosphohydrolase 3-beta-like	1	2	1	10
+gene-mindy4	mindy4	MINDY lysine 48 deubiquitinase 4	1	2	1	3
+gene-LOC120031556	LOC120031556	transient receptor potential cation channel subfamily V member 6-like	1	2	1	4
+gene-LOC120029958	LOC120029958	probable E3 ubiquitin-protein ligase HECTD2	1	2	1	2
+gene-mrps7	mrps7	mitochondrial ribosomal protein S7	1	2	1	6
+gene-LOC120040410	LOC120040410	gastrula zinc finger protein XlCGF57.1-like	2	1	-1	3
+gene-LOC120029973	LOC120029973	ribonuclease P protein subunit p30-like	1	2	1	6
+gene-LOC120062429	LOC120062429	uncharacterized LOC120062429	1	2	1	0
+gene-LOC120055645	LOC120055645	carbonic anhydrase 4-like	1	2	1	3
+gene-LOC120065157	LOC120065157	ETS domain-containing protein Elk-4-like	1	2	1	5
+gene-si:dkey-43k4.5	si:dkey-43k4.5	potassium voltage-gated channel subfamily S member 1	1	2	1	7
+gene-LOC120052017	LOC120052017	uncharacterized LOC120052017	9	10	1	0
+gene-bri3	bri3	brain protein I3	1	2	1	0
+gene-LOC120066694	LOC120066694	UDP-GlcNAc:betaGal beta-1,3-N-acetylglucosaminyltransferase 7-like	1	2	1	3
+gene-LOC120047970	LOC120047970	protocadherin gamma-C5-like	1	2	1	3
+gene-LOC120055852	LOC120055852	uncharacterized LOC120055852	1	2	1	0
+gene-LOC120047059	LOC120047059	protocadherin beta-16-like	1	2	1	3
+gene-LOC120051059	LOC120051059	myosin-7-like	1	2	1	4
+gene-LOC120021204	LOC120021204	cip1-interacting zinc finger protein-like	1	2	1	3
+gene-LOC120042982	LOC120042982	U1 spliceosomal RNA	1	2	1	0
+gene-LOC120056216	LOC120056216	dol-P-Man:Man(5)GlcNAc(2)-PP-Dol alpha-1,3-mannosyltransferase-like	1	2	1	3
+gene-LOC120019684	LOC120019684	protein-L-isoaspartate(D-aspartate) O-methyltransferase-like	1	2	1	3
+gene-LOC120047828	LOC120047828	protocadherin beta-16-like	1	2	1	3
+gene-LOC120053649	LOC120053649	transmembrane gamma-carboxyglutamic acid protein 1-like	1	2	1	3
+gene-ruvbl2	ruvbl2	RuvB-like AAA ATPase 2	1	2	1	11
+gene-LOC120021872	LOC120021872	GDNF family receptor alpha-2-like	1	2	1	4
+gene-LOC120024225	LOC120024225	zinc finger protein 292-like	1	2	1	4
+gene-LOC120025030	LOC120025030	FAS-associated death domain protein-like	1	2	1	3
+gene-LOC120029935	LOC120029935	cytochrome c oxidase assembly protein COX19	1	2	1	2
+gene-LOC120021126	LOC120021126	claudin-4-like	2	1	-1	5
+gene-LOC120065638	LOC120065638	contactin-3-like	1	2	1	3
+gene-LOC120021841	LOC120021841	purine-rich element-binding protein gamma-like	1	2	1	5
+gene-LOC120038195	LOC120038195	GTPase IMAP family member 7-like	1	2	1	1
+gene-nmbb	nmbb	neuromedin Bb	1	2	1	5
+gene-dusp27	dusp27	dual specificity phosphatase 27	1	2	1	5
+gene-LOC120032048	LOC120032048	calcium-independent phospholipase A2-gamma-like	2	1	-1	3
+gene-LOC120020780	LOC120020780	small nucleolar RNA SNORD2	1	2	1	0
+gene-LOC120032471	LOC120032471	forkhead box protein D3-B-like	1	2	1	5
+gene-LOC120056797	LOC120056797	protein ABHD15	1	2	1	3
+gene-LOC120040520	LOC120040520	complement C1q-like protein 2	1	2	1	1
+gene-foxn4	foxn4	forkhead box N4	1	2	1	3
+gene-LOC120023751	LOC120023751	uncharacterized LOC120023751	1	2	1	0
+gene-LOC120053807	LOC120053807	nexilin-like	1	2	1	6
+gene-appl2	appl2	adaptor protein, phosphotyrosine interaction, PH domain and leucine zipper containing 2	1	2	1	4
+gene-LOC120031776	LOC120031776	transforming growth factor beta activator LRRC32-like	1	2	1	4
+gene-LOC120057641	LOC120057641	U2 spliceosomal RNA	1	2	1	0
+gene-LOC120063507	LOC120063507	sesquipedalian-1-like	1	2	1	6
+gene-LOC120020560	LOC120020560	solute carrier family 26 member 6-like	1	2	1	7
+gene-LOC120055371	LOC120055371	uncharacterized LOC120055371	2	3	1	5
+gene-LOC120024924	LOC120024924	pro-cathepsin H-like	1	2	1	5
+gene-LOC120053329	LOC120053329	reelin-like	1	2	1	3
+gene-LOC120057222	LOC120057222	55 kDa erythrocyte membrane protein-like	1	2	1	3
+gene-LOC120037007	LOC120037007	U2 spliceosomal RNA	3	4	1	0
+gene-LOC120029229	LOC120029229	olfactory receptor 11A1-like	1	2	1	4
+gene-myo1ha	myo1ha	myosin IHa	1	2	1	11
+gene-LOC120064916	LOC120064916	L-rhamnose-binding lectin CSL3-like	2	1	-1	1
+gene-rps24	rps24	ribosomal protein S24	2	1	-1	3
+gene-LOC120031793	LOC120031793	achaete-scute homolog 4-like	1	2	1	5
+gene-LOC120059142	LOC120059142	tubulin alpha chain-like	2	1	-1	6
+gene-sft2d2b	sft2d2b	SFT2 domain containing 2b	1	2	1	2
+gene-LOC120033365	LOC120033365	uncharacterized LOC120033365	1	2	1	0
+gene-LOC120029457	LOC120029457	actin, aortic smooth muscle	1	2	1	0
+gene-ndr2	ndr2	nodal-related 2	1	2	1	7
+gene-LOC120033742	LOC120033742	uncharacterized LOC120033742	1	2	1	0
+gene-LOC120021069	LOC120021069	guanine nucleotide-binding protein G(t) subunit alpha-2-like	1	2	1	9
+gene-LOC120055032	LOC120055032	probable rRNA-processing protein EBP2	2	1	-1	5
+gene-LOC120027255	LOC120027255	XK-related protein 8-like	1	2	1	4
+gene-LOC120052804	LOC120052804	uncharacterized LOC120052804	2	1	-1	0
+gene-LOC120033646	LOC120033646	zinc finger protein 583-like	2	1	-1	3
+gene-LOC120026877	LOC120026877	palmitoyl-protein thioesterase 1-like	1	2	1	4
+gene-LOC120046598	LOC120046598	serine/threonine-protein phosphatase 4 regulatory subunit 3-like	1	2	1	5
+gene-LOC120029953	LOC120029953	COP9 signalosome complex subunit 3-like	1	2	1	2
+gene-LOC120057826	LOC120057826	solute carrier organic anion transporter family member 1B2-like	1	2	1	2
+gene-LOC120062759	LOC120062759	uncharacterized LOC120062759	1	2	1	0
+gene-LOC120052675	LOC120052675	influenza virus NS1A-binding protein homolog A-like	1	2	1	1
+gene-LOC120021321	LOC120021321	uncharacterized LOC120021321	1	2	1	0
+gene-LOC120056338	LOC120056338	small nucleolar RNA SNORD2	1	2	1	0
+gene-LOC120020726	LOC120020726	serine/arginine repetitive matrix protein 2-like	1	2	1	1
+gene-lrit3a	lrit3a	info leucine-rich repeat, immunoglobulin-like and transmembrane domains 3a	1	2	1	1
+gene-LOC120043214	LOC120043214	lipopolysaccharide-induced tumor necrosis factor-alpha factor homolog	2	1	-1	1
+gene-LOC120053998	LOC120053998	galactosylceramide sulfotransferase-like	1	2	1	4
+gene-LOC120044489	LOC120044489	interferon a3-like	2	1	-1	3
+gene-LOC120058026	LOC120058026	gamma-crystallin M2-like	1	2	1	3
+gene-LOC120029933	LOC120029933	cystatin-like	1	2	1	2
+gene-fam89a	fam89a	family with sequence similarity 89 member A	2	1	-1	0
+gene-LOC120026906	LOC120026906	uncharacterized LOC120026906	2	1	-1	0
+gene-LOC120057282	LOC120057282	pyruvate dehydrogenase (acetyl-transferring) kinase isozyme 3, mitochondrial-like	1	2	1	4
+gene-LOC120062815	LOC120062815	C-X-C motif chemokine 11-1-like	1	2	1	9
+gene-emp1	emp1	epithelial membrane protein 1	1	2	1	1
+gene-extl2	extl2	exostosin-like glycosyltransferase 2	1	2	1	3
+gene-LOC120064970	LOC120064970	ubiquinol-cytochrome-c reductase complex assembly factor 1	1	2	1	2
+gene-LOC120051190	LOC120051190	uncharacterized LOC120051190	9	10	1	0
+gene-LOC120041356	LOC120041356	zinc finger protein 180-like	3	2	-1	3
+gene-pdss2	pdss2	prenyl (decaprenyl) diphosphate synthase, subunit 2	1	2	1	5
+gene-LOC120027814	LOC120027814	GTPase IMAP family member 4-like	2	1	-1	1
+gene-LOC120055383	LOC120055383	SH2 domain-containing protein 1A-like	2	1	-1	0
+gene-LOC120040507	LOC120040507	NLR family CARD domain-containing protein 3-like	2	1	-1	0
+gene-LOC120059738	LOC120059738	G-protein coupled receptor family C group 6 member A-like	1	2	1	3
+gene-LOC120049662	LOC120049662	fragile X mental retardation syndrome-related protein 1-like	1	2	1	28
+gene-LOC120042436	LOC120042436	uncharacterized LOC120042436	49	48	-1	0
+gene-LOC120042903	LOC120042903	stonustoxin subunit beta-like	2	1	-1	1
+gene-tmem240a	tmem240a	transmembrane protein 240a	1	2	1	0
+gene-lgals8a	lgals8a	galectin 8a	1	2	1	1
+gene-LOC120018609	LOC120018609	olfactory receptor 6N1-like	1	2	1	4
+gene-LOC120066569	LOC120066569	BTB/POZ domain-containing protein KCTD9	1	2	1	3
+gene-LOC120044738	LOC120044738	zinc finger protein 501-like	2	1	-1	3
+gene-LOC120028308	LOC120028308	mRNA decay activator protein ZFP36-like	1	2	1	2
+gene-LOC120036568	LOC120036568	small nucleolar RNA SNORD31	1	2	1	0
+gene-plp1b	plp1b	proteolipid protein 1b	2	1	-1	5
+gene-kif20bb	kif20bb	kinesin family member 20Bb	1	2	1	7
+gene-LOC120063847	LOC120063847	C-X-C chemokine receptor type 4-like	1	2	1	7
+gene-LOC120047780	LOC120047780	sugar transporter SWEET1-like	2	1	-1	3
+gene-LOC120029767	LOC120029767	ribonuclease P protein subunit p30-like	1	2	1	6
+gene-LOC120059247	LOC120059247	spermatogenesis-associated serine-rich protein 2-like	1	2	1	2
+gene-LOC120024223	LOC120024223	cilia- and flagella-associated protein 206-like	1	2	1	5
+gene-nek11	nek11	NIMA-related kinase 11	1	2	1	3
+gene-LOC120031086	LOC120031086	gasdermin-E-like	1	2	1	2
+gene-ercc1	ercc1	excision repair cross-complementation group 1	1	2	1	9
+gene-LOC120041921	LOC120041921	5S ribosomal RNA	1	2	1	0
+gene-LOC120028242	LOC120028242	glyoxalase domain-containing protein 4-like	1	2	1	0
+gene-LOC120018277	LOC120018277	uncharacterized LOC120018277	2	1	-1	0
+gene-LOC120032462	LOC120032462	sialoadhesin-like	1	2	1	0
+gene-LOC120051898	LOC120051898	protein mago nashi homolog	2	1	-1	4
+gene-LOC120060379	LOC120060379	ornithine decarboxylase 1-like	1	2	1	3
+gene-LOC120060854	LOC120060854	potassium voltage-gated channel subfamily C member 1-like	1	2	1	8
+gene-LOC120062438	LOC120062438	EH domain-containing protein 1-like	1	2	1	11
+gene-LOC120051882	LOC120051882	guanine nucleotide-binding protein G(I)/G(S)/G(O) subunit gamma-12-like	1	2	1	3
+gene-LOC120032798	LOC120032798	serine/arginine-rich splicing factor 7-like	1	2	1	4
+gene-LOC120037694	LOC120037694	5S ribosomal RNA	2	3	1	0
+gene-LOC120058626	LOC120058626	chemokine-like protein TAFA-1	1	2	1	4
+gene-LOC120031912	LOC120031912	red-sensitive opsin-like	1	2	1	6
+gene-LOC120048208	LOC120048208	uncharacterized LOC120048208	2	1	-1	0
+gene-LOC120041684	LOC120041684	NACHT, LRR and PYD domains-containing protein 12-like	2	1	-1	1
+gene-LOC120062887	LOC120062887	trifunctional nucleotide phosphoesterase protein YfkN-like	1	2	1	2
+gene-LOC120022571	LOC120022571	tapasin-like	2	1	-1	2
+gene-LOC120054154	LOC120054154	suppressor of tumorigenicity 7 protein homolog	1	2	1	0
+gene-map1lc3a	map1lc3a	microtubule-associated protein 1 light chain 3 alpha	1	2	1	8
+gene-LOC120051752	LOC120051752	acyl-coenzyme A thioesterase 1-like	1	2	1	3
+gene-LOC120049420	LOC120049420	fish-egg lectin-like	2	1	-1	0
+gene-LOC120053106	LOC120053106	U1 spliceosomal RNA	1	2	1	0
+gene-LOC120035068	LOC120035068	uncharacterized LOC120035068	1	2	1	0
+gene-LOC120049782	LOC120049782	FACT complex subunit SPT16	1	2	1	4
+gene-LOC120058343	LOC120058343	MOB-like protein phocein	1	2	1	8
+gene-LOC120066949	LOC120066949	peripherin-2-like	1	2	1	2
+gene-LOC120047827	LOC120047827	protocadherin gamma-A2-like	1	2	1	3
+gene-LOC120043875	LOC120043875	delta-like protein B	1	2	1	5
+gene-LOC120052389	LOC120052389	troponin I, fast skeletal muscle-like	1	2	1	2
+gene-LOC120027637	LOC120027637	EMILIN-2-like	1	2	1	1
+gene-fdx2	fdx2	ferredoxin 2	1	2	1	4
+gene-LOC120059604	LOC120059604	protein PHTF2-like	1	2	1	1
+gene-LOC120051543	LOC120051543	BTB/POZ domain-containing protein KCTD12-like	1	2	1	4
+gene-LOC120066882	LOC120066882	small nucleolar RNA SNORD67	1	2	1	0
+gene-LOC120053527	LOC120053527	ALX homeobox protein 1-like	1	2	1	5
+gene-LOC120044130	LOC120044130	interferon-induced protein 44-like	1	2	1	0
+gene-LOC120028397	LOC120028397	protein KIAA0100-like	1	2	1	0
+gene-LOC120049767	LOC120049767	kinesin light chain 2-like	1	2	1	5
+gene-LOC120047794	LOC120047794	uncharacterized LOC120047794	1	2	1	0
+gene-LOC120057199	LOC120057199	PHD finger protein 12-like	1	2	1	5
+gene-fam214a	fam214a	family with sequence similarity 214 member A	2	1	-1	0
+gene-LOC120064205	LOC120064205	SEC14 domain and spectrin repeat-containing protein 1-like	1	2	1	0
+gene-LOC120065003	LOC120065003	uncharacterized LOC120065003	1	2	1	0
+gene-LOC120046293	LOC120046293	general transcription factor II-I repeat domain-containing protein 2-like	1	2	1	0
+gene-praf2	praf2	PRA1 domain family, member 2	1	2	1	1
+gene-LOC120018587	LOC120018587	olfactory receptor 6N1-like	1	2	1	4
+gene-LOC120018845	LOC120018845	high mobility group-T protein-like	1	2	1	2
+gene-LOC120043570	LOC120043570	calcium-activated potassium channel subunit beta-4-like	1	2	1	6
+gene-vax1	vax1	ventral anterior homeobox 1	1	2	1	6
+gene-LOC120058959	LOC120058959	protein-serine O-palmitoleoyltransferase porcupine-like	1	2	1	8
+gene-LOC120027323	LOC120027323	uncharacterized LOC120027323	23	24	1	0
+gene-ttll9	ttll9	tubulin tyrosine ligase-like family, member 9	1	2	1	5
+gene-LOC120046456	LOC120046456	phosphatidylinositide phosphatase SAC2-like	1	2	1	5
+gene-LOC120037454	LOC120037454	U1 spliceosomal RNA	1	2	1	0
+gene-c19h2orf69	c19h2orf69	chromosome 19 C2orf69 homolog	1	2	1	1
+gene-LOC120021224	LOC120021224	complement component C6-like	1	2	1	3
+gene-LOC120019936	LOC120019936	anion exchange protein 2-like	1	2	1	9
+gene-abhd5a	abhd5a	abhydrolase domain containing 5a	1	2	1	3
+gene-LOC120042965	LOC120042965	U1 spliceosomal RNA	8	9	1	0
+gene-LOC120034912	LOC120034912	B-cell CLL/lymphoma 6 member B protein-like	1	2	1	1
+gene-cd74a	cd74a	CD74 molecule, major histocompatibility complex, class II invariant chain a	2	1	-1	8
+gene-c1qtnf1	c1qtnf1	C1q and TNF related 1	1	2	1	2
+gene-LOC120026824	LOC120026824	NLR family CARD domain-containing protein 3-like	1	2	1	1
+gene-LOC120053974	LOC120053974	uncharacterized LOC120053974	1	2	1	0
+gene-LOC120044673	LOC120044673	serine/threonine-protein kinase/endoribonuclease IRE1-like	2	1	-1	9
+gene-LOC120047323	LOC120047323	ATP-dependent translocase ABCB1-like	1	2	1	5
+gene-LOC120043622	LOC120043622	uncharacterized LOC120043622	2	1	-1	1
+gene-LOC120029323	LOC120029323	voltage-dependent anion-selective channel protein 2	1	2	1	3
+gene-LOC120041205	LOC120041205	uncharacterized LOC120041205	1	2	1	0
+gene-LOC120062766	LOC120062766	C3a anaphylatoxin chemotactic receptor-like	1	2	1	10
+gene-LOC120049525	LOC120049525	uncharacterized LOC120049525	2	1	-1	0
+gene-LOC120051924	LOC120051924	uncharacterized LOC120051924	4	3	-1	0
+gene-LOC120058790	LOC120058790	tumor necrosis factor receptor superfamily member 14-like	1	2	1	13
+gene-LOC120065552	LOC120065552	odorant receptor 131-2-like	1	2	1	3
+gene-LOC120020777	LOC120020777	small nucleolar RNA SNORA81	1	2	1	0
+gene-LOC120032382	LOC120032382	cell death-inducing p53-target protein 1 homolog	1	2	1	1
+gene-idua	idua	alpha-L-iduronidase	1	2	1	3
+gene-LOC120062699	LOC120062699	complexin-4-like	1	2	1	6
+gene-LOC120056841	LOC120056841	tumor necrosis factor alpha-induced protein 8-like protein 3	2	1	-1	2
+gene-LOC120036707	LOC120036707	small nucleolar RNA U3	2	3	1	0
+gene-LOC120024861	LOC120024861	PRA1 family protein 3-like	1	2	1	2
+gene-LOC120031437	LOC120031437	polycomb protein SCMH1-like	1	2	1	3
+gene-LOC120024332	LOC120024332	collagen alpha-1(X) chain-like	1	2	1	1
+gene-LOC120043306	LOC120043306	uncharacterized LOC120043306	4	5	1	0
+gene-LOC120021292	LOC120021292	serine/threonine-protein phosphatase 2A catalytic subunit beta isoform	1	2	1	4
+gene-LOC120021973	LOC120021973	dual specificity protein kinase CLK2-like	1	2	1	5
+gene-ngdn	ngdn	neuroguidin, EIF4E binding protein	1	2	1	3
+gene-LOC120023616	LOC120023616	intraflagellar transport protein 43 homolog A	1	2	1	3
+gene-LOC120060593	LOC120060593	tumor necrosis factor receptor superfamily member 6B-like	1	2	1	1
+gene-LOC120025281	LOC120025281	C2 calcium-dependent domain-containing protein 4C-like	1	2	1	0
+gene-LOC120055018	LOC120055018	complement factor H-related protein 4-like	2	1	-1	0
+gene-LOC120043205	LOC120043205	U1 spliceosomal RNA	1	2	1	0
+gene-LOC120021787	LOC120021787	uncharacterized LOC120021787	2	1	-1	2
+gene-LOC120023146	LOC120023146	vacuolar protein sorting-associated protein 4B-like	1	2	1	0
+gene-LOC120032385	LOC120032385	uncharacterized LOC120032385	2	1	-1	0
+gene-ndnfl	ndnfl	neuron-derived neurotrophic factor, like	1	2	1	3
+gene-LOC120052819	LOC120052819	alpha/beta hydrolase domain-containing protein 17B	1	2	1	4
+gene-LOC120053120	LOC120053120	small nucleolar RNA SNORA16B/SNORA16A family	2	1	-1	0
+gene-LOC120029730	LOC120029730	cholesterol 25-hydroxylase-like protein	1	2	1	5
+gene-LOC120060792	LOC120060792	aerolysin-like protein	1	2	1	0
+gene-LOC120048061	LOC120048061	uncharacterized LOC120048061	1	2	1	0
+gene-LOC120040409	LOC120040409	zinc finger protein OZF-like	2	1	-1	3
+gene-LOC120056092	LOC120056092	homeobox and leucine zipper protein Homez-like	1	2	1	4
+gene-LOC120036477	LOC120036477	uncharacterized LOC120036477	1	2	1	0
+gene-LOC120062814	LOC120062814	C-X-C motif chemokine 11-1-like	1	2	1	9
+gene-keap1b	keap1b	kelch-like ECH-associated protein 1b	1	2	1	1
+gene-LOC120020583	LOC120020583	DCN1-like protein 1	1	2	1	6
+gene-LOC120050078	LOC120050078	E3 ubiquitin-protein ligase TRIM39-like	1	2	1	2
+gene-asmtl	asmtl	acetylserotonin O-methyltransferase-like	1	2	1	2
+gene-wu:fc50b12	wu:fc50b12	uncharacterized protein LOC103911624 homolog	1	2	1	2
+gene-LOC120053663	LOC120053663	cytochrome P450 2J5-like	1	2	1	7
+gene-LOC120049018	LOC120049018	leukotriene B4 receptor 1-like	1	2	1	4
+gene-mif4gdb	mif4gdb	MIF4G domain containing b	1	2	1	5
+gene-LOC120017640	LOC120017640	uncharacterized LOC120017640	2	1	-1	0
+gene-LOC120055682	LOC120055682	C-C motif chemokine 4-like	2	3	1	16
+gene-LOC120063595	LOC120063595	uncharacterized LOC120063595	1	2	1	0
+gene-LOC120018586	LOC120018586	olfactory receptor 6N1-like	1	2	1	4
+gene-LOC120025454	LOC120025454	uncharacterized LOC120025454	2	1	-1	0
+gene-LOC120054458	LOC120054458	4-hydroxyphenylpyruvate dioxygenase-like	1	2	1	4
+gene-LOC120041752	LOC120041752	endonuclease domain-containing 1 protein-like	1	2	1	3
+gene-LOC120057544	LOC120057544	V-set and immunoglobulin domain-containing protein 1-like	1	2	1	3
+gene-LOC120063750	LOC120063750	uncharacterized LOC120063750	1	2	1	0
+gene-LOC120065315	LOC120065315	serine/arginine-rich splicing factor 3-like	1	2	1	3
+gene-LOC120026067	LOC120026067	heat shock protein 30-like	3	4	1	3
+gene-pfkpa	pfkpa	phosphofructokinase, platelet a	1	2	1	12
+gene-LOC120053132	LOC120053132	small nucleolar RNA SNORD47	1	2	1	0
+gene-popdc3	popdc3	popeye domain containing 3	1	2	1	2
+gene-bend7	bend7	BEN domain containing 7	1	2	1	1
+gene-LOC120034901	LOC120034901	methylthioadenosine phosphorylase	2	1	-1	4
+gene-LOC120062350	LOC120062350	ras-related protein Rap-2c	1	2	1	6
+gene-LOC120025370	LOC120025370	uncharacterized LOC120025370	5	6	1	0
+gene-LOC120062522	LOC120062522	beta-1,4-galactosyltransferase 7-like	2	1	-1	3
+gene-LOC120049019	LOC120049019	serine/threonine-protein kinase D3-like	1	2	1	4
+gene-LOC120062892	LOC120062892	chemokine-like receptor 1	1	2	1	10
+gene-LOC120053412	LOC120053412	testis-specific serine/threonine-protein kinase 6-like	1	2	1	7
+gene-dachc	dachc	dachshund c	1	2	1	0
+gene-arih1	arih1	ariadne ubiquitin-conjugating enzyme E2 binding protein homolog 1 (Drosophila)	1	2	1	0
+gene-LOC120019678	LOC120019678	katanin p60 ATPase-containing subunit A1	1	2	1	6
+gene-LOC120027360	LOC120027360	probable thiopurine S-methyltransferase	1	2	1	1
+gene-LOC120057064	LOC120057064	toll-like receptor 13	1	2	1	6
+gene-LOC120021948	LOC120021948	small nucleolar RNA SNORD36	1	2	1	0
+gene-LOC120053056	LOC120053056	ecto-ADP-ribosyltransferase 5-like	2	3	1	2
+gene-tut1	tut1	terminal uridylyl transferase 1, U6 snRNA-specific	1	2	1	4
+gene-LOC120055543	LOC120055543	disks large-associated protein 1-like	1	2	1	5
+gene-LOC120033048	LOC120033048	GTPase IMAP family member 7	1	2	1	1
+gene-LOC120055848	LOC120055848	carbonic anhydrase-related protein-like	1	2	1	2
+gene-zranb2	zranb2	zinc finger, RAN-binding domain containing 2	1	2	1	3
+gene-LOC120050789	LOC120050789		4	5	1	0
+gene-LOC120029674	LOC120029674	ankyrin repeat domain-containing protein 1-like	1	2	1	1
+gene-zgc:153846	zgc:153846	uncharacterized protein LOC767711 homolog	1	2	1	3
+gene-LOC120022441	LOC120022441	histone-lysine N-methyltransferase SETDB1-B-like	1	2	1	9
+gene-LOC120058090	LOC120058090	zona pellucida sperm-binding protein 3-like	1	2	1	5
+gene-LOC120023455	LOC120023455	piggyBac transposable element-derived protein 4-like	1	2	1	0
+gene-LOC120052617	LOC120052617	zinc finger protein Gfi-1-like	1	2	1	1
+gene-LOC120025722	LOC120025722	hamartin-like	1	2	1	4
+gene-pqbp1	pqbp1	polyglutamine binding protein 1	1	2	1	5
+gene-LOC120036298	LOC120036298	small nucleolar RNA SNORD31	2	3	1	0
+gene-LOC120059739	LOC120059739	matrilin-3-like	1	2	1	0
+gene-LOC120047057	LOC120047057	protocadherin beta-15	1	2	1	3
+gene-LOC120063687	LOC120063687	piggyBac transposable element-derived protein 3-like	2	3	1	1
+gene-nhlrc2	nhlrc2	NHL repeat containing 2	1	2	1	1
+gene-LOC120041762	LOC120041762	piggyBac transposable element-derived protein 4-like	1	2	1	0
+gene-LOC120048215	LOC120048215	alpha-1A adrenergic receptor-like	2	1	-1	6
+gene-LOC120024097	LOC120024097	uncharacterized protein C1orf198 homolog	2	1	-1	0
+gene-LOC120030045	LOC120030045	uncharacterized LOC120030045	1	2	1	0
+gene-cdhr5b	cdhr5b	cadherin-related family member 5b	1	2	1	0
+gene-LOC120046978	LOC120046978	smoothelin-like protein 2	1	2	1	4
+gene-LOC120048041	LOC120048041	protocadherin gamma-C5-like	1	2	1	3
+gene-LOC120065713	LOC120065713	uncharacterized LOC120065713	1	2	1	0
+gene-LOC120037172	LOC120037172	uncharacterized LOC120037172	2	3	1	0
+gene-nup85	nup85	nucleoporin 85	1	2	1	5
+gene-LOC120037613	LOC120037613	uncharacterized LOC120037613	1	2	1	0
+gene-LOC120052641	LOC120052641	cytochrome P450 2J2-like	1	2	1	7
+gene-s100w	s100w	S100 calcium binding protein W	1	2	1	2
+gene-LOC120027074	LOC120027074	uncharacterized LOC120027074	3	4	1	0
+gene-LOC120025769	LOC120025769	bromodomain-containing protein 3-like	1	2	1	5
+gene-LOC120039952	LOC120039952	5S ribosomal RNA	6	7	1	0
+gene-LOC120033771	LOC120033771	ferritin, middle subunit-like	2	1	-1	6
+gene-LOC120061494	LOC120061494	ubiquitin carboxyl-terminal hydrolase 4-like	1	2	1	2
+gene-LOC120028503	LOC120028503	small nucleolar RNA SNORA26	1	2	1	0
+gene-LOC120046707	LOC120046707	peroxiredoxin-like 2A	1	2	1	0
+gene-ccdc39	ccdc39	coiled-coil domain containing 39	1	2	1	4
+gene-LOC120040390	LOC120040390	ubiquitin-conjugating enzyme E2 J2-like	1	2	1	0
+gene-LOC120046818	LOC120046818	uncharacterized LOC120046818	6	7	1	0
+gene-LOC120051060	LOC120051060	myosin-7-like	2	3	1	4
+gene-LOC120045184	LOC120045184	uncharacterized LOC120045184	3	2	-1	0
+gene-LOC120030234	LOC120030234	techylectin-5A-like	1	2	1	3
+gene-LOC120062711	LOC120062711	proline rich transmembrane protein 1B	1	2	1	1
+gene-ttc13	ttc13	tetratricopeptide repeat domain 13	2	1	-1	1
+gene-LOC120022426	LOC120022426	uncharacterized LOC120022426	1	2	1	0
+gene-LOC120065090	LOC120065090	inter-alpha-trypsin inhibitor heavy chain H3-like	1	2	1	2
+gene-LOC120063461	LOC120063461	uncharacterized LOC120063461	1	2	1	0
+gene-LOC120030965	LOC120030965	zymogen granule membrane protein 16-like	4	3	-1	0
+gene-LOC120022070	LOC120022070	growth factor receptor-bound protein 10-like	2	1	-1	4
+gene-tardbpa	tardbpa	TAR DNA binding protein a	1	2	1	3
+gene-LOC120045704	LOC120045704	hemoglobin subunit beta-2-like	1	2	1	11
+gene-LOC120046050	LOC120046050	interferon regulatory factor 2-binding protein 2-A-like	2	1	-1	3
+gene-gdpd1	gdpd1	glycerophosphodiester phosphodiesterase domain containing 1	1	2	1	5
+gene-LOC120060158	LOC120060158	class E basic helix-loop-helix protein 40-like	1	2	1	8
+gene-LOC120033188	LOC120033188	serine/threonine-protein phosphatase 4 catalytic subunit B	1	2	1	5
+gene-LOC120063270	LOC120063270	UPF0600 protein C5orf51 homolog	1	2	1	1
+gene-LOC120023576	LOC120023576	saccharopine dehydrogenase-like oxidoreductase	1	2	1	4
+gene-cln3	cln3	CLN3 lysosomal/endosomal transmembrane protein, battenin	1	2	1	4
+gene-LOC120033639	LOC120033639	zinc finger protein 239-like	1	2	1	3
+gene-LOC120024026	LOC120024026	lactoylglutathione lyase-like	1	2	1	2
+gene-LOC120024592	LOC120024592	elongation of very long chain fatty acids protein 4-like	1	2	1	8
+gene-LOC120037812	LOC120037812	uncharacterized LOC120037812	2	3	1	0
+gene-LOC120019548	LOC120019548	probable ribonuclease ZC3H12D	1	2	1	7
+gene-LOC120034919	LOC120034919	zinc finger protein 629-like	1	2	1	1
+gene-LOC120020323	LOC120020323	myosin-6	1	2	1	4
+gene-LOC120033830	LOC120033830	ferritin, middle subunit-like	1	2	1	6
+gene-LOC120047440	LOC120047440	calcium-binding protein 2-like	1	2	1	1
+gene-LOC120032539	LOC120032539	transcription factor AP-4-like	2	1	-1	5
+gene-LOC120018306	LOC120018306	uncharacterized LOC120018306	1	2	1	0
+gene-LOC120034162	LOC120034162	migration and invasion enhancer 1-like	2	1	-1	2
+gene-LOC120027553	LOC120027553	U11 spliceosomal RNA	1	2	1	0
+gene-LOC120022197	LOC120022197		1	2	1	0
+gene-LOC120060397	LOC120060397	zinc finger protein 770-like	1	2	1	4
+gene-LOC120055337	LOC120055337	outer dense fiber protein 2-like	1	2	1	3
+gene-LOC120034911	LOC120034911	putative zinc finger and SCAN domain-containing protein 5D	1	2	1	4
+gene-LOC120028068	LOC120028068	retinol dehydrogenase 12-like	1	2	1	0
+gene-LOC120026345	LOC120026345	uncharacterized LOC120026345	8	9	1	0
+gene-LOC120020725	LOC120020725	acyl-CoA-binding domain-containing protein 5-like	1	2	1	4
+gene-LOC120023594	LOC120023594	uncharacterized LOC120023594	5	4	-1	0
+gene-prrg4	prrg4	proline rich Gla (G-carboxyglutamic acid) 4 (transmembrane)	1	2	1	3
+gene-LOC120036431	LOC120036431	bone morphogenetic protein 8A-like	1	2	1	5
+gene-LOC120055699	LOC120055699	protein disulfide-isomerase TMX3-like	1	2	1	3
+gene-LOC120024210	LOC120024210	4-galactosyl-N-acetylglucosaminide 3-alpha-L-fucosyltransferase 9-like	1	2	1	4
+gene-LOC120041211	LOC120041211	uncharacterized LOC120041211	1	2	1	0
+gene-LOC120018589	LOC120018589	olfactory receptor 1D2-like	1	2	1	4
+gene-LOC120040407	LOC120040407	gastrula zinc finger protein XlCGF57.1-like	2	1	-1	3
+gene-LOC120028030	LOC120028030	phosphatidate phosphatase LPIN2-like	1	2	1	9
+gene-LOC120023224	LOC120023224	transforming growth factor beta-3 proprotein-like	1	2	1	10
+gene-LOC120023827	LOC120023827	cytosolic 5'-nucleotidase 1A-like	3	4	1	7
+gene-LOC120048223	LOC120048223	heterogeneous nuclear ribonucleoprotein A0-like	1	2	1	1
+gene-LOC120045939	LOC120045939	ras-related protein Rab-37-like	1	2	1	4
+gene-LOC120063919	LOC120063919	coiled-coil domain-containing protein 141-like	1	2	1	0
+gene-LOC120053102	LOC120053102	small nucleolar RNA U3	2	1	-1	0
+gene-zgc:194908	zgc:194908	uncharacterized protein LOC797835 homolog	1	2	1	0
+gene-LOC120062271	LOC120062271	protein transport protein Sec24B-like	1	2	1	7
+gene-LOC120049005	LOC120049005	natural killer cell receptor 2B4-like	1	2	1	0
+gene-LOC120062841	LOC120062841	PI-PLC X domain-containing protein 3-like	1	2	1	3
+gene-LOC120027902	LOC120027902	tumor necrosis factor receptor superfamily member 11A-like	1	2	1	10
+gene-LOC120028275	LOC120028275	NLR family CARD domain-containing protein 3-like	11	10	-1	0
+gene-LOC120040770	LOC120040770	U4 spliceosomal RNA	2	3	1	0
+gene-zgc:114119	zgc:114119	uncharacterized protein LOC619273 homolog	1	2	1	3
+gene-LOC120029530	LOC120029530	histone-lysine N-methyltransferase PRDM9-like	1	2	1	7
+gene-LOC120053387	LOC120053387	cartilage oligomeric matrix protein	1	2	1	3
+gene-LOC120061230	LOC120061230	von Willebrand factor A domain-containing protein 1-like	1	2	1	1
+gene-LOC120044461	LOC120044461	dynein light chain 4, axonemal-like	1	2	1	4
+gene-LOC120023408	LOC120023408	G patch domain-containing protein 2-like	1	2	1	0
+gene-LOC120036564	LOC120036564	small nucleolar RNA SNORD31	1	2	1	0
+gene-map3k12	map3k12	mitogen-activated protein kinase kinase kinase 12	1	2	1	4
+gene-LOC120064850	LOC120064850	helicase with zinc finger domain 2-like	1	2	1	5
+gene-LOC120055534	LOC120055534	60S ribosomal protein L37	1	2	1	5
+gene-LOC120042343	LOC120042343	uncharacterized LOC120042343	1	2	1	0
+gene-LOC120043761	LOC120043761	uncharacterized LOC120043761	1	2	1	0
+gene-LOC120030147	LOC120030147	SH3 domain and tetratricopeptide repeat-containing protein 1-like	1	2	1	1
+gene-LOC120046565	LOC120046565	progonadoliberin-3	1	2	1	3
+gene-LOC120022653	LOC120022653	serine/threonine-protein kinase SBK1-like	1	2	1	4
+gene-LOC120040328	LOC120040328	L-rhamnose-binding lectin CSL3	1	2	1	1
+gene-LOC120049523	LOC120049523	uncharacterized LOC120049523	2	1	-1	0
+gene-LOC120036891	LOC120036891	uncharacterized LOC120036891	7	8	1	2
+gene-LOC120019683	LOC120019683	nucleoporin Nup43-like	1	2	1	2
+gene-LOC120021197	LOC120021197	alpha-N-acetylgalactosaminide alpha-2,6-sialyltransferase 6-like	1	2	1	4
+gene-LOC120053361	LOC120053361	SUN domain-containing protein 2-like	1	2	1	4
+gene-tbl3	tbl3	transducin beta like 3	1	2	1	7
+gene-LOC120029877	LOC120029877	D(5)-like dopamine receptor	1	2	1	3
+gene-LOC120041749	LOC120041749	uncharacterized LOC120041749	1	2	1	0
+gene-LOC120032885	LOC120032885	vitamin D(3) 25-hydroxylase-like	1	2	1	7
+gene-LOC120051111	LOC120051111	tripartite motif-containing protein 29-like	1	2	1	3
+gene-LOC120024033	LOC120024033	rho GTPase-activating protein 18-like	1	2	1	5
+gene-LOC120036859	LOC120036859	stonustoxin subunit beta-like	2	1	-1	1
+gene-LOC120065784	LOC120065784	leucine-rich repeat and immunoglobulin-like domain-containing nogo receptor-interacting protein 1	1	2	1	3
+gene-LOC120049278	LOC120049278	ras-related protein R-Ras2	1	2	1	5
+gene-taf10	taf10	TAF10 RNA polymerase II, TATA box binding protein (TBP)-associated factor	1	2	1	7
+gene-LOC120032529	LOC120032529	uncharacterized LOC120032529	1	2	1	0
+gene-LOC120041203	LOC120041203	uncharacterized LOC120041203	1	2	1	0
+gene-LOC120054120	LOC120054120	BTB/POZ domain-containing protein 10-like	1	2	1	3
+gene-LOC120043492	LOC120043492	uncharacterized LOC120043492	1	2	1	0
+gene-LOC120035573	LOC120035573	5S ribosomal RNA	2	3	1	0
+gene-LOC120063786	LOC120063786	lysine-specific demethylase 2B-like	1	2	1	7
+gene-LOC120033051	LOC120033051	TNF receptor-associated factor 5-like	1	2	1	10
+gene-LOC120021920	LOC120021920	small nucleolar RNA SNORD24	1	2	1	0
+gene-LOC120038201	LOC120038201	GTPase IMAP family member 7-like	1	2	1	1
+gene-LOC120029363	LOC120029363	epoxide hydrolase 1-like	2	1	-1	3
+gene-txnrd2.2	txnrd2.2	thioredoxin reductase 2, tandem duplicate 2	1	2	1	8
+gene-LOC120044543	LOC120044543	E3 ubiquitin-protein ligase RNF165-like	1	2	1	2
+gene-LOC120063252	LOC120063252	uncharacterized LOC120063252	1	2	1	0
+gene-LOC120044126	LOC120044126	regulator of G-protein signaling 9-like	1	2	1	3
+gene-btr01	btr01	bloodthirsty-related gene family, member 1	1	2	1	2
+gene-LOC120023118	LOC120023118	polyadenylate-binding protein 4-like	1	2	1	2
+gene-srebf1	srebf1	sterol regulatory element binding transcription factor 1	1	2	1	5
+gene-LOC120041617	LOC120041617	uncharacterized LOC120041617	2	3	1	0
+gene-LOC120064291	LOC120064291	guanylate-binding protein 1-like	2	1	-1	2
+gene-LOC120020497	LOC120020497	uncharacterized LOC120020497	1	2	1	0
+gene-phpt1	phpt1	phosphohistidine phosphatase 1	1	2	1	3
+gene-LOC120047060	LOC120047060	protocadherin gamma-A2-like	1	2	1	3
+gene-LOC120029981	LOC120029981	protein phosphatase 1 regulatory subunit 3C-B-like	1	2	1	4
+gene-cited4b	cited4b	Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal domain, 4b	1	2	1	2
+gene-LOC120042576	LOC120042576	uncharacterized LOC120042576	2	1	-1	0
+gene-LOC120036799	LOC120036799	5S ribosomal RNA	2	1	-1	0
+gene-LOC120027807	LOC120027807	noggin-2-like	2	1	-1	5
+gene-LOC120026206	LOC120026206	interferon-induced protein 44-like	1	2	1	0
+gene-LOC120052829	LOC120052829	C-myc promoter-binding protein-like	2	1	-1	2
+gene-wu:fa25f02	wu:fa25f02	uncharacterized protein C11orf24	1	2	1	0
+gene-LOC120027040	LOC120027040	DNA topoisomerase 2-beta-like	2	1	-1	7
+gene-LOC120062145	LOC120062145	RDS/peripherin-like protein xRDS35	1	2	1	2
+gene-LOC120022272	LOC120022272	E3 ubiquitin-protein ligase RING2-A-like	1	2	1	6
+gene-LOC120051198	LOC120051198	cullin-2	2	1	-1	5
+gene-LOC120021749	LOC120021749	uncharacterized LOC120021749	2	1	-1	0
+gene-six1a	six1a	SIX homeobox 1a	1	2	1	5
+gene-si:ch211-136m16.8	si:ch211-136m16.8	myosin-14	1	2	1	0
+gene-LOC120059770	LOC120059770	transcription regulator protein BACH2-like	1	2	1	4
+gene-LOC120027057	LOC120027057	zinc finger transcription factor Trps1-like	1	2	1	5
+gene-LOC120038185	LOC120038185	GTPase IMAP family member 7-like	1	2	1	1
+gene-LOC120053888	LOC120053888	interleukin-34-like	2	1	-1	7
+gene-LOC120045822	LOC120045822	gamma-crystallin S-1-like	1	2	1	3
+gene-LOC120035162	LOC120035162	zinc finger protein 184-like	1	2	1	1
+gene-LOC120045579	LOC120045579	palmitoyltransferase ZDHHC16A-like	1	2	1	3
+gene-LOC120032191	LOC120032191	NEDD4 family-interacting protein 1-like	1	2	1	8
+gene-LOC120052110	LOC120052110	podocan-like	1	2	1	2
+gene-LOC120022442	LOC120022442	CCR4-NOT transcription complex subunit 3-like	1	2	1	6
+gene-LOC120031013	LOC120031013	gasdermin-E-like	1	2	1	2
+gene-LOC120020088	LOC120020088	ran-binding protein 3-like	1	2	1	4
+gene-tpgs2	tpgs2	tubulin polyglutamylase complex subunit 2	1	2	1	1
+gene-LOC120054926	LOC120054926	GS homeobox 2-like	1	2	1	4
+gene-LOC120051055	LOC120051055	polyadenylate-binding protein 2-B-like	1	2	1	1
+gene-LOC120046318	LOC120046318	transmembrane protein 106B-like	1	2	1	0
+gene-LOC120042079	LOC120042079	5S ribosomal RNA	3	2	-1	0
+gene-LOC120053088	LOC120053088	small nucleolar RNA U3	2	1	-1	0
+gene-LOC120038443	LOC120038443	5S ribosomal RNA	2	3	1	0
+gene-LOC120044696	LOC120044696	transcription factor MafG-like	2	1	-1	5
+gene-LOC120034745	LOC120034745	uncharacterized LOC120034745	2	3	1	0
+gene-LOC120039776	LOC120039776	zinc finger protein 135-like	1	2	1	0
+gene-LOC120045740	LOC120045740	peripheral myelin protein 22-like	1	2	1	1
+gene-LOC120061476	LOC120061476	ER membrane protein complex subunit 3-like	1	2	1	3
+gene-LOC120033423	LOC120033423	uncharacterized LOC120033423	1	2	1	0
+gene-LOC120051919	LOC120051919	DET1- and DDB1-associated protein 1-like	1	2	1	2
+gene-iqub	iqub	IQ motif and ubiquitin domain containing	1	2	1	4
+gene-LOC120024224	LOC120024224	gap junction beta-7 protein-like	1	2	1	2
+gene-kif28	kif28	kinesin family member 28	1	2	1	8
+gene-LOC120059644	LOC120059644	U5 spliceosomal RNA	4	5	1	0
+gene-LOC120058206	LOC120058206	probable inactive tRNA-specific adenosine deaminase-like protein 3	1	2	1	3
+gene-LOC120043873	LOC120043873	opioid-binding protein/cell adhesion molecule-like	1	2	1	1
+gene-LOC120021519	LOC120021519	cAMP-specific 3',5'-cyclic phosphodiesterase 4D-like	1	2	1	5
+gene-LOC120031085	LOC120031085	C-type lectin domain family 10 member A-like	1	2	1	0
+gene-LOC120031552	LOC120031552	transient receptor potential cation channel subfamily V member 6-like	1	2	1	4
+gene-LOC120025225	LOC120025225	lysosomal acid phosphatase-like	1	2	1	4
+gene-insm1b	insm1b	insulinoma-associated 1b	1	2	1	7
+gene-LOC120049039	LOC120049039	microtubule-associated protein 11-like	1	2	1	3
+gene-LOC120059824	LOC120059824	antimicrobial peptide NK-lysin-like	2	1	-1	2
+gene-LOC120055464	LOC120055464	uncharacterized LOC120055464	6	5	-1	0
+gene-LOC120037236	LOC120037236	uncharacterized LOC120037236	1	2	1	0
+gene-LOC120056015	LOC120056015	serine/threonine-protein kinase STK11-like	1	2	1	12
+gene-LOC120042306	LOC120042306	uncharacterized LOC120042306	1	2	1	0
+gene-cplx4a	cplx4a	complexin 4a	1	2	1	6
+gene-LOC120026984	LOC120026984	uncharacterized LOC120026984	2	3	1	0
+gene-LOC120019783	LOC120019783	small nucleolar RNA SNORD94	1	2	1	0
+gene-LOC120022431	LOC120022431	40S ribosomal protein S18	1	2	1	6
+gene-tmem244	tmem244	transmembrane protein 244	1	2	1	0
+gene-LOC120053328	LOC120053328	reelin-like	1	2	1	3
+gene-LOC120042555	LOC120042555	uncharacterized LOC120042555	3	2	-1	0
+gene-LOC120022429	LOC120022429	uncharacterized LOC120022429	1	2	1	7
+gene-LOC120066206	LOC120066206	uncharacterized LOC120066206	1	2	1	0
+gene-ccr9a	ccr9a	chemokine (C-C motif) receptor 9a	1	2	1	5
+gene-LOC120042771	LOC120042771	zinc finger protein OZF-like	2	1	-1	0
+gene-LOC120038050	LOC120038050	uncharacterized LOC120038050	2	1	-1	0
+gene-ldlrb	ldlrb	low density lipoprotein receptor b	1	2	1	2
+gene-slc25a19	slc25a19	solute carrier family 25 member 19	1	2	1	3
+gene-LOC120030929	LOC120030929	carcinoembryonic antigen-related cell adhesion molecule 1-like	1	2	1	0
+gene-LOC120022672	LOC120022672	zinc finger protein 782-like	1	2	1	0
+gene-LOC120026418	LOC120026418	heat shock protein 30-like	1	2	1	3
+gene-LOC120065319	LOC120065319	green-sensitive opsin-3-like	1	2	1	6
+gene-LOC120027918	LOC120027918	uncharacterized LOC120027918	1	2	1	5
+gene-LOC120061595	LOC120061595	5-hydroxytryptamine receptor 6-like	1	2	1	6
+gene-LOC120060862	LOC120060862	cadherin-related family member 1-like	1	2	1	5
+gene-LOC120024165	LOC120024165	NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 1-like	1	2	1	2
+gene-LOC120046627	LOC120046627	solute carrier family 22 member 7-like	2	1	-1	3
+gene-bnc1	bnc1	basonuclin 1	1	2	1	2
+gene-kcnj19b	kcnj19b	potassium inwardly rectifying channel subfamily J member 19b	1	2	1	4
+gene-LOC120021648	LOC120021648	60S ribosomal protein L7a	1	2	1	2
+gene-LOC120040519	LOC120040519	complement C1q-like protein 2	1	2	1	1
+gene-LOC120023046	LOC120023046	MAX gene-associated protein-like	1	2	1	7
+gene-LOC120054283	LOC120054283	platelet-derived growth factor receptor alpha-like	1	2	1	9
+gene-LOC120058036	LOC120058036	gamma-crystallin M3-like	1	2	1	3
+gene-LOC120020510	LOC120020510	supervillin-like	1	2	1	8
+gene-ddx51	ddx51	DEAD (Asp-Glu-Ala-Asp) box polypeptide 51	1	2	1	3
+gene-LOC120032554	LOC120032554	piggyBac transposable element-derived protein 4-like	2	1	-1	0
+gene-LOC120024212	LOC120024212	transmembrane protein 121	1	2	1	0
+gene-LOC120055754	LOC120055754	parafibromin-like	2	1	-1	6
+gene-bora	bora	bora aurora kinase A activator	1	2	1	6
+gene-LOC120032432	LOC120032432	somatostatin receptor type 5-like	1	2	1	5
+gene-LOC120053360	LOC120053360	diencephalon/mesencephalon homeobox protein 1-B-like	1	2	1	3
+gene-LOC120051051	LOC120051051	uncharacterized LOC120051051	1	2	1	0
+gene-LOC120061152	LOC120061152	mitochondrial import inner membrane translocase subunit Tim17-B	1	2	1	4
+gene-mamdc4	mamdc4	MAM domain containing 4	1	2	1	1
+gene-LOC120040467	LOC120040467	uncharacterized LOC120040467	3	4	1	0
+gene-tmem63c	tmem63c	transmembrane protein 63C	1	2	1	2
+gene-bend5	bend5	BEN domain containing 5	1	2	1	2
+gene-LOC120042872	LOC120042872	RING finger protein 151-like	1	2	1	6
+gene-LOC120045721	LOC120045721	uncharacterized LOC120045721	1	2	1	0
+gene-LOC120036195	LOC120036195	mitochondrial import inner membrane translocase subunit Tim21-like	1	2	1	2
+gene-LOC120058800	LOC120058800	uncharacterized LOC120058800	2	3	1	0
+gene-si:dkey-6n21.13	si:dkey-6n21.13	P2Y purinoceptor 3	1	2	1	4
+gene-LOC120066198	LOC120066198	keratin, type I cytoskeletal 13-like	1	2	1	1
+gene-LOC120064691	LOC120064691	rap1 GTPase-activating protein 1-like	1	2	1	4
+gene-LOC120063117	LOC120063117	SH2 domain-containing protein 3C-like	1	2	1	4
+gene-LOC120058179	LOC120058179	uncharacterized LOC120058179	1	2	1	0
+gene-LOC120061987	LOC120061987	H/ACA ribonucleoprotein complex subunit 1-like	1	2	1	4
+gene-LOC120047238	LOC120047238	carcinoembryonic antigen-related cell adhesion molecule 20-like	2	1	-1	0
+gene-LOC120043376	LOC120043376	5S ribosomal RNA	2	3	1	0
+gene-LOC120048196	LOC120048196	pre-mRNA-splicing factor RBM22-like	1	2	1	6
+gene-LOC120028617	LOC120028617	zinc finger and BTB domain-containing protein 44-like	1	2	1	5
+gene-LOC120020564	LOC120020564	zinc finger protein 180-like	1	2	1	3
+gene-LOC120026238	LOC120026238	proteinase-activated receptor 2-like	1	2	1	6
+gene-LOC120051520	LOC120051520	R3H domain-containing protein 1-like	1	2	1	1
+gene-zdhhc22	zdhhc22	zinc finger DHHC-type palmitoyltransferase 22	1	2	1	3
+gene-LOC120059771	LOC120059771	mitogen-activated protein kinase kinase kinase 7-like	1	2	1	6
+gene-LOC120044536	LOC120044536	frizzled-2-like	1	2	1	5
+gene-or134-1	or134-1	odorant receptor, family H, subfamily 134, member 1	1	2	1	3
+gene-LOC120058182	LOC120058182	regulator of nonsense transcripts 3A-like	1	2	1	5
+gene-LOC120066857	LOC120066857	uncharacterized LOC120066857	2	1	-1	0
+gene-LOC120041191	LOC120041191	beta-microseminoprotein	2	1	-1	0
+gene-LOC120051718	LOC120051718	uncharacterized LOC120051718	1	2	1	0
+gene-lrrc20	lrrc20	leucine rich repeat containing 20	1	2	1	1
+gene-LOC120054999	LOC120054999	T-box transcription factor TBX1	1	2	1	6
+gene-mphosph6	mphosph6	M-phase phosphoprotein 6	1	2	1	1
+gene-LOC120056336	LOC120056336	small nucleolar RNA SNORA81	1	2	1	0
+gene-fhdc1	fhdc1	FH2 domain containing 1	1	2	1	0
+gene-angel1	angel1	angel homolog 1 (Drosophila)	1	2	1	1
+gene-LOC120037456	LOC120037456	U1 spliceosomal RNA	5	4	-1	0
+gene-LOC120042813	LOC120042813	uncharacterized LOC120042813	1	2	1	0
+gene-LOC120060145	LOC120060145	NACHT, LRR and PYD domains-containing protein 12-like	1	2	1	1
+gene-LOC120064044	LOC120064044	ras-related protein Rab-17-like	1	2	1	2
+gene-LOC120023474	LOC120023474	uncharacterized LOC120023474	16	17	1	0
+gene-LOC120060166	LOC120060166	ADP-ribosylation factor-like protein 8B-A	1	2	1	5
+gene-LOC120065131	LOC120065131	60S ribosomal protein L22-like	1	2	1	4
+gene-LOC120017401	LOC120017401	transient receptor potential cation channel subfamily V member 5	1	2	1	4
+gene-LOC120049850	LOC120049850	uncharacterized LOC120049850	1	2	1	1
+gene-LOC120044722	LOC120044722	uncharacterized LOC120044722	1	2	1	0
+gene-LOC120047825	LOC120047825	protocadherin beta-16-like	1	2	1	3
+gene-LOC120020566	LOC120020566	specifically androgen-regulated gene protein-like	1	2	1	0
+gene-LOC120038047	LOC120038047	cell wall protein RBR3	1	2	1	4
+gene-LOC120028671	LOC120028671	U4 spliceosomal RNA	1	2	1	0
+gene-si:dkey-34d22.1	si:dkey-34d22.1	discoidin, CUB and LCCL domain-containing protein 1	1	2	1	0
+gene-sh2d1ab	sh2d1ab	SH2 domain containing 1A duplicate b	1	2	1	0
+gene-qser1	qser1	glutamine and serine rich 1	1	2	1	0
+gene-LOC120038206	LOC120038206	ankyrin repeat and protein kinase domain-containing protein 1-like	1	2	1	3
+gene-LOC120052097	LOC120052097	epoxide hydrolase 4-like	1	2	1	1
+gene-LOC120020708	LOC120020708	nucleolar transcription factor 1-A-like	1	2	1	0
+gene-LOC120053093	LOC120053093	small nucleolar RNA U3	2	1	-1	0
+gene-LOC120019250	LOC120019250	grainyhead-like protein 1 homolog	1	2	1	4
+gene-si:ch211-158d24.4	si:ch211-158d24.4	uncharacterized protein LOC560966 homolog	2	1	-1	3
+gene-LOC120027929	LOC120027929	nanos homolog 1-like	1	2	1	5
+gene-LOC120036430	LOC120036430	uncharacterized LOC120036430	2	1	-1	0
+gene-cep131	cep131	centrosomal protein 131	1	2	1	5
+gene-LOC120024745	LOC120024745	C-C motif chemokine 13-like	3	2	-1	16
+gene-LOC120043617	LOC120043617	uncharacterized LOC120043617	2	1	-1	0
+gene-LOC120024382	LOC120024382	transmembrane protein 200A-like	1	2	1	0
+gene-LOC120052697	LOC120052697	vitellogenin-like	1	2	1	2
+gene-LOC120041379	LOC120041379	interferon a3-like	1	2	1	3
+gene-LOC120030281	LOC120030281	uncharacterized LOC120030281	1	2	1	1
+gene-anpepb	anpepb	alanyl (membrane) aminopeptidase b	1	2	1	6
+gene-LOC120061384	LOC120061384	60S ribosomal protein L32	2	1	-1	4
+gene-LOC120041968	LOC120041968	chemokine XC receptor 1-like	2	1	-1	5
+gene-LOC120034958	LOC120034958	C-type lectin domain family 4 member M-like	2	1	-1	1
+gene-LOC120026437	LOC120026437	uncharacterized LOC120026437	1	2	1	0
+gene-LOC120020050	LOC120020050	zinc finger protein SNAI2	1	2	1	3
+gene-p2ry10	p2ry10	P2Y receptor family member 10	1	2	1	4
+gene-LOC120065371	LOC120065371	tumor suppressor candidate 2-like	1	2	1	3
+gene-LOC120061154	LOC120061154	IQ motif and SEC7 domain-containing protein 2-like	1	2	1	4
+gene-LOC120052696	LOC120052696	vitellogenin-like	1	2	1	2
+gene-LOC120052519	LOC120052519	uncharacterized LOC120052519	1	2	1	0
+gene-LOC120033514	LOC120033514	mitochondrial pyruvate carrier 2-like	1	2	1	3
+gene-LOC120053880	LOC120053880	fatty-acid amide hydrolase 1-like	1	2	1	3
+gene-LOC120051899	LOC120051899	G-protein-signaling modulator 2-like	2	1	-1	2
+gene-mzt1	mzt1	mitotic spindle organizing protein 1	1	2	1	7
+gene-LOC120056402	LOC120056402	exocyst complex component 3-like	1	2	1	0
+gene-LOC120047058	LOC120047058	protocadherin gamma-A8-like	1	2	1	3
+gene-arfip1	arfip1	ADP-ribosylation factor interacting protein 1 (arfaptin 1)	1	2	1	5
+gene-LOC120062272	LOC120062272	nuclear cap-binding protein subunit 1-like	1	2	1	9
+gene-rnf34a	rnf34a	ring finger protein 34a	1	2	1	7
+gene-LOC120027517	LOC120027517	zinc finger protein 687b-like	1	2	1	0
+gene-LOC120055533	LOC120055533	tctex1 domain-containing protein 1	1	2	1	4
+gene-si:ch73-60h1.1	si:ch73-60h1.1	calcium/calmodulin-dependent protein kinase type IV	1	2	1	4
+gene-angel2	angel2	angel homolog 2 (Drosophila)	1	2	1	3
+gene-LOC120037797	LOC120037797	Fc receptor-like protein 5	2	3	1	2
+gene-slc1a2a	slc1a2a	solute carrier family 1 member 2a	2	1	-1	5
+gene-LOC120058955	LOC120058955	forkhead box protein P1-B-like	1	2	1	4
+gene-sobpa	sobpa	sine oculis binding protein homolog (Drosophila) a	1	2	1	2
+gene-trak1a	trak1a	trafficking protein, kinesin binding 1a	2	1	-1	5
+gene-LOC120022855	LOC120022855	visinin-like	1	2	1	1
+gene-elovl6	elovl6	ELOVL fatty acid elongase 6	1	2	1	8
+gene-LOC120033262	LOC120033262	fibroblast growth factor 14-like	2	1	-1	11
+gene-LOC120029306	LOC120029306	zinc finger protein 841-like	2	1	-1	0
+gene-LOC120048240	LOC120048240	piggyBac transposable element-derived protein 4-like	2	3	1	0
+gene-LOC120047821	LOC120047821	kelch repeat and BTB domain-containing protein 13	2	1	-1	1
+gene-LOC120020711	LOC120020711	dnaJ homolog subfamily C member 1-like	1	2	1	1
+gene-LOC120060165	LOC120060165	DNA-binding protein inhibitor ID-3-A-like	2	1	-1	7
+gene-LOC120044003	LOC120044003	meiosis-specific coiled-coil domain-containing protein MEIOC-like	1	2	1	6
+gene-LOC120036801	LOC120036801	5S ribosomal RNA	2	1	-1	0
+gene-LOC120022831	LOC120022831	keratin, type I cytoskeletal 13-like	1	2	1	1
+gene-LOC120019469	LOC120019469	uncharacterized LOC120019469	1	2	1	0
+gene-LOC120056987	LOC120056987	uncharacterized LOC120056987	2	1	-1	0
+gene-tmub1	tmub1	transmembrane and ubiquitin-like domain containing 1	1	2	1	2
+gene-LOC120047838	LOC120047838	protocadherin beta-16-like	1	2	1	3
+gene-LOC120058163	LOC120058163	uncharacterized LOC120058163	1	2	1	0
+gene-LOC120063028	LOC120063028	SH2B adapter protein 3-like	1	2	1	3
+gene-LOC120058747	LOC120058747	cadherin-like protein 26	1	2	1	11
+gene-LOC120063835	LOC120063835	retinol dehydrogenase 12-like	1	2	1	0
+gene-LOC120042540	LOC120042540	uncharacterized LOC120042540	2	1	-1	0
+gene-LOC120065092	LOC120065092	musculoskeletal embryonic nuclear protein 1-like	1	2	1	4
+gene-LOC120021788	LOC120021788	GTPase-activating Rap/Ran-GAP domain-like protein 3	1	2	1	4
+gene-LOC120027483	LOC120027483	carcinoembryonic antigen-related cell adhesion molecule 1-like	2	1	-1	0
+gene-LOC120033647	LOC120033647	gastrula zinc finger protein XlCGF17.1-like	2	1	-1	3
+gene-LOC120042522	LOC120042522	RNA-binding protein 39-like	1	2	1	3
+gene-LOC120018219	LOC120018219	protein NipSnap homolog 2-like	1	2	1	1
+gene-LOC120028418	LOC120028418	small nucleolar RNA SNORD57	1	2	1	0
+gene-LOC120046979	LOC120046979	solute carrier family 43 member 3-like	1	2	1	2
+gene-LOC120052016	LOC120052016	uncharacterized LOC120052016	1	2	1	0
+gene-LOC120041593	LOC120041593	zona pellucida sperm-binding protein 3-like	1	2	1	5
+gene-LOC120029219	LOC120029219	olfactory receptor 1D2-like	3	2	-1	4
+gene-LOC120037202	LOC120037202	uncharacterized LOC120037202	2	1	-1	0
+gene-LOC120065009	LOC120065009	zinc finger and SCAN domain-containing protein 21-like	1	2	1	3
+gene-l3mbtl3	l3mbtl3	L3MBTL histone methyl-lysine binding protein 3	1	2	1	4
+gene-LOC120045201	LOC120045201	ribosomal protein S6 kinase beta-1-like	1	2	1	4
+gene-LOC120044796	LOC120044796	soluble lamin-associated protein of 75 kDa-like	1	2	1	0
+gene-LOC120022350	LOC120022350	germ cell-specific gene 1-like protein	1	2	1	1
+gene-LOC120022726	LOC120022726	(E3-independent) E2 ubiquitin-conjugating enzyme UBE2O-like	2	1	-1	0
+gene-LOC120021367	LOC120021367	stress-induced-phosphoprotein 1-like	1	2	1	1
+gene-LOC120055128	LOC120055128	ubiquitin carboxyl-terminal hydrolase 13-like	1	2	1	4
+gene-LOC120052988	LOC120052988	unconventional myosin-IXAa-like	1	2	1	6
+gene-LOC120037779	LOC120037779	bri3 binding protein	1	2	1	1
+gene-LOC120055571	LOC120055571	tubulin beta chain-like	1	2	1	7
+gene-LOC120022255	LOC120022255	NACHT, LRR and PYD domains-containing protein 3-like	1	2	1	1
+gene-rbm15	rbm15	RNA binding motif protein 15	1	2	1	3
+gene-LOC120024257	LOC120024257	serine/threonine-protein kinase PAK 6-like	1	2	1	6
+gene-LOC120041732	LOC120041732	C-type lectin domain family 4 member M-like	2	1	-1	0
+gene-LOC120038186	LOC120038186	GTPase IMAP family member 9-like	2	1	-1	1
+gene-LOC120058484	LOC120058484	tripartite motif-containing 13-like	2	1	-1	6
+gene-LOC120060383	LOC120060383	BEN domain-containing protein 3-like	1	2	1	3
+gene-LOC120043941	LOC120043941	tryptase-2-like	1	2	1	2
+gene-LOC120026966	LOC120026966	heme-binding protein 1-like	1	2	1	0
+gene-ndufb10	ndufb10	NADH:ubiquinone oxidoreductase subunit B10	1	2	1	1
+gene-LOC120063716	LOC120063716	T-box transcription factor TBX15-like	1	2	1	6
+gene-LOC120021394	LOC120021394	ubiquitin carboxyl-terminal hydrolase 20-like	1	2	1	3
+gene-LOC120022201	LOC120022201		1	2	1	0
+gene-LOC120060543	LOC120060543	uncharacterized LOC120060543	2	1	-1	0
+gene-LOC120061296	LOC120061296	SPRY domain-containing protein 4-like	1	2	1	1
+gene-LOC120062523	LOC120062523	transmembrane emp24 domain-containing protein 9-like	2	1	-1	8
+gene-slc44a2	slc44a2	solute carrier family 44 member 2	1	2	1	4
+gene-LOC120047700	LOC120047700	zinc-binding protein A33-like	1	2	1	4
+gene-LOC120059772	LOC120059772	rab3 GTPase-activating protein non-catalytic subunit-like	2	1	-1	1
+gene-LOC120053140	LOC120053140	golgin subfamily A member 6-like protein 6	1	2	1	1
+gene-LOC120040404	LOC120040404	NUAK family SNF1-like kinase 1	2	1	-1	7
+gene-LOC120023596	LOC120023596	uncharacterized LOC120023596	3	4	1	0
+gene-LOC120036678	LOC120036678	uncharacterized LOC120036678	6	7	1	0
+gene-LOC120032786	LOC120032786	high choriolytic enzyme 1-like	2	1	-1	3
+gene-pck1	pck1	phosphoenolpyruvate carboxykinase 1 (soluble)	1	2	1	13
+gene-LOC120044851	LOC120044851	uncharacterized LOC120044851	1	2	1	0
+gene-illr4	illr4	immune-related, lectin-like receptor 4	1	2	1	0
+gene-LOC120035157	LOC120035157	transcriptional regulator CRZ1-like	1	2	1	1
+gene-LOC120037605	LOC120037605	C-X-C motif chemokine 13-like	1	2	1	9
+gene-LOC120054602	LOC120054602	kinesin-like protein KIF14	1	2	1	4
+gene-fam161b	fam161b	FAM161 centrosomal protein B	1	2	1	2
+gene-bbln	bbln	bublin coiled coil protein	1	2	1	0
+gene-LOC120053664	LOC120053664	leukocyte elastase inhibitor-like	1	2	1	3
+gene-klf11a	klf11a	Kruppel-like factor 11a	1	2	1	3
+gene-LOC120056826	LOC120056826	major histocompatibility complex class I-related gene protein-like	1	2	1	3
+gene-LOC120065727	LOC120065727	Krueppel-like factor 15	1	2	1	3
+gene-LOC120052512	LOC120052512	BEN domain-containing protein 5-like	1	2	1	2
+gene-LOC120030438	LOC120030438	uncharacterized LOC120030438	1	2	1	0
+gene-LOC120042161	LOC120042161	kunitz-type serine protease inhibitor bitisilin-3-like	1	2	1	2
+gene-LOC120020562	LOC120020562	protein FAM78B-like	1	2	1	0
+gene-LOC120038325	LOC120038325	uncharacterized LOC120038325	3	4	1	0
+gene-LOC120052033	LOC120052033	granzyme B(G,H)-like	1	2	1	2
+gene-LOC120033586	LOC120033586	POU domain, class 2, transcription factor 1-like	1	2	1	3
+gene-LOC120041265	LOC120041265	putative nuclease HARBI1	1	2	1	0
+gene-LOC120035259	LOC120035259	zinc finger protein 345-like	2	1	-1	0
+gene-dcaf11	dcaf11	ddb1 and cul4 associated factor 11	1	2	1	3
+gene-gtse1	gtse1	G-2 and S-phase expressed 1	1	2	1	3
+gene-LOC120025703	LOC120025703	uncharacterized LOC120025703	1	2	1	0
+gene-LOC120062967	LOC120062967	uncharacterized LOC120062967	1	2	1	0
+gene-LOC120066904	LOC120066904	U2 spliceosomal RNA	1	2	1	0
+gene-foxr1	foxr1	forkhead box R1	1	2	1	4
+gene-LOC120035081	LOC120035081	uncharacterized LOC120035081	1	2	1	0
+gene-LOC120025929	LOC120025929	zinc finger protein Gfi-1b-like	1	2	1	4
+gene-LOC120023372	LOC120023372	potassium voltage-gated channel subfamily S member 3-like	1	2	1	6
+gene-LOC120057201	LOC120057201	cortexin domain-containing 1-like	1	2	1	0
+gene-LOC120056583	LOC120056583	arylamine N-acetyltransferase, pineal gland isozyme NAT-10-like	1	2	1	1
+gene-LOC120051327	LOC120051327	toll-like receptor 13	1	2	1	6
+gene-LOC120020649	LOC120020649	parathyroid hormone/parathyroid hormone-related peptide receptor-like	1	2	1	7
+gene-LOC120057660	LOC120057660	small nucleolar RNA SNORD83	1	2	1	0
+gene-rnf213a	rnf213a	ring finger protein 213a	1	2	1	9
+gene-LOC120055532	LOC120055532	uncharacterized LOC120055532	1	2	1	0
+gene-LOC120045668	LOC120045668	39S ribosomal protein L27, mitochondrial-like	1	2	1	4
+gene-LOC120055743	LOC120055743	tyrosine-protein kinase JAK1-like	1	2	1	12
+gene-LOC120035037	LOC120035037	zinc finger protein 84-like	1	2	1	3
+gene-LOC120046680	LOC120046680	leucine-rich repeat-containing protein 59-like	1	2	1	1
+gene-dynlt5	dynlt5	dynein light chain Tctex-type family member 5	2	1	-1	4
+gene-LOC120023213	LOC120023213	uncharacterized LOC120023213	2	1	-1	0
+gene-LOC120024131	LOC120024131	RING finger protein 224-like	1	2	1	2
+gene-LOC120047239	LOC120047239	carcinoembryonic antigen-related cell adhesion molecule 5-like	2	1	-1	0
+gene-LOC120062344	LOC120062344	cationic amino acid transporter 3-like	1	2	1	4
+gene-LOC120024099	LOC120024099	heterogeneous nuclear ribonucleoprotein Q-like	1	2	1	5
+gene-LOC120063720	LOC120063720	guanylate-binding protein 1-like	2	1	-1	2
+gene-LOC120032768	LOC120032768	apoptosis-stimulating of p53 protein 2-like	1	2	1	4
+gene-LOC120044533	LOC120044533	ATP synthase subunit alpha, mitochondrial-like	1	2	1	7
+gene-LOC120030053	LOC120030053	polycomb group RING finger protein 5-B	1	2	1	3
+gene-LOC120042089	LOC120042089	U1 spliceosomal RNA	1	2	1	0
+gene-LOC120023231	LOC120023231	HHIP-like protein 1	1	2	1	1
+gene-aqp7	aqp7	aquaporin 7	1	2	1	7
+gene-LOC120053099	LOC120053099	small nucleolar RNA U3	2	1	-1	0
+gene-LOC120066336	LOC120066336	beta-centractin-like	1	2	1	0
+gene-riok1	riok1	RIO kinase 1 (yeast)	1	2	1	5
+gene-ap1s1	ap1s1	adaptor related protein complex 1 subunit sigma 1	1	2	1	6
+gene-LOC120037038	LOC120037038	U1 spliceosomal RNA	1	2	1	0
+gene-plekho2	plekho2	pleckstrin homology domain containing, family O member 2	1	2	1	1
+gene-zgpat	zgpat	zinc finger, CCCH-type with G patch domain	1	2	1	6
+gene-LOC120049828	LOC120049828	N-alpha-acetyltransferase 40	1	2	1	6
+gene-LOC120021918	LOC120021918	U7 small nuclear RNA	1	2	1	0
+gene-LOC120060716	LOC120060716	OTU domain-containing protein 3-like	1	2	1	2
+gene-LOC120032419	LOC120032419	uncharacterized LOC120032419	1	2	1	0
+gene-LOC120044631	LOC120044631	NLR family CARD domain-containing protein 3-like	2	1	-1	0
+gene-ache	ache	acetylcholinesterase	1	2	1	5
+gene-LOC120052098	LOC120052098	zinc finger protein 648-like	1	2	1	3
+gene-LOC120055983	LOC120055983	5-beta-cholestane-3-alpha,7-alpha-diol 12-alpha-hydroxylase-like	1	2	1	3
+gene-LOC120061553	LOC120061553	voltage-dependent L-type calcium channel subunit alpha-1D-like	1	2	1	4
+gene-LOC120033040	LOC120033040	uncharacterized LOC120033040	1	2	1	0
+gene-LOC120022261	LOC120022261	diacylglycerol O-acyltransferase 1-like	2	1	-1	3
+gene-LOC120066645	LOC120066645	aminopeptidase N	1	2	1	6
+gene-LOC120055377	LOC120055377	uncharacterized LOC120055377	1	2	1	5
+gene-LOC120059282	LOC120059282	putative nuclease HARBI1	2	1	-1	0
+gene-LOC120044079	LOC120044079	aquaporin-8-like	2	1	-1	4
+gene-LOC120050798	LOC120050798		2	3	1	0
+gene-LOC120037069	LOC120037069	5S ribosomal RNA	1	2	1	0
+gene-LOC120018521	LOC120018521	uromodulin-like	1	2	1	5
+gene-LOC120044490	LOC120044490	interferon a3-like	3	2	-1	4
+gene-LOC120021832	LOC120021832	calcium-binding mitochondrial carrier protein SCaMC-2-B-like	1	2	1	4
+gene-LOC120021322	LOC120021322	protein phosphatase PTC7 homolog	1	2	1	0
+gene-si:ch211-243a20.3	si:ch211-243a20.3	uncharacterized protein LOC100151507 homolog	1	2	1	0
+gene-LOC120035270	LOC120035270	stonustoxin subunit beta-like	2	1	-1	1
+gene-cartl	cartl	cocaine- and amphetamine-regulated transcript-like	1	2	1	7
+gene-LOC120053450	LOC120053450	purine nucleoside phosphorylase-like	1	2	1	3
+gene-LOC120032932	LOC120032932	REST corepressor 3-like	1	2	1	6
+gene-LOC120047056	LOC120047056	protocadherin gamma-A11-like	1	2	1	3
+gene-LOC120052681	LOC120052681	translation initiation factor IF-2-like	1	2	1	7
+gene-LOC120024881	LOC120024881	oxytocin receptor-like	1	2	1	6
+gene-LOC120058208	LOC120058208	ORM1-like protein 1	1	2	1	5
+gene-LOC120043845	LOC120043845	uncharacterized LOC120043845	1	2	1	3
+gene-LOC120049289	LOC120049289	plasminogen activator inhibitor 1-like	1	2	1	5
+gene-LOC120020046	LOC120020046	myosin light chain 1, cardiac muscle-like	1	2	1	2
+gene-LOC120059635	LOC120059635	U7 small nuclear RNA	3	2	-1	0
+gene-LOC120061008	LOC120061008	histone lysine demethylase PHF8-like	1	2	1	4
+gene-LOC120048083	LOC120048083	zinc finger protein 232-like	1	2	1	3
+gene-thtpa	thtpa	thiamine triphosphatase	1	2	1	5
+gene-LOC120052645	LOC120052645	uridine-cytidine kinase 2-A	2	1	-1	4
+gene-LOC120052800	LOC120052800	SLAM family member 8-like	2	3	1	0
+gene-LOC120045525	LOC120045525	ADP-ribosylation factor-like protein 4D	1	2	1	5
+gene-LOC120065968	LOC120065968	sphingosine kinase 1-like	2	1	-1	7
+gene-LOC120049269	LOC120049269	SLAM family member 8-like	1	2	1	0
+gene-LOC120047061	LOC120047061	protocadherin gamma-A8-like	1	2	1	3
+gene-LOC120033248	LOC120033248	serine/threonine-protein phosphatase 2A regulatory subunit B'' subunit alpha-like	1	2	1	0
+gene-LOC120037516	LOC120037516	cortexin domain containing 2-like	1	2	1	0
+gene-LOC120021611	LOC120021611	ectonucleoside triphosphate diphosphohydrolase 2-like	1	2	1	4
+gene-alx3	alx3	ALX homeobox 3	1	2	1	3
+gene-LOC120029562	LOC120029562	cystatin-like	2	1	-1	2
+gene-LOC120023192	LOC120023192	UDP-glucose 4-epimerase-like	1	2	1	3
+gene-LOC120066542	LOC120066542	ankyrin repeat domain-containing protein 7-like	1	2	1	1
+gene-LOC120058173	LOC120058173	interferon regulatory factor 2-like	1	2	1	5
+gene-LOC120060148	LOC120060148	inositol 1,4,5-trisphosphate receptor type 1-like	1	2	1	5
+gene-LOC120028568	LOC120028568	U4 spliceosomal RNA	1	2	1	0
+gene-LOC120041185	LOC120041185	uncharacterized LOC120041185	1	2	1	0
+gene-LOC120044049	LOC120044049	NACHT, LRR and PYD domains-containing protein 12	1	2	1	1
+gene-LOC120058607	LOC120058607	U1 spliceosomal RNA	1	2	1	0
+gene-LOC120052835	LOC120052835	photoreceptor-specific nuclear receptor-like	2	1	-1	7
+gene-LOC120034548	LOC120034548	uncharacterized LOC120034548	2	1	-1	0
+gene-LOC120029193	LOC120029193	POU domain class 2-associating factor 1	1	2	1	5
+gene-LOC120018460	LOC120018460	ATP-binding cassette sub-family F member 3-like	1	2	1	2
+gene-LOC120046740	LOC120046740	vinculin	1	2	1	4
+gene-LOC120024226	LOC120024226	5-hydroxytryptamine receptor 1E-like	1	2	1	3
+gene-LOC120048865	LOC120048865	Bardet-Biedl syndrome 4 protein-like	1	2	1	4
+gene-LOC120051748	LOC120051748	uncharacterized protein K02A2.6-like	50	49	-1	2
+gene-LOC120046977	LOC120046977	beta-crystallin A1-2-like	1	2	1	3
+gene-LOC120043478	LOC120043478	uncharacterized LOC120043478	2	3	1	0
+gene-LOC120024495	LOC120024495	uncharacterized protein C6orf163-like	1	2	1	0
+gene-gid4	gid4	GID complex subunit 4 homolog	1	2	1	6
+gene-LOC120047124	LOC120047124	peroxisomal targeting signal 1 receptor-like	1	2	1	5
+gene-LOC120036106	LOC120036106	NACHT, LRR and PYD domains-containing protein 1 homolog	1	2	1	1
+gene-LOC120049800	LOC120049800	chromatin complexes subunit BAP18-like	1	2	1	2
+gene-LOC120028398	LOC120028398	protein KIAA0100-like	1	2	1	0
+gene-LOC120048066	LOC120048066	protocadherin gamma-C5-like	1	2	1	3
+gene-LOC120030262	LOC120030262	uncharacterized LOC120030262	1	2	1	1
+gene-LOC120027537	LOC120027537	ubiquitin-associated protein 2-like	1	2	1	3
+gene-LOC120047068	LOC120047068	protocadherin gamma-A8-like	1	2	1	3
+gene-LOC120021697	LOC120021697	TBC1 domain family member 10A-like	1	2	1	0
+gene-LOC120030466	LOC120030466	cytosolic phospholipase A2 gamma-like	2	1	-1	7
+gene-si:dkey-154p10.3	si:dkey-154p10.3	zinc finger protein 70	1	2	1	4
+gene-LOC120024201	LOC120024201	akirin-2-like	1	2	1	5
+gene-LOC120018300	LOC120018300	PTB-containing, cubilin and LRP1-interacting protein-like	1	2	1	6
+gene-wdr35	wdr35	WD repeat domain 35	1	2	1	6
+gene-lman1	lman1	lectin, mannose-binding, 1	1	2	1	8
+gene-LOC120051048	LOC120051048	importin-4-like	1	2	1	6
+gene-LOC120052616	LOC120052616	gelsolin-like	1	2	1	8
+gene-LOC120046708	LOC120046708	S-adenosylmethionine synthase-like	1	2	1	4
+gene-LOC120055827	LOC120055827	protein odr-4 homolog	1	2	1	2
+gene-nfil3-5	nfil3-5	nuclear factor, interleukin 3 regulated, member 5	1	2	1	5
+gene-LOC120021373	LOC120021373	proteasome subunit beta type-7-like	1	2	1	3
+gene-LOC120032232	LOC120032232	uncharacterized LOC120032232	1	2	1	0
+gene-LOC120055285	LOC120055285		1	2	1	0
+gene-LOC120064975	LOC120064975	CMP-N-acetylneuraminate-beta-galactosamide-alpha-2,3-sialyltransferase 2-like	1	2	1	2
+gene-LOC120044238	LOC120044238	calcineurin B homologous protein 3-like	1	2	1	1
+gene-LOC120061070	LOC120061070	AMP deaminase 2-like	1	2	1	4
+gene-LOC120049663	LOC120049663	RNA-binding protein 4B-like	1	2	1	3
+gene-senp8	senp8	SUMO peptidase family member, NEDD8 specific	1	2	1	3
+gene-LOC120034575	LOC120034575	interferon alpha-6-like	2	1	-1	3
+gene-LOC120034690	LOC120034690	uncharacterized LOC120034690	2	1	-1	2
+gene-LOC120021626	LOC120021626	dolichyldiphosphatase 1-like	1	2	1	5
+gene-LOC120056018	LOC120056018	E3 ubiquitin-protein ligase RNF126-like	1	2	1	6
+gene-LOC120044850	LOC120044850	bone morphogenetic protein 7-like	1	2	1	6
+gene-hsd17b2	hsd17b2	hydroxysteroid (17-beta) dehydrogenase 2	1	2	1	1
+gene-LOC120053944	LOC120053944	proline-serine-threonine phosphatase-interacting protein 1-like	1	2	1	5
+gene-LOC120025448	LOC120025448	myosin-IIIb-like	1	2	1	4
+gene-LOC120034270	LOC120034270		1	2	1	0
+gene-LOC120026150	LOC120026150	transmembrane protein 203-like	1	2	1	2
+gene-LOC120023066	LOC120023066	TLD domain-containing protein 2-like	1	2	1	4
+gene-bdkrb1	bdkrb1	bradykinin receptor B1	1	2	1	5
+gene-LOC120022727	LOC120022727	zinc finger protein 91-like	1	2	1	3
+gene-polr2h	polr2h	RNA polymerase II, I and III subunit H	2	1	-1	5
+gene-rps2	rps2	ribosomal protein S2	1	2	1	5
+gene-LOC120055826	LOC120055826	phosducin-like	1	2	1	1
+gene-LOC120031764	LOC120031764	general transcription factor II-I repeat domain-containing protein 1-like	1	2	1	2
+gene-LOC120027658	LOC120027658	serine/threonine-protein kinase H1-like	1	2	1	3
+gene-LOC120020727	LOC120020727	ATP-dependent zinc metalloprotease YME1L1-like	1	2	1	7
+gene-LOC120063560	LOC120063560	long-chain-fatty-acid--CoA ligase ACSBG2-like	1	2	1	3
+gene-LOC120017770	LOC120017770	aftiphilin-like	1	2	1	4
+gene-LOC120024656	LOC120024656	small nucleolar RNA SNORD50	1	2	1	0
+gene-LOC120052612	LOC120052612	AP2-interacting clathrin-endocytosis protein-like	1	2	1	1
+gene-si:ch211-102l7.3	si:ch211-102l7.3	inactive serine protease PAMR1	1	2	1	3
+gene-LOC120030437	LOC120030437	placenta-specific gene 8 protein-like	1	2	1	0
+gene-LOC120050647	LOC120050647	solute carrier family 22 member 17-like	1	2	1	3
+gene-LOC120052647	LOC120052647	histone-binding protein N1/N2-like	2	1	-1	4
+gene-LOC120057066	LOC120057066	ribosomal protein S6 kinase beta-1-like	2	1	-1	4
+gene-LOC120029855	LOC120029855	tumor necrosis factor receptor superfamily member 13B-like	1	2	1	1
+gene-LOC120046457	LOC120046457	SEC23-interacting protein-like	1	2	1	3
+gene-LOC120019677	LOC120019677	serine/threonine-protein kinase LATS1-like	1	2	1	8
+gene-gtf2h4	gtf2h4	general transcription factor IIH, polypeptide 4	1	2	1	5
+gene-LOC120058008	LOC120058008	interferon-induced GTP-binding protein Mx-like	1	2	1	8
+gene-LOC120029770	LOC120029770	mediator of RNA polymerase II transcription subunit 9-like	1	2	1	3
+gene-LOC120053007	LOC120053007	zinc finger protein 585A-like	2	1	-1	3
+gene-LOC120036379	LOC120036379	transport and Golgi organization protein 1 homolog	2	3	1	5
+gene-LOC120056576	LOC120056576	dehydrogenase/reductase SDR family member 13-like	1	2	1	0
+gene-LOC120037648	LOC120037648	NLR family CARD domain-containing protein 3-like	1	2	1	1
+gene-aldh3b2	aldh3b2	aldehyde dehydrogenase 3 family, member B2	1	2	1	3
+gene-LOC120042337	LOC120042337	NACHT, LRR and PYD domains-containing protein 1 homolog	1	2	1	3
+gene-LOC120026442	LOC120026442	transcriptional repressor scratch 1-like	1	2	1	3
+gene-arrdc1b	arrdc1b	arrestin domain containing 1b	1	2	1	4
+gene-LOC120025020	LOC120025020	uncharacterized LOC120025020	5	4	-1	0
+gene-LOC120032413	LOC120032413	zinc finger protein 271-like	1	2	1	2
+gene-LOC120063415	LOC120063415	uncharacterized LOC120063415	1	2	1	0
+gene-LOC120023320	LOC120023320	kazal-type serine protease inhibitor domain-containing protein 1-like	1	2	1	6
+gene-adgrl4	adgrl4	adhesion G protein-coupled receptor L4	1	2	1	5
+gene-LOC120035706	LOC120035706	tripartite motif-containing protein 16-like	1	2	1	2
+gene-drd2a	drd2a	dopamine receptor D2a	1	2	1	6
+gene-si:dkey-57a22.11	si:dkey-57a22.11	uncharacterized protein LOC569865 homolog	1	2	1	3
+gene-LOC120050368	LOC120050368	pistil-specific extensin-like protein	1	2	1	0
+gene-lipt2	lipt2	lipoyl(octanoyl) transferase 2	1	2	1	3
+gene-LOC120039541	LOC120039541	uncharacterized LOC120039541	1	2	1	3
+gene-LOC120043378	LOC120043378	5S ribosomal RNA	2	1	-1	0
+gene-LOC120061057	LOC120061057	guanine nucleotide-binding protein G(i) subunit alpha-like	2	1	-1	6
+gene-LOC120049645	LOC120049645	tRNA methyltransferase 10 homolog A-like	1	2	1	6
+gene-LOC120025542	LOC120025542	glutamine synthetase-like	1	2	1	3
+gene-LOC120029194	LOC120029194	uncharacterized protein C11orf53 homolog	1	2	1	2
+gene-LOC120040573	LOC120040573	zinc finger protein 239-like	1	2	1	0
+gene-LOC120033489	LOC120033489	gastrula zinc finger protein XlCGF17.1-like	1	2	1	3
+gene-LOC120040808	LOC120040808	NLR family CARD domain-containing protein 3-like	1	2	1	1
+gene-vgf	vgf	VGF nerve growth factor inducible	1	2	1	1
+gene-LOC120064971	LOC120064971	eukaryotic translation initiation factor 6-like	1	2	1	9
+gene-LOC120051113	LOC120051113	ADP-ribosyl cyclase/cyclic ADP-ribose hydrolase 1	1	2	1	4
+gene-LOC120041815	LOC120041815	CMRF35-like molecule 6	2	1	-1	0
+gene-LOC120033459	LOC120033459	prolactin receptor-like	1	2	1	4
+gene-LOC120065817	LOC120065817	mesogenin-1-like	1	2	1	8
+gene-LOC120029858	LOC120029858	splicing factor 3B subunit 5	1	2	1	3
+gene-LOC120056907	LOC120056907	proteasome subunit alpha type-1-like	1	2	1	4
+gene-LOC120023147	LOC120023147	protein ELYS-like	1	2	1	0
+gene-LOC120023754	LOC120023754	phosphatidate phosphatase LPIN1-like	1	2	1	8
+gene-LOC120047960	LOC120047960	putative protocadherin beta-18	1	2	1	3
+gene-LOC120043934	LOC120043934	cation channel sperm-associated protein subunit beta-like	3	2	-1	2
+gene-LOC120036800	LOC120036800	5S ribosomal RNA	2	1	-1	0
+gene-LOC120024258	LOC120024258	uncharacterized LOC120024258	2	1	-1	0
+gene-LOC120044678	LOC120044678	glycerophosphodiester phosphodiesterase 1-like	1	2	1	2
+gene-LOC120022111	LOC120022111	BET1 homolog	2	1	-1	5
+gene-LOC120064683	LOC120064683	protein-arginine deiminase type-2-like	1	2	1	3
+gene-ints8	ints8	integrator complex subunit 8	1	2	1	2
+gene-twist1b	twist1b	twist family bHLH transcription factor 1b	2	1	-1	5
+gene-LOC120035682	LOC120035682	uncharacterized LOC120035682	1	2	1	0
+gene-LOC120055871	LOC120055871	serine/threonine-protein kinase PLK3-like	1	2	1	13
+gene-baiap2l1b	baiap2l1b	BAR/IMD domain containing adaptor protein 2 like 1b	1	2	1	7
+gene-LOC120049665	LOC120049665	TRAF-interacting protein with FHA domain-containing protein A-like	1	2	1	2
+gene-LOC120021676	LOC120021676	glutamate receptor ionotropic, NMDA 1	1	2	1	9
+gene-LOC120043459	LOC120043459	high choriolytic enzyme 1-like	3	2	-1	3
+gene-LOC120054611	LOC120054611	5-hydroxytryptamine receptor 2B-like	1	2	1	10
+gene-LOC120065499	LOC120065499	uncharacterized LOC120065499	1	2	1	0
+gene-LOC120020561	LOC120020561	B-cell lymphoma 6 protein-like	1	2	1	7
+gene-LOC120022160	LOC120022160	zinc finger MYM-type protein 4-like	1	2	1	1
+gene-LOC120017826	LOC120017826	polymeric immunoglobulin receptor-like	1	2	1	0
+gene-LOC120058037	LOC120058037	gamma-crystallin S-1-like	1	2	1	3
+gene-LOC120038986	LOC120038986	vasoactive intestinal polypeptide receptor 2-like	1	2	1	6
+gene-LOC120024080	LOC120024080	sodium/bile acid cotransporter-like	1	2	1	3
+gene-LOC120043681	LOC120043681	uncharacterized LOC120043681	2	1	-1	0
+gene-LOC120021917	LOC120021917	small nucleolar RNA SNORD36	1	2	1	0
+gene-LOC120032670	LOC120032670	heat shock protein beta-1-like	1	2	1	3
+gene-LOC120022803	LOC120022803	four and a half LIM domains protein 3-like	1	2	1	6
+gene-LOC120053751	LOC120053751	putative ferric-chelate reductase 1	1	2	1	0
+gene-LOC120024536	LOC120024536	small integral membrane protein 8-like	1	2	1	0
+gene-LOC120034278	LOC120034278	phosphoinositide-interacting protein-like	2	1	-1	0
+gene-LOC120063861	LOC120063861	nucleolar protein 56-like	1	2	1	3
+gene-LOC120049707	LOC120049707	ubiquitin-protein ligase E3B-like	1	2	1	4
+gene-sp8b	sp8b	sp8 transcription factor b	1	2	1	3
+gene-LOC120053087	LOC120053087	small nucleolar RNA U3	1	2	1	0
+gene-LOC120041126	LOC120041126	U1 spliceosomal RNA	13	14	1	0
+gene-LOC120058485	LOC120058485	SPRY domain-containing protein 7	2	1	-1	1
+gene-LOC120030534	LOC120030534	galactose-specific lectin nattectin-like	2	1	-1	1
+gene-LOC120017900	LOC120017900	histone H2B	1	2	1	4
+gene-LOC120060024	LOC120060024	b(0,+)-type amino acid transporter 1-like	1	2	1	3
+gene-rrh	rrh	retinal pigment epithelium-derived rhodopsin homolog	2	1	-1	5
+gene-LOC120025078	LOC120025078	high choriolytic enzyme 1-like	1	2	1	3
+gene-LOC120047928	LOC120047928	LRRN4 C-terminal-like protein	1	2	1	1
+gene-LOC120036020	LOC120036020	uncharacterized LOC120036020	3	4	1	0
+gene-LOC120042891	LOC120042891	5S ribosomal RNA	2	1	-1	0
+gene-LOC120017885	LOC120017885	uncharacterized LOC120017885	1	2	1	0
+gene-LOC120035575	LOC120035575	5S ribosomal RNA	2	1	-1	0
+gene-LOC120022320	LOC120022320	immunoglobulin lambda-like polypeptide 5	1	2	1	0
+gene-LOC120046036	LOC120046036	uncharacterized LOC120046036	2	1	-1	0
+gene-LOC120059581	LOC120059581	SAP domain-containing ribonucleoprotein-like	2	3	1	2
+gene-LOC120025509	LOC120025509	endoplasmic reticulum mannosyl-oligosaccharide 1,2-alpha-mannosidase-like	1	2	1	7
+gene-LOC120050266	LOC120050266	small muscular protein-like	2	1	-1	3
+gene-LOC120022743	LOC120022743	chromatin modification-related protein MEAF6	1	2	1	2
+gene-LOC120025372	LOC120025372	C-C motif chemokine 13-like	4	3	-1	16
+gene-LOC120022690	LOC120022690	dnaJ homolog subfamily C member 8-like	1	2	1	1
+gene-LOC120053661	LOC120053661	cytochrome b-c1 complex subunit 6, mitochondrial-like	1	2	1	2
+gene-csrp2	csrp2	cysteine and glycine-rich protein 2	1	2	1	7
+gene-LOC120058340	LOC120058340	splicing factor 3B subunit 1-like	1	2	1	6
+gene-LOC120063898	LOC120063898	uncharacterized LOC120063898	1	2	1	0
+gene-LOC120039614	LOC120039614	uncharacterized LOC120039614	1	2	1	0
+gene-LOC120051050	LOC120051050	phosphoenolpyruvate carboxykinase, cytosolic [GTP]-like	1	2	1	13
+gene-LOC120057921	LOC120057921	gamma-crystallin M2-like	1	2	1	3
+gene-LOC120063132	LOC120063132	uncharacterized LOC120063132	1	2	1	0
+gene-LOC120025430	LOC120025430	ectonucleoside triphosphate diphosphohydrolase 2-like	1	2	1	4
+gene-si:dkey-8e10.3	si:dkey-8e10.3	serine/threonine-protein kinase SBK1	2	1	-1	4
+gene-LOC120048087	LOC120048087	zinc finger protein 37-like	1	2	1	4
+gene-LOC120044479	LOC120044479	interferon a3-like	2	1	-1	3
+gene-LOC120033164	LOC120033164	integrin alpha-4-like	1	2	1	7
+gene-si:dkey-6n21.12	si:dkey-6n21.12	schwannomin-interacting protein 1	1	2	1	3
+gene-LOC120050407	LOC120050407	acyl-protein thioesterase 1-like	1	2	1	4
+gene-LOC120035003	LOC120035003	zinc finger protein 394-like	1	2	1	3
+gene-LOC120043025	LOC120043025	gastrula zinc finger protein XlCGF17.1-like	1	2	1	0
+gene-LOC120050602	LOC120050602	small G protein signaling modulator 1-like	1	2	1	2
+gene-LOC120061392	LOC120061392	uncharacterized LOC120061392	2	3	1	0
+gene-tsg101a	tsg101a	tumor susceptibility 101a	1	2	1	5
+gene-oxld1	oxld1	oxidoreductase-like domain containing 1	1	2	1	1
+gene-LOC120050786	LOC120050786	natterin-3-like	2	1	-1	0
+gene-LOC120043300	LOC120043300	uncharacterized LOC120043300	1	2	1	0
+gene-LOC120047441	LOC120047441	beta-crystallin B1-like	1	2	1	3
+gene-LOC120049415	LOC120049415	uncharacterized LOC120049415	1	2	1	0
+gene-LOC120026151	LOC120026151	delta-aminolevulinic acid dehydratase-like	1	2	1	4
+gene-dctn5	dctn5	dynactin 5	1	2	1	0
+gene-LOC120030906	LOC120030906	taste receptor type 1 member 1-like	1	2	1	3
+gene-LOC120036805	LOC120036805	5S ribosomal RNA	3	4	1	0
+gene-LOC120051049	LOC120051049	transmembrane 9 superfamily member 1-like	1	2	1	2
+gene-LOC120049642	LOC120049642	zinc finger protein OZF-like	1	2	1	5
+gene-LOC120059769	LOC120059769	gap junction alpha-10 protein-like	1	2	1	2
+gene-LOC120046323	LOC120046323	uncharacterized LOC120046323	1	2	1	0
+gene-taf12	taf12	TAF12 RNA polymerase II, TATA box binding protein (TBP)-associated factor	1	2	1	8
+gene-si:dkey-11p23.7	si:dkey-11p23.7	V-set and Ig domain-containing protein	1	2	1	4
+gene-LOC120019901	LOC120019901	UDP-N-acetylglucosamine transporter-like	1	2	1	3
+gene-LOC120049780	LOC120049780	NACHT, LRR and PYD domains-containing protein 1 homolog	1	2	1	3
+gene-LOC120025169	LOC120025169	AP-1 complex subunit beta-1-like	1	2	1	5
+gene-LOC120047824	LOC120047824	protocadherin gamma-A2-like	1	2	1	3
+gene-LOC120027130	LOC120027130	uncharacterized LOC120027130	2	3	1	0
+gene-LOC120065434	LOC120065434	ADP-ribosylation factor-related protein 1-like	1	2	1	6
+gene-LOC120050799	LOC120050799		1	2	1	0
+gene-LOC120044381	LOC120044381	myelin protein zero-like protein 1	1	2	1	3
+gene-LOC120029969	LOC120029969	dexamethasone-induced Ras-related protein 1-like	1	2	1	2
+gene-si:dkey-73n8.3	si:dkey-73n8.3	uncharacterized protein LOC100150965 homolog	1	2	1	0
+gene-LOC120058342	LOC120058342	60 kDa heat shock protein, mitochondrial	1	2	1	14
+gene-LOC120053136	LOC120053136	small nucleolar RNA snR60/Z15/Z230/Z193/J17	1	2	1	0
+gene-LOC120032779	LOC120032779	ferritin, middle subunit-like	1	2	1	6
+gene-LOC120024703	LOC120024703	olfactory receptor class A-like protein 1	1	2	1	3
+gene-LOC120051114	LOC120051114	cingulin-like protein 1	1	2	1	4
+gene-LOC120065320	LOC120065320	green-sensitive opsin-2-like	1	2	1	6
+gene-LOC120048099	LOC120048099	protocadherin gamma-C5-like	1	2	1	3
+gene-LOC120020106	LOC120020106	uncharacterized LOC120020106	47	48	1	0
+gene-LOC120033162	LOC120033162	protein phosphatase 1 regulatory subunit 1C-like	1	2	1	3
+gene-LOC120053969	LOC120053969	kelch-like protein 42	1	2	1	1
+gene-fmnl2b	fmnl2b	formin-like 2b	1	2	1	6
+gene-LOC120062346	LOC120062346	sorting nexin-12-like	1	2	1	5
+gene-LOC120046754	LOC120046754	glucose-induced degradation protein 4 homolog	1	2	1	6
+gene-shroom1	shroom1	shroom family member 1	1	2	1	6
+gene-LOC120047339	LOC120047339	angiopoietin-1-like	1	2	1	0
+gene-LOC120046753	LOC120046753	ATP synthase mitochondrial F1 complex assembly factor 2-like	1	2	1	2
+gene-LOC120062433	LOC120062433	integrator complex subunit 5-like	1	2	1	2
+gene-wdr93	wdr93	WD repeat domain 93	2	1	-1	0
+gene-LOC120051883	LOC120051883	growth arrest and DNA damage-inducible protein GADD45 alpha-like	1	2	1	3
+gene-rock2a	rock2a	rho-associated, coiled-coil containing protein kinase 2a	1	2	1	16
+gene-LOC120029532	LOC120029532	neurabin-2-like	1	2	1	8
+gene-ppih	ppih	peptidylprolyl isomerase H (cyclophilin H)	1	2	1	4
+gene-LOC120033753	LOC120033753	ferritin, middle subunit-like	2	1	-1	6
+gene-LOC120027423	LOC120027423	ras-related protein Rab-39B-like	1	2	1	4
+gene-LOC120027377	LOC120027377	uncharacterized LOC120027377	5	4	-1	0
+gene-LOC120023896	LOC120023896	uncharacterized LOC120023896	3	4	1	0
+gene-LOC120036400	LOC120036400	5S ribosomal RNA	2	1	-1	0
+gene-LOC120019681	LOC120019681	glycoprotein integral membrane protein 1-like	1	2	1	0
+gene-LOC120045028	LOC120045028	serine/threonine-protein kinase TAO3-like	1	2	1	1
+gene-LOC120028051	LOC120028051	serine/threonine-protein kinase PRP4 homolog	1	2	1	5
+gene-LOC120024561	LOC120024561	actin-85C-like	1	2	1	0
+gene-LOC120036889	LOC120036889	uncharacterized LOC120036889	1	2	1	0
+gene-LOC120021205	LOC120021205	surfeit locus protein 2-like	1	2	1	0
+gene-LOC120044421	LOC120044421	insulin	1	2	1	3
+gene-LOC120022007	LOC120022007	gap junction alpha-9 protein-like	1	2	1	2
+gene-LOC120030928	LOC120030928	carcinoembryonic antigen-related cell adhesion molecule 5-like	1	2	1	0
+gene-LOC120065435	LOC120065435	NACHT, LRR and PYD domains-containing protein 12-like	1	2	1	1
+gene-LOC120027508	LOC120027508	keratin, type I cytoskeletal 13-like	1	2	1	1
+gene-LOC120055984	LOC120055984	HIG1 domain family member 1A, mitochondrial-like	1	2	1	2
+gene-gnb1l	gnb1l	guanine nucleotide binding protein (G protein), beta polypeptide 1-like	1	2	1	1
+gene-LOC120020950	LOC120020950	serine/threonine-protein phosphatase 6 catalytic subunit	1	2	1	4
+gene-dcun1d1	dcun1d1	DCN1, defective in cullin neddylation 1, domain containing 1 (S. cerevisiae)	1	2	1	6
+gene-LOC120040975	LOC120040975	E3 ubiquitin/ISG15 ligase TRIM25-like	1	2	1	1
+gene-LOC120064285	LOC120064285	guanylate-binding protein 1-like	2	1	-1	2
+gene-LOC120033071	LOC120033071	U7 small nuclear RNA	1	2	1	0
+gene-LOC120034689	LOC120034689	uncharacterized LOC120034689	2	1	-1	2
+gene-LOC120047823	LOC120047823	protocadherin gamma-A10-like	1	2	1	3
+gene-LOC120052899	LOC120052899	uncharacterized LOC120052899	2	1	-1	0
+gene-LOC120061992	LOC120061992	nanos homolog 1-like	1	2	1	5
+gene-LOC120021739	LOC120021739	fermitin family homolog 3-like	1	2	1	8
+gene-LOC120041221	LOC120041221	endonuclease domain-containing 1 protein-like	1	2	1	3
+gene-endou2	endou2	endonuclease, polyU-specific 2	1	2	1	1
+gene-LOC120029324	LOC120029324	catechol O-methyltransferase domain-containing protein 1-like	1	2	1	2
+gene-LOC120024450	LOC120024450	uncharacterized LOC120024450	1	2	1	0
+gene-LOC120036554	LOC120036554	small nucleolar RNA SNORD30	1	2	1	0
+gene-LOC120039232	LOC120039232	uncharacterized LOC120039232	1	2	1	0
+gene-gjc2	gjc2	gap junction protein gamma 2	1	2	1	2
+gene-LOC120031841	LOC120031841	pyrin-like	1	2	1	1
+gene-LOC120030140	LOC120030140	eukaryotic initiation factor 4A-I-like	1	2	1	5
+gene-LOC120053813	LOC120053813	kelch-like protein 25	1	2	1	1
+gene-LOC120057922	LOC120057922	gamma-crystallin M2-like	1	2	1	3
+gene-LOC120034554	LOC120034554		1	2	1	0
+gene-LOC120024447	LOC120024447	C-type lectin domain family 11 member A-like	2	1	-1	0
+gene-lamb4	lamb4	laminin, beta 4	1	2	1	0
+gene-LOC120040915	LOC120040915	5S ribosomal RNA	2	1	-1	0
+gene-LOC120060087	LOC120060087	uncharacterized LOC120060087	1	2	1	0
+gene-LOC120036469	LOC120036469	zona pellucida sperm-binding protein 4-like	1	2	1	0
+gene-lgi2a	lgi2a	leucine-rich repeat LGI family, member 2a	1	2	1	3
+gene-LOC120053922	LOC120053922	aspartate aminotransferase, mitochondrial-like	1	2	1	5
+gene-tbx19	tbx19	T-box transcription factor 19	1	2	1	8
+gene-LOC120018066	LOC120018066	translocon-associated protein subunit gamma	1	2	1	3
+gene-LOC120033621	LOC120033621	tubulin alpha chain-like	2	1	-1	6
+gene-LOC120024042	LOC120024042	exostosin-like 3	1	2	1	3
+gene-LOC120024073	LOC120024073	E3 UFM1-protein ligase 1-like	1	2	1	5
+gene-LOC120040526	LOC120040526	uncharacterized LOC120040526	2	1	-1	0
+gene-LOC120021737	LOC120021737	vacuolar protein sorting-associated protein 29	2	1	-1	4
+gene-LOC120023188	LOC120023188	synapse differentiation-inducing gene protein 1-like	1	2	1	2
+gene-LOC120038043	LOC120038043	probable rRNA-processing protein ebp2	2	1	-1	0
+gene-cdk5r2a	cdk5r2a	cyclin-dependent kinase 5, regulatory subunit 2a (p39)	1	2	1	7
+gene-LOC120052724	LOC120052724	growth arrest-specific protein 2-like	2	1	-1	5
+gene-LOC120029247	LOC120029247	small nucleolar RNA SNORD66	2	1	-1	0
+gene-LOC120058746	LOC120058746	cadherin-2	1	2	1	11
+gene-LOC120020322	LOC120020322	adenosine receptor A3-like	2	1	-1	5
+gene-LOC120041184	LOC120041184	butyrophilin subfamily 1 member A1-like	2	3	1	0
+gene-LOC120021369	LOC120021369	histone acetyltransferase KAT5-like	1	2	1	3
+gene-LOC120054927	LOC120054927	pancreas/duodenum homeobox protein 1-like	1	2	1	5
+gene-LOC120058034	LOC120058034	gamma-crystallin M3-like	1	2	1	3
+gene-nanog	nanog	nanog homeobox	1	2	1	5
+gene-trap1	trap1	TNF receptor-associated protein 1	1	2	1	7
+gene-LOC120024908	LOC120024908	uncharacterized LOC120024908	1	2	1	0
+gene-rcn2	rcn2	reticulocalbin 2	1	2	1	2
+gene-LOC120053652	LOC120053652	transmembrane protein 47-like	1	2	1	3
+gene-LOC120044422	LOC120044422	magnesium transporter NIPA2-like	1	2	1	3
+gene-LOC120017478	LOC120017478	trichohyalin-like	1	2	1	0
+gene-LOC120027957	LOC120027957	uncharacterized LOC120027957	1	2	1	0
+gene-LOC120060708	LOC120060708	twist-related protein 2-like	1	2	1	5
+gene-LOC120019452	LOC120019452	zinc finger BED domain-containing protein 4-like	2	1	-1	2
+gene-LOC120025084	LOC120025084	leucine zipper protein 2-like	1	2	1	0
+gene-myh6	myh6	myosin, heavy chain 6, cardiac muscle, alpha	1	2	1	4
+gene-LOC120023677	LOC120023677	piggyBac transposable element-derived protein 4-like	31	32	1	0
+gene-LOC120065207	LOC120065207	kinesin light chain 1-like	1	2	1	5
+gene-LOC120050980	LOC120050980	histone-lysine N-methyltransferase SETD1B-like	1	2	1	5
+gene-LOC120028593	LOC120028593	U4 spliceosomal RNA	1	2	1	0
+gene-LOC120028315	LOC120028315	zinc finger FYVE domain-containing protein 1-like	1	2	1	1
+gene-LOC120058292	LOC120058292	uncharacterized LOC120058292	2	1	-1	0
+gene-LOC120024300	LOC120024300	adenosine receptor A3-like	3	2	-1	5
+gene-sh3bp5lb	sh3bp5lb	SH3-binding domain protein 5-like, b	1	2	1	4
+gene-LOC120057981	LOC120057981	protein jagunal homolog 1-A-like	1	2	1	4
+gene-LOC120021970	LOC120021970	adaptin ear-binding coat-associated protein 1-like	1	2	1	3
+gene-LOC120039049	LOC120039049	transient receptor potential cation channel subfamily M member 1	1	2	1	3
+gene-LOC120035390	LOC120035390	BRCA1-associated ATM activator 1-like	1	2	1	4
+gene-LOC120045018	LOC120045018	polypeptide N-acetylgalactosaminyltransferase 9-like	1	2	1	1
+gene-LOC120037633	LOC120037633	LHFPL tetraspan subfamily member 6 protein-like	1	2	1	1
+gene-LOC120020625	LOC120020625	regulator of G-protein signaling 5-like	1	2	1	0
+gene-LOC120052373	LOC120052373	ceramide kinase-like	1	2	1	1
+gene-LOC120040524	LOC120040524	putative nuclease HARBI1	3	4	1	0
+gene-hgfa	hgfa	hepatocyte growth factor a	1	2	1	2
+gene-LOC120035388	LOC120035388	zinc finger protein 135-like	2	1	-1	3
+gene-LOC120039068	LOC120039068	elongin-C	1	2	1	3
+gene-LOC120057924	LOC120057924	gamma-crystallin M2-like	1	2	1	3
+gene-zfhx2	zfhx2	zinc finger homeobox 2	1	2	1	6
+gene-LOC120053522	LOC120053522	F-actin-capping protein subunit alpha-2-like	1	2	1	5
+gene-LOC120026454	LOC120026454	transcription factor 15-like	1	2	1	5
+gene-LOC120035697	LOC120035697	uncharacterized LOC120035697	1	2	1	0
+gene-LOC120041662	LOC120041662	uncharacterized LOC120041662	16	17	1	0
+gene-fbxw10	fbxw10	F-box and WD repeat domain containing 10	1	2	1	1
+gene-LOC120029602	LOC120029602	somatostatin receptor type 2-like	1	2	1	7
+gene-LOC120025338	LOC120025338	transcription factor E2F8-like	1	2	1	4
+gene-LOC120027956	LOC120027956	uncharacterized LOC120027956	1	2	1	0
+gene-LOC120056288	LOC120056288	phospholipid phosphatase-related protein type 5-like	1	2	1	4
+gene-LOC120017480	LOC120017480	target of Myb protein 1-like	2	1	-1	6
+gene-LOC120066815	LOC120066815	U4 spliceosomal RNA	1	2	1	0
+gene-LOC120057395	LOC120057395	uncharacterized LOC120057395	1	2	1	0
+gene-LOC120020663	LOC120020663	FERM domain-containing protein 4B-like	1	2	1	5
+gene-LOC120036524	LOC120036524	uncharacterized LOC120036524	2	1	-1	0
+gene-tmeff1a	tmeff1a	transmembrane protein with EGF-like and two follistatin-like domains 1a	1	2	1	1
+gene-LOC120053451	LOC120053451	calretinin-like	1	2	1	8
+gene-LOC120054436	LOC120054436	calcium release-activated calcium channel protein 1-like	1	2	1	3
+gene-LOC120022168	LOC120022168	splicing factor, proline- and glutamine-rich-like	1	2	1	3
+gene-LOC120022857	LOC120022857	thyrotroph embryonic factor-like	1	2	1	4
+gene-LOC120027266	LOC120027266	exostosin-1c	1	2	1	3
+gene-LOC120026854	LOC120026854	eyes absent homolog 3-like	1	2	1	6
+gene-LOC120052646	LOC120052646	aldo-keto reductase family 1 member A1-B	2	1	-1	3
+gene-LOC120022581	LOC120022581	c-Myc-binding protein-like	1	2	1	3
+gene-LOC120033141	LOC120033141	uncharacterized LOC120033141	2	1	-1	0
+gene-ttc12	ttc12	tetratricopeptide repeat domain 12	1	2	1	1
+gene-LOC120027561	LOC120027561	small nucleolar RNA SNORA16B/SNORA16A family	1	2	1	0
+gene-LOC120043844	LOC120043844	uncharacterized LOC120043844	1	2	1	0
+gene-LOC120053521	LOC120053521	protein Wnt-2-like	1	2	1	8
+gene-LOC120046317	LOC120046317	proteasome activator complex subunit 3-like	1	2	1	7
+gene-LOC120060940	LOC120060940	glucocorticoid modulatory element-binding protein 2-like	1	2	1	4
+gene-LOC120059566	LOC120059566	heterochromatin protein 1-binding protein 3-like	1	2	1	8
+gene-st6galnac	st6galnac	ST6 (alpha-N-acetyl-neuraminyl-2,3-beta-galactosyl-1,3)-N-acetylgalactosaminide alpha-2,6-sialyltransferase	1	2	1	2
+gene-LOC120052377	LOC120052377	uncharacterized LOC120052377	1	2	1	0
+gene-LOC120051696	LOC120051696	plasma membrane calcium-transporting ATPase 1-like	1	2	1	8
+gene-nploc4	nploc4	NPL4 homolog, ubiquitin recognition factor	1	2	1	4
+gene-LOC120045524	LOC120045524	uncharacterized LOC120045524	2	1	-1	0
+gene-LOC120037100	LOC120037100	SH3 and multiple ankyrin repeat domains protein 3-like	1	2	1	5
+gene-LOC120032782	LOC120032782	uncharacterized LOC120032782	1	2	1	3
+gene-LOC120051698	LOC120051698	GRAM domain-containing protein 4-like	1	2	1	3
+gene-LOC120057919	LOC120057919	gamma-crystallin M3-like	1	2	1	3
+gene-LOC120053086	LOC120053086	small nucleolar RNA U3	2	1	-1	0
+gene-atg4da	atg4da	autophagy related 4D, cysteine peptidase a	1	2	1	1
+gene-LOC120057543	LOC120057543	probable G-protein coupled receptor 34	1	2	1	3
+gene-hopx	hopx	HOP homeobox	1	2	1	4
+gene-LOC120035392	LOC120035392	zinc finger protein 180-like	2	1	-1	3
+gene-LOC120033665	LOC120033665	uncharacterized LOC120033665	1	2	1	0
+gene-LOC120025972	LOC120025972	arrestin domain-containing protein 1-like	1	2	1	4
+gene-LOC120028644	LOC120028644	U4 spliceosomal RNA	1	2	1	0
+gene-LOC120020951	LOC120020951	uncharacterized LOC120020951	1	2	1	0
+gene-vps52	vps52	VPS52 subunit of GARP complex	1	2	1	6
+gene-LOC120030201	LOC120030201	O-phosphoseryl-tRNA(Sec) selenium transferase-like	2	1	-1	4
+gene-LOC120022770	LOC120022770	cilia- and flagella-associated protein 20-like	2	1	-1	5
+gene-LOC120058961	LOC120058961	endophilin-B2-like	2	1	-1	4
+gene-s100s	s100s	S100 calcium binding protein S	1	2	1	1
+gene-LOC120043016	LOC120043016	uncharacterized LOC120043016	1	2	1	0
+gene-LOC120062432	LOC120062432	phospholipase A and acyltransferase 4-like	1	2	1	5
+gene-LOC120038137	LOC120038137	uncharacterized LOC120038137	1	2	1	0
+gene-LOC120023181	LOC120023181	tyrosine-protein kinase receptor TYRO3-like	1	2	1	11
+gene-LOC120044007	LOC120044007	sorting nexin-8-like	1	2	1	2
+gene-LOC120059827	LOC120059827	antimicrobial peptide NK-lysin-like	2	3	1	2
+gene-LOC120045276	LOC120045276	5.8S ribosomal RNA	1	2	1	0
+gene-LOC120056680	LOC120056680	uncharacterized LOC120056680	2	3	1	0
+gene-odad3	odad3	outer dynein arm docking complex subunit 3	1	2	1	3
+gene-LOC120036067	LOC120036067	coiled-coil domain-containing protein 43-like	1	2	1	0
+gene-LOC120041373	LOC120041373	MAPK regulated corepressor interacting protein 2-like	1	2	1	0
+gene-LOC120058709	LOC120058709	coiled-coil domain-containing protein 63-like	1	2	1	3
+gene-LOC120052388	LOC120052388	troponin I, fast skeletal muscle-like	1	2	1	2
+gene-LOC120042086	LOC120042086	U1 spliceosomal RNA	3	2	-1	0
+gene-LOC120038717	LOC120038717	phospholipid phosphatase 3-like	1	2	1	4
+gene-psip1a	psip1a	PC4 and SFRS1 interacting protein 1a	2	1	-1	4
+gene-LOC120045355	LOC120045355	interferon-induced protein with tetratricopeptide repeats 5-like	2	3	1	3
+gene-LOC120052129	LOC120052129	protein ABHD8-like	1	2	1	1
+gene-LOC120045384	LOC120045384	gap junction delta-3 protein-like	1	2	1	2
+gene-LOC120052684	LOC120052684	AN1-type zinc finger protein 5-like	1	2	1	2
+gene-LOC120034574	LOC120034574	dehydrogenase/reductase SDR family member 7C-B-like	1	2	1	3
+gene-LOC120024859	LOC120024859	BTB/POZ domain-containing protein 1-like	1	2	1	4
+gene-LOC120064830	LOC120064830	ras association domain-containing protein 1-like	1	2	1	3
+gene-LOC120066191	LOC120066191	keratin, type I cytoskeletal 13-like	1	2	1	1
+gene-LOC120045871	LOC120045871	synaptic vesicular amine transporter-like	1	2	1	7
+gene-LOC120023737	LOC120023737	B2 bradykinin receptor	1	2	1	7
+gene-LOC120033198	LOC120033198	opsin-3-like	1	2	1	5
+gene-LOC120029672	LOC120029672	monocarboxylate transporter 12-B-like	1	2	1	3
+gene-slc6a22.2	slc6a22.2	solute carrier family 6 member 22, tandem duplicate 2	1	2	1	2
+gene-LOC120025071	LOC120025071	gastricsin-like	1	2	1	2
+gene-LOC120060323	LOC120060323	60 kDa lysophospholipase-like	1	2	1	3
+gene-LOC120036315	LOC120036315	protein tweety homolog 3-like	1	2	1	3
+gene-LOC120023678	LOC120023678	zinc finger protein 501-like	2	1	-1	3
+gene-LOC120052111	LOC120052111	fibronectin type III domain-containing protein 7-like	2	1	-1	1
+gene-LOC120058791	LOC120058791	uncharacterized LOC120058791	1	2	1	0
+gene-LOC120040411	LOC120040411	gastrula zinc finger protein XlCGF57.1-like	2	1	-1	3
+gene-commd4	commd4	COMM domain containing 4	1	2	1	0
+gene-LOC120060040	LOC120060040	leucine-rich repeat and fibronectin type-III domain-containing protein 5-like	1	2	1	1
+gene-snx1a	snx1a	sorting nexin 1a	1	2	1	5
+gene-LOC120058852	LOC120058852	adipolin-like	1	2	1	2
+gene-dclre1a	dclre1a	DNA cross-link repair 1A (PSO2 homolog, S. cerevisiae)	1	2	1	5
+gene-cdkn2a/b	cdkn2a/b	cyclin-dependent kinase inhibitor 2A/B (p15, inhibits CDK4)	2	1	-1	5
+gene-LOC120064865	LOC120064865	protein SSUH2 homolog	1	2	1	0
+gene-LOC120030803	LOC120030803	uncharacterized LOC120030803	1	2	1	0
+gene-LOC120029094	LOC120029094	A disintegrin and metalloproteinase with thrombospondin motifs 8-like	1	2	1	5
+gene-LOC120055298	LOC120055298	vasoactive intestinal polypeptide receptor 2-like	1	2	1	6
+gene-LOC120058344	LOC120058344	raftlin-2-like	1	2	1	0
+gene-LOC120038445	LOC120038445	5S ribosomal RNA	2	1	-1	0
+gene-pitx2	pitx2	paired-like homeodomain 2	1	2	1	5
+gene-LOC120061880	LOC120061880	eukaryotic translation initiation factor 4E-1A-like	1	2	1	5
+gene-LOC120053114	LOC120053114	U7 small nuclear RNA	3	4	1	0
+gene-LOC120048307	LOC120048307	cell division cycle-associated protein 3-like	1	2	1	0
+gene-mycb	mycb	MYC proto-oncogene, bHLH transcription factor b	1	2	1	5
+gene-LOC120055891	LOC120055891	PAX-interacting protein 1-like	1	2	1	2
+gene-LOC120058913	LOC120058913	calcium/calmodulin-dependent protein kinase type 1B-like	1	2	1	5
+gene-csrp3	csrp3	cysteine and glycine-rich protein 3 (cardiac LIM protein)	1	2	1	8
+gene-zgc:92275	zgc:92275	uncharacterized protein LOC436885 homolog	1	2	1	5
+gene-anapc5	anapc5	anaphase promoting complex subunit 5	1	2	1	5
+gene-LOC120023871	LOC120023871	dermatan-sulfate epimerase-like	1	2	1	3
+gene-cd44a	cd44a	CD44 molecule (Indian blood group) a	2	1	-1	0
+gene-LOC120046455	LOC120046455	BAG family molecular chaperone regulator 3-like	1	2	1	9
+gene-LOC120020067	LOC120020067	corticotropin-releasing factor receptor 2	1	2	1	10
+gene-LOC120055596	LOC120055596	atypical chemokine receptor 2	1	2	1	5
+gene-prkn	prkn	parkin RBR E3 ubiquitin protein ligase	1	2	1	17
+gene-LOC120022192	LOC120022192		1	2	1	0
+gene-LOC120032764	LOC120032764	potassium voltage-gated channel subfamily H member 1-like	1	2	1	4
+gene-LOC120024004	LOC120024004	uncharacterized LOC120024004	1	2	1	0
+gene-LOC120056819	LOC120056819	regulatory factor X-associated protein-like	2	1	-1	2
+gene-LOC120058181	LOC120058181	cell division cycle protein 16 homolog	1	2	1	2
+gene-LOC120057920	LOC120057920	gamma-crystallin M3-like	1	2	1	3
+gene-LOC120052979	LOC120052979	unconventional myosin-IXAb-like	1	2	1	5
+gene-LOC120023241	LOC120023241	potassium channel subfamily K member 10-like	1	2	1	4
+gene-LOC120030435	LOC120030435	placenta-specific gene 8 protein-like	1	2	1	0
+gene-LOC120030664	LOC120030664	serine protease HTRA3-like	1	2	1	4
+gene-LOC120031016	LOC120031016	uncharacterized LOC120031016	1	2	1	0
+gene-hydin	hydin	HYDIN axonemal central pair apparatus protein	1	2	1	3
+gene-LOC120043100	LOC120043100	uncharacterized LOC120043100	2	1	-1	0
+gene-LOC120044048	LOC120044048	phosphoinositide-interacting protein-like	1	2	1	4
+gene-LOC120049938	LOC120049938	general transcription factor II-I repeat domain-containing protein 2B-like	2	1	-1	0
+gene-LOC120019724	LOC120019724	plasminogen-like	1	2	1	5
+gene-LOC120039298	LOC120039298	aminopeptidase Ey-like	1	2	1	6
+gene-dynll2a	dynll2a	dynein, light chain, LC8-type 2a	1	2	1	5
+gene-LOC120042312	LOC120042312	sialic acid-binding Ig-like lectin 11	1	2	1	3
+gene-LOC120064959	LOC120064959	neural cell adhesion molecule L1-like protein	1	2	1	2
+gene-LOC120047784	LOC120047784	galectin-1-like	1	2	1	1
+gene-LOC120055741	LOC120055741	phosphoglucomutase-1-like	1	2	1	4
+gene-map4l	map4l	microtubule associated protein 4 like	1	2	1	4
+gene-hoatz	hoatz	HOATZ cilia and flagella associated protein	1	2	1	1
+gene-LOC120020707	LOC120020707	uncharacterized LOC120020707	1	2	1	5
+gene-esyt3	esyt3	extended synaptotagmin-like protein 3	1	2	1	3
+gene-LOC120019682	LOC120019682	low-density lipoprotein receptor-related protein 11-like	1	2	1	2
+gene-LOC120040413	LOC120040413	uncharacterized LOC120040413	2	1	-1	0
+gene-LOC120043784	LOC120043784	stonustoxin subunit beta-like	2	1	-1	1
+gene-LOC120027654	LOC120027654	cadherin-6-like	1	2	1	11
+gene-LOC120040389	LOC120040389	alpha-protein kinase 3-like	1	2	1	5
+gene-ap1m2	ap1m2	adaptor related protein complex 1 subunit mu 2	1	2	1	5
+gene-LOC120024349	LOC120024349	probable G-protein coupled receptor 63	1	2	1	3
+gene-LOC120045843	LOC120045843	phosphatidylinositide phosphatase SAC2-like	1	2	1	5
+gene-LOC120058341	LOC120058341	coenzyme Q-binding protein COQ10 homolog B, mitochondrial-like	1	2	1	4
+gene-chrnd	chrnd	cholinergic receptor, nicotinic, delta (muscle)	2	1	-1	10
+gene-LOC120032162	LOC120032162	heat shock 70 kDa protein 4-like	1	2	1	5
+gene-LOC120029796	LOC120029796	cholesterol 25-hydroxylase-like protein	1	2	1	5
+gene-LOC120032441	LOC120032441	uncharacterized LOC120032441	3	4	1	0
+gene-LOC120023534	LOC120023534	hydroxymethylglutaryl-CoA lyase, mitochondrial-like	1	2	1	3
+gene-LOC120042390	LOC120042390	uncharacterized LOC120042390	1	2	1	0
+gene-LOC120048016	LOC120048016	protocadherin gamma-C5-like	1	2	1	3
+gene-LOC120033779	LOC120033779	U2 spliceosomal RNA	2	1	-1	0
+gene-LOC120053665	LOC120053665	uncharacterized LOC120053665	2	3	1	0
+gene-LOC120035019	LOC120035019	uncharacterized LOC120035019	6	5	-1	0
+gene-LOC120039156	LOC120039156	uncharacterized LOC120039156	1	2	1	0
+gene-LOC120064119	LOC120064119	E3 ubiquitin-protein ligase RNF34-like	1	2	1	7
+gene-LOC120023084	LOC120023084	uncharacterized LOC120023084	2	1	-1	2
+gene-LOC120058091	LOC120058091	helix-loop-helix protein 2-like	1	2	1	4
+gene-LOC120022528	LOC120022528	probable C-mannosyltransferase DPY19L4	1	2	1	3
+gene-ppa1a	ppa1a	inorganic pyrophosphatase 1a	1	2	1	4
+gene-LOC120036714	LOC120036714	small nucleolar RNA U3	2	1	-1	0
+gene-LOC120043246	LOC120043246	5S ribosomal RNA	2	1	-1	0
+gene-LOC120041813	LOC120041813	U1 spliceosomal RNA	1	2	1	0
+gene-LOC120020563	LOC120020563	UMP-CMP kinase-like	1	2	1	8
+gene-ldha	ldha	lactate dehydrogenase A4	1	2	1	3
+gene-prmt5	prmt5	protein arginine methyltransferase 5	1	2	1	6
+gene-LOC120019183	LOC120019183	transcription initiation factor IIA subunit 1-like	1	2	1	3
+gene-LOC120062348	LOC120062348	sestrin-3-like	1	2	1	8
+gene-LOC120019384	LOC120019384	4-galactosyl-N-acetylglucosaminide 3-alpha-L-fucosyltransferase 9-like	1	2	1	4
+gene-LOC120029362	LOC120029362	epoxide hydrolase 1-like	1	2	1	3
+gene-LOC120049170	LOC120049170	fish-egg lectin-like	2	1	-1	0
+gene-LOC120051488	LOC120051488	collagen alpha-1(VIII) chain-like	1	2	1	1
+gene-LOC120045837	LOC120045837	ubiquitin domain-containing protein 1-like	1	2	1	1
+gene-LOC120044362	LOC120044362	protein phosphatase 1 regulatory subunit 14A-like	1	2	1	3
+gene-LOC120021208	LOC120021208	surfeit locus protein 4	1	2	1	4
+gene-LOC120035698	LOC120035698	E3 ubiquitin/ISG15 ligase TRIM25-like	2	1	-1	1
+gene-LOC120021916	LOC120021916	small nucleolar RNA SNORD36	1	2	1	0
+gene-LOC120021647	LOC120021647	regulatory factor X-associated protein	1	2	1	2
+gene-nfil3-3	nfil3-3	nuclear factor, interleukin 3 regulated, member 3	1	2	1	5
+gene-LOC120035167	LOC120035167	zinc finger protein 665-like	1	2	1	3
+gene-cfap20	cfap20	cilia and flagella associated protein 20	1	2	1	5
+gene-LOC120059248	LOC120059248	partner of Y14 and mago A	1	2	1	4
+gene-ppil4	ppil4	peptidylprolyl isomerase (cyclophilin)-like 4	1	2	1	4
+gene-LOC120054985	LOC120054985	uncharacterized LOC120054985	2	1	-1	0
+gene-LOC120063251	LOC120063251	purpurin-like	1	2	1	2
+gene-LOC120040124	LOC120040124	1-phosphatidylinositol phosphodiesterase-like	1	2	1	2
+gene-LOC120059165	LOC120059165	45 kDa calcium-binding protein	1	2	1	3
+gene-LOC120062135	LOC120062135	neuroligin-3-like	1	2	1	11
+gene-LOC120062709	LOC120062709	tumor necrosis factor ligand superfamily member 6-like	1	2	1	3
+gene-LOC120062758	LOC120062758	regulator of G-protein signaling 7-binding protein A-like	1	2	1	4
+gene-LOC120028755	LOC120028755	mRNA decay activator protein ZFP36L2-like	1	2	1	2
+gene-LOC120066548	LOC120066548	uncharacterized LOC120066548	1	2	1	0
+gene-LOC120024711	LOC120024711	olfactory receptor class A-like protein 1	1	2	1	3
+gene-LOC120042163	LOC120042163	uncharacterized LOC120042163	2	1	-1	0
+gene-LOC120021270	LOC120021270	uncharacterized LOC120021270	1	2	1	0
+gene-LOC120043202	LOC120043202	U1 spliceosomal RNA	2	1	-1	0
+gene-dtwd1	dtwd1	DTW domain containing 1	1	2	1	3
+gene-LOC120055472	LOC120055472	leptin receptor gene-related protein-like	1	2	1	3
+gene-LOC120035146	LOC120035146	androgen receptor-like	1	2	1	5
+gene-LOC120022143	LOC120022143	serine/arginine-rich splicing factor 10-like	1	2	1	1
+gene-LOC120021806	LOC120021806	histone H1-beta, late embryonic-like	1	2	1	3
+gene-zmp:0000001174	zmp:0000001174	retinoic acid-induced protein 2	1	2	1	2
+gene-LOC120019719	LOC120019719	protein unc-93 homolog A-like	1	2	1	0
+gene-LOC120027373	LOC120027373	CTP synthase 1	1	2	1	6
+gene-LOC120019477	LOC120019477	zinc finger protein 501-like	2	1	-1	0
+gene-LOC120035319	LOC120035319	olfactory receptor 52E4-like	2	1	-1	4
+gene-LOC120061232	LOC120061232	cold shock domain-containing protein E1-like	1	2	1	1
+gene-LOC120064703	LOC120064703	RING finger protein 207-like	1	2	1	8
+gene-LOC120024698	LOC120024698	6-phosphofructo-2-kinase/fructose-2,6-bisphosphatase 2-like	1	2	1	6
+gene-ppp1r7	ppp1r7	protein phosphatase 1, regulatory (inhibitor) subunit 7	1	2	1	1
+gene-LOC120035561	LOC120035561	5S ribosomal RNA	1	2	1	0
+gene-trnt1	trnt1	tRNA nucleotidyl transferase, CCA-adding, 1	1	2	1	3
+gene-LOC120029738	LOC120029738	sphingomyelin synthase-related protein 1-like	1	2	1	6
+gene-rgl3a	rgl3a	ral guanine nucleotide dissociation stimulator-like 3a	1	2	1	4
+gene-LOC120047438	LOC120047438	endonuclease domain-containing 1 protein-like	1	2	1	3
+gene-ccdc14	ccdc14	coiled-coil domain containing 14	1	2	1	2
+gene-nat9	nat9	N-acetyltransferase 9 (GCN5-related, putative)	1	2	1	2
+gene-LOC120024214	LOC120024214	tyrosine-protein kinase SRK2-like	1	2	1	8
+gene-LOC120036303	LOC120036303	ankyrin repeat domain-containing protein 1-like	2	1	-1	3
+gene-LOC120028538	LOC120028538	claudin-8-like	2	1	-1	5
+gene-LOC120046316	LOC120046316	next to BRCA1 gene 1 protein-like	1	2	1	3
+gene-LOC120037169	LOC120037169	uncharacterized LOC120037169	2	1	-1	0
+gene-LOC120025345	LOC120025345	transmembrane 6 superfamily member 1-like	1	2	1	1
+gene-vwa11	vwa11	von Willebrand factor A domain containing 11	1	2	1	0
+gene-LOC120025121	LOC120025121	cAMP-regulated phosphoprotein 19-A-like	2	1	-1	3
+gene-LOC120060688	LOC120060688	G-patch domain and KOW motifs-containing protein-like	1	2	1	3
+gene-LOC120048197	LOC120048197	myozenin-2-like	1	2	1	5
+gene-LOC120040206	LOC120040206	uncharacterized LOC120040206	1	2	1	0
+gene-LOC120047069	LOC120047069	protocadherin beta-16-like	1	2	1	3
+gene-LOC120055374	LOC120055374	uncharacterized LOC120055374	2	1	-1	5
+gene-LOC120048222	LOC120048222	kelch-like protein 3	1	2	1	1
+gene-LOC120051788	LOC120051788	mast cell protease 2-like	1	2	1	2
+gene-LOC120036321	LOC120036321	rRNA methyltransferase 2, mitochondrial-like	1	2	1	3
+gene-LOC120023585	LOC120023585	gap junction beta-3 protein-like	1	2	1	2
+gene-LOC120047571	LOC120047571	uncharacterized LOC120047571	3	2	-1	0
+gene-LOC120035035	LOC120035035	uncharacterized LOC120035035	1	2	1	0
+gene-LOC120056337	LOC120056337	small nucleolar RNA SNORD2	1	2	1	0
+gene-LOC120060717	LOC120060717	MICOS complex subunit MIC10-like	1	2	1	3
+gene-LOC120023601	LOC120023601	leucine-rich repeat-containing protein 57-like	1	2	1	1
+gene-LOC120045029	LOC120045029	heat shock protein beta-1-like	1	2	1	3
+gene-entpd5a	entpd5a	ectonucleoside triphosphate diphosphohydrolase 5a	1	2	1	4
+gene-LOC120035159	LOC120035159	neurotrophin receptor-interacting factor homolog	1	2	1	3
+gene-LOC120053968	LOC120053968	carnitine O-palmitoyltransferase 1, liver isoform-like	1	2	1	4
+gene-LOC120051197	LOC120051197	Krueppel-like factor 6	2	1	-1	3
+gene-LOC120048704	LOC120048704	cocaine- and amphetamine-regulated transcript protein	1	2	1	7
+gene-LOC120032623	LOC120032623	protein CutA homolog	1	2	1	2
+gene-LOC120061001	LOC120061001	adenylate cyclase type 6-like	1	2	1	6
+gene-mki67	mki67	marker of proliferation Ki-67	1	2	1	5
+gene-LOC120052837	LOC120052837	T-cell ecto-ADP-ribosyltransferase 1-like	1	2	1	2
+gene-LOC120059053	LOC120059053	tumor necrosis factor receptor superfamily member 14-like	1	2	1	8
+gene-mdm2	mdm2	MDM2 proto-oncogene	2	3	1	5
+gene-LOC120020693	LOC120020693	myosin heavy chain, fast skeletal muscle-like	1	2	1	4
+gene-LOC120029829	LOC120029829	pantothenate kinase 3-like	1	2	1	5
+gene-terfa	terfa	telomeric repeat binding factor a	1	2	1	14
+gene-LOC120042983	LOC120042983	U1 spliceosomal RNA	1	2	1	0
+gene-LOC120025545	LOC120025545	guanine nucleotide exchange factor VAV2-like	1	2	1	5
+gene-LOC120026428	LOC120026428	ubiquitin carboxyl-terminal hydrolase 37-like	1	2	1	5
+gene-LOC120044132	LOC120044132	testis-expressed protein 2-like	1	2	1	2
+gene-LOC120041809	LOC120041809	U1 spliceosomal RNA	1	2	1	0
+gene-rtraf	rtraf	RNA transcription, translation and transport factor	1	2	1	3
+gene-LOC120043852	LOC120043852	jupiter microtubule associated homolog 1-like	1	2	1	1
+gene-cmtm6	cmtm6	CKLF-like MARVEL transmembrane domain containing 6	1	2	1	1
+gene-LOC120045659	LOC120045659	solute carrier family 22 member 7-like	2	1	-1	2
+gene-LOC120062233	LOC120062233	glutathione S-transferase P-like	1	2	1	3
+gene-LOC120024072	LOC120024072	uncharacterized LOC120024072	1	2	1	0
+gene-LOC120037032	LOC120037032	uncharacterized LOC120037032	2	1	-1	0
+gene-LOC120034905	LOC120034905	uncharacterized LOC120034905	1	2	1	0
+gene-LOC120056034	LOC120056034	protein fem-1 homolog A-like	1	2	1	1
+gene-LOC120037855	LOC120037855	proprotein convertase subtilisin/kexin type 6-like	1	2	1	6
+gene-LOC120050276	LOC120050276	pollen-specific leucine-rich repeat extensin-like protein 3	2	1	-1	0
+gene-phactr2	phactr2	phosphatase and actin regulator 2	1	2	1	2
+gene-LOC120066519	LOC120066519	uncharacterized LOC120066519	2	1	-1	0
+gene-LOC120022238	LOC120022238	uncharacterized LOC120022238	10	11	1	0
+gene-LOC120051753	LOC120051753	gamma-crystallin M2-like	1	2	1	3
+gene-eif4a2	eif4a2	eukaryotic translation initiation factor 4A, isoform 2	1	2	1	5
+gene-stk16	stk16	serine/threonine kinase 16	2	1	-1	5
+gene-siglec15l	siglec15l	sialic acid binding Ig-like lectin 15, like	1	2	1	4
+gene-LOC120042158	LOC120042158	immunoglobulin superfamily containing leucine-rich repeat protein 2-like	1	2	1	1
+gene-LOC120057923	LOC120057923	gamma-crystallin S-1-like	1	2	1	3
+gene-LOC120044698	LOC120044698	neuropeptide B-like	1	2	1	3
+gene-LOC120020567	LOC120020567	zinc finger protein 2-like	1	2	1	0
+gene-LOC120027346	LOC120027346	uncharacterized LOC120027346	1	2	1	0
+gene-LOC120035324	LOC120035324	olfactory receptor 11A1-like	2	1	-1	4
+gene-LOC120062434	LOC120062434	neutral alpha-glucosidase AB-like	1	2	1	5
+gene-col5a2b	col5a2b	collagen, type V, alpha 2b	1	2	1	3
+gene-LOC120021949	LOC120021949	small nucleolar RNA SNORD36	1	2	1	0
+gene-LOC120048887	LOC120048887	uncharacterized LOC120048887	2	1	-1	0
+gene-LOC120058293	LOC120058293	protein ADP-ribosylarginine hydrolase-like	1	2	1	3
+gene-LOC120025932	LOC120025932	bile salt-activated lipase-like	1	2	1	13
+gene-LOC120056591	LOC120056591	putative nuclease HARBI1	2	3	1	0
+gene-LOC120037092	LOC120037092	U1 spliceosomal RNA	7	6	-1	0
+gene-LOC120059577	LOC120059577	SH2 domain-containing protein 5-like	1	2	1	1
+gene-rx3	rx3	retinal homeobox gene 3	1	2	1	3
+gene-LOC120017870	LOC120017870	NLR family CARD domain-containing protein 3-like	13	12	-1	0
+gene-LOC120045243	LOC120045243	small nucleolar RNA SNORA9	1	2	1	0
+gene-LOC120066864	LOC120066864	U7 small nuclear RNA	1	2	1	0
+gene-LOC120041311	LOC120041311	1-acyl-sn-glycerol-3-phosphate acyltransferase delta-like	1	2	1	3
+gene-sephs1	sephs1	selenophosphate synthetase 1	1	2	1	4
+gene-LOC120045580	LOC120045580	histidine protein methyltransferase 1 homolog	1	2	1	2
+gene-LOC120063180	LOC120063180	lysine-specific demethylase 2B-like	1	2	1	7
+gene-LOC120026830	LOC120026830		1	2	1	0
+gene-LOC120060385	LOC120060385	growth/differentiation factor 6-A-like	1	2	1	6
+gene-LOC120064722	LOC120064722	solute carrier family 45 member 3-like	1	2	1	3
+gene-LOC120028680	LOC120028680	U4 spliceosomal RNA	1	2	1	0
+gene-LOC120020776	LOC120020776	small nucleolar RNA SNORA81	1	2	1	0
+gene-LOC120031189	LOC120031189	uncharacterized LOC120031189	1	2	1	0
+gene-LOC120048932	LOC120048932	5S ribosomal RNA	2	1	-1	0
+gene-LOC120059571	LOC120059571	SAP domain-containing ribonucleoprotein-like	1	2	1	2
+gene-LOC120024164	LOC120024164	ribosomal oxygenase 1-like	1	2	1	5
+gene-zgc:92907	zgc:92907	uncharacterized protein LOC436733 homolog	1	2	1	2
+gene-LOC120036084	LOC120036084	NLR family CARD domain-containing protein 3-like	5	6	1	0
+gene-spata6l	spata6l	spermatogenesis associated 6-like	1	2	1	3
+gene-LOC120048849	LOC120048849	uncharacterized LOC120048849	1	2	1	0
+gene-cdkn2d	cdkn2d	cyclin-dependent kinase inhibitor 2D (p19, inhibits CDK4)	1	2	1	5
+gene-LOC120055155	LOC120055155	protein FAM163A-like	1	2	1	0
+gene-LOC120020628	LOC120020628	relaxin-3-like	2	1	-1	2
+gene-LOC120042425	LOC120042425	OX-2 membrane glycoprotein-like	2	3	1	1
+gene-LOC120038198	LOC120038198	mycbp associated protein	1	2	1	0
+gene-LOC120046454	LOC120046454	nucleolysin TIAR-like	1	2	1	6
+gene-LOC120061753	LOC120061753	5S ribosomal RNA	2	1	-1	0
+gene-LOC120024269	LOC120024269	acyl-coenzyme A thioesterase 1-like	2	1	-1	3
+gene-LOC120036774	LOC120036774	uncharacterized LOC120036774	4	3	-1	0
+gene-LOC120049272	LOC120049272	zinc finger protein 135-like	1	2	1	3
+gene-gpia	gpia	glucose-6-phosphate isomerase a	1	2	1	7
+gene-LOC120047927	LOC120047927	monocarboxylate transporter 8-like	1	2	1	3
+gene-LOC120025077	LOC120025077	anoctamin-1-like	1	2	1	4
+gene-LOC120028781	LOC120028781	fructose-bisphosphate aldolase C-like	1	2	1	4
+gene-rnf169	rnf169	ring finger protein 169	1	2	1	6
+gene-LOC120034776	LOC120034776	sterile alpha motif domain-containing protein 9	2	3	1	1
+gene-LOC120058927	LOC120058927	peptidyl-prolyl cis-trans isomerase FKBP1A-like	2	1	-1	1
+gene-nrbf2b	nrbf2b	nuclear receptor binding factor 2b	1	2	1	1
+gene-LOC120061883	LOC120061883	gamma-aminobutyric acid receptor subunit alpha-2-like	2	1	-1	17
+gene-LOC120040891	LOC120040891	60S ribosomal protein L30-like	1	2	1	3
+gene-LOC120019133	LOC120019133	WD repeat-containing protein 20-like	2	1	-1	1
+gene-LOC120033570	LOC120033570	integrin alpha-4-like	1	2	1	7
+gene-LOC120027560	LOC120027560	small nucleolar RNA SNORD103/SNORD85	1	2	1	0
+gene-LOC120035034	LOC120035034	uncharacterized LOC120035034	1	2	1	3
+gene-LOC120026463	LOC120026463	casein kinase II subunit alpha-like	1	2	1	6
+gene-eif3m	eif3m	eukaryotic translation initiation factor 3, subunit M	1	2	1	4
+gene-LOC120022415	LOC120022415	ephrin-A3-like	1	2	1	4
+gene-LOC120055019	LOC120055019	uncharacterized LOC120055019	3	4	1	0
+gene-LOC120035549	LOC120035549	U1 spliceosomal RNA	1	2	1	0
+gene-LOC120040608	LOC120040608	cytochrome P450 2K1-like	1	2	1	7
+gene-slc30a4	slc30a4	solute carrier family 30 member 4	1	2	1	4
+gene-LOC120052944	LOC120052944	uncharacterized protein C9orf85 homolog	1	2	1	0
+gene-LOC120064867	LOC120064867	L-rhamnose-binding lectin CSL3-like	2	1	-1	1
+gene-LOC120036331	LOC120036331	7,8-dihydro-8-oxoguanine triphosphatase-like	1	2	1	2
+gene-LOC120045648	LOC120045648	protein phosphatase 1 regulatory subunit 3C-B-like	1	2	1	4
+gene-acte1	acte1	actin, epsilon 1	1	2	1	0
+gene-LOC120022572	LOC120022572	lysine-specific histone demethylase 1B	1	2	1	3
+gene-LOC120033475	LOC120033475	gastrula zinc finger protein XlCGF17.1-like	1	2	1	4
+gene-LOC120050364	LOC120050364	proteasome activator complex subunit 1-like	1	2	1	7
+gene-LOC120060579	LOC120060579	liprin-alpha-3-like	1	2	1	3
+gene-LOC120044787	LOC120044787	ribonuclease inhibitor	1	2	1	1
+gene-LOC120021099	LOC120021099	wiskott-Aldrich syndrome protein family member 3-like	1	2	1	6
+gene-LOC120020733	LOC120020733	presenilins-associated rhomboid-like protein, mitochondrial	1	2	1	2
+gene-LOC120024359	LOC120024359	laminin subunit alpha-4-like	1	2	1	5
+gene-LOC120047777	LOC120047777	uncharacterized LOC120047777	4	3	-1	0
+gene-LOC120036120	LOC120036120	disintegrin and metalloproteinase domain-containing protein 10-like	1	2	1	5
+gene-LOC120025450	LOC120025450	uncharacterized LOC120025450	1	2	1	0
+gene-LOC120062861	LOC120062861	leucine-rich repeat transmembrane neuronal protein 4-like	1	2	1	1
+gene-LOC120052642	LOC120052642	terminal uridylyltransferase 4-like	1	2	1	4
+gene-LOC120034352	LOC120034352	ectonucleotide pyrophosphatase/phosphodiesterase family member 7-like	1	2	1	0
+gene-LOC120055761	LOC120055761	Y+L amino acid transporter 2-like	1	2	1	3
+gene-LOC120035099	LOC120035099	N-acylneuraminate cytidylyltransferase-like	1	2	1	1
+gene-si:ch211-243a20.4	si:ch211-243a20.4	uncharacterized si:ch211-243a20.4	1	2	1	6
+gene-LOC120062708	LOC120062708	serine/threonine-protein phosphatase 6 catalytic subunit-like	1	2	1	4
+gene-LOC120022351	LOC120022351	epsin-1-like	1	2	1	6
+gene-LOC120040176	LOC120040176	uncharacterized LOC120040176	2	1	-1	0
+gene-LOC120056016	LOC120056016	SURP and G-patch domain-containing protein 1-like	1	2	1	3
+gene-LOC120042990	LOC120042990	cryptochrome-2-like	1	2	1	7
+gene-wdr76	wdr76	WD repeat domain 76	1	2	1	4
+gene-LOC120027241	LOC120027241	gonadotropin-releasing hormone II receptor-like	1	2	1	4
+gene-LOC120038324	LOC120038324	uncharacterized LOC120038324	2	3	1	0
+gene-LOC120063196	LOC120063196	piggyBac transposable element-derived protein 4-like	7	8	1	0
+gene-slc7a8b	slc7a8b	solute carrier family 7 member 8b	1	2	1	4
+gene-LOC120065438	LOC120065438	neuronal acetylcholine receptor subunit alpha-4-like	1	2	1	10
+gene-LOC120040485	LOC120040485	5S ribosomal RNA	1	2	1	0
+gene-LOC120065321	LOC120065321	green-sensitive opsin-like	1	2	1	6
+gene-LOC120047357	LOC120047357	gap junction beta-1 protein-like	2	1	-1	2
+gene-LOC120062430	LOC120062430	uncharacterized LOC120062430	1	2	1	0
+gene-LOC120025825	LOC120025825	14 kDa phosphohistidine phosphatase-like	1	2	1	3
+gene-LOC120019465	LOC120019465	zinc finger protein OZF-like	2	1	-1	3
+gene-LOC120038355	LOC120038355	general transcription factor II-I repeat domain-containing protein 2B-like	2	3	1	0
+gene-LOC120023504	LOC120023504	gap junction beta-4 protein-like	1	2	1	2
+gene-drc3	drc3	dynein regulatory complex subunit 3	1	2	1	1
+gene-LOC120023140	LOC120023140	uncharacterized LOC120023140	2	3	1	0
+gene-LOC120035147	LOC120035147	moesin-like	1	2	1	12
+gene-LOC120025019	LOC120025019	C-C motif chemokine 13-like	3	2	-1	16
+gene-LOC120051804	LOC120051804	troponin I, fast skeletal muscle-like	1	2	1	2
+gene-LOC120050576	LOC120050576	uncharacterized LOC120050576	1	2	1	1
+gene-LOC120027039	LOC120027039	DNA topoisomerase 2-beta-like	2	1	-1	0
+gene-LOC120045684	LOC120045684	sideroflexin-1-like	1	2	1	5
+gene-LOC120022980	LOC120022980		1	2	1	0
+gene-LOC120057283	LOC120057283	choline-phosphate cytidylyltransferase B-like	1	2	1	3
+gene-LOC120058839	LOC120058839	melanocyte protein PMEL-like	3	2	-1	2
+gene-LOC120061576	LOC120061576	E3 ubiquitin/ISG15 ligase TRIM25-like	1	2	1	2
+gene-LOC120039774	LOC120039774	zinc finger protein 32-like	1	2	1	3
+gene-LOC120022801	LOC120022801	sialoadhesin-like	1	2	1	2
+gene-LOC120041363	LOC120041363	zinc finger protein 2 homolog	2	1	-1	1
+gene-LOC120065158	LOC120065158	nuclear ubiquitous casein and cyclin-dependent kinase substrate 1-like	1	2	1	5
+gene-LOC120046752	LOC120046752	TOM1-like protein 2	1	2	1	6
+gene-LOC120048082	LOC120048082	insulin-like growth factor-binding protein 7	1	2	1	6
+gene-LOC120020710	LOC120020710	zinc finger protein 2-like	1	2	1	3
+gene-LOC120029673	LOC120029673	5-hydroxytryptamine receptor 7-like	1	2	1	9
+gene-LOC120022634	LOC120022634	akirin-1A-like	1	2	1	9
+gene-LOC120026882	LOC120026882	uncharacterized LOC120026882	1	2	1	0
+gene-LOC120053355	LOC120053355	zinc finger protein RFP-like	1	2	1	4
+gene-LOC120049274	LOC120049274	leukotriene B4 receptor 1-like	1	2	1	3
+gene-LOC120025104	LOC120025104	photoreceptor cilium actin regulator-like	1	2	1	0
+gene-LOC120051056	LOC120051056	myosin-7-like	1	2	1	4
+gene-LOC120065840	LOC120065840	arrestin domain-containing protein 4-like	1	2	1	4
+gene-LOC120037243	LOC120037243	GTPase IMAP family member 7-like	1	2	1	1
+gene-LOC120046594	LOC120046594	tetraspanin-14-like	1	2	1	4
+gene-cd247	cd247	CD247 molecule	1	2	1	3
+gene-LOC120019784	LOC120019784	small nucleolar RNA SNORD94	1	2	1	0
+gene-LOC120025771	LOC120025771	WD repeat-containing protein 5-like	1	2	1	1
+gene-LOC120021227	LOC120021227	succinyl-CoA:3-ketoacid coenzyme A transferase 1, mitochondrial-like	1	2	1	3
+gene-LOC120044439	LOC120044439	uncharacterized LOC120044439	2	1	-1	0
+gene-LOC120042932	LOC120042932	TOM1-like protein 2	1	2	1	6
+gene-LOC120058476	LOC120058476	protein TFG-like	1	2	1	4

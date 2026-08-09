@@ -57,7 +57,48 @@ const TRACK_CONFIGS = {
         height: 100,
         order: 1
     },
-    
+
+    // Functionally-annotated genes (reference genes + symbol/product/biotype/GO +
+    // ecotype presence). Built by code/22-synteny-browser-tracks.py from the liftoff
+    // gene-function table (code/20.1). Click a gene to see its annotation.
+    genesAnnotated: {
+        name: "Genes (functional annotation)",
+        type: "annotation",
+        format: "gff3",
+        url: `${DATA_BASE_URL}/synteny/genes_annotated.gff3`,
+        displayMode: "EXPANDED",
+        color: "#059669",
+        height: 100,
+        order: 2,
+        visibilityWindow: 10000000
+    },
+
+    // Gene-anchored synteny blocks (code/21.1) projected onto the reference. Each
+    // feature = the reference footprint of one ecotype contig's collinear block;
+    // strand encodes orientation (minus = inverted relative to reference).
+    syntenyLean: {
+        name: "Synteny blocks — Lean contigs",
+        type: "annotation",
+        format: "bed",
+        url: `${DATA_BASE_URL}/synteny/synteny_lean_blocks.bed`,
+        displayMode: "COLLAPSED",
+        color: "#2563EB",
+        height: 40,
+        order: 5,
+        visibilityWindow: 30000000
+    },
+    syntenySiscowet: {
+        name: "Synteny blocks — Siscowet contigs",
+        type: "annotation",
+        format: "bed",
+        url: `${DATA_BASE_URL}/synteny/synteny_siscowet_blocks.bed`,
+        displayMode: "COLLAPSED",
+        color: "#DC2626",
+        height: 40,
+        order: 6,
+        visibilityWindow: 30000000
+    },
+
     // PAV Tracks - Lean-specific
     leanInsertions: {
         name: "Lean-Specific Insertions",
@@ -226,9 +267,11 @@ const TRACK_CONFIGS = {
  * Can be customized based on user preference
  */
 const DEFAULT_TRACKS = [
-    'genes',
+    'genesAnnotated',
+    'syntenyLean',
+    'syntenySiscowet',
     'leanInsertions',
-    'leanDeletions', 
+    'leanDeletions',
     'siscowetInsertions',
     'siscowetDeletions',
     'stringentSiscowetDeletions',
