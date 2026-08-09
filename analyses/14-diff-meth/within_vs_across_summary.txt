@@ -1,0 +1,49 @@
+================================================================
+WITHIN-ECOTYPE vs ACROSS-ECOTYPE DNA METHYLATION VARIATION
+================================================================
+Shared CpG sites (covered >=10x in all 8 samples): 237,319
+Samples: Lean=['bc2041', 'bc2069', 'bc2070', 'bc2068']  Siscowet=['bc2071', 'bc2073', 'bc2072', 'bc2096']
+
+Pair counts: within-Lean=6, within-Siscowet=6, across=16
+
+Mean absolute methylation difference (% points):
+    WITHIN ecotype : mean=5.575  sd=0.517  range[4.478,6.346]
+    ACROSS ecotype : mean=6.048  sd=0.574  range[5.011,6.818]
+    ACROSS/WITHIN ratio (distance): 1.085x
+
+Genome-wide Pearson correlation (r):
+    WITHIN ecotype : mean=0.945  sd=0.012  range[0.925,0.967]
+    ACROSS ecotype : mean=0.935  sd=0.011  range[0.917,0.954]
+
+Within-group detail (mean_abs_diff, % points):
+    within_Lean: mean=5.857  range[5.247,6.346]
+    within_Siscowet: mean=5.292  range[4.478,5.860]
+
+(scipy unavailable for t-test: No module named 'scipy')
+
+Nearest-neighbour ecotype check (by mean_abs_diff):
+    bc2041 (Lean): nearest = bc2096 (Siscowet) [DIFFERENT]
+    bc2069 (Lean): nearest = bc2041 (Lean) [same]
+    bc2070 (Lean): nearest = bc2096 (Siscowet) [DIFFERENT]
+    bc2068 (Lean): nearest = bc2041 (Lean) [same]
+    bc2071 (Siscowet): nearest = bc2096 (Siscowet) [same]
+    bc2073 (Siscowet): nearest = bc2096 (Siscowet) [same]
+    bc2072 (Siscowet): nearest = bc2096 (Siscowet) [same]
+    bc2096 (Siscowet): nearest = bc2071 (Siscowet) [same]
+  6/8 samples nearest-neighbour a same-ecotype fish
+
+PCA on samples (PC1 26.1%, PC2 16.6% of variance):
+    bc2041 (Lean): PC1=-457.3  PC2=+319.4
+    bc2069 (Lean): PC1=-2170.6  PC2=-2534.2
+    bc2070 (Lean): PC1=-777.7  PC2=+482.3
+    bc2068 (Lean): PC1=-2099.4  PC2=+2083.6
+    bc2071 (Siscowet): PC1=+1577.9  PC2=-410.8
+    bc2073 (Siscowet): PC1=+1260.0  PC2=+175.2
+    bc2072 (Siscowet): PC1=+1628.6  PC2=-97.6
+    bc2096 (Siscowet): PC1=+1038.4  PC2=-18.0
+
+INTERPRETATION
+----------------------------------------------------------------
+Across/within distance ratio = 1.08x: across-ecotype methylation
+differences are comparable to variation among individuals of the SAME
+ecotype -- consistent with 0 CpGs surviving FDR in the group contrast.
