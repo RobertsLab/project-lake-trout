@@ -1,6 +1,6 @@
 ---
 title: "Lake Trout EpiGenomics Project"
-subtitle: "From Methylation & Structural Variation to Candidate Genes — *Salvelinus namaycush* Ecotypes"
+subtitle: "From Single-Reference Associations to Two-Genome Evidence — *Salvelinus namaycush* Ecotypes"
 author: "Rick Goetz, Sam White, Cristian Gallardo-Escarate, and Steven Roberts"
 date: last-modified
 format:
@@ -21,12 +21,13 @@ format:
 .lean-color{color:#1d4ed8;font-weight:700}.siscowet-color{color:#c2410c;font-weight:700}
 .finding-box{background:#f0f9ff;border-left:4px solid #0ea5e9;padding:1rem;margin:1rem 0;border-radius:0 8px 8px 0}
 .warn-box{background:#fff7ed;border-left:4px solid #f59e0b;padding:1rem;margin:1rem 0;border-radius:0 8px 8px 0}
+.retired-box{background:#f0fdf4;border-left:4px solid #22c55e;padding:1rem;margin:1rem 0;border-radius:0 8px 8px 0}
 .browser-link{display:inline-block;background:linear-gradient(135deg,#0e7490 0%,#155e75 100%);
   color:#fff !important;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;font-weight:600}
 </style>
 ```
 
-## Two Ecotypes, One Lake System
+## Two Ecotypes, Two Genomes
 
 Lake trout (*Salvelinus namaycush*) in the Great Lakes occur as divergent ecotypes that share
 water but not lifestyle:
@@ -34,123 +35,172 @@ water but not lifestyle:
 - **<span class="lean-color">Lean</span>**: shallow-water dwelling, elongate body, low lipid content
 - **<span class="siscowet-color">Siscowet</span>**: deep-water specialist, robust body, high lipid storage
 
-This project asks a focused question: **which genes carry the epigenetic and structural differences
-between the ecotypes, and what phenotypes might they shape?** Earlier stages produced the raw
-differences — differentially methylated regions (DMRs) and presence–absence variants (PAVs). The
-work featured here adds the missing interpretive layer: a genome-wide **functional annotation** that
-turns coordinates into gene names, products, and Gene Ontology terms, then ranks candidates and
-reasons — carefully — about phenotype.
+The project asks: **which genes carry the epigenetic and structural differences between the
+ecotypes, and what phenotypes might they shape?** The first pass answered this against a single
+public reference genome. That reference was built from a lean-background fish, so every
+siscowet-specific signal was inflated by divergence and nothing could be checked from the other
+side. We have now assembled **each ecotype's own genome** from PacBio HiFi reads, annotated both,
+aligned them to each other, and re-derived the key comparisons bidirectionally. This page reports
+what survived that test, what did not, and what remains open.
 
 ```{=html}
 <div class="stats-container">
-  <div class="stat-box"><div class="stat-number">302</div>Differentially methylated regions</div>
-  <div class="stat-box"><div class="stat-number">3,465</div>High-confidence siscowet deletions</div>
-  <div class="stat-box"><div class="stat-number">2,036</div>Annotated candidate genes</div>
-  <div class="stat-box"><div class="stat-number">4</div>Convergent (methylation + PAV)</div>
+  <div class="stat-box"><div class="stat-number">2</div>Ecotype genome assemblies<br><small>lean 2.58 Gb · siscowet 2.84 Gb</small></div>
+  <div class="stat-box"><div class="stat-number">683</div>Reciprocal presence/absence regions<br><small>on native coordinates</small></div>
+  <div class="stat-box"><div class="stat-number">77</div>Native-anchored candidate genes<br><small>66 with no caution flag</small></div>
+  <div class="stat-box"><div class="stat-number">1 of 4</div>Earlier convergent genes<br><small>retained any two-genome support</small></div>
 </div>
 ```
 
 ::: {.finding-box}
-**Read this as hypothesis-generating.** Every link below is an *association* on a single
-lean-background reference genome — no functional validation, and no single CpG survives genome-wide
-multiple-testing correction. The value is a ranked, annotated shortlist, not a causal claim.
+**Read this as hypothesis-generating, now with a stronger floor.** The two-genome layer replaces
+single-reference association with bidirectional read evidence for a small set of genes, and it
+shows which earlier signals were reference artifacts. No functional validation has been performed,
+sample size is four fish per ecotype, and the assemblies are contig-level.
 :::
 
 ---
 
-## How the Evidence Stacks: Three Integrated Layers
+## What Changed: Single Reference → Two Genomes
 
-### Differential methylation
+| Layer | Single-reference analysis (2025) | Two-genome analysis (2026) |
+|---|---|---|
+| Genome | NCBI SaNama_1.0, lean-background doubled haploid | Lean and siscowet hifiasm assemblies, haplotig-purged, 12,700 and 8,159 contigs |
+| Annotation | 46,359 RefSeq genes | Liftoff transfer: 55,437 lean, 59,968 siscowet gene models; 50,379 shared |
+| Structure | 3,465 stringent siscowet deletions, one direction only | SyRI structural-variant map for lean↔ref, siscowet↔ref, lean↔siscowet; ~18–20 % of reference PAVs are SV-confirmed |
+| Presence/absence | Reads → reference only | **Reciprocal PAV**: each ecotype's reads → the other's genome. 340 siscowet-present and 343 lean-present regions, 1.57 Mb, 115 genes |
+| Gene content | not testable | Ecotype-only gene sets, corroborated by the other assembly's unmapped list: 1,474 lean-only, 3,040 siscowet-only; 2,359 copy-number divergent |
+| Methylation | 302 DMRs on reference | still reference-based; native re-analysis is the next phase |
 
-- **540,040** CpG sites tested
-- **302** DMRs (20 hyper- / 282 hypo-methylated in siscowet)
-- **149** DMRs within 5 kb of a gene; **88** in promoters
-- 0 single CpGs survive q < 0.1 — lead with the DMR level
-
-### Presence–absence variation (PAV)
-
-- **3,465** stringent siscowet-specific deletions (>100 bp, all-4-vs-none)
-- **1,543** within 5 kb of a gene; **54** overlap an exon (candidate copy/LOF changes)
-- Reference-bias aware: a lean-background genome inflates siscowet deletions
-
-### Functional annotation *(new)*
-
-- **46,359** genes annotated from NCBI RefSeq
-- **46,231** with a product description; **34,367** with ≥1 Gene Ontology term
-- The join key that turns variants into interpretable candidates
-
-See [`analyses/18-annotation/README.md`](analyses/18-annotation/README.md) for the annotation
-methods and provenance.
+Plan and progress log: [`code/23-next-phase-research-plan.md`](code/23-next-phase-research-plan.md).
 
 ---
 
-## Convergent & Top-Ranked Candidate Genes
+## How the Evidence Is Scored
 
-Genes were ranked by convergence (methylation *and* deletion), promoter/exon placement, expression
-support, and methylation↔expression concordance. The four **convergent** loci — carrying both a DMR
-and a high-confidence siscowet deletion — are the strongest candidates.
+Each reference gene is scored on five lines of evidence that differ in data type or direction.
+Three earlier lines (SyRI SV, reference PAV, Liftoff-only presence) all measure distance from the
+lean reference and co-occurred heavily, so they are collapsed into one.
 
-| Gene | Product | Methylation | Deletion | Note |
-|---|---|---|---|---|
-| `znf883-like` (LOC120032414) | Zinc finger protein 883-like | exon · hyper | exonic | **top convergent** |
-| `XlCGF57.1-like` (LOC120040411) | Gastrula zinc finger protein XlCGF57.1-like | intron · hypo | nearby | convergent |
-| `septin-9-like` (LOC120043843) | Septin-9-like | intron · hyper | nearby | convergent |
-| LOC120039781 | Uncharacterized locus | intron · hypo | nearby | convergent |
-| `angptl5` | Angiopoietin-related protein 5-like | — | exonic | lipid axis |
-| `mogat2` | 2-acylglycerol O-acyltransferase 2-A-like | — | exonic | lipid axis |
-| `ephx1-like` | Epoxide hydrolase 1-like | promoter | — | lipid / xenobiotic |
+| Line | Genes | What it measures |
+|---|---|---|
+| **Reciprocal PAV** | 114 | Region of one ecotype's own genome with zero coverage in all four of the other ecotype's read sets, flanked by covered sequence. Native, bidirectional, read-level. |
+| **Corroborated ecotype-only** | 4,382 | Gene lifted into one assembly only *and* explicitly unmapped by Liftoff in the other. Two assemblies agree. (Unique reference genes; the 1,474 / 3,040 above count Liftoff rows including extra copies.) |
+| **Copy-number divergence** | 2,359 | Liftoff copy count differs between the assemblies. Dominated by tRNA, snRNA, histone and protocadherin clusters. |
+| **DMR** | 181 | Reference-based differentially methylated region within 5 kb. |
+| **Reference divergence** | 16,068 | Any of: SyRI SV, reference PAV, Liftoff-only ecotype presence. One line regardless of how many apply. |
 
-![Top protein-coding candidate genes by integrated rank score. Convergent (methylation + deletion) loci are highlighted; methylation-led and deletion-led candidates are shown by color.](figures/18-top-candidates.png){fig-alt="Top candidate genes bar chart" width="100%"}
-
-Source: [`integrated_candidate_genes.tsv`](analyses/18-annotation/integrated_candidate_genes.tsv).
-
-### Gene Ontology enrichment (deletion set)
-
-| GO term | Fold | FDR | Read as |
+| Tier | Definition | Genes | Flag-free |
 |---|---|---|---|
-| Calcium ion transmembrane transport | 3.7 | 5.6×10⁻⁴ | most defensible signal |
-| Neuron projection development | 2.4 | 2.6×10⁻³ | sensory / neural |
-| Calcium channel complex | 4.6 | 3.0×10⁻³ | length-bias caveat |
-| Calcium ion transport | 3.0 | 3.0×10⁻³ | ion homeostasis |
-| Lipid / phospholipid binding | 1.5 | ns (0.3) | suggestive only |
+| **A** | Reciprocal PAV + ≥1 other line | 77 | 66 |
+| **B** | Corroborated ecotype-only or copy-number + ≥1 other line | 4,011 | 2,613 |
+| **C** | DMR + reference divergence only (the earlier single-reference association) | 15 | 6 |
 
-Hypergeometric over-representation vs. all GO-annotated genes (BH-FDR). The DMR set's enrichment is
-dominated by a single histone cluster and adjacent `znf883` paralogs — a tandem-cluster artifact, not
-broad convergence. Full tables:
-[PAV](analyses/18-annotation/go_enrichment_pav.tsv),
-[DMR](analyses/18-annotation/go_enrichment_dmr.tsv),
-[union](analyses/18-annotation/go_enrichment_union.tsv).
+Caution flags mark noncoding biotypes, repeat and tandem families, and clusters of five or more
+same-family genes. Only tier A carries read-level evidence on native coordinates. Methods and full
+tables: [`analyses/23-integration/refined/README.md`](analyses/23-integration/refined/README.md).
 
 ---
 
-## Hypothesized Links to Ecotype Biology
+## Native-Anchored Candidates (Tier A)
 
-Each axis pairs annotated candidate genes with a known or measured difference between the ecotypes.
-These are **hypotheses** anchored to morphometric data, not validated mechanisms.
+Seventy-seven genes sit in sequence present in one ecotype's genome and absent from every read set
+of the other. Forty-eight are siscowet-present, twenty-nine lean-present. A selection of the
+flag-free, protein-coding set:
 
-- **🫧 Lipid & energy storage** — exonic siscowet deletions in `angptl5`, `mogat2`, and a promoter
-  DMR at epoxide hydrolase 1 touch lipid handling, consistent with the defining high-lipid siscowet
-  phenotype and deep-water buoyancy.
-- **🐠 Body shape, growth & muscle** — methylation-led candidates including `rbm24b` (muscle/cardiac
-  splicing) and growth-associated GO terms align with the elongate-lean vs. robust-siscowet contrast
-  captured in the 17-landmark morphometric data.
-- **⚡ Calcium / sensory-neural** — calcium-transport and neuron-projection GO enrichment in the
-  deletion set hints at sensory or excitability differences relevant to a deep, dark, high-pressure
-  habitat (length-bias-aware).
-- **🛡️ Immune & adhesion** — exonic deletions hit immune/adhesion genes (alpha-2-macroglobulin,
-  CEACAM, DMBT1); some signal is real divergence, some reflects rapidly evolving, reference-divergent
-  families.
+| Gene | Product | Present in | Lines | Axis |
+|---|---|---|---|---|
+| `gpia` | Glucose-6-phosphate isomerase a | siscowet | reciprocal PAV · CNV · ref | energy metabolism |
+| LOC120028089 | Phosphoenolpyruvate carboxykinase, mitochondrial-like | siscowet | reciprocal PAV · ref | gluconeogenesis |
+| LOC120024897 | cGMP-inhibited 3′,5′-cyclic phosphodiesterase B-like | siscowet | reciprocal PAV · corroborated-only · ref | insulin / lipolysis signalling |
+| LOC120053718 | cAMP-specific phosphodiesterase 4D-like | lean | reciprocal PAV · ref | cAMP signalling |
+| LOC120022070 | Growth factor receptor-bound protein 10-like | lean | reciprocal PAV · CNV · ref | insulin / IGF signalling, growth |
+| LOC120066682 / LOC120053938 | Nuclear receptor ROR-alpha A (two paralogs) | lean / siscowet | reciprocal PAV · ref | circadian & lipid-metabolic regulator, one paralog per ecotype |
+| LOC120030672 | Calsequestrin-1-like | siscowet | reciprocal PAV · ref | calcium handling, muscle |
+| `cracr2b` | Calcium release-activated channel regulator 2B | siscowet | reciprocal PAV · ref | calcium signalling |
+| LOC120056805 | Troponin T, fast skeletal muscle-like | siscowet | reciprocal PAV · ref | muscle |
+| LOC120020198 | Synapsin-2-like | lean | reciprocal PAV · ref | neural |
+| LOC120066463 | Contactin-1a-like | siscowet | reciprocal PAV · ref | neural adhesion |
+| `bco2a` | Beta-carotene oxygenase 2a | siscowet | reciprocal PAV · ref | carotenoid / pigment |
+| `ptprc`, LOC120024920 | PTPRC; MHC class I-related | lean / siscowet | reciprocal PAV · ref | immune, rapidly evolving |
 
-Full write-up: [`code/18-diff-annotation-phenotype.html`](code/18-diff-annotation-phenotype.html).
+Full list: [`two_genome_candidates_refined.tsv`](analyses/23-integration/refined/two_genome_candidates_refined.tsv).
+
+### GO enrichment after tandem-cluster collapsing
+
+Same-family genes within 50 kb of each other were collapsed to one representative in both the study
+sets and the background. This removes the cluster artifacts that drove several earlier signals
+(an 18-gene hemoglobin cluster in the lean-only set; histone, tRNA and snRNA arrays in the
+copy-number set).
+
+| Gene set | GO term | Fold | FDR collapsed | FDR uncollapsed | Read as |
+|---|---|---|---|---|---|
+| Lean-only, corroborated | Voltage-gated calcium channel activity | 4.5 | 0.028 | 8×10⁻⁴ | **survives**; weakened but present |
+| Lean-only, corroborated | Calcium ion transport | 2.5 | 0.062 | 9×10⁻³ | survives |
+| Reciprocal PAV | Calcium ion binding | 2.5 | 0.10 | 0.09 | consistent, small set |
+| Tier A | Cellular response to insulin stimulus | 22 | 0.02 | 0.02 | 3 genes; suggestive |
+| Reciprocal PAV | Regulation of muscle contraction | 23 | 0.014 | — | 3 genes; suggestive |
+| Lean-only, corroborated | Long-chain fatty acid metabolic process | 3.5 | 0.24 | 0.36 | the only lipid term below 0.25 |
+
+**The calcium-transport signal survives on native two-genome coordinates. The lipid-metabolism
+signal does not.** No lipid term reaches FDR 0.1 in any two-genome set, collapsed or not.
+Tables: [`phenotype_survival_refined.tsv`](analyses/23-integration/refined/phenotype_survival_refined.tsv),
+[`cluster_diagnostics.tsv`](analyses/23-integration/refined/cluster_diagnostics.tsv).
+
+---
+
+## What Happened to the Earlier Headline Candidates
+
+The single-reference analysis promoted four "convergent" genes (a DMR plus a stringent siscowet
+deletion) and a lipid axis built on exonic deletions. Under the two-genome model:
+
+| Gene | Product | Earlier role | Now | Native support |
+|---|---|---|---|---|
+| LOC120032414 | Zinc finger protein 883-like | top convergent | Tier C: DMR + reference divergence only | no |
+| LOC120040411 | Gastrula zinc finger XlCGF57.1-like | convergent | Tier B via copy-number, inside a 5-paralog cluster | weak |
+| LOC120043843 | Septin-9-like | convergent | Tier C | no |
+| LOC120039781 | Uncharacterized | convergent | Tier C | no |
+| LOC120050008 | Angiopoietin-related protein 5-like (`angptl5`) | lipid axis | Tier B: corroborated siscowet-only | assembly-level only |
+| LOC120041635 | 2-acylglycerol O-acyltransferase 2-A-like (`mogat2`) | lipid axis | reference divergence only | no |
+| LOC120029926 | Epoxide hydrolase 1-like | lipid axis | Tier C | no |
+
+The stringent siscowet "deletions" that defined these genes were largely reference-distance
+effects. That is the outcome the two-genome design was built to detect.
+
+![Single-reference candidate ranking (2025), retained for comparison. Most of these loci did not gain native support.](figures/18-top-candidates.png){fig-alt="Top candidate genes bar chart from the single-reference analysis" width="100%"}
+
+---
+
+## Hypothesized Links to Ecotype Biology, Revised
+
+- **⚡ Calcium handling and excitability** — the one axis supported at every stage: calcium-channel
+  GO enrichment in the corroborated lean-only set, calcium-binding enrichment in the reciprocal PAV
+  set, and calsequestrin-1 and `cracr2b` among the siscowet-present tier-A genes. Plausibly relevant
+  to muscle and sensory function in a deep, cold, dark habitat.
+- **🔋 Energy metabolism and insulin signalling** *(new)* — `gpia`, mitochondrial PEPCK, two
+  phosphodiesterases, `grb10`-like and a ROR-alpha paralog partition between the ecotypes on
+  read-level evidence. A metabolic-rate or fuel-partitioning hypothesis fits the lean/siscowet
+  contrast better than the earlier lipid-storage genes did, but it rests on a handful of genes.
+- **🫧 Lipid storage** *(demoted)* — the defining siscowet phenotype, yet the earlier lipid-gene
+  deletions were reference artifacts and no lipid GO term is enriched on native coordinates. Either
+  the genomic basis is regulatory rather than structural, or it lives in genes Liftoff cannot see.
+  Native methylation (next phase) and de novo annotation address both possibilities.
+- **🛡️ Immune** — PTPRC, an MHC class I-related gene, CEACAM and TRIM39 appear in tier A. These
+  families evolve fast and vary in copy number within populations; treat as expected background
+  until population-level data exist.
+- **🩸 A hemoglobin cluster absent from the siscowet assembly** — 18 hemoglobin genes on
+  NC_052347.1 are lean-only and corroborated, but not flagged by reciprocal PAV, which is
+  consistent with an assembly gap rather than a true loss. Flagged for read-level inspection
+  rather than interpretation.
 
 ---
 
 ## Interactive Genome Browsers
 
-Explore methylation, PAV, gene, and ecotype-synteny tracks directly across the SaNama_1.0 assembly.
-Genes now carry functional annotation (symbol, product, GO terms, and which ecotypes retain them),
-and lean/siscowet **synteny blocks** are projected onto the reference so you can see, at any locus,
-which ecotype contig maps there and whether it is inverted.
+Explore methylation, PAV, gene, and ecotype-synteny tracks across the SaNama_1.0 assembly. Genes
+carry functional annotation, and lean/siscowet synteny blocks are projected onto the reference.
+JBrowse also offers a lean ↔ siscowet Linear Synteny View on the purged assemblies. Structural
+variant, reciprocal PAV and native methylation tracks will be added once Phase 3 completes.
 
 ::: {.columns}
 ::: {.column width="50%"}
@@ -161,13 +211,12 @@ Functionally-annotated genes · lean & siscowet synteny blocks · PAV insertions
 :::
 ::: {.column width="50%"}
 ### 🧬 JBrowse 2 — *advanced analysis*
-Functionally-annotated genes (GFF3) · lean & siscowet synteny blocks · PAV structural variants · CpG methylation · differential methylation · **lean ↔ siscowet Linear Synteny View**
+Functionally-annotated genes (GFF3) · synteny blocks · PAV structural variants · CpG methylation · differential methylation · **lean ↔ siscowet Linear Synteny View**
 
 <a href="jbrowse/index.html" class="browser-link">Launch JBrowse 2 →</a>
 
-<small>For the side-by-side ecotype comparison, open JBrowse's *Linear synteny view* and pick
-the **lean_purged** and **siscowet_purged** assemblies with the *Lean ↔ Siscowet synteny*
-track.</small>
+<small>Open the *Linear synteny view* and pick the **lean_purged** and **siscowet_purged**
+assemblies with the *Lean ↔ Siscowet synteny* track.</small>
 :::
 :::
 
@@ -175,58 +224,67 @@ track.</small>
 
 ## Interpretation Guardrails
 
-This analysis is deliberately conservative. The constraints below shape every claim above and are
-baked into the candidate rankings.
-
-::: {.warn-box}
-**The reference is a lean-background genome.** SaNama_1.0 was built from a doubled-haploid Seneca Lake
-(lean-morphotype) fish. Siscowet diverges more from it, so siscowet reads map less completely —
-inflating apparent siscowet-specific deletions and reducing methylation power in the most divergent
-regions. Siscowet and lean variant counts are *not* magnitude-comparable.
+::: {.retired-box}
+**Partly retired: the lean-reference caveat.** Presence/absence and gene-content comparisons are
+now made on each ecotype's own genome and cross-checked in both directions. The reference is still
+the shared coordinate axis for gene IDs, SVs and methylation, and the reference-divergence line
+still inherits its bias, which is why it counts once.
 :::
 
 ::: {.warn-box}
-**No single CpG survives genome-wide correction** (0 DMCs at q < 0.1). Interpretation leads with
-DMR-level and stringent-PAV sets; single-CpG and lenient-PAV hits are hypothesis-generating only.
+**Contig-level assemblies and Liftoff sensitivity.** Both genomes are thousands of contigs. The
+raw ecotype-only gene counts (5,058 lean, 9,589 siscowet) track assembly contiguity more than
+biology; only the ~30 % corroborated by the other assembly's unmapped list are used as evidence,
+and the hemoglobin case above shows even those can be assembly gaps.
 :::
 
 ::: {.warn-box}
-**Expression support is weak by design.** The liver RNA-seq is from a separate parasite study with
-different individuals — orthogonal support, never confirmation.
+**Methylation is still reference-based.** The DMR line has not been re-derived on native
+coordinates, and no single CpG survives genome-wide correction. Phase 3 addresses this.
 :::
 
 ::: {.warn-box}
-**Enrichment confounders.** The PAV GO signal carries a gene-length bias (long calcium/ion-channel
-genes accumulate deletions by chance); the DMR GO signal is a tandem-cluster artifact. Associations,
-not causation — no functional validation was performed.
+**Small numbers, no validation.** Four fish per ecotype. Tier-A GO terms rest on three to five
+genes each. All links are associations with no functional test; the liver RNA-seq comes from a
+separate parasite study and is orthogonal support at best.
 :::
 
 ---
 
 ## Data & Methods
 
-### Reference Genome
-- **Assembly**: NCBI [GCF_016432855.1 (SaNama_1.0)](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_016432855.1/)
-- **Source**: NCBI BioProject [PRJNA674328](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA674328)
-- **Annotation**: NCBI RefSeq GFF + GO (GAF)
+### Genomes
+- **Reference**: NCBI [GCF_016432855.1 (SaNama_1.0)](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_016432855.1/), RefSeq GFF + GO
+- **Ecotype assemblies**: hifiasm primary contigs from PacBio HiFi, purged with purge_dups; lean
+  2.58 Gb / 12,700 contigs, siscowet 2.84 Gb / 8,159 contigs. Annotated by Liftoff from the reference
+  with reference-identical gene IDs.
 
 ### Samples
-| Ecotype | Sample Size | Description |
-|---------|-------------|-------------|
-| **Lean** | n=4 | Shallow-water ecotype (PacBio HiFi) |
-| **Siscowet** | n=4 | Deep-water ecotype (PacBio HiFi) |
+| Ecotype | n | Data |
+|---|---|---|
+| **Lean** | 4 | PacBio HiFi with 5mC calling (bc2041, bc2068, bc2069, bc2070) |
+| **Siscowet** | 4 | PacBio HiFi with 5mC calling (bc2071, bc2072, bc2073, bc2096) |
 
-### Analysis Pipeline
-1. PacBio HiFi sequencing with 5mC modification calling
-2. CpG methylation profiling & DMR identification
-3. Coverage/CIGAR-based PAV detection (lenient + stringent tiers)
-4. RefSeq functional annotation backbone (gene → product → GO)
-5. Strand-aware DMR/PAV-to-gene assignment (promoter ±2 kb, flank ±5 kb)
-6. Hypergeometric GO over-representation with BH-FDR
+### Analysis pipeline
+1. PacBio HiFi alignment to reference; CpG methylation and DMR calling
+2. Coverage/CIGAR PAV detection against the reference
+3. RefSeq functional annotation backbone; feature-to-gene assignment; GO over-representation
+4. hifiasm assembly per ecotype, purge_dups, Liftoff annotation, MCScanX synteny
+5. RagTag anchoring to reference chromosomes; MUMmer + SyRI structural-variant calling; PAV cross-validation
+6. Reciprocal PAV: each ecotype's reads aligned to the other's purged assembly (pbmm2, mosdepth, CIGAR)
+7. Shared / ecotype-only / copy-number gene sets from the two Liftoff annotations
+8. Five-line evidence model with tiers; tandem-cluster-collapsed GO over-representation
+
+### Next
+- **Phase 3** — ecotype-native differential methylation, harmonized through the lean↔siscowet alignment
+- **Phase 4** — BRAKER3 de novo annotation to recover genes absent from the reference
+- **Phase 5** — browser tracks for SV / reciprocal PAV / native DMRs; manuscript; NCBI assembly submission
 
 ---
 
 ## Citation & Resources
 
 - **GitHub Repository**: [RobertsLab/project-lake-trout](https://github.com/RobertsLab/project-lake-trout)
-- **Annotation plan**: [`code/18-diff-annotation-phenotype-plan.md`](code/18-diff-annotation-phenotype-plan.md)
+- **Two-genome plan and progress log**: [`code/23-next-phase-research-plan.md`](code/23-next-phase-research-plan.md)
+- **Refined evidence model**: [`analyses/23-integration/refined/README.md`](analyses/23-integration/refined/README.md)
+- **Single-reference annotation layer (2025)**: [`code/18-diff-annotation-phenotype-plan.md`](code/18-diff-annotation-phenotype-plan.md)

@@ -174,4 +174,42 @@ and calcium ion transport (FDR 9e-3); reciprocal-PAV genes for calcium ion bindi
 more reference-dependent than the calcium signal and should be treated cautiously pending Phase 3
 (native methylation) and Phase 4 (de novo genes). See `analyses/23-integration/phenotype_survival.tsv`.
 
-**Next:** Phase 3 (ecotype-native differential methylation) and Phase 4 (BRAKER3) remain.
+**Step 4 — evidence-model refinement (2026-09)** ([`23.7`](23.7-refine-evidence-model.py),
+`analyses/23-integration/refined/`). Review of the Step-3 matrix found three problems: (i) the
+`ecotype_only`, `ref_pav` and `sv` lines all measure distance from the lean reference and co-occur
+heavily (1,565 genes share ecotype_only+ref_pav), so `n_lines` over-stated independence; (ii)
+`ecotype_only` (14,647) is dominated by Liftoff sensitivity between two contig-level assemblies —
+only ~30 % of each "only" set is corroborated by the other assembly's `unmapped_features`; (iii) the
+GO signals were tandem-cluster driven (18 hemoglobin genes at one NC_052347.1 locus lead lean_only;
+histone / tRNA / snRNA / protocadherin arrays dominate cnv). 23.7 collapses the three reference-
+divergence lines into one, splits ecotype_only into corroborated (kept as its own line) and
+Liftoff-only (demoted), and collapses same-family genes within 50 kb to one representative in study
+and background before the GO test.
+
+| line (refined) | genes |
+|---|---|
+| reciprocal_pav | 114 |
+| ecotype_only_corroborated | 4,382 (lean 1,434 / siscowet 2,948; unique reference IDs after collapsing Liftoff `_N` copy suffixes — cf. 1,474 / 3,040 raw rows in 23.5) |
+| cnv | 2,359 |
+| dmr | 181 |
+| ref_divergence (sv ∪ ref_pav ∪ Liftoff-only) | 16,068 |
+
+Tiers: **A** (reciprocal_pav + ≥1) = 77 genes (66 flag-free; 48 siscowet-present, 29 lean-present);
+**B** (corroborated-only or cnv + ≥1) = 4,011; **C** (dmr + ref_divergence only) = 15. The 23.6
+figure of 2,895 "two-genome candidates" is superseded by tier A+B = 4,088, of which only tier A has
+read-level native support.
+
+Outcome for the hypotheses: the **calcium signal survives collapsing** (lean_only_corroborated:
+voltage-gated calcium channel activity fold 4.5, FDR 0.028 collapsed vs 8e-4 uncollapsed; calcium
+ion transport FDR 0.062; reciprocal_pav calcium ion binding FDR 0.10). **No lipid term reaches
+FDR 0.1** in any set (best: long-chain fatty acid metabolic process, FDR 0.24, 4 clusters). Tier-A
+GO is small-n but points at insulin response / muscle contraction (gpia, mitochondrial PEPCK, two
+PDEs, grb10-like, ROR-alpha paralogs partitioned one per ecotype, calsequestrin-1, troponin T).
+Phase-18 headline fate (`phase18_candidate_fate.tsv`): 3 of 4 convergent genes are tier C
+(reference-only), LOC120040411 is tier B via cnv inside a 5-paralog cluster; `angptl5` is tier B
+(corroborated siscowet-only, no read support), `mogat2` and epoxide hydrolase 1 have no native line.
+The hemoglobin cluster absent from the siscowet assembly is not flagged by reciprocal PAV, consistent
+with an assembly gap. Landing page and README updated to this model.
+
+**Next:** Phase 3 (ecotype-native differential methylation) and Phase 4 (BRAKER3) remain. Phase 3
+will add the first native epigenetic line and can promote tier-B genes.

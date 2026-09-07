@@ -1,0 +1,180 @@
+go_id	name	namespace	study_k	study_n	bg_K	bg_N	fold_enrichment	p_value	fdr	phenotype	genes
+GO:0042995	cell projection	cellular_component	14	95	1384	31285	3.33	7.360e-05	1.317e-02		LOC120019576,LOC120020307,LOC120032363,LOC120036268,LOC120043873,LOC120053194,LOC120053598,LOC120056235,LOC120057339,LOC120062883,LOC120066718,cracr2b,sh3yl1,ttll9
+GO:0120025	plasma membrane bounded cell projection	cellular_component	13	95	1344	31285	3.19	2.113e-04	1.372e-02		LOC120019576,LOC120020307,LOC120036268,LOC120043873,LOC120053194,LOC120053598,LOC120056235,LOC120057339,LOC120062883,LOC120066718,cracr2b,sh3yl1,ttll9
+GO:0090257	regulation of muscle system process	biological_process	3	95	43	31285	22.98	3.065e-04	1.372e-02	Y	LOC120030672,LOC120046589,LOC120056805
+GO:0006937	regulation of muscle contraction	biological_process	3	95	43	31285	22.98	3.065e-04	1.372e-02	Y	LOC120030672,LOC120046589,LOC120056805
+GO:0032869	cellular response to insulin stimulus	biological_process	3	95	65	31285	15.2	1.034e-03	3.701e-02		LOC120022070,LOC120028089,cracr2b
+GO:0032868	response to insulin	biological_process	3	95	75	31285	13.17	1.563e-03	4.275e-02		LOC120022070,LOC120028089,cracr2b
+GO:0051668	localization within membrane	biological_process	6	95	414	31285	4.77	1.672e-03	4.275e-02		LOC120032363,LOC120046589,LOC120056503,LOC120060868,cracr2b,vps50
+GO:1901699	cellular response to nitrogen compound	biological_process	4	95	184	31285	7.16	2.431e-03	5.439e-02		LOC120022070,LOC120028089,LOC120060868,cracr2b
+GO:0098609	cell-cell adhesion	biological_process	6	95	496	31285	3.98	4.082e-03	7.777e-02		LOC120020307,LOC120025537,LOC120045058,LOC120054371,LOC120056781,LOC120066463
+GO:0071375	cellular response to peptide hormone stimulus	biological_process	3	95	108	31285	9.15	4.398e-03	7.777e-02		LOC120022070,LOC120028089,cracr2b
+GO:1901698	response to nitrogen compound	biological_process	4	95	224	31285	5.88	4.900e-03	7.777e-02		LOC120022070,LOC120028089,LOC120060868,cracr2b
+GO:0072657	protein localization to membrane	biological_process	4	95	228	31285	5.78	5.214e-03	7.777e-02		LOC120032363,LOC120046589,LOC120060868,cracr2b
+GO:0046914	transition metal ion binding	molecular_function	11	95	1498	31285	2.42	5.725e-03	7.882e-02		LOC120020909,LOC120028089,LOC120032728,LOC120035721,LOC120038650,LOC120042129,LOC120053938,LOC120056031,LOC120065642,LOC120066682,cpn1
+GO:0044057	regulation of system process	biological_process	3	95	123	31285	8.03	6.310e-03	8.047e-02		LOC120030672,LOC120046589,LOC120056805
+GO:0043434	response to peptide hormone	biological_process	3	95	126	31285	7.84	6.743e-03	8.047e-02		LOC120022070,LOC120028089,cracr2b
+GO:0043005	neuron projection	cellular_component	8	95	949	31285	2.78	8.313e-03	9.300e-02		LOC120020307,LOC120043873,LOC120053194,LOC120056235,LOC120057339,LOC120062883,LOC120066718,cracr2b
+GO:0004879	nuclear receptor activity	molecular_function	3	95	143	31285	6.91	9.527e-03	9.475e-02		LOC120053938,LOC120056031,LOC120066682
+GO:0098531	ligand-modulated transcription factor activity	molecular_function	3	95	143	31285	6.91	9.527e-03	9.475e-02		LOC120053938,LOC120056031,LOC120066682
+GO:0008270	zinc ion binding	molecular_function	9	95	1197	31285	2.48	1.059e-02	9.979e-02		LOC120020909,LOC120032728,LOC120035721,LOC120038650,LOC120053938,LOC120056031,LOC120065642,LOC120066682,cpn1
+GO:1901701	cellular response to oxygen-containing compound	biological_process	4	95	286	31285	4.61	1.137e-02	1.003e-01	Y	LOC120022070,LOC120028089,LOC120060868,cracr2b
+GO:0008081	phosphoric diester hydrolase activity	molecular_function	3	95	156	31285	6.33	1.205e-02	1.003e-01		LOC120024897,LOC120053718,gde1
+GO:0060322	head development	biological_process	3	95	160	31285	6.17	1.289e-02	1.003e-01		LOC120020307,LOC120057339,LOC120066463
+GO:0007420	brain development	biological_process	3	95	160	31285	6.17	1.289e-02	1.003e-01		LOC120020307,LOC120057339,LOC120066463
+GO:0072659	protein localization to plasma membrane	biological_process	3	95	166	31285	5.95	1.422e-02	1.049e-01		LOC120032363,LOC120046589,cracr2b
+GO:0030054	cell junction	cellular_component	10	95	1493	31285	2.21	1.521e-02	1.049e-01		LOC120019576,LOC120020198,LOC120020307,LOC120032363,LOC120054371,LOC120056781,LOC120057339,LOC120066718,cracr2b,mpp6b
+GO:0005509	calcium ion binding	molecular_function	8	95	1058	31285	2.49	1.524e-02	1.049e-01		LOC120020307,LOC120025009,LOC120030672,LOC120045058,LOC120049548,LOC120060868,cracr2b,pros1
+GO:0030695	GTPase regulator activity	molecular_function	6	95	669	31285	2.95	1.637e-02	1.052e-01		LOC120032530,LOC120065085,asap1a,iqsec3a,sh2d3a,triob
+GO:0009101	glycoprotein biosynthetic process	biological_process	3	95	176	31285	5.61	1.660e-02	1.052e-01		LOC120048047,LOC120049548,LOC120055734
+GO:0043087	regulation of GTPase activity	biological_process	4	95	325	31285	4.05	1.739e-02	1.052e-01		LOC120032530,LOC120040412,LOC120065085,asap1a
+GO:0060589	nucleoside-triphosphatase regulator activity	molecular_function	6	95	681	31285	2.9	1.770e-02	1.052e-01		LOC120032530,LOC120065085,asap1a,iqsec3a,sh2d3a,triob
+GO:1990778	protein localization to cell periphery	biological_process	3	95	184	31285	5.37	1.866e-02	1.052e-01		LOC120032363,LOC120046589,cracr2b
+GO:0051049	regulation of transport	biological_process	5	95	513	31285	3.21	2.021e-02	1.052e-01		LOC120019576,LOC120024458,LOC120030672,LOC120034415,cracr2b
+GO:0098984	neuron to neuron synapse	cellular_component	3	95	191	31285	5.17	2.057e-02	1.052e-01		LOC120020307,LOC120057339,LOC120066718
+GO:0032279	asymmetric synapse	cellular_component	3	95	191	31285	5.17	2.057e-02	1.052e-01		LOC120020307,LOC120057339,LOC120066718
+GO:0014069	postsynaptic density	cellular_component	3	95	191	31285	5.17	2.057e-02	1.052e-01		LOC120020307,LOC120057339,LOC120066718
+GO:1901700	response to oxygen-containing compound	biological_process	4	95	350	31285	3.76	2.213e-02	1.091e-01	Y	LOC120022070,LOC120028089,LOC120060868,cracr2b
+GO:0005929	cilium	cellular_component	4	95	354	31285	3.72	2.296e-02	1.091e-01		LOC120036268,LOC120053598,LOC120056235,ttll9
+GO:0006468	protein phosphorylation	biological_process	8	95	1149	31285	2.29	2.367e-02	1.091e-01		LOC120020909,LOC120043213,LOC120045630,LOC120053194,LOC120065642,map4k3a,nek7,triob
+GO:0050790	regulation of catalytic activity	biological_process	6	95	736	31285	2.68	2.479e-02	1.091e-01		LOC120032530,LOC120040412,LOC120053194,LOC120065085,asap1a,ptprc
+GO:0009100	glycoprotein metabolic process	biological_process	3	95	207	31285	4.77	2.533e-02	1.091e-01		LOC120048047,LOC120049548,LOC120055734
+GO:0050839	cell adhesion molecule binding	molecular_function	4	95	368	31285	3.58	2.599e-02	1.091e-01		LOC120019576,LOC120020307,LOC120056781,LOC120066463
+GO:0070161	anchoring junction	cellular_component	5	95	550	31285	2.99	2.629e-02	1.091e-01		LOC120019576,LOC120020307,LOC120054371,LOC120056781,mpp6b
+GO:0004672	protein kinase activity	molecular_function	8	95	1174	31285	2.24	2.647e-02	1.091e-01		LOC120020909,LOC120043213,LOC120045630,LOC120053194,LOC120065642,map4k3a,nek7,triob
+GO:0016310	phosphorylation	biological_process	8	95	1177	31285	2.24	2.682e-02	1.091e-01		LOC120020909,LOC120043213,LOC120045630,LOC120053194,LOC120065642,map4k3a,nek7,triob
+GO:0005085	guanyl-nucleotide exchange factor activity	molecular_function	4	95	375	31285	3.51	2.760e-02	1.098e-01		LOC120065085,iqsec3a,sh2d3a,triob
+GO:0032879	regulation of localization	biological_process	5	95	570	31285	2.89	3.002e-02	1.135e-01		LOC120019576,LOC120024458,LOC120030672,LOC120034415,cracr2b
+GO:0016874	ligase activity	molecular_function	3	95	224	31285	4.41	3.099e-02	1.135e-01		LOC120036268,LOC120038469,ttll9
+GO:0099572	postsynaptic specialization	cellular_component	3	95	224	31285	4.41	3.099e-02	1.135e-01		LOC120020307,LOC120057339,LOC120066718
+GO:0007155	cell adhesion	biological_process	6	95	778	31285	2.54	3.133e-02	1.135e-01		LOC120020307,LOC120025537,LOC120045058,LOC120054371,LOC120056781,LOC120066463
+GO:0032870	cellular response to hormone stimulus	biological_process	3	95	226	31285	4.37	3.169e-02	1.135e-01		LOC120022070,LOC120028089,cracr2b
+GO:0051336	regulation of hydrolase activity	biological_process	4	95	396	31285	3.33	3.276e-02	1.150e-01		LOC120032530,LOC120040412,LOC120065085,asap1a
+GO:0043547	positive regulation of GTPase activity	biological_process	3	95	239	31285	4.13	3.648e-02	1.256e-01		LOC120032530,LOC120065085,asap1a
+GO:0051345	positive regulation of hydrolase activity	biological_process	3	95	247	31285	4.0	3.960e-02	1.337e-01		LOC120032530,LOC120065085,asap1a
+GO:0009725	response to hormone	biological_process	3	95	251	31285	3.94	4.121e-02	1.366e-01		LOC120022070,LOC120028089,cracr2b
+GO:0006325	chromatin organization	biological_process	3	95	263	31285	3.76	4.623e-02	1.474e-01		LOC120019149,LOC120050135,pphln1
+GO:0065009	regulation of molecular function	biological_process	6	95	860	31285	2.3	4.715e-02	1.474e-01		LOC120032530,LOC120040412,LOC120053194,LOC120065085,asap1a,ptprc
+GO:0099503	secretory vesicle	cellular_component	3	95	268	31285	3.69	4.841e-02	1.474e-01		LOC120020198,LOC120042986,cracr2b
+GO:0043085	positive regulation of catalytic activity	biological_process	4	95	450	31285	2.93	4.846e-02	1.474e-01		LOC120032530,LOC120053194,LOC120065085,asap1a
+GO:0006796	phosphate-containing compound metabolic process	biological_process	9	95	1567	31285	1.89	4.857e-02	1.474e-01		LOC120020909,LOC120043213,LOC120045630,LOC120053194,LOC120065642,map4k3a,nek7,ptprc,triob
+GO:0098794	postsynapse	cellular_component	4	95	453	31285	2.91	4.944e-02	1.475e-01		LOC120020307,LOC120057339,LOC120066718,cracr2b
+GO:0005911	cell-cell junction	cellular_component	4	95	460	31285	2.86	5.176e-02	1.519e-01		LOC120019576,LOC120020307,LOC120056781,mpp6b
+GO:0034655	nucleobase-containing compound catabolic process	biological_process	3	95	278	31285	3.55	5.292e-02	1.523e-01		dnase1l1l,gpia,smg6
+GO:0008092	cytoskeletal protein binding	molecular_function	7	95	1126	31285	2.05	5.553e-02	1.523e-01	Y	LOC120019576,LOC120027905,LOC120032210,LOC120032363,LOC120036268,LOC120056805,ttll9
+GO:0097447	dendritic tree	cellular_component	3	95	284	31285	3.48	5.572e-02	1.523e-01		LOC120062883,LOC120066718,cracr2b
+GO:0030425	dendrite	cellular_component	3	95	284	31285	3.48	5.572e-02	1.523e-01		LOC120062883,LOC120066718,cracr2b
+GO:0016773	phosphotransferase activity, alcohol group as acceptor	molecular_function	8	95	1367	31285	1.93	5.615e-02	1.523e-01		LOC120020909,LOC120043213,LOC120045630,LOC120053194,LOC120065642,map4k3a,nek7,triob
+GO:0071495	cellular response to endogenous stimulus	biological_process	4	95	476	31285	2.77	5.728e-02	1.530e-01		LOC120022070,LOC120028089,LOC120053194,cracr2b
+GO:0004674	protein serine/threonine kinase activity	molecular_function	5	95	690	31285	2.39	5.927e-02	1.551e-01		LOC120020909,LOC120043213,LOC120045630,LOC120065642,map4k3a
+GO:0044093	positive regulation of molecular function	biological_process	4	95	483	31285	2.73	5.980e-02	1.551e-01		LOC120032530,LOC120053194,LOC120065085,asap1a
+GO:0016772	transferase activity, transferring phosphorus-containing groups	molecular_function	9	95	1637	31285	1.81	6.073e-02	1.553e-01		LOC120020909,LOC120043213,LOC120045630,LOC120053194,LOC120054763,LOC120065642,map4k3a,nek7,triob
+GO:0045937	positive regulation of phosphate metabolic process	biological_process	3	95	303	31285	3.26	6.504e-02	1.609e-01		LOC120053194,ptprc,sh2d3a
+GO:0042327	positive regulation of phosphorylation	biological_process	3	95	303	31285	3.26	6.504e-02	1.609e-01		LOC120053194,ptprc,sh2d3a
+GO:0007264	small GTPase-mediated signal transduction	biological_process	3	95	305	31285	3.24	6.606e-02	1.609e-01		LOC120042766,LOC120065085,sh2d3a
+GO:0009719	response to endogenous stimulus	biological_process	4	95	501	31285	2.63	6.653e-02	1.609e-01		LOC120022070,LOC120028089,LOC120053194,cracr2b
+GO:0008104	intracellular protein localization	biological_process	7	95	1184	31285	1.95	6.877e-02	1.623e-01		LOC120032363,LOC120046589,LOC120056503,LOC120060868,ap2b1,cracr2b,pphln1
+GO:0007275	multicellular organism development	biological_process	10	95	1935	31285	1.7	6.892e-02	1.623e-01		LOC120020307,LOC120025537,LOC120028089,LOC120040412,LOC120049548,LOC120053194,LOC120056781,LOC120057339,LOC120060868,LOC120066463
+GO:0007417	central nervous system development	biological_process	3	95	315	31285	3.14	7.127e-02	1.657e-01		LOC120020307,LOC120057339,LOC120066463
+GO:0000226	microtubule cytoskeleton organization	biological_process	4	95	519	31285	2.54	7.363e-02	1.680e-01		LOC120032210,LOC120036268,LOC120040161,ttll9
+GO:0048513	animal organ development	biological_process	5	95	739	31285	2.23	7.469e-02	1.680e-01		LOC120020307,LOC120028089,LOC120049548,LOC120057339,LOC120066463
+GO:0016301	kinase activity	molecular_function	8	95	1456	31285	1.81	7.510e-02	1.680e-01		LOC120020909,LOC120043213,LOC120045630,LOC120053194,LOC120065642,map4k3a,nek7,triob
+GO:0007017	microtubule-based process	biological_process	5	95	751	31285	2.19	7.877e-02	1.741e-01		LOC120032210,LOC120036268,LOC120040161,dnah2,ttll9
+GO:0022603	regulation of anatomical structure morphogenesis	biological_process	3	95	331	31285	2.98	7.998e-02	1.746e-01		LOC120019576,LOC120020307,LOC120040412
+GO:0007010	cytoskeleton organization	biological_process	7	95	1266	31285	1.82	9.049e-02	1.951e-01		LOC120032210,LOC120032363,LOC120036268,LOC120040161,LOC120056805,iqsec3a,ttll9
+GO:0036477	somatodendritic compartment	cellular_component	3	95	352	31285	2.81	9.208e-02	1.962e-01		LOC120062883,LOC120066718,cracr2b
+GO:0141124	intracellular signaling cassette	biological_process	4	95	572	31285	2.3	9.669e-02	2.032e-01		LOC120030672,LOC120042766,LOC120065085,sh2d3a
+GO:0070887	cellular response to chemical stimulus	biological_process	4	95	574	31285	2.29	9.762e-02	2.032e-01		LOC120022070,LOC120028089,LOC120060868,cracr2b
+GO:0098793	presynapse	cellular_component	3	95	366	31285	2.7	1.005e-01	2.069e-01		LOC120020198,LOC120020307,cracr2b
+GO:0048731	system development	biological_process	8	95	1566	31285	1.68	1.033e-01	2.102e-01		LOC120020307,LOC120025537,LOC120028089,LOC120040412,LOC120049548,LOC120056781,LOC120057339,LOC120066463
+GO:0160108	animal gross anatomical part developmental process	biological_process	9	95	1870	31285	1.58	1.145e-01	2.302e-01		LOC120020307,LOC120025537,LOC120028089,LOC120040412,LOC120049548,LOC120056781,LOC120056805,LOC120057339,LOC120066463
+GO:0038023	signaling receptor activity	molecular_function	9	95	1884	31285	1.57	1.183e-01	2.328e-01		LOC120040412,LOC120042766,LOC120053194,LOC120053938,LOC120056031,LOC120056235,LOC120062883,LOC120066682,unc5c
+GO:0060089	molecular transducer activity	molecular_function	9	95	1884	31285	1.57	1.183e-01	2.328e-01		LOC120040412,LOC120042766,LOC120053194,LOC120053938,LOC120056031,LOC120056235,LOC120062883,LOC120066682,unc5c
+GO:0015629	actin cytoskeleton	cellular_component	4	95	622	31285	2.12	1.212e-01	2.358e-01		LOC120019576,LOC120032363,LOC120054371,LOC120056805
+GO:0015631	tubulin binding	molecular_function	3	95	401	31285	2.46	1.230e-01	2.367e-01		LOC120032210,LOC120036268,ttll9
+GO:0005856	cytoskeleton	cellular_component	8	95	1646	31285	1.6	1.272e-01	2.421e-01		LOC120019576,LOC120027905,LOC120032363,LOC120041588,LOC120053598,LOC120054371,LOC120056805,dnah2
+GO:0022607	cellular component assembly	biological_process	8	95	1674	31285	1.57	1.361e-01	2.565e-01		LOC120020307,LOC120040161,LOC120050135,LOC120053598,LOC120056781,LOC120056805,LOC120057339,crtc3
+GO:0042578	phosphoric ester hydrolase activity	molecular_function	4	95	661	31285	1.99	1.420e-01	2.647e-01		LOC120024897,LOC120053718,gde1,ptprc
+GO:0007399	nervous system development	biological_process	6	95	1178	31285	1.68	1.487e-01	2.744e-01		LOC120020307,LOC120025537,LOC120040412,LOC120056781,LOC120057339,LOC120066463
+GO:0045202	synapse	cellular_component	5	95	942	31285	1.75	1.588e-01	2.900e-01		LOC120020198,LOC120020307,LOC120057339,LOC120066718,cracr2b
+GO:1901137	carbohydrate derivative biosynthetic process	biological_process	3	95	461	31285	2.14	1.652e-01	2.986e-01		LOC120048047,LOC120049548,LOC120055734
+GO:0042325	regulation of phosphorylation	biological_process	3	95	469	31285	2.11	1.711e-01	3.062e-01		LOC120053194,ptprc,sh2d3a
+GO:0016757	glycosyltransferase activity	molecular_function	3	95	475	31285	2.08	1.756e-01	3.087e-01		LOC120021129,LOC120048047,LOC120055734
+GO:0051641	cellular localization	biological_process	8	95	1790	31285	1.47	1.766e-01	3.087e-01		LOC120020198,LOC120032363,LOC120046589,LOC120056503,LOC120060868,ap2b1,cracr2b,vps50
+GO:0051239	regulation of multicellular organismal process	biological_process	4	95	723	31285	1.82	1.776e-01	3.087e-01		LOC120030672,LOC120040412,LOC120046589,LOC120056805
+GO:0099536	synaptic signaling	biological_process	3	95	489	31285	2.02	1.861e-01	3.186e-01		LOC120020198,LOC120060868,LOC120062883
+GO:0033036	macromolecule localization	biological_process	7	95	1539	31285	1.5	1.869e-01	3.186e-01		LOC120032363,LOC120046589,LOC120056503,LOC120060868,ap2b1,cracr2b,pphln1
+GO:0016853	isomerase activity	molecular_function	3	95	498	31285	1.98	1.930e-01	3.257e-01		LOC120032210,dnah2,gpia
+GO:1901135	carbohydrate derivative metabolic process	biological_process	4	95	751	31285	1.75	1.947e-01	3.257e-01		LOC120048047,LOC120049548,LOC120055734,gpia
+GO:0005525	GTP binding	molecular_function	4	95	760	31285	1.73	2.003e-01	3.297e-01		LOC120028089,LOC120038202,LOC120064465,cracr2b
+GO:0005768	endosome	cellular_component	3	95	508	31285	1.94	2.008e-01	3.297e-01		LOC120056503,cracr2b,vps50
+GO:0032561	guanyl ribonucleotide binding	molecular_function	4	95	779	31285	1.69	2.122e-01	3.450e-01		LOC120028089,LOC120038202,LOC120064465,cracr2b
+GO:0044085	cellular component biogenesis	biological_process	8	95	1888	31285	1.4	2.146e-01	3.450e-01		LOC120020307,LOC120040161,LOC120050135,LOC120053598,LOC120056781,LOC120056805,LOC120057339,crtc3
+GO:0030234	enzyme regulator activity	molecular_function	6	95	1327	31285	1.49	2.159e-01	3.450e-01		LOC120032530,LOC120065085,asap1a,iqsec3a,sh2d3a,triob
+GO:0031410	cytoplasmic vesicle	cellular_component	5	95	1060	31285	1.55	2.201e-01	3.481e-01		LOC120020198,LOC120042986,LOC120056503,cracr2b,vps50
+GO:0097708	intracellular vesicle	cellular_component	5	95	1063	31285	1.55	2.217e-01	3.481e-01		LOC120020198,LOC120042986,LOC120056503,cracr2b,vps50
+GO:0019001	guanyl nucleotide binding	molecular_function	4	95	797	31285	1.65	2.237e-01	3.482e-01		LOC120028089,LOC120038202,LOC120064465,cracr2b
+GO:0007267	cell-cell signaling	biological_process	3	95	546	31285	1.81	2.308e-01	3.561e-01		LOC120020198,LOC120060868,LOC120062883
+GO:0090304	nucleic acid metabolic process	biological_process	7	95	1681	31285	1.37	2.493e-01	3.813e-01		LOC120030386,LOC120038469,LOC120051748,LOC120054763,LOC120065442,dnase1l1l,smg6
+GO:0070925	organelle assembly	biological_process	3	95	576	31285	1.72	2.550e-01	3.869e-01		LOC120040161,LOC120053598,LOC120056805
+GO:0098590	plasma membrane region	cellular_component	3	95	587	31285	1.68	2.640e-01	3.972e-01		LOC120020307,LOC120066718,sh3yl1
+GO:0003008	system process	biological_process	3	95	590	31285	1.67	2.665e-01	3.975e-01		LOC120056235,LOC120056805,LOC120062883
+GO:0031982	vesicle	cellular_component	5	95	1189	31285	1.38	2.940e-01	4.349e-01		LOC120020198,LOC120042986,LOC120056503,cracr2b,vps50
+GO:0050793	regulation of developmental process	biological_process	3	95	629	31285	1.57	2.987e-01	4.382e-01		LOC120019576,LOC120020307,LOC120040412
+GO:0009056	catabolic process	biological_process	6	95	1500	31285	1.32	3.044e-01	4.430e-01		LOC120028089,LOC120056503,bco2a,dnase1l1l,gpia,smg6
+GO:0016070	RNA metabolic process	biological_process	5	95	1214	31285	1.36	3.088e-01	4.444e-01		LOC120030386,LOC120038469,LOC120054763,LOC120065442,smg6
+GO:0030036	actin cytoskeleton organization	biological_process	3	95	643	31285	1.54	3.103e-01	4.444e-01		LOC120032363,LOC120056805,iqsec3a
+GO:0030029	actin filament-based process	biological_process	3	95	660	31285	1.5	3.244e-01	4.609e-01		LOC120032363,LOC120056805,iqsec3a
+GO:0042221	response to chemical	biological_process	4	95	954	31285	1.38	3.293e-01	4.612e-01		LOC120022070,LOC120028089,LOC120060868,cracr2b
+GO:0140640	catalytic activity, acting on a nucleic acid	molecular_function	3	95	667	31285	1.48	3.303e-01	4.612e-01		LOC120038469,LOC120054763,dnase1l1l
+GO:0004888	transmembrane signaling receptor activity	molecular_function	6	95	1552	31285	1.27	3.324e-01	4.612e-01		LOC120040412,LOC120042766,LOC120053194,LOC120056235,LOC120062883,unc5c
+GO:0010646	regulation of cell communication	biological_process	6	95	1565	31285	1.26	3.394e-01	4.640e-01		LOC120020307,LOC120022070,LOC120032530,LOC120034415,LOC120053194,iqsec3a
+GO:0016788	hydrolase activity, acting on ester bonds	molecular_function	4	95	969	31285	1.36	3.396e-01	4.640e-01		LOC120024897,LOC120053718,gde1,ptprc
+GO:0023051	regulation of signaling	biological_process	6	95	1570	31285	1.26	3.421e-01	4.640e-01		LOC120020307,LOC120022070,LOC120032530,LOC120034415,LOC120053194,iqsec3a
+GO:0010605	negative regulation of macromolecule metabolic process	biological_process	4	95	987	31285	1.33	3.521e-01	4.739e-01		LOC120065442,pphln1,ptprc,smg6
+GO:0009966	regulation of signal transduction	biological_process	5	95	1325	31285	1.24	3.758e-01	5.000e-01		LOC120022070,LOC120032530,LOC120034415,LOC120053194,iqsec3a
+GO:0032774	RNA biosynthetic process	biological_process	4	95	1024	31285	1.29	3.777e-01	5.000e-01		LOC120030386,LOC120038469,LOC120054763,LOC120065442
+GO:0030154	cell differentiation	biological_process	6	95	1647	31285	1.2	3.842e-01	5.000e-01		LOC120025537,LOC120028089,LOC120040412,LOC120056805,LOC120057339,LOC120060868
+GO:0048869	cellular developmental process	biological_process	6	95	1648	31285	1.2	3.848e-01	5.000e-01		LOC120025537,LOC120028089,LOC120040412,LOC120056805,LOC120057339,LOC120060868
+GO:0009892	negative regulation of metabolic process	biological_process	4	95	1037	31285	1.27	3.867e-01	5.000e-01		LOC120065442,pphln1,ptprc,smg6
+GO:0048699	generation of neurons	biological_process	3	95	737	31285	1.34	3.883e-01	5.000e-01		LOC120025537,LOC120040412,LOC120057339
+GO:1902531	regulation of intracellular signal transduction	biological_process	3	95	744	31285	1.33	3.940e-01	5.002e-01		LOC120032530,LOC120053194,iqsec3a
+GO:0015630	microtubule cytoskeleton	cellular_component	3	95	744	31285	1.33	3.940e-01	5.002e-01		LOC120041588,LOC120053598,dnah2
+GO:0141187	nucleic acid biosynthetic process	biological_process	4	95	1060	31285	1.24	4.026e-01	5.074e-01		LOC120030386,LOC120038469,LOC120054763,LOC120065442
+GO:0022008	neurogenesis	biological_process	3	95	784	31285	1.26	4.266e-01	5.341e-01		LOC120025537,LOC120040412,LOC120057339
+GO:0120036	plasma membrane bounded cell projection organization	biological_process	3	95	798	31285	1.24	4.379e-01	5.365e-01		LOC120040161,LOC120040412,LOC120053598
+GO:0010558	negative regulation of macromolecule biosynthetic process	biological_process	3	95	800	31285	1.23	4.395e-01	5.365e-01		LOC120065442,pphln1,smg6
+GO:0009057	macromolecule catabolic process	biological_process	3	95	802	31285	1.23	4.411e-01	5.365e-01		LOC120056503,dnase1l1l,smg6
+GO:0030030	cell projection organization	biological_process	3	95	804	31285	1.23	4.427e-01	5.365e-01		LOC120040161,LOC120040412,LOC120053598
+GO:0005783	endoplasmic reticulum	cellular_component	4	95	1120	31285	1.18	4.436e-01	5.365e-01		LOC120030672,LOC120034415,LOC120048047,LOC120049548
+GO:0009890	negative regulation of biosynthetic process	biological_process	3	95	818	31285	1.21	4.539e-01	5.453e-01		LOC120065442,pphln1,smg6
+GO:0065003	protein-containing complex assembly	biological_process	3	95	829	31285	1.19	4.626e-01	5.520e-01		LOC120040161,LOC120050135,crtc3
+GO:0015031	protein transport	biological_process	3	95	833	31285	1.19	4.657e-01	5.521e-01		LOC120056503,ap2b1,cracr2b
+GO:1902494	catalytic complex	cellular_component	6	95	1856	31285	1.06	4.977e-01	5.861e-01		LOC120030386,LOC120038469,LOC120049548,LOC120054763,dnah2,smg6
+GO:0051128	regulation of cellular component organization	biological_process	3	95	903	31285	1.09	5.195e-01	6.078e-01		LOC120019576,LOC120020307,LOC120040412
+GO:0045184	establishment of protein localization	biological_process	3	95	935	31285	1.06	5.431e-01	6.313e-01		LOC120056503,ap2b1,cracr2b
+GO:0043933	protein-containing complex organization	biological_process	3	95	941	31285	1.05	5.475e-01	6.323e-01		LOC120040161,LOC120050135,crtc3
+GO:0048583	regulation of response to stimulus	biological_process	5	95	1642	31285	1.0	5.620e-01	6.449e-01		LOC120022070,LOC120032530,LOC120034415,LOC120053194,iqsec3a
+GO:0009653	anatomical structure morphogenesis	biological_process	3	95	967	31285	1.02	5.661e-01	6.454e-01		LOC120020307,LOC120040412,LOC120056805
+GO:0009893	positive regulation of metabolic process	biological_process	4	95	1334	31285	0.99	5.811e-01	6.555e-01		LOC120053194,crtc3,ptprc,sh2d3a
+GO:0006629	lipid metabolic process	biological_process	3	95	995	31285	0.99	5.856e-01	6.555e-01	Y	LOC120028089,bco2a,gde1
+GO:0034654	nucleobase-containing compound biosynthetic process	biological_process	4	95	1342	31285	0.98	5.859e-01	6.555e-01		LOC120030386,LOC120038469,LOC120054763,LOC120065442
+GO:0065008	regulation of biological quality	biological_process	4	95	1404	31285	0.94	6.219e-01	6.914e-01		LOC120019576,LOC120040412,LOC120062883,cracr2b
+GO:0017111	ribonucleoside triphosphate phosphatase activity	molecular_function	3	95	1056	31285	0.94	6.262e-01	6.919e-01		LOC120064465,cracr2b,dnah2
+GO:0035556	intracellular signal transduction	biological_process	4	95	1433	31285	0.92	6.380e-01	7.006e-01		LOC120030672,LOC120042766,LOC120065085,sh2d3a
+GO:0016192	vesicle-mediated transport	biological_process	3	95	1124	31285	0.88	6.682e-01	7.293e-01		ap2b1,cracr2b,vps50
+GO:0016462	pyrophosphatase activity	molecular_function	3	95	1140	31285	0.87	6.775e-01	7.312e-01		LOC120064465,cracr2b,dnah2
+GO:0016818	hydrolase activity, acting on acid anhydrides, in phosphorus-containing anhydrides	molecular_function	3	95	1148	31285	0.86	6.821e-01	7.312e-01		LOC120064465,cracr2b,dnah2
+GO:0016817	hydrolase activity, acting on acid anhydrides	molecular_function	3	95	1150	31285	0.86	6.833e-01	7.312e-01		LOC120064465,cracr2b,dnah2
+GO:0051649	establishment of localization in cell	biological_process	4	95	1525	31285	0.86	6.863e-01	7.312e-01		LOC120020198,LOC120056503,ap2b1,vps50
+GO:0010604	positive regulation of macromolecule metabolic process	biological_process	3	95	1173	31285	0.84	6.962e-01	7.374e-01		crtc3,ptprc,sh2d3a
+GO:0005829	cytosol	cellular_component	4	95	1557	31285	0.85	7.020e-01	7.391e-01		LOC120028089,LOC120040161,LOC120053718,gpia
+GO:0007166	cell surface receptor signaling pathway	biological_process	4	95	1566	31285	0.84	7.063e-01	7.393e-01		LOC120022070,LOC120040412,LOC120053194,unc5c
+GO:0007186	G protein-coupled receptor signaling pathway	biological_process	3	95	1240	31285	0.8	7.318e-01	7.592e-01		LOC120056235,LOC120060868,LOC120062883
+GO:0005739	mitochondrion	cellular_component	3	95	1244	31285	0.79	7.338e-01	7.592e-01		LOC120028089,LOC120054763,bco2a
+GO:0046907	intracellular transport	biological_process	3	95	1330	31285	0.74	7.743e-01	7.965e-01		LOC120056503,ap2b1,vps50
+GO:0098796	membrane protein complex	cellular_component	3	95	1406	31285	0.7	8.058e-01	8.242e-01		LOC120020307,LOC120056503,ap2b1
+GO:0010467	gene expression	biological_process	4	95	1902	31285	0.69	8.366e-01	8.509e-01		LOC120030386,LOC120038469,LOC120054763,LOC120065442
+GO:0031090	organelle membrane	cellular_component	3	95	1686	31285	0.59	8.921e-01	9.022e-01		LOC120020198,LOC120034415,LOC120056503
+GO:0000978	RNA polymerase II cis-regulatory region sequence-specific DNA binding	molecular_function	3	95	1867	31285	0.53	9.279e-01	9.318e-01		LOC120053938,LOC120056031,LOC120066682
+GO:0000987	cis-regulatory region sequence-specific DNA binding	molecular_function	3	95	1891	31285	0.52	9.318e-01	9.318e-01		LOC120053938,LOC120056031,LOC120066682

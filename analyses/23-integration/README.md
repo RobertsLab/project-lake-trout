@@ -2,6 +2,8 @@
 
 Gene-level integration of Phase-2 (native reciprocal PAV, ecotype-only gene presence, CNV) with Phase-1 SVs and the prior reference DMR/PAV tables. See `code/23.6-integrate-phase2.py`.
 
+> **Superseded for interpretation by `refined/`** (code/23.7-refine-evidence-model.py): the ecotype_only / ref_pav / sv lines below are not independent, ecotype_only is Liftoff-sensitivity-inflated, and the GO tests are tandem-cluster driven. This file is kept as the Step-3 record.
+
 ## Evidence lines (genes per line)
 
 - **reciprocal_pav**: 115
