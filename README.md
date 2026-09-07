@@ -12,6 +12,8 @@ Comprehensive genomic analysis of _Salvelinus namaycush_ (lake trout) comparing 
 - **PacBio HiFi DNA methylation profiling** and differential methylation analysis
 - **Presence-Absence Variation (PAV) analysis** to identify structural genomic variations
 - **Functional annotation & phenotype interpretation** linking DMRs and PAVs to candidate genes
+- **Ecotype genome assemblies** (PacBio HiFi, hifiasm) for lean and siscowet, with Liftoff annotation and synteny
+- **Two-genome comparison**: structural-variant map, reciprocal PAV, gene-content sets, and a refined evidence model that retires the single-reference caveat
 - **Interactive genome browser** for visualizing genomic features
 
 ### Reference Genome
@@ -109,9 +111,10 @@ results are synthesized into hypothesized phenotype axes.
   gene-length and lean-reference caveats carried throughout
 - 0 DMCs survive q < 0.1 — interpretation leads with DMR-level and stringent-PAV sets
 
-> **Caveat:** the reference is a lean-background doubled-haploid genome, so siscowet-specific
-> deletions are divergence-inflated and not magnitude-comparable to lean. All links are associations
-> on a single reference, not validated mechanisms.
+> **Caveat (2025, now partly retired):** the reference is a lean-background doubled-haploid genome, so
+> siscowet-specific deletions were divergence-inflated. Section 6 re-tests these results on each
+> ecotype's own genome: the calcium signal survives, the lipid-axis deletions and 3 of the 4 convergent
+> genes do not. All links remain associations, not validated mechanisms.
 
 **Analysis Files:**
 - [`code/18-diff-annotation-phenotype-plan.md`](code/18-diff-annotation-phenotype-plan.md) - Plan of work
@@ -121,6 +124,44 @@ results are synthesized into hypothesized phenotype axes.
 - [`code/18.3-go-enrichment.py`](code/18.3-go-enrichment.py) - GO over-representation
 - [`code/18-diff-annotation-phenotype.Rmd`](code/18-diff-annotation-phenotype.Rmd) - Phenotype synthesis report
 - [`analyses/18-annotation/README.md`](analyses/18-annotation/README.md) - Outputs & provenance
+
+---
+
+### 6. Ecotype Genome Assemblies & Two-Genome Comparison
+
+Each ecotype was assembled from its own PacBio HiFi reads (hifiasm, purge_dups), annotated by
+Liftoff from the reference, and compared to the reference and to each other. This layer replaces
+single-reference association with bidirectional evidence.
+
+**Assemblies:** lean 2.58 Gb / 12,700 contigs / 55,437 lifted genes; siscowet 2.84 Gb / 8,159
+contigs / 59,968 lifted genes; 50,379 genes shared.
+
+**Key Results:**
+- **SyRI structural-variant map** for lean↔ref, siscowet↔ref and lean↔siscowet; ~18–20 % of
+  reference-based PAVs fall inside SV-confirmed regions
+- **Reciprocal PAV** (each ecotype's reads → the other's genome): 340 siscowet-present and 343
+  lean-present regions (1.57 Mb), 115 genes, free of lean-reference inflation
+- **Gene content:** 1,474 lean-only and 3,040 siscowet-only genes corroborated by both assemblies;
+  2,359 copy-number-divergent genes (dominated by tRNA / snRNA / histone arrays)
+- **Refined evidence model** (5 independent lines, tiers A–C): **77 tier-A genes** with read-level
+  native support (66 flag-free), 4,011 tier-B. The **calcium-transport GO signal survives** after
+  tandem-cluster collapsing (voltage-gated calcium channel activity, FDR 0.03); **no lipid term does**.
+  Three of the four 2025 "convergent" candidates and the `angptl5` / `mogat2` lipid deletions were
+  reference-distance artifacts.
+
+**Analysis Files:**
+- [`code/13.1-hifiasm-genome-assembly-*.Rmd`](code/) - hifiasm assemblies
+- [`code/20-ecotype-genomes.md`](code/20-ecotype-genomes.md), [`code/20.1-liftoff-annotation.Rmd`](code/20.1-liftoff-annotation.Rmd) - annotation plan and Liftoff
+- [`code/21.1-gene-anchored-synteny.Rmd`](code/21.1-gene-anchored-synteny.Rmd) - purge_dups + MCScanX synteny
+- [`code/22-synteny-browser-integration.qmd`](code/22-synteny-browser-integration.qmd) - synteny tracks and JBrowse synteny view
+- [`code/23-next-phase-research-plan.md`](code/23-next-phase-research-plan.md) - two-genome plan and progress log
+- [`code/23.1-genome-sv-map.Rmd`](code/23.1-genome-sv-map.Rmd), [`code/23.2-sv-pav-crossvalidate.py`](code/23.2-sv-pav-crossvalidate.py), [`code/23.3-sisco-sv-repair.py`](code/23.3-sisco-sv-repair.py) - SV map
+- [`code/23.4-reciprocal-pav.py`](code/23.4-reciprocal-pav.py), [`code/23.5-gene-set-ops.py`](code/23.5-gene-set-ops.py), [`code/23.6-integrate-phase2.py`](code/23.6-integrate-phase2.py) - reciprocal PAV, gene sets, integration
+- [`code/23.7-refine-evidence-model.py`](code/23.7-refine-evidence-model.py) - refined evidence lines, tiers, cluster-collapsed GO
+- [`analyses/23-integration/refined/README.md`](analyses/23-integration/refined/README.md) - refined results and tables
+
+**Open phases:** native differential methylation (Phase 3), BRAKER3 de novo annotation (Phase 4),
+browser tracks and manuscript (Phase 5).
 
 ---
 
@@ -140,17 +181,23 @@ project-lake-trout/
 │   ├── 13.3-hifiasm-differential-methylation-plan.md # Plan for hifiasm-based differential methylation
 │   ├── 14-diff-meth.Rmd/py            # Differential methylation
 │   ├── 15-diff-pav.py                 # Differential PAV
-│   └── 18-*                           # Annotation, candidate integration, GO, phenotype
+│   ├── 18-*                           # Annotation, candidate integration, GO, phenotype
+│   ├── 13.1-*, 20-*, 21.1-*, 22-*     # Ecotype assemblies, Liftoff, synteny, browser integration
+│   └── 23-*                           # Two-genome SV map, reciprocal PAV, gene sets, evidence model
 ├── data/                    # Raw data and metadata
 │   ├── SraRunTable.csv                # RNAseq sample information
 │   ├── ballgown-metadata.csv          # Ballgown metadata
 │   └── *.bed                          # Gene annotations
+├── output/                  # Assembly, Liftoff, synteny outputs (large files on gannet)
 ├── analyses/                # Analysis outputs and results
 │   ├── DEG-*.csv                      # Differentially expressed genes
 │   ├── DET-*.csv                      # Differentially expressed transcripts
 │   ├── 04-pacbio/                     # PacBio analysis outputs
 │   ├── 14-diff-meth/                  # Methylation results
-│   └── 15-diff-pav/                   # PAV results
+│   ├── 15-diff-pav/                   # PAV results
+│   ├── 18-annotation/                 # Functional annotation & candidates
+│   ├── 23-reciprocal-pav/, 23-gene-sets/ # Two-genome results
+│   └── 23-integration/refined/        # Five-line evidence model, tiers, collapsed GO
 ├── genome-browser/          # Interactive IGV.js genome browser
 │   ├── index.html                     # Browser interface
 │   ├── prepare_data.py                # Data preparation script

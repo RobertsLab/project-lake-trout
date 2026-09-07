@@ -1,0 +1,8 @@
+gene_id	symbol	product	phase18_role	phase18_rank_score	refined_tier	n_lines_refined	lines_refined	native_support
+gene-LOC120032414	LOC120032414	zinc finger protein 883-like	convergent	6	C	2	dmr,ref_divergence	N
+gene-LOC120040411	LOC120040411	gastrula zinc finger protein XlCGF57.1-like	convergent	4	B	3	cnv,dmr,ref_divergence	Y
+gene-LOC120043843	LOC120043843	septin-9-like	convergent	3	C	2	dmr,ref_divergence	N
+gene-LOC120039781	LOC120039781		convergent	4	C	2	dmr,ref_divergence	N
+gene-LOC120050008	LOC120050008	angiopoietin-related protein 5-like	lipid_axis	3	B	2	ecotype_only_corroborated,ref_divergence	Y
+gene-LOC120041635	LOC120041635	2-acylglycerol O-acyltransferase 2-A-like	lipid_axis	3	none	1	ref_divergence	N
+gene-LOC120029926	LOC120029926	epoxide hydrolase 1-like	lipid_axis	4	C	2	dmr,ref_divergence	N
