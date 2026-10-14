@@ -31,8 +31,8 @@ GO:0043087	regulation of GTPase activity	biological_process	4	95	325	31285	4.05	
 GO:0060589	nucleoside-triphosphatase regulator activity	molecular_function	6	95	681	31285	2.9	1.770e-02	1.052e-01		LOC120032530,LOC120065085,asap1a,iqsec3a,sh2d3a,triob
 GO:1990778	protein localization to cell periphery	biological_process	3	95	184	31285	5.37	1.866e-02	1.052e-01		LOC120032363,LOC120046589,cracr2b
 GO:0051049	regulation of transport	biological_process	5	95	513	31285	3.21	2.021e-02	1.052e-01		LOC120019576,LOC120024458,LOC120030672,LOC120034415,cracr2b
-GO:0098984	neuron to neuron synapse	cellular_component	3	95	191	31285	5.17	2.057e-02	1.052e-01		LOC120020307,LOC120057339,LOC120066718
 GO:0032279	asymmetric synapse	cellular_component	3	95	191	31285	5.17	2.057e-02	1.052e-01		LOC120020307,LOC120057339,LOC120066718
+GO:0098984	neuron to neuron synapse	cellular_component	3	95	191	31285	5.17	2.057e-02	1.052e-01		LOC120020307,LOC120057339,LOC120066718
 GO:0014069	postsynaptic density	cellular_component	3	95	191	31285	5.17	2.057e-02	1.052e-01		LOC120020307,LOC120057339,LOC120066718
 GO:1901700	response to oxygen-containing compound	biological_process	4	95	350	31285	3.76	2.213e-02	1.091e-01	Y	LOC120022070,LOC120028089,LOC120060868,cracr2b
 GO:0005929	cilium	cellular_component	4	95	354	31285	3.72	2.296e-02	1.091e-01		LOC120036268,LOC120053598,LOC120056235,ttll9
@@ -62,8 +62,8 @@ GO:0098794	postsynapse	cellular_component	4	95	453	31285	2.91	4.944e-02	1.475e-0
 GO:0005911	cell-cell junction	cellular_component	4	95	460	31285	2.86	5.176e-02	1.519e-01		LOC120019576,LOC120020307,LOC120056781,mpp6b
 GO:0034655	nucleobase-containing compound catabolic process	biological_process	3	95	278	31285	3.55	5.292e-02	1.523e-01		dnase1l1l,gpia,smg6
 GO:0008092	cytoskeletal protein binding	molecular_function	7	95	1126	31285	2.05	5.553e-02	1.523e-01	Y	LOC120019576,LOC120027905,LOC120032210,LOC120032363,LOC120036268,LOC120056805,ttll9
-GO:0097447	dendritic tree	cellular_component	3	95	284	31285	3.48	5.572e-02	1.523e-01		LOC120062883,LOC120066718,cracr2b
 GO:0030425	dendrite	cellular_component	3	95	284	31285	3.48	5.572e-02	1.523e-01		LOC120062883,LOC120066718,cracr2b
+GO:0097447	dendritic tree	cellular_component	3	95	284	31285	3.48	5.572e-02	1.523e-01		LOC120062883,LOC120066718,cracr2b
 GO:0016773	phosphotransferase activity, alcohol group as acceptor	molecular_function	8	95	1367	31285	1.93	5.615e-02	1.523e-01		LOC120020909,LOC120043213,LOC120045630,LOC120053194,LOC120065642,map4k3a,nek7,triob
 GO:0071495	cellular response to endogenous stimulus	biological_process	4	95	476	31285	2.77	5.728e-02	1.530e-01		LOC120022070,LOC120028089,LOC120053194,cracr2b
 GO:0004674	protein serine/threonine kinase activity	molecular_function	5	95	690	31285	2.39	5.927e-02	1.551e-01		LOC120020909,LOC120043213,LOC120045630,LOC120065642,map4k3a

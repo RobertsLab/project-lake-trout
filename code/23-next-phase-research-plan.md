@@ -208,6 +208,24 @@ PDEs, grb10-like, ROR-alpha paralogs partitioned one per ecotype, calsequestrin-
 Phase-18 headline fate (`phase18_candidate_fate.tsv`): 3 of 4 convergent genes are tier C
 (reference-only), LOC120040411 is tier B via cnv inside a 5-paralog cluster; `angptl5` is tier B
 (corroborated siscowet-only, no read support), `mogat2` and epoxide hydrolase 1 have no native line.
+
+**Step 5 — read-coverage filter on corroborated ecotype-only genes (2026-10-14)** (23.7 updated).
+Checking `angptl5` showed lean reads cover it at genome depth in all four lean fish when aligned to
+the siscowet assembly; the whole ~280 kb block (LOC120049129–LOC120050016, ref
+NC_052312.1:40.30–40.54 Mb) is missing from the lean *assembly*, not lean fish. Two
+assemblies agreeing on absence is therefore not enough. Each corroborated gene is now checked
+against the 23.4 mosdepth windows of the other ecotype's reads on the assembly that carries it;
+genes with ≥80 % of their length at ≥25 % of genome-mean depth in ≥3 of 4 fish are `read_covered`
+(assembly gaps) and lose the line. The coverage distribution is bimodal; the cutoff sits in the gap.
+
+Result: **3,891 of 4,382 (89 %) corroborated genes are read-covered**; 491 remain (lean 147 /
+siscowet 344). Tier A unchanged (77 / 66 flag-free); tier B 4,011 → 2,509. All 18 hemoglobin genes
+and all 9 genes behind the lean_only voltage-gated calcium channel enrichment are read-covered, so
+**the calcium-channel signal was an assembly-gap effect** and is withdrawn. Remaining calcium
+evidence: reciprocal_pav calcium ion binding (FDR 0.10, 8 genes) and individual tier-A genes.
+Lipid unchanged (no term at FDR 0.1). `angptl5` drops to reference divergence only. Caveat:
+coverage counts MAPQ-0 reads, so recent paralogs can look covered; BAM-level MAPQ filtering on the
+Linux box would tighten this.
 The hemoglobin cluster absent from the siscowet assembly is not flagged by reciprocal PAV, consistent
 with an assembly gap. Landing page and README updated to this model.
 

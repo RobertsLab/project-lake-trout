@@ -113,8 +113,8 @@ results are synthesized into hypothesized phenotype axes.
 
 > **Caveat (2025, now partly retired):** the reference is a lean-background doubled-haploid genome, so
 > siscowet-specific deletions were divergence-inflated. Section 6 re-tests these results on each
-> ecotype's own genome: the calcium signal survives, the lipid-axis deletions and 3 of the 4 convergent
-> genes do not. All links remain associations, not validated mechanisms.
+> ecotype's own genome: the lipid-axis deletions, 3 of the 4 convergent genes and the lean-only
+> calcium-channel signal do not survive; a smaller calcium-binding signal remains on read-level evidence. All links remain associations, not validated mechanisms.
 
 **Analysis Files:**
 - [`code/18-diff-annotation-phenotype-plan.md`](code/18-diff-annotation-phenotype-plan.md) - Plan of work
@@ -141,13 +141,15 @@ contigs / 59,968 lifted genes; 50,379 genes shared.
   reference-based PAVs fall inside SV-confirmed regions
 - **Reciprocal PAV** (each ecotype's reads → the other's genome): 340 siscowet-present and 343
   lean-present regions (1.57 Mb), 115 genes, free of lean-reference inflation
-- **Gene content:** 1,474 lean-only and 3,040 siscowet-only genes corroborated by both assemblies;
-  2,359 copy-number-divergent genes (dominated by tRNA / snRNA / histone arrays)
+- **Gene content:** 1,474 lean-only and 3,040 siscowet-only genes corroborated by both assemblies,
+  but 89 % of these are covered by the other ecotype's reads (assembly gaps, not absences); 147 /
+  344 remain. 2,359 copy-number-divergent genes (dominated by tRNA / snRNA / histone arrays)
 - **Refined evidence model** (5 independent lines, tiers A–C): **77 tier-A genes** with read-level
-  native support (66 flag-free), 4,011 tier-B. The **calcium-transport GO signal survives** after
-  tandem-cluster collapsing (voltage-gated calcium channel activity, FDR 0.03); **no lipid term does**.
-  Three of the four 2025 "convergent" candidates and the `angptl5` / `mogat2` lipid deletions were
-  reference-distance artifacts.
+  native support (66 flag-free), 2,509 tier-B. The lean-only **calcium-channel GO signal was an
+  assembly-gap effect** (all its genes are covered by siscowet reads); a calcium-binding enrichment
+  in the reciprocal PAV set remains (FDR 0.10). **No lipid term reaches FDR 0.1.** Three of the four
+  2025 "convergent" candidates and the `angptl5` / `mogat2` lipid deletions have no native support;
+  `angptl5` is present in lean fish and missing only from the lean assembly.
 
 **Analysis Files:**
 - [`code/13.1-hifiasm-genome-assembly-*.Rmd`](code/) - hifiasm assemblies

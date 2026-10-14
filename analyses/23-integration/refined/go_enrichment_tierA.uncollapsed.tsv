@@ -18,8 +18,8 @@ GO:0120025	plasma membrane bounded cell projection	cellular_component	7	65	1427	
 GO:0009719	response to endogenous stimulus	biological_process	4	65	533	34266	3.96	1.859e-02	9.931e-02		LOC120022070,LOC120028089,LOC120053194,cracr2b
 GO:0051049	regulation of transport	biological_process	4	65	535	34266	3.94	1.882e-02	9.931e-02		LOC120024458,LOC120030672,LOC120034415,cracr2b
 GO:0042995	cell projection	cellular_component	7	65	1467	34266	2.52	2.086e-02	1.043e-01		LOC120031305,LOC120053194,LOC120053598,LOC120066718,cracr2b,sh3yl1,ttll9
-GO:0045937	positive regulation of phosphate metabolic process	biological_process	3	65	329	34266	4.81	2.473e-02	1.119e-01		LOC120053194,ptprc,sh2d3a
 GO:0042327	positive regulation of phosphorylation	biological_process	3	65	329	34266	4.81	2.473e-02	1.119e-01		LOC120053194,ptprc,sh2d3a
+GO:0045937	positive regulation of phosphate metabolic process	biological_process	3	65	329	34266	4.81	2.473e-02	1.119e-01		LOC120053194,ptprc,sh2d3a
 GO:0032879	regulation of localization	biological_process	4	65	595	34266	3.54	2.651e-02	1.145e-01		LOC120024458,LOC120030672,LOC120034415,cracr2b
 GO:0070887	cellular response to chemical stimulus	biological_process	4	65	630	34266	3.35	3.176e-02	1.312e-01		LOC120022070,LOC120028089,LOC120060868,cracr2b
 GO:0098609	cell-cell adhesion	biological_process	4	65	663	34266	3.18	3.723e-02	1.403e-01		LOC120025537,LOC120054371,LOC120056781,LOC120066463

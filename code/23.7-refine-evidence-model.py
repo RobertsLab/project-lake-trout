@@ -18,6 +18,16 @@ WHAT THIS DOES.
      explicitly listed in the other assembly's Liftoff unmapped_features -- both assemblies agree)
      keeps its own line, `ecotype_only_corroborated`; the Liftoff-only remainder is demoted into
      `ref_divergence`.
+     READ-COVERAGE FILTER (added 2026-10-14). Two assemblies agreeing is not enough: angptl5-like
+     (LOC120050008) is "corroborated siscowet-only", yet lean reads cover it at genome depth in all
+     four lean fish -- the whole ~280 kb block is missing from the lean ASSEMBLY, not the lean fish.
+     So each corroborated gene is checked against the 23.4 mosdepth windows of the OTHER ecotype's
+     reads aligned to the assembly that carries the gene. A gene is `read_covered` (an assembly gap,
+     not an absence) when, in >= READCOV_MIN_SAMPLES of 4 fish, >= READCOV_MIN_FRAC of its length
+     lies in windows with depth >= READCOV_MIN_DEPTH x that fish's genome mean. The distribution is
+     bimodal (most genes ~0 or ~1), and the cutoff sits in the gap. read_covered genes lose the
+     corroborated line and are NOT moved into ref_divergence (they are present in both ecotypes).
+     Coverage includes MAPQ-0 reads, as in 23.4, so recent paralogs can look covered.
   3. Re-scores every gene on FIVE lines that are independent in data type or direction:
         reciprocal_pav            native, bidirectional read evidence         (Phase 2)
         ecotype_only_corroborated two-assembly agreement on gene absence      (Phase 2)
@@ -38,6 +48,8 @@ WHAT THIS DOES.
 INPUTS (all in repo):
   analyses/23-integration/gene_evidence_matrix.tsv   (sv flag; SyRI raw outputs are not tracked)
   analyses/23-reciprocal-pav/{lean,siscowet}_specific.genes.tsv
+  analyses/23-reciprocal-pav/cov/{sample}.to_{target}.{regions.bed.gz,mosdepth.summary.txt}
+  output/21.1-gene-anchored-synteny/{lean,siscowet}.purged.liftoff.genes.bed
   analyses/23-gene-sets/{lean_only,siscowet_only,cnv}.tsv
   analyses/18-annotation/{gene_function_table,dmr_gene_assignments,pav_gene_assignments,
                           integrated_candidate_genes}.tsv
@@ -56,7 +68,9 @@ Author: Generated for project-lake-trout
 Date: 2026-09-06
 """
 
+import bisect
 import csv
+import gzip
 import importlib.util
 import re
 import sys
@@ -69,6 +83,14 @@ RECIP = BASE / "analyses" / "23-reciprocal-pav"
 GENESETS = BASE / "analyses" / "23-gene-sets"
 ANN = BASE / "analyses" / "18-annotation"
 OUT = INT / "refined"
+SYN = BASE / "output" / "21.1-gene-anchored-synteny"
+
+# read-coverage filter: side the gene is present in -> (other ecotype's samples, target assembly)
+OTHER_READS = {"siscowet": (["bc2041", "bc2068", "bc2069", "bc2070"], "siscowet"),
+               "lean": (["bc2071", "bc2072", "bc2073", "bc2096"], "lean")}
+READCOV_MIN_DEPTH = 0.25      # window depth, as a fraction of the sample's genome-wide mean
+READCOV_MIN_FRAC = 0.8        # fraction of gene length in such windows
+READCOV_MIN_SAMPLES = 3       # of the 4 other-ecotype fish
 
 CLUSTER_GAP = 50_000          # bp between consecutive same-family genes to chain a tandem cluster
 FAMILY_STOP = {"protein", "uncharacterized", "putative", "probable", "hypothetical", "the", "and"}
@@ -107,6 +129,49 @@ def family_key(product):
     p = product.lower().replace("-like", "")
     toks = [t for t in re.split(r"[^a-z]+", p) if len(t) >= 3 and t not in FAMILY_STOP]
     return toks[0] if toks else ""
+
+
+# ------------------------------------------------------------------- read-coverage filter
+def other_ecotype_coverage(genes, side):
+    """For genes present only in <side>'s assembly, the fraction of each gene's length covered by
+    the OTHER ecotype's reads (window depth >= READCOV_MIN_DEPTH x genome mean), per sample.
+    Returns gid -> sorted list of 4 fractions (all Liftoff copies pooled)."""
+    samples, target = OTHER_READS[side]
+    iv = defaultdict(list)
+    with open(SYN / f"{target}.purged.liftoff.genes.bed") as f:
+        for line in f:
+            c, s, e, g = line.split("\t")[:4]
+            if canon(g) in genes:
+                iv[c].append((int(s), int(e), canon(g)))
+    glen = defaultdict(int)
+    for c in iv:
+        iv[c].sort()
+        for s, e, g in iv[c]:
+            glen[g] += e - s
+    starts = {c: [x[0] for x in v] for c, v in iv.items()}
+    maxlen = max((e - s for v in iv.values() for s, e, _ in v), default=0)
+    fracs = defaultdict(list)
+    for smp in samples:
+        stem = RECIP / "cov" / f"{smp}.to_{target}"
+        with open(f"{stem}.mosdepth.summary.txt") as f:
+            gmean = next(float(l.split("\t")[3]) for l in f if l.startswith("total\t"))
+        cov_bp = defaultdict(int)
+        with gzip.open(f"{stem}.regions.bed.gz", "rt") as f:
+            for line in f:
+                c, s, e, d = line.split("\t")
+                if c not in iv or float(d) < READCOV_MIN_DEPTH * gmean:
+                    continue
+                s, e = int(s), int(e)
+                i = bisect.bisect_right(starts[c], e) - 1
+                while i >= 0 and iv[c][i][0] > s - maxlen:
+                    gs, ge, g = iv[c][i]
+                    ov = min(e, ge) - max(s, gs)
+                    if ov > 0:
+                        cov_bp[g] += ov
+                    i -= 1
+        for g in glen:
+            fracs[g].append(cov_bp[g] / glen[g])
+    return {g: sorted(v) for g, v in fracs.items()}
 
 
 # ------------------------------------------------------------------- tandem clusters
@@ -173,6 +238,19 @@ def main():
             eco_tier[g] = "corroborated" if r.get(ucol, "").strip() == "Y" else "liftoff_only"
     eco_corr = {g for g, t in eco_tier.items() if t == "corroborated"}
     eco_lift = {g for g, t in eco_tier.items() if t == "liftoff_only"}
+
+    # read-coverage filter: corroborated genes the other ecotype's reads cover are assembly gaps
+    readcov = {}
+    for side in ("lean", "siscowet"):
+        readcov.update(other_ecotype_coverage({g for g in eco_corr if eco_side[g] == side}, side))
+    eco_covered = {g for g, fr in readcov.items()
+                   if fr[-READCOV_MIN_SAMPLES] >= READCOV_MIN_FRAC}
+    for g in eco_covered:
+        eco_tier[g] = "read_covered"
+    n_corr_before = {s: sum(1 for g in eco_corr if eco_side[g] == s) for s in ("lean", "siscowet")}
+    eco_corr -= eco_covered
+    print(f"  read-coverage filter: {len(eco_covered):,} corroborated ecotype-only genes covered by "
+          f"the other ecotype's reads (assembly gaps); {len(eco_corr):,} retained")
 
     cnv = set()
     for r in read_tsv(GENESETS / "cnv.tsv"):
@@ -248,6 +326,7 @@ def main():
             "reciprocal_present_in": recip_dir.get(g, ""),
             "ecotype_only_tier": eco_tier.get(g, ""),
             "ecotype_only_side": eco_side.get(g, ""),
+            "other_ecotype_read_cov": ",".join(f"{x:.2f}" for x in readcov[g]) if g in readcov else "",
             "copies_lean": cl, "copies_siscowet": cs,
             "sv": int(g in sv), "ref_pav": int(g in ref_pav),
             "n_lines_23_6": old.get(g, {}).get("n_lines", ""),
@@ -430,12 +509,20 @@ def main():
         o.write(f"| reciprocal_pav | {n(recip)} | native, bidirectional read coverage (Phase 2) |\n")
         o.write(f"| ecotype_only_corroborated | {n(eco_corr)} | lifted into one assembly only AND "
                 f"in the other's unmapped list (lean {sum(1 for g in eco_corr if eco_side[g]=='lean'):,} / "
-                f"siscowet {sum(1 for g in eco_corr if eco_side[g]=='siscowet'):,}) |\n")
+                f"siscowet {sum(1 for g in eco_corr if eco_side[g]=='siscowet'):,}), and NOT covered "
+                f"by the other ecotype's reads |\n")
         o.write(f"| cnv | {n(cnv)} | Liftoff copy-number divergence |\n")
         o.write(f"| dmr | {n(dmr)} | reference-based DMR within 5 kb |\n")
         o.write(f"| ref_divergence | {n(ref_div)} | SyRI SV ({n(sv)}) ∪ reference PAV ({n(ref_pav)}) ∪ "
                 f"Liftoff-only ecotype_only ({n(eco_lift)}) |\n\n")
         o.write(f"SV line source: {sv_src}.\n\n")
+        o.write(f"Read-coverage filter: of {sum(n_corr_before.values()):,} genes lifted into one "
+                f"assembly and unmapped in the other (lean {n_corr_before['lean']:,} / siscowet "
+                f"{n_corr_before['siscowet']:,}), {len(eco_covered):,} are covered by the other "
+                f"ecotype's reads (≥{READCOV_MIN_FRAC:.0%} of gene length at ≥"
+                f"{READCOV_MIN_DEPTH:.0%} of genome-mean depth in ≥{READCOV_MIN_SAMPLES} of 4 fish) "
+                f"and are treated as assembly gaps, not absences. They carry no evidence line; "
+                f"per-fish coverage fractions are in `other_ecotype_read_cov`.\n\n")
         o.write("## Candidate tiers\n\n")
         o.write("| tier | definition | genes | of which no caution flag |\n|---|---|---|---|\n")
         for t, d in (("A", "reciprocal_pav + ≥1 other line"),
@@ -475,7 +562,8 @@ def main():
                     f"{r['refined_tier']} | {r['lines_refined'] or '—'} | {r['native_support']} |\n")
         o.write("\n## Reading guide\n\n")
         o.write("- Only tier A carries read-level, bidirectional evidence on native coordinates. "
-                "Tier B rests on two Liftoff annotations agreeing; tier C is the Phase-18 style "
+                "Tier B rests on two Liftoff annotations agreeing, after removing genes the other "
+                "ecotype's reads cover; tier C is the Phase-18 style "
                 "single-reference association and is retained for continuity only.\n")
         o.write("- `ref_divergence` is one line no matter how many of SV / reference PAV / "
                 "Liftoff-only presence a gene carries: they share a cause (distance from the "

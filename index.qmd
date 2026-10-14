@@ -69,7 +69,7 @@ sample size is four fish per ecotype, and the assemblies are contig-level.
 | Annotation | 46,359 RefSeq genes | Liftoff transfer: 55,437 lean, 59,968 siscowet gene models; 50,379 shared |
 | Structure | 3,465 stringent siscowet deletions, one direction only | SyRI structural-variant map for lean↔ref, siscowet↔ref, lean↔siscowet; ~18–20 % of reference PAVs are SV-confirmed |
 | Presence/absence | Reads → reference only | **Reciprocal PAV**: each ecotype's reads → the other's genome. 340 siscowet-present and 343 lean-present regions, 1.57 Mb, 115 genes |
-| Gene content | not testable | Ecotype-only gene sets, corroborated by the other assembly's unmapped list: 1,474 lean-only, 3,040 siscowet-only; 2,359 copy-number divergent |
+| Gene content | not testable | Ecotype-only gene sets, corroborated by the other assembly's unmapped list (1,474 lean-only, 3,040 siscowet-only), then checked against the other ecotype's reads: 147 / 344 genes remain; 2,359 copy-number divergent |
 | Methylation | 302 DMRs on reference | still reference-based; native re-analysis is the next phase |
 
 Plan and progress log: [`code/23-next-phase-research-plan.md`](code/23-next-phase-research-plan.md).
@@ -85,7 +85,7 @@ lean reference and co-occurred heavily, so they are collapsed into one.
 | Line | Genes | What it measures |
 |---|---|---|
 | **Reciprocal PAV** | 114 | Region of one ecotype's own genome with zero coverage in all four of the other ecotype's read sets, flanked by covered sequence. Native, bidirectional, read-level. |
-| **Corroborated ecotype-only** | 4,382 | Gene lifted into one assembly only *and* explicitly unmapped by Liftoff in the other. Two assemblies agree. (Unique reference genes; the 1,474 / 3,040 above count Liftoff rows including extra copies.) |
+| **Corroborated ecotype-only** | 491 | Gene lifted into one assembly only, explicitly unmapped by Liftoff in the other, *and* not covered by the other ecotype's reads. Of 4,382 genes where the two assemblies agree, 3,891 (89 %) are covered by the other ecotype's reads at normal depth: the gene is in the fish but missing from that assembly. |
 | **Copy-number divergence** | 2,359 | Liftoff copy count differs between the assemblies. Dominated by tRNA, snRNA, histone and protocadherin clusters. |
 | **DMR** | 181 | Reference-based differentially methylated region within 5 kb. |
 | **Reference divergence** | 16,068 | Any of: SyRI SV, reference PAV, Liftoff-only ecotype presence. One line regardless of how many apply. |
@@ -93,7 +93,7 @@ lean reference and co-occurred heavily, so they are collapsed into one.
 | Tier | Definition | Genes | Flag-free |
 |---|---|---|---|
 | **A** | Reciprocal PAV + ≥1 other line | 77 | 66 |
-| **B** | Corroborated ecotype-only or copy-number + ≥1 other line | 4,011 | 2,613 |
+| **B** | Corroborated ecotype-only or copy-number + ≥1 other line | 2,509 | 1,461 |
 | **C** | DMR + reference divergence only (the earlier single-reference association) | 15 | 6 |
 
 Caution flags mark noncoding biotypes, repeat and tandem families, and clusters of five or more
@@ -112,7 +112,7 @@ flag-free, protein-coding set:
 |---|---|---|---|---|
 | `gpia` | Glucose-6-phosphate isomerase a | siscowet | reciprocal PAV · CNV · ref | energy metabolism |
 | LOC120028089 | Phosphoenolpyruvate carboxykinase, mitochondrial-like | siscowet | reciprocal PAV · ref | gluconeogenesis |
-| LOC120024897 | cGMP-inhibited 3′,5′-cyclic phosphodiesterase B-like | siscowet | reciprocal PAV · corroborated-only · ref | insulin / lipolysis signalling |
+| LOC120024897 | cGMP-inhibited 3′,5′-cyclic phosphodiesterase B-like | siscowet | reciprocal PAV · ref | insulin / lipolysis signalling |
 | LOC120053718 | cAMP-specific phosphodiesterase 4D-like | lean | reciprocal PAV · ref | cAMP signalling |
 | LOC120022070 | Growth factor receptor-bound protein 10-like | lean | reciprocal PAV · CNV · ref | insulin / IGF signalling, growth |
 | LOC120066682 / LOC120053938 | Nuclear receptor ROR-alpha A (two paralogs) | lean / siscowet | reciprocal PAV · ref | circadian & lipid-metabolic regulator, one paralog per ecotype |
@@ -130,20 +130,21 @@ Full list: [`two_genome_candidates_refined.tsv`](analyses/23-integration/refined
 
 Same-family genes within 50 kb of each other were collapsed to one representative in both the study
 sets and the background. This removes the cluster artifacts that drove several earlier signals
-(an 18-gene hemoglobin cluster in the lean-only set; histone, tRNA and snRNA arrays in the
-copy-number set).
+(histone, tRNA and snRNA arrays in the copy-number set). The read-coverage filter above removed
+the rest: the 18-gene hemoglobin cluster and the calcium-channel genes that led the lean-only set
+are all covered by siscowet reads.
 
 | Gene set | GO term | Fold | FDR collapsed | FDR uncollapsed | Read as |
 |---|---|---|---|---|---|
-| Lean-only, corroborated | Voltage-gated calcium channel activity | 4.5 | 0.028 | 8×10⁻⁴ | **survives**; weakened but present |
-| Lean-only, corroborated | Calcium ion transport | 2.5 | 0.062 | 9×10⁻³ | survives |
-| Reciprocal PAV | Calcium ion binding | 2.5 | 0.10 | 0.09 | consistent, small set |
 | Tier A | Cellular response to insulin stimulus | 22 | 0.02 | 0.02 | 3 genes; suggestive |
 | Reciprocal PAV | Regulation of muscle contraction | 23 | 0.014 | — | 3 genes; suggestive |
-| Lean-only, corroborated | Long-chain fatty acid metabolic process | 3.5 | 0.24 | 0.36 | the only lipid term below 0.25 |
+| Reciprocal PAV | Calcium ion binding | 2.5 | 0.10 | 0.09 | 8 genes; consistent, small set |
+| Tier A + B | Short-chain fatty acid catabolic process | 12.7 | 0.12 | 0.04 | 3 genes, two of them PEPCK (gluconeogenesis) |
+| Lean-only, corroborated | Voltage-gated calcium channel activity | — | — | — | **gone**: all 9 genes are covered by siscowet reads |
 
-**The calcium-transport signal survives on native two-genome coordinates. The lipid-metabolism
-signal does not.** No lipid term reaches FDR 0.1 in any two-genome set, collapsed or not.
+**The earlier calcium-channel signal was an assembly-gap effect.** What remains on read-level
+evidence is a modest calcium-binding enrichment and a few muscle and insulin-response genes. No
+lipid term reaches FDR 0.1 in any two-genome set, collapsed or not.
 Tables: [`phenotype_survival_refined.tsv`](analyses/23-integration/refined/phenotype_survival_refined.tsv),
 [`cluster_diagnostics.tsv`](analyses/23-integration/refined/cluster_diagnostics.tsv).
 
@@ -169,15 +170,16 @@ reciprocal test.
 | LOC120040411 | Gastrula zinc finger XlCGF57.1-like | convergent | Tier B via copy-number, inside a 5-paralog cluster | weak |
 | LOC120043843 | Septin-9-like | convergent | Tier C | no |
 | LOC120039781 | Uncharacterized | convergent | Tier C | no |
-| LOC120050008 | Angiopoietin-related protein 5-like (`angptl5`) | lipid axis | Tier B: corroborated siscowet-only | assembly-level only |
+| LOC120050008 | Angiopoietin-related protein 5-like (`angptl5`) | lipid axis | none: present in both ecotypes, missing from the lean assembly | no |
 | LOC120041635 | 2-acylglycerol O-acyltransferase 2-A-like (`mogat2`) | lipid axis | reference divergence only | no |
 | LOC120029926 | Epoxide hydrolase 1-like | lipid axis | Tier C | no |
 
 The stringent siscowet "deletions" that defined these genes came from siscowet reads aligned to
 the lean-background reference, a one-direction test that cannot separate true loss from sequence
 too divergent to align. On the ecotype genomes they are largely not confirmed: `mogat2`-like lifts
-into both assemblies with no reciprocal absence, and `angptl5`-like is present in the siscowet
-assembly. That is the outcome the two-genome design was built to detect.
+into both assemblies with no reciprocal absence, and `angptl5`-like is covered by lean reads at
+genome depth in all four lean fish; it and its ~280 kb neighbourhood are missing from the lean
+assembly, not from lean fish. That is the outcome the two-genome design was built to detect.
 
 ![Single-reference candidate ranking (2025), retained for comparison. Most of these loci did not gain native support.](figures/18-top-candidates.png){fig-alt="Top candidate genes bar chart from the single-reference analysis" width="100%"}
 
@@ -185,10 +187,11 @@ assembly. That is the outcome the two-genome design was built to detect.
 
 ## Hypothesized Links to Ecotype Biology, Revised
 
-- **⚡ Calcium handling and excitability** — the one axis supported at every stage: calcium-channel
-  GO enrichment in the corroborated lean-only set, calcium-binding enrichment in the reciprocal PAV
-  set, and calsequestrin-1 and `cracr2b` among the siscowet-present tier-A genes. Plausibly relevant
-  to muscle and sensory function in a deep, cold, dark habitat.
+- **⚡ Calcium handling and excitability** *(weakened)* — the lean-only calcium-channel enrichment
+  did not survive the read-coverage check: siscowet fish carry those genes too. What remains is a
+  calcium-binding enrichment in the reciprocal PAV set (FDR 0.10), and calsequestrin-1, `cracr2b`
+  and fast-muscle troponin T among the siscowet-present tier-A genes. Plausibly relevant to muscle
+  function in a deep, cold habitat, but now a handful of genes rather than a pathway signal.
 - **🔋 Energy metabolism and insulin signalling** *(new)* — `gpia`, mitochondrial PEPCK, two
   phosphodiesterases, `grb10`-like and a ROR-alpha paralog partition between the ecotypes on
   read-level evidence. A metabolic-rate or fuel-partitioning hypothesis fits the lean/siscowet
@@ -202,10 +205,9 @@ assembly. That is the outcome the two-genome design was built to detect.
 - **🛡️ Immune** — PTPRC, an MHC class I-related gene, CEACAM and TRIM39 appear in tier A. These
   families evolve fast and vary in copy number within populations; treat as expected background
   until population-level data exist.
-- **🩸 A hemoglobin cluster absent from the siscowet assembly** — 18 hemoglobin genes on
-  NC_052347.1 are lean-only and corroborated, but not flagged by reciprocal PAV, which is
-  consistent with an assembly gap rather than a true loss. Flagged for read-level inspection
-  rather than interpretation.
+- **🩸 Hemoglobin cluster: resolved as an assembly gap** — the 18 "lean-only" hemoglobin genes on
+  NC_052347.1 are fully covered by siscowet reads in all four siscowet fish. Siscowet fish carry
+  the cluster; the siscowet assembly does not.
 
 ---
 
@@ -248,8 +250,8 @@ still inherits its bias, which is why it counts once.
 ::: {.warn-box}
 **Contig-level assemblies and Liftoff sensitivity.** Both genomes are thousands of contigs. The
 raw ecotype-only gene counts (5,058 lean, 9,589 siscowet) track assembly contiguity more than
-biology; only the ~30 % corroborated by the other assembly's unmapped list are used as evidence,
-and the hemoglobin case above shows even those can be assembly gaps.
+biology. Even genes where both assemblies agree are mostly assembly gaps: 89 % are covered by the
+other ecotype's reads. Only the 491 genes that pass both checks count as evidence.
 :::
 
 ::: {.warn-box}
