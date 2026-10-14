@@ -70,7 +70,7 @@ sample size is four fish per ecotype, and the assemblies are contig-level.
 | Structure | 3,465 stringent siscowet deletions, one direction only | SyRI structural-variant map for lean↔ref, siscowet↔ref, lean↔siscowet; ~18–20 % of reference PAVs are SV-confirmed |
 | Presence/absence | Reads → reference only | **Reciprocal PAV**: each ecotype's reads → the other's genome. 340 siscowet-present and 343 lean-present regions, 1.57 Mb, 115 genes |
 | Gene content | not testable | Ecotype-only gene sets, corroborated by the other assembly's unmapped list (1,474 lean-only, 3,040 siscowet-only), then checked against the other ecotype's reads: 147 / 344 genes remain; 2,359 copy-number divergent |
-| Methylation | 302 DMRs on reference | still reference-based; native re-analysis is the next phase |
+| Methylation | 302 DMRs on reference | Both ecotypes' reads tested on each purged assembly. No promoter or gene-body difference passes FDR in either frame; 63 nominal candidates hold in both. Half the reference DMRs sit in multi-copy sequence (vs 3–5 % of random windows); the uniquely placed ones replicate (34/38 same sign in the siscowet frame) |
 
 Plan and progress log: [`code/23-next-phase-research-plan.md`](code/23-next-phase-research-plan.md).
 
@@ -201,7 +201,8 @@ assembly, not from lean fish. That is the outcome the two-genome design was buil
   genomes (most likely reference divergence rather than gene loss), and no lipid GO term is
   enriched on native coordinates. This does not rule out a genetic basis: it may be regulatory
   rather than structural, or lie in genes Liftoff cannot see.
-  Native methylation (next phase) and de novo annotation address both possibilities.
+  Native methylation found no lipid signal either (a DGAT2-like promoter is one nominal
+  exception); de novo annotation (Phase 4) is the remaining test.
 - **🛡️ Immune** — PTPRC, an MHC class I-related gene, CEACAM and TRIM39 appear in tier A. These
   families evolve fast and vary in copy number within populations; treat as expected background
   until population-level data exist.
@@ -216,7 +217,7 @@ assembly, not from lean fish. That is the outcome the two-genome design was buil
 Explore methylation, PAV, gene, and ecotype-synteny tracks across the SaNama_1.0 assembly. Genes
 carry functional annotation, and lean/siscowet synteny blocks are projected onto the reference.
 JBrowse also offers a lean ↔ siscowet Linear Synteny View on the purged assemblies. Structural
-variant, reciprocal PAV and native methylation tracks will be added once Phase 3 completes.
+variant, reciprocal PAV and native methylation tracks are planned for Phase 5.
 
 ::: {.columns}
 ::: {.column width="50%"}
@@ -255,8 +256,11 @@ other ecotype's reads. Only the 491 genes that pass both checks count as evidenc
 :::
 
 ::: {.warn-box}
-**Methylation is still reference-based.** The DMR line has not been re-derived on native
-coordinates, and no single CpG survives genome-wide correction. Phase 3 addresses this.
+**Methylation: compare on a shared genome.** Pairing promoters across the two assemblies by
+gene ID produced >1,000 apparent differences that vanish when both ecotypes' reads are tested on
+the same assembly. The DMR line in the evidence model is still the reference-based set; about half
+of those DMRs lie in multi-copy sequence and cannot be adjudicated, while the uniquely placed ones
+replicate natively.
 :::
 
 ::: {.warn-box}
@@ -292,7 +296,7 @@ separate parasite study and is orthogonal support at best.
 8. Five-line evidence model with tiers; tandem-cluster-collapsed GO over-representation
 
 ### Next
-- **Phase 3** — ecotype-native differential methylation, harmonized through the lean↔siscowet alignment
+- **Phase 3 follow-up** — CpG-level DMR scan inside each shared frame; add a native-methylation evidence line
 - **Phase 4** — BRAKER3 de novo annotation to recover genes absent from the reference
 - **Phase 5** — browser tracks for SV / reciprocal PAV / native DMRs; manuscript; NCBI assembly submission
 

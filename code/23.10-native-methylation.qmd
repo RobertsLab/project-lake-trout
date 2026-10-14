@@ -1,0 +1,96 @@
+---
+title: "23.10 - Reading Methylation on Each Fish's Own Genome"
+format: markdown_github
+editor: visual
+---
+
+## The question
+
+DNA methylation is a chemical "annotation" layered on top of the DNA sequence — small tags
+(methyl groups) attached to certain letters that can turn genes up or down without changing the
+letters themselves. It is one of the ways the same genome can behave differently in different
+animals, so it is a natural place to look for what distinguishes **lean** and **siscowet** lake
+trout.
+
+An earlier step ([14-diff-meth](14-diff-meth.py)) found 302 short stretches of the genome that
+looked differently methylated between the ecotypes. All of them were measured against a **single
+reference genome** built from a lean-type fish. Now that each ecotype has its *own* assembled
+genome, we can ask which of those differences are real.
+
+## What we did
+
+1. **Align to self.** Each fish's PacBio reads (which carry the methylation tags directly) were
+   aligned to its own ecotype's genome and methylation was called at every CpG
+   ([23.8](23.8-native-meth-pipeline.py)).
+2. **A first comparison that came back empty.** Pairing genes across the two genomes by name and
+   comparing them site-by-site found almost nothing ([23.9](23.9-native-meth-dmg.py)). That turned
+   out to be a power problem: it only used CpG sites read at least ten times in a fish, while most
+   fish were sequenced at roughly 8–20×, and its statistical test could not reach significance with
+   four fish per group.
+3. **Pool the reads.** Adding up every methylation call across a gene's promoter or body rescued
+   the low-coverage fish and made about 35,000 genes testable, with a test whose false-positive rate
+   we checked by shuffling the fish labels ([23.11](23.11-native-meth-counts.py)). This produced
+   over a thousand apparent differences.
+4. **Check the yardstick.** Those thousand differences compared lean fish on the lean genome with
+   siscowet fish on the siscowet genome, so "ecotype" and "which genome" were tangled together. We
+   untangled them by also aligning each ecotype's reads to the *other* ecotype's genome, giving two
+   shared yardsticks: on each genome, all eight fish are measured at exactly the same positions
+   ([23.12](23.12-native-meth-frame-control.py)).
+5. **Place the old differences.** We located each of the 302 reference-based regions on both new
+   genomes by sequence alignment and re-tested them on each shared yardstick.
+
+## What we found
+
+- **Most of the thousand "differences" were a yardstick effect.** On a shared genome, the same
+  genes look the same in both ecotypes. One example: a promoter read about 65 % methylated in all
+  eight fish on the lean genome and about 10 % in all eight fish on the siscowet genome. The
+  difference came from the genome, not the fish — the two genomes' versions of that "promoter" are
+  different pieces of DNA. Only **63 genes** kept a consistent difference on both yardsticks.
+- **Across the genome, gene-level methylation looks the same in lean and siscowet.** On both
+  shared genomes the statistics look exactly like there is no difference to find.
+- **The old regions split into two groups.**
+  - **About half sit in duplicated DNA.** They land in two or more near-identical copies on the
+    new genomes, ten times more often than random stretches of the genome. In such places reads
+    cannot be placed reliably, so these regions cannot be confirmed or ruled out.
+  - **The other half, the ones that land in one clear place, are real.** On the siscowet yardstick,
+    where nothing touches the lean reference, 34 of 38 testable regions differ in the same direction
+    as originally reported, and 19 are individually significant.
+- **No lipid or calcium signal.** The 63 consistent genes include some individually interesting
+  ones — a fat-synthesis enzyme (DGAT2-like) more methylated in siscowet, a calcium sensor
+  (hippocalcin-like), and the appetite/stress hormone precursor POMC — but as a group they do not
+  point to lipid storage or calcium handling.
+
+## Why this matters
+
+This step corrected two earlier readings. The first native pass said the old methylation
+differences "did not reproduce", and the pooled analysis briefly suggested over a thousand new
+ones. Both were artifacts — one of low coverage, the other of comparing two different genomes. The
+fair summary: **ecotype methylation differences are few and localized; the reference-based regions
+in unique DNA are genuine; those in duplicated DNA remain open.** It also gives a method lesson for
+any two-genome study: compare methylation on a shared genome, in both directions, rather than by
+matching gene names across genomes.
+
+## Where to explore
+
+All tables are hosted on gannet under
+[analyses/23-native-methylation/](https://gannet.fish.washington.edu/v1_web/owlshell/bu-github/project-lake-trout/analyses/23-native-methylation/):
+
+- The 63 consistent genes and every gene the pooled test flagged, with both yardstick tests —
+  `dmf_robust.tsv`
+- Every gene feature tested on each shared genome — `dmf_frame_lean.tsv.gz`,
+  `dmf_frame_siscowet.tsv.gz`
+- The 302 reference regions: where they land on the new genomes and how they test —
+  `ref_dmr_native_loci.tsv`, `ref_dmr_frame_tests.tsv`, `ref_dmr_placement_mapq.tsv`
+- Plain-text summaries — `native_meth_counts_report.txt`, `native_meth_frame_report.txt`
+
+## What's next
+
+- **Position-level scan on a shared genome.** Gene-sized windows can blur a sharp local
+  difference; repeating the original region-finding method on each shared yardstick is the
+  natural follow-up.
+- **Fold methylation into the evidence model** alongside presence/absence and gene-content lines.
+- **Phase 4 — new genes.** A from-scratch gene annotation (BRAKER3) of each ecotype's genome to
+  find genes the reference cannot show.
+
+The large intermediate files (alignments and per-site methylation calls) are too big for GitHub
+and stay on the lab server.

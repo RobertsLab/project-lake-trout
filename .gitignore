@@ -61,3 +61,14 @@ analyses/23-reciprocal-pav/align/*.mmi
 # Python bytecode
 __pycache__/
 *.pyc
+
+# Phase 3 native methylation (23.8) — large alignment + per-site methylation files not committed
+# (all >99MB); gene-level result tables at the analysis-dir top level are kept.
+analyses/23-native-methylation/align/*.bam
+analyses/23-native-methylation/align/*.bam.bai
+analyses/23-native-methylation/meth/*.bedmethyl
+analyses/23-native-methylation/meth/*.cpg_counts.bed
+analyses/23-native-methylation/meth/*.cov10.bedGraph
+analyses/23-native-methylation/counts/
+code/04-pacbio/tools/modkit
+analyses/23-native-methylation/meth_cross/*.bedmethyl

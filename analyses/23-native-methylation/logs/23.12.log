@@ -1,0 +1,92 @@
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.11-native-meth-counts.py:245: RuntimeWarning: Mean of empty slice
+  lean_mean = np.nanmean(pct[:, ~is_sisc], axis=1)
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.11-native-meth-counts.py:246: RuntimeWarning: Mean of empty slice
+  sisc_mean = np.nanmean(pct[:, is_sisc], axis=1)
+  [lean frame] tested 69,635  FDR<0.1 & |diff|>=10: 0
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.11-native-meth-counts.py:245: RuntimeWarning: Mean of empty slice
+  lean_mean = np.nanmean(pct[:, ~is_sisc], axis=1)
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.11-native-meth-counts.py:246: RuntimeWarning: Mean of empty slice
+  sisc_mean = np.nanmean(pct[:, is_sisc], axis=1)
+  [siscowet frame] tested 69,720  FDR<0.1 & |diff|>=10: 0
+  $ LC_ALL=C sort -k1,1 -k2,2n '/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/counts/refdmr.on_lean.bed' | '/usr/bin/bedto
+  $ LC_ALL=C sort -k1,1 -k2,2n '/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/counts/refdmr.on_lean.bed' | '/usr/bin/bedto
+  $ LC_ALL=C sort -k1,1 -k2,2n '/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/counts/refdmr.on_lean.bed' | '/usr/bin/bedto
+  $ LC_ALL=C sort -k1,1 -k2,2n '/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/counts/refdmr.on_lean.bed' | '/usr/bin/bedto
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.11-native-meth-counts.py:245: RuntimeWarning: Mean of empty slice
+  lean_mean = np.nanmean(pct[:, ~is_sisc], axis=1)
+  $ LC_ALL=C sort -k1,1 -k2,2n '/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/counts/refdmr.on_siscowet.bed' | '/usr/bin/b
+  $ LC_ALL=C sort -k1,1 -k2,2n '/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/counts/refdmr.on_siscowet.bed' | '/usr/bin/b
+  $ LC_ALL=C sort -k1,1 -k2,2n '/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/counts/refdmr.on_siscowet.bed' | '/usr/bin/b
+  $ LC_ALL=C sort -k1,1 -k2,2n '/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/counts/refdmr.on_siscowet.bed' | '/usr/bin/b
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.11-native-meth-counts.py:245: RuntimeWarning: Mean of empty slice
+  lean_mean = np.nanmean(pct[:, ~is_sisc], axis=1)
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.11-native-meth-counts.py:246: RuntimeWarning: Mean of empty slice
+  sisc_mean = np.nanmean(pct[:, is_sisc], axis=1)
+
+Native methylation frame control (23.12)
+==========================================
+
+  promoter: 23.11 FDR hits 1,031
+    testable in lean frame 1,020, siscowet frame 994
+    same sign & p<0.05 & |diff|>=10 -- lean frame 82, siscowet frame 84, both (ROBUST) 57
+    robust with CpG content within 2x: 57  (hyper 17 / hypo 40 in siscowet)
+
+    Spearman 23.11 diff vs lean frame 0.14, vs siscowet frame 0.09
+
+  body: 23.11 FDR hits 245
+    testable in lean frame 243, siscowet frame 244
+    same sign & p<0.05 & |diff|>=10 -- lean frame 10, siscowet frame 12, both (ROBUST) 6
+    robust with CpG content within 2x: 6  (hyper 4 / hypo 2 in siscowet)
+
+    Spearman 23.11 diff vs lean frame 0.11, vs siscowet frame 0.27
+
+  lean frame: 69,635 features tested; p<0.05 in 5.2% (5 % under the null); pi0 estimate 0.96; min q 0.91; |diff| median 2.4, 99th pct 18.3
+  siscowet frame: 69,720 features tested; p<0.05 in 5.2% (5 % under the null); pi0 estimate 0.97; min q 0.91; |diff| median 2.4, 99th pct 18.7
+
+Reference DMRs (14-diff-meth) inside each frame
+  lean frame: testable 48; sign agrees 47/48; Spearman rho 0.71; same sign & p<0.05 & |diff|>=10: 32
+  siscowet frame: testable 38; sign agrees 34/38; Spearman rho 0.61; same sign & p<0.05 & |diff|>=10: 19
+
+GO over-representation of robust genes (background: genes with a testable feature, tandem clusters collapsed)
+  promoter genes   57 -> clusters in background   50; GO terms FDR<0.1: 4
+      protein-containing complex assembly                     k=  6 fold=  4.5 FDR=8.8e-02
+      protein-containing complex organization                 k=  6 fold=  3.9 FDR=8.8e-02
+      cellular component assembly                             k=  8 fold=  3.0 FDR=8.8e-02
+      lyase activity                                          k=  3 fold=  7.5 FDR=9.7e-02
+  body     genes    6 -> clusters in background    5; GO terms FDR<0.1: 0
+  all      genes   63 -> clusters in background   55; GO terms FDR<0.1: 0
+  lipid / calcium terms at FDR<0.25:
+      none
+
+Top 30 robust features by 23.11 p:
+  gene-LOC120022693        promoter diff= -24.3 (lean frame  -17.5, sisc frame  -22.9) LOC120022693 hippocalcin-like protein 1
+  gene-LOC120019344        promoter diff= -22.8 (lean frame  -17.4, sisc frame  -11.0) LOC120019344 zinc finger protein 883-like
+  gene-LOC120045304        body     diff= +36.5 (lean frame  +48.8, sisc frame  +41.6) LOC120045304 thrombospondin-2-like
+  gene-LOC120050607        promoter diff= -30.1 (lean frame  -18.8, sisc frame  -17.9) LOC120050607 receptor-type tyrosine-protein kinase FL
+  gene-LOC120059627        promoter diff= -10.1 (lean frame  -10.1, sisc frame  -10.1) LOC120059627 lysine-specific demethylase 9-like
+  gene-LOC120018707        promoter diff= +24.1 (lean frame  +24.2, sisc frame  +24.1) LOC120018707 microtubule-associated protein 6-like
+  gene-LOC120041988        promoter diff= +14.9 (lean frame  +14.9, sisc frame  +15.4) LOC120041988 matrix metalloproteinase-15-like
+  gene-LOC120058729        promoter diff= +38.3 (lean frame  +20.6, sisc frame  +16.7) LOC120058729 high affinity immunoglobulin gamma Fc re
+  gene-nudt19              body     diff= +23.1 (lean frame  +23.2, sisc frame  +22.9) nudt19       nudix (nucleoside diphosphate linked moi
+  gene-LOC120064647        promoter diff= +16.4 (lean frame  +16.4, sisc frame  +16.4) LOC120064647 copine-9-like
+  gene-LOC120053299        promoter diff= -24.5 (lean frame  -12.5, sisc frame  -14.2) LOC120053299 protein LSM14 homolog A-like
+  gene-LOC120056429        promoter diff= +30.0 (lean frame  +27.8, sisc frame  +28.4) LOC120056429 C-terminal-binding protein 2-like
+  gene-sik2b               promoter diff= -18.2 (lean frame  -18.2, sisc frame  -18.5) sik2b        salt-inducible kinase 2b
+  gene-LOC120057321        promoter diff= -19.4 (lean frame  -19.4, sisc frame  -19.4) LOC120057321 dipeptidyl peptidase 3-like
+  gene-LOC120043696        promoter diff= +31.1 (lean frame  +31.7, sisc frame  +33.1) LOC120043696 uncharacterized LOC120043696
+  gene-LOC120018018        promoter diff= +21.0 (lean frame  +18.9, sisc frame  +18.4) LOC120018018 diacylglycerol O-acyltransferase 2-like
+  gene-LOC120021456        body     diff= +10.2 (lean frame  +10.1, sisc frame  +10.2) LOC120021456 coiled-coil domain-containing protein 82
+  gene-LOC120055640        promoter diff= +10.5 (lean frame  +10.5, sisc frame  +10.4) LOC120055640 carbonic anhydrase 4-like
+  gene-LOC120032144        promoter diff= -32.4 (lean frame  -19.3, sisc frame  -22.9) LOC120032144 protein SCO2 homolog, mitochondrial-like
+  gene-LOC120023376        promoter diff= -11.3 (lean frame  -11.3, sisc frame  -11.3) LOC120023376 MAM domain-containing glycosylphosphatid
+  gene-LOC120056599        promoter diff= -22.1 (lean frame  -26.6, sisc frame  -23.6) LOC120056599 leucine-rich repeat transmembrane protei
+  gene-LOC120043858        promoter diff= +17.0 (lean frame  +16.8, sisc frame  +17.0) LOC120043858 proteasome assembly chaperone 1-like
+  gene-LOC120044754        promoter diff= +26.6 (lean frame  +12.4, sisc frame  +17.6) LOC120044754 uncharacterized LOC120044754
+  gene-LOC120024325        promoter diff= +17.7 (lean frame  +17.6, sisc frame  +17.7) LOC120024325 potassium voltage-gated channel subfamil
+  gene-LOC120054686        body     diff= -10.0 (lean frame  -10.0, sisc frame  -10.0) LOC120054686 uncharacterized LOC120054686
+  gene-LOC120060135        promoter diff= -14.5 (lean frame  -14.2, sisc frame  -14.1) LOC120060135 pro-opiomelanocortin A
+  gene-LOC120066138        promoter diff= -23.7 (lean frame  -23.8, sisc frame  -23.9) LOC120066138 AFG3-like protein 1
+  gene-LOC120048323        body     diff= -49.9 (lean frame  -21.9, sisc frame  -28.0) LOC120048323 complement C3
+  gene-LOC120057032        body     diff= +11.2 (lean frame  +10.9, sisc frame  +10.9) LOC120057032 fibroblast growth factor receptor 4-like
+  gene-LOC120051022        promoter diff= -23.2 (lean frame  -24.0, sisc frame  -24.0) LOC120051022 WD repeat-containing protein 48
+
