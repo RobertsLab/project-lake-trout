@@ -55,7 +55,7 @@ what survived that test, what did not, and what remains open.
 ::: {.finding-box}
 **Read this as hypothesis-generating, now with a stronger floor.** The two-genome layer replaces
 single-reference association with bidirectional read evidence for a small set of genes, and it
-shows which earlier signals were reference artifacts. No functional validation has been performed,
+shows which earlier signals are not supported once the ecotype genomes are examined directly. No functional validation has been performed,
 sample size is four fish per ecotype, and the assemblies are contig-level.
 :::
 
@@ -154,6 +154,15 @@ Tables: [`phenotype_survival_refined.tsv`](analyses/23-integration/refined/pheno
 The single-reference analysis promoted four "convergent" genes (a DMR plus a stringent siscowet
 deletion) and a lipid axis built on exonic deletions. Under the two-genome model:
 
+**Native support** means at least one evidence line comes from comparing the two ecotype
+assemblies directly, with no reference involved: reciprocal PAV (read-level absence, tested in
+both directions), corroborated ecotype-only (the gene lifts into one assembly and is explicitly
+unmapped in the other), or copy-number divergence between the assemblies. DMRs and deletions or
+SVs called against the reference do not count. In the table, *weak* marks a copy-number
+difference inside a paralog cluster, where Liftoff may not distinguish which copy differs;
+*assembly-level only* marks agreement between the two annotations without a read-level
+reciprocal test.
+
 | Gene | Product | Earlier role | Now | Native support |
 |---|---|---|---|---|
 | LOC120032414 | Zinc finger protein 883-like | top convergent | Tier C: DMR + reference divergence only | no |
@@ -164,8 +173,11 @@ deletion) and a lipid axis built on exonic deletions. Under the two-genome model
 | LOC120041635 | 2-acylglycerol O-acyltransferase 2-A-like (`mogat2`) | lipid axis | reference divergence only | no |
 | LOC120029926 | Epoxide hydrolase 1-like | lipid axis | Tier C | no |
 
-The stringent siscowet "deletions" that defined these genes were largely reference-distance
-effects. That is the outcome the two-genome design was built to detect.
+The stringent siscowet "deletions" that defined these genes came from siscowet reads aligned to
+the lean-background reference, a one-direction test that cannot separate true loss from sequence
+too divergent to align. On the ecotype genomes they are largely not confirmed: `mogat2`-like lifts
+into both assemblies with no reciprocal absence, and `angptl5`-like is present in the siscowet
+assembly. That is the outcome the two-genome design was built to detect.
 
 ![Single-reference candidate ranking (2025), retained for comparison. Most of these loci did not gain native support.](figures/18-top-candidates.png){fig-alt="Top candidate genes bar chart from the single-reference analysis" width="100%"}
 
@@ -182,8 +194,10 @@ effects. That is the outcome the two-genome design was built to detect.
   read-level evidence. A metabolic-rate or fuel-partitioning hypothesis fits the lean/siscowet
   contrast better than the earlier lipid-storage genes did, but it rests on a handful of genes.
 - **🫧 Lipid storage** *(demoted)* — the defining siscowet phenotype, yet the earlier lipid-gene
-  deletions were reference artifacts and no lipid GO term is enriched on native coordinates. Either
-  the genomic basis is regulatory rather than structural, or it lives in genes Liftoff cannot see.
+  deletions, called against the lean-background reference, are not supported on the ecotype
+  genomes (most likely reference divergence rather than gene loss), and no lipid GO term is
+  enriched on native coordinates. This does not rule out a genetic basis: it may be regulatory
+  rather than structural, or lie in genes Liftoff cannot see.
   Native methylation (next phase) and de novo annotation address both possibilities.
 - **🛡️ Immune** — PTPRC, an MHC class I-related gene, CEACAM and TRIM39 appear in tier A. These
   families evolve fast and vary in copy number within populations; treat as expected background

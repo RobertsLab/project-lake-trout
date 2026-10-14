@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Rick Goetz, Sam White, Cristian Gallardo-Escarate, and Steven Roberts">
-<meta name="dcterms.date" content="2026-09-06">
+<meta name="dcterms.date" content="2026-10-14">
 
 <title>Lake Trout EpiGenomics Project</title>
 <style>
@@ -93,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 6, 2026</p>
+      <p class="date">October 14, 2026</p>
     </div>
   </div>
   
@@ -132,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="stat-box"><div class="stat-number">1 of 4</div>Earlier convergent genes<br><small>retained any two-genome support</small></div>
 </div>
 <div class="finding-box">
-<p><strong>Read this as hypothesis-generating, now with a stronger floor.</strong> The two-genome layer replaces single-reference association with bidirectional read evidence for a small set of genes, and it shows which earlier signals were reference artifacts. No functional validation has been performed, sample size is four fish per ecotype, and the assemblies are contig-level.</p>
+<p><strong>Read this as hypothesis-generating, now with a stronger floor.</strong> The two-genome layer replaces single-reference association with bidirectional read evidence for a small set of genes, and it shows which earlier signals are not supported once the ecotype genomes are examined directly. No functional validation has been performed, sample size is four fish per ecotype, and the assemblies are contig-level.</p>
 </div>
 <hr>
 </section>
@@ -465,6 +465,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="what-happened-to-the-earlier-headline-candidates" class="level2">
 <h2 class="anchored" data-anchor-id="what-happened-to-the-earlier-headline-candidates">What Happened to the Earlier Headline Candidates</h2>
 <p>The single-reference analysis promoted four “convergent” genes (a DMR plus a stringent siscowet deletion) and a lipid axis built on exonic deletions. Under the two-genome model:</p>
+<p><strong>Native support</strong> means at least one evidence line comes from comparing the two ecotype assemblies directly, with no reference involved: reciprocal PAV (read-level absence, tested in both directions), corroborated ecotype-only (the gene lifts into one assembly and is explicitly unmapped in the other), or copy-number divergence between the assemblies. DMRs and deletions or SVs called against the reference do not count. In the table, <em>weak</em> marks a copy-number difference inside a paralog cluster, where Liftoff may not distinguish which copy differs; <em>assembly-level only</em> marks agreement between the two annotations without a read-level reciprocal test.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -534,7 +535,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>The stringent siscowet “deletions” that defined these genes were largely reference-distance effects. That is the outcome the two-genome design was built to detect.</p>
+<p>The stringent siscowet “deletions” that defined these genes came from siscowet reads aligned to the lean-background reference, a one-direction test that cannot separate true loss from sequence too divergent to align. On the ecotype genomes they are largely not confirmed: <code>mogat2</code>-like lifts into both assemblies with no reciprocal absence, and <code>angptl5</code>-like is present in the siscowet assembly. That is the outcome the two-genome design was built to detect.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/18-top-candidates.png" class="img-fluid figure-img" style="width:100.0%" alt="Top candidate genes bar chart from the single-reference analysis"></p>
@@ -548,7 +549,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><strong>⚡ Calcium handling and excitability</strong> — the one axis supported at every stage: calcium-channel GO enrichment in the corroborated lean-only set, calcium-binding enrichment in the reciprocal PAV set, and calsequestrin-1 and <code>cracr2b</code> among the siscowet-present tier-A genes. Plausibly relevant to muscle and sensory function in a deep, cold, dark habitat.</li>
 <li><strong>🔋 Energy metabolism and insulin signalling</strong> <em>(new)</em> — <code>gpia</code>, mitochondrial PEPCK, two phosphodiesterases, <code>grb10</code>-like and a ROR-alpha paralog partition between the ecotypes on read-level evidence. A metabolic-rate or fuel-partitioning hypothesis fits the lean/siscowet contrast better than the earlier lipid-storage genes did, but it rests on a handful of genes.</li>
-<li><strong>🫧 Lipid storage</strong> <em>(demoted)</em> — the defining siscowet phenotype, yet the earlier lipid-gene deletions were reference artifacts and no lipid GO term is enriched on native coordinates. Either the genomic basis is regulatory rather than structural, or it lives in genes Liftoff cannot see. Native methylation (next phase) and de novo annotation address both possibilities.</li>
+<li><strong>🫧 Lipid storage</strong> <em>(demoted)</em> — the defining siscowet phenotype, yet the earlier lipid-gene deletions, called against the lean-background reference, are not supported on the ecotype genomes (most likely reference divergence rather than gene loss), and no lipid GO term is enriched on native coordinates. This does not rule out a genetic basis: it may be regulatory rather than structural, or lie in genes Liftoff cannot see. Native methylation (next phase) and de novo annotation address both possibilities.</li>
 <li><strong>🛡️ Immune</strong> — PTPRC, an MHC class I-related gene, CEACAM and TRIM39 appear in tier A. These families evolve fast and vary in copy number within populations; treat as expected background until population-level data exist.</li>
 <li><strong>🩸 A hemoglobin cluster absent from the siscowet assembly</strong> — 18 hemoglobin genes on NC_052347.1 are lean-only and corroborated, but not flagged by reciprocal PAV, which is consistent with an assembly gap rather than a true loss. Flagged for read-level inspection rather than interpretation.</li>
 </ul>
