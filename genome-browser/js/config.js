@@ -228,7 +228,7 @@ const TRACK_CONFIGS = {
     
     // DMRs (Differentially Methylated Regions)
     dmrsHyper: {
-        name: "DMRs - Hypermethylated in Siscowet",
+        name: "Reference DMRs - Hypermethylated in Siscowet",
         type: "annotation",
         format: "bed",
         url: `${DATA_BASE_URL}/methylation/dmrs_hyper_siscowet.bed`,
@@ -238,7 +238,7 @@ const TRACK_CONFIGS = {
         order: 60
     },
     dmrsHypo: {
-        name: "DMRs - Hypomethylated in Siscowet",
+        name: "Reference DMRs - Hypomethylated in Siscowet",
         type: "annotation", 
         format: "bed",
         url: `${DATA_BASE_URL}/methylation/dmrs_hypo_siscowet.bed`,
@@ -248,6 +248,28 @@ const TRACK_CONFIGS = {
         order: 61
     },
     
+    // Native DMRs (code/23.13 + 23.14): called with both ecotypes' reads on each purged
+    // assembly, placed on SaNama_1.0. Colors come from the BED itemRgb: dark = replicated in the
+    // other assembly, light = significant in one assembly only (not testable in the other).
+    nativeDmrsHypo: {
+        name: "Native DMRs - Hypomethylated in Siscowet",
+        type: "annotation",
+        format: "bed",
+        url: `${DATA_BASE_URL}/methylation/native_dmrs_hypo_siscowet.ref.bed`,
+        displayMode: "EXPANDED",
+        height: 40,
+        order: 58
+    },
+    nativeDmrsHyper: {
+        name: "Native DMRs - Hypermethylated in Siscowet",
+        type: "annotation",
+        format: "bed",
+        url: `${DATA_BASE_URL}/methylation/native_dmrs_hyper_siscowet.ref.bed`,
+        displayMode: "EXPANDED",
+        height: 40,
+        order: 59
+    },
+
     // Significant DMCs (Differentially Methylated CpGs)
     significantDMCs: {
         name: "Significant DMCs (p < 0.05)",
@@ -276,6 +298,8 @@ const DEFAULT_TRACKS = [
     'siscowetDeletions',
     'stringentSiscowetDeletions',
     'methylationDiff',
+    'nativeDmrsHypo',
+    'nativeDmrsHyper',
     'dmrsHyper',
     'dmrsHypo'
 ];
