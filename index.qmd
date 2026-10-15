@@ -70,7 +70,7 @@ sample size is four fish per ecotype, and the assemblies are contig-level.
 | Structure | 3,465 stringent siscowet deletions, one direction only | SyRI structural-variant map for lean↔ref, siscowet↔ref, lean↔siscowet; ~18–20 % of reference PAVs are SV-confirmed |
 | Presence/absence | Reads → reference only | **Reciprocal PAV**: each ecotype's reads → the other's genome. 340 siscowet-present and 343 lean-present regions, 1.57 Mb, 115 genes |
 | Gene content | not testable | Ecotype-only gene sets, corroborated by the other assembly's unmapped list (1,474 lean-only, 3,040 siscowet-only), then checked against the other ecotype's reads: 147 / 344 genes remain; 2,359 copy-number divergent |
-| Methylation | 302 DMRs on reference | Both ecotypes' reads tested on each purged assembly. No promoter or gene-body difference passes FDR in either frame; 63 nominal candidates hold in both. Half the reference DMRs sit in multi-copy sequence (vs 3–5 % of random windows); the uniquely placed ones replicate (34/38 same sign in the siscowet frame) |
+| Methylation | 302 DMRs on reference | Both ecotypes' reads tested on each purged assembly. ~137 short DMRs replicate across both frames (empirical FDR ≈ 6 %; ~75 % hypomethylated in siscowet, all 8 fish separated). No promoter- or gene-wide difference. Half the reference DMRs sit in multi-copy sequence; the uniquely placed ones replicate |
 
 Plan and progress log: [`code/23-next-phase-research-plan.md`](code/23-next-phase-research-plan.md).
 
@@ -258,9 +258,10 @@ other ecotype's reads. Only the 491 genes that pass both checks count as evidenc
 ::: {.warn-box}
 **Methylation: compare on a shared genome.** Pairing promoters across the two assemblies by
 gene ID produced >1,000 apparent differences that vanish when both ecotypes' reads are tested on
-the same assembly. The DMR line in the evidence model is still the reference-based set; about half
-of those DMRs lie in multi-copy sequence and cannot be adjudicated, while the uniquely placed ones
-replicate natively.
+the same assembly. Tested that way, ~137 short DMRs replicate in both directions, while promoter- and
+gene-wide methylation does not differ. The DMR line in the evidence model is still the
+reference-based set (the 14-diff-meth thresholds carry ~40 % expected false DMRs); replacing it
+with the native DMRs is Phase 5 work.
 :::
 
 ::: {.warn-box}
@@ -296,7 +297,7 @@ separate parasite study and is orthogonal support at best.
 8. Five-line evidence model with tiers; tandem-cluster-collapsed GO over-representation
 
 ### Next
-- **Phase 3 follow-up** — CpG-level DMR scan inside each shared frame; add a native-methylation evidence line
+- **Phase 3 follow-up** — add the native DMRs as an evidence line and browser track; test for nearby fixed sequence variants
 - **Phase 4** — BRAKER3 de novo annotation to recover genes absent from the reference
 - **Phase 5** — browser tracks for SV / reciprocal PAV / native DMRs; manuscript; NCBI assembly submission
 

@@ -162,11 +162,13 @@ contigs / 59,968 lifted genes; 50,379 genes shared.
 - [`code/23.7-refine-evidence-model.py`](code/23.7-refine-evidence-model.py) - refined evidence lines, tiers, cluster-collapsed GO
 - [`analyses/23-integration/refined/README.md`](analyses/23-integration/refined/README.md) - refined results and tables
 
-- [`code/23.8-native-meth-pipeline.py`](code/23.8-native-meth-pipeline.py) → [`code/23.12-native-meth-frame-control.py`](code/23.12-native-meth-frame-control.py) - Phase 3 native methylation; notebook post [`code/23.10-native-methylation.qmd`](code/23.10-native-methylation.qmd)
+- [`code/23.8-native-meth-pipeline.py`](code/23.8-native-meth-pipeline.py) → [`code/23.13-native-meth-cpg-scan.py`](code/23.13-native-meth-cpg-scan.py) - Phase 3 native methylation; notebook post [`code/23.10-native-methylation.qmd`](code/23.10-native-methylation.qmd)
 
-**Phase 3 result:** with both ecotypes' reads tested on each purged assembly, no promoter or
-gene-body methylation difference passes FDR (63 nominal candidates hold in both frames). About half
-of the 302 reference DMRs fall in multi-copy sequence; the uniquely placed ones replicate natively.
+**Phase 3 result:** with both ecotypes' reads tested on each purged assembly, promoter- and
+gene-wide methylation does not differ, but a CpG-level scan ([`23.13`](code/23.13-native-meth-cpg-scan.py))
+finds ~137 short DMRs that replicate across both assemblies (empirical FDR ≈ 6 %, mostly
+hypomethylated in siscowet). About half of the 302 reference DMRs fall in multi-copy sequence; the
+uniquely placed ones replicate natively.
 
 **Open phases:** BRAKER3 de novo annotation (Phase 4), browser tracks and manuscript (Phase 5).
 

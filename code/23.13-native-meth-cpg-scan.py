@@ -367,7 +367,7 @@ def main():
         tables[f] = df
         df.to_csv(OUT / f"dmrs_{f}.tsv", sep="\t", index=False, float_format="%.6g")
 
-    rep = pd.concat([tables[f].assign(frame=f) for f in FRAMES])
+    rep = pd.concat([tables[f].assign(frame=f) for f in FRAMES], ignore_index=True)
     rep = rep[rep["replicated"] == True]
     rep.to_csv(OUT / "dmrs_replicated.tsv", sep="\t", index=False, float_format="%.6g")
 
