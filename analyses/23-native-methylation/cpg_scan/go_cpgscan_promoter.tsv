@@ -1,0 +1,2 @@
+go_id	name	namespace	study_k	study_n	bg_K	bg_N	fold_enrichment	p_value	fdr	phenotype	genes
+GO:0048583	regulation of response to stimulus	biological_process	3	7	1382	26289	8.15	4.324e-03	4.324e-03		LOC120031753,daam2,si:ch211-214p13.9

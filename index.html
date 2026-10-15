@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Rick Goetz, Sam White, Cristian Gallardo-Escarate, and Steven Roberts">
-<meta name="dcterms.date" content="2026-10-14">
+<meta name="dcterms.date" content="2026-10-15">
 
 <title>Lake Trout EpiGenomics Project</title>
 <style>
@@ -93,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 14, 2026</p>
+      <p class="date">October 15, 2026</p>
     </div>
   </div>
   
@@ -180,7 +180,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>Methylation</td>
 <td>302 DMRs on reference</td>
-<td>Both ecotypes’ reads tested on each purged assembly. No promoter or gene-body difference passes FDR in either frame; 63 nominal candidates hold in both. Half the reference DMRs sit in multi-copy sequence (vs 3–5 % of random windows); the uniquely placed ones replicate (34/38 same sign in the siscowet frame)</td>
+<td>Both ecotypes’ reads tested on each purged assembly. ~137 short DMRs replicate across both frames (empirical FDR ≈ 6 %; ~75 % hypomethylated in siscowet, all 8 fish separated). No promoter- or gene-wide difference. Half the reference DMRs sit in multi-copy sequence; the uniquely placed ones replicate</td>
 </tr>
 </tbody>
 </table>
@@ -577,7 +577,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Contig-level assemblies and Liftoff sensitivity.</strong> Both genomes are thousands of contigs. The raw ecotype-only gene counts (5,058 lean, 9,589 siscowet) track assembly contiguity more than biology. Even genes where both assemblies agree are mostly assembly gaps: 89 % are covered by the other ecotype’s reads. Only the 491 genes that pass both checks count as evidence.</p>
 </div>
 <div class="warn-box">
-<p><strong>Methylation: compare on a shared genome.</strong> Pairing promoters across the two assemblies by gene ID produced &gt;1,000 apparent differences that vanish when both ecotypes’ reads are tested on the same assembly. The DMR line in the evidence model is still the reference-based set; about half of those DMRs lie in multi-copy sequence and cannot be adjudicated, while the uniquely placed ones replicate natively.</p>
+<p><strong>Methylation: compare on a shared genome.</strong> Pairing promoters across the two assemblies by gene ID produced &gt;1,000 apparent differences that vanish when both ecotypes’ reads are tested on the same assembly. Tested that way, ~137 short DMRs replicate in both directions, while promoter- and gene-wide methylation does not differ. The DMR line in the evidence model is still the reference-based set (the 14-diff-meth thresholds carry ~40 % expected false DMRs); replacing it with the native DMRs is Phase 5 work.</p>
 </div>
 <div class="warn-box">
 <p><strong>Small numbers, no validation.</strong> Four fish per ecotype. Tier-A GO terms rest on three to five genes each. All links are associations with no functional test; the liver RNA-seq comes from a separate parasite study and is orthogonal support at best.</p>
@@ -638,7 +638,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="next" class="level3">
 <h3 class="anchored" data-anchor-id="next">Next</h3>
 <ul>
-<li><strong>Phase 3 follow-up</strong> — CpG-level DMR scan inside each shared frame; add a native-methylation evidence line</li>
+<li><strong>Phase 3 follow-up</strong> — add the native DMRs as an evidence line and browser track; test for nearby fixed sequence variants</li>
 <li><strong>Phase 4</strong> — BRAKER3 de novo annotation to recover genes absent from the reference</li>
 <li><strong>Phase 5</strong> — browser tracks for SV / reciprocal PAV / native DMRs; manuscript; NCBI assembly submission</li>
 </ul>

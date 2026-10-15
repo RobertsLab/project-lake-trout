@@ -307,27 +307,31 @@ def part_a(counts, fn):
 # =============================================================================
 # Part B: reference DMRs placed on native coordinates
 # =============================================================================
-def place_ref_dmrs():
-    """Map each reference DMR (+flanks) to both purged assemblies; project the core."""
-    dmrs = pd.read_csv(REF_DMRS, sep="\t")
-    dmrs.columns = [c.lstrip("#") for c in dmrs.columns]
-    sizes = dict(pd.read_csv(f"{REF_FA}.fai", sep="\t", header=None, usecols=[0, 1]).values)
-    qfa = COUNTS / "refdmr.flanked.fa"
-    regions = COUNTS / "refdmr.regions.txt"
+def place_intervals(src_fa, intervals, targets, tag):
+    """Place intervals (name, chrom, start, end on src_fa) on each target assembly.
+
+    Each interval +/- DMR_FLANK is extracted and mapped with minimap2 -x asm5; a placement is kept
+    only for a unique primary hit with MAPQ >= MIN_MAPQ covering >= MIN_QUERY_FRAC of the query and
+    the whole core, which is then projected onto target coordinates (strand-aware).
+    Returns {(name, target): (contig, start, end, mapq)}.
+    """
+    sizes = dict(pd.read_csv(f"{src_fa}.fai", sep="\t", header=None, usecols=[0, 1]).values)
+    qfa = COUNTS / f"{tag}.flanked.fa"
+    regions = COUNTS / f"{tag}.regions.txt"
     meta = {}
     with open(regions, "w") as f:
-        for r in dmrs.itertuples(index=False):
-            fs = max(0, r.start - DMR_FLANK)
-            fe = min(sizes[r.chrom], r.end + DMR_FLANK)
-            f.write(f"{r.chrom}:{fs + 1}-{fe}\n")
+        for name, chrom, start, end in intervals:
+            fs = max(0, start - DMR_FLANK)
+            fe = min(sizes[chrom], end + DMR_FLANK)
+            f.write(f"{chrom}:{fs + 1}-{fe}\n")
             # core offsets inside the flanked query (0-based, half-open)
-            meta[f"{r.chrom}:{fs + 1}-{fe}"] = (r.name, r.start - fs, r.end - fs, fe - fs)
+            meta[f"{chrom}:{fs + 1}-{fe}"] = (name, start - fs, end - fs, fe - fs)
     if not nonempty(qfa):
-        sh(f"'{SAMTOOLS}' faidx '{REF_FA}' -r '{regions}' > '{qfa}'")
+        sh(f"'{SAMTOOLS}' faidx '{src_fa}' -r '{regions}' > '{qfa}'")
 
     placed = {}
-    for eco, fa in ECO_FA.items():
-        paf = COUNTS / f"refdmr.to_{eco}.paf"
+    for eco, fa in targets.items():
+        paf = COUNTS / f"{tag}.to_{eco}.paf"
         if not nonempty(paf):
             sh(f"'{MINIMAP2}' -x asm5 -t {THREADS} --secondary=no '{fa}' '{qfa}' > '{paf}'")
         hits = {}
@@ -343,7 +347,7 @@ def place_ref_dmrs():
             if len(hs) != 1:                    # split / ambiguous placement -> skip
                 continue
             q, qlen, qs, qe, strand, t, ts, te, mapq = hs[0]
-            dmr_id, cs, ce, _ = meta[q]
+            name, cs, ce, _ = meta[q]
             if mapq < MIN_MAPQ or (qe - qs) / qlen < MIN_QUERY_FRAC or cs < qs or ce > qe:
                 continue
             if strand == "+":
@@ -351,8 +355,16 @@ def place_ref_dmrs():
             else:
                 ns, ne = ts + (qe - ce), te - (cs - qs)
             if ne > ns:
-                placed[(dmr_id, eco)] = (t, ns, ne, mapq)
-    return dmrs, placed
+                placed[(name, eco)] = (t, ns, ne, mapq)
+    return placed
+
+
+def place_ref_dmrs():
+    """Map each reference DMR (+flanks) to both purged assemblies; project the core."""
+    dmrs = pd.read_csv(REF_DMRS, sep="\t")
+    dmrs.columns = [c.lstrip("#") for c in dmrs.columns]
+    intervals = [(r.name, r.chrom, r.start, r.end) for r in dmrs.itertuples(index=False)]
+    return dmrs, place_intervals(REF_FA, intervals, ECO_FA, "refdmr")
 
 
 def mapq_class(q):

@@ -322,7 +322,43 @@ assembly), tested in both directions, is. Tables: `dmf_frame_{lean,siscowet}.tsv
 `dmf_robust.tsv`, `ref_dmr_frame_tests.tsv`, `ref_dmr_native_loci.tsv`, reports
 `native_meth_counts_report.txt` and `native_meth_frame_report.txt`.
 
-**Next:** fold a native-methylation line (63 robust features + frame-confirmed reference DMRs) into
-the 23.7 evidence model (Phase 5); Phase 4 (BRAKER3) on raven. A CpG-level within-frame DMR scan
-(Step-D design, 14-diff-meth DMR merging) is the natural follow-up to look for localized
-differences that 2 kb promoters dilute.
+**Step E — CpG-level DMR scan inside each frame (2026-10-15)**
+([`23.13`](23.13-native-meth-cpg-scan.py), `analyses/23-native-methylation/cpg_scan/`). The 14-diff-meth
+design (DMCs chained within 250 bp, same direction) repeated inside each frame on CpGs with ≥ 5
+reads in ≥ 7 of 8 fish (label-free filter; 10.05 M CpGs lean frame, 9.41 M siscowet frame), per-CpG
+quasi-binomial test, and **empirical FDR from the 18 fully balanced relabelings** (2 lean + 2
+siscowet per group) over a threshold grid (`dmr_scan_grid.tsv`):
+
+| setting (DMC p, \|Δ\|, min DMCs) | lean frame DMRs (eFDR) | siscowet frame DMRs (eFDR) |
+|---|---|---|
+| 0.05, 15, 3 — the 14-diff-meth recipe | 2,533 (0.43) | 2,535 (0.39) |
+| **0.01, 15, 3 — primary** | **268 (0.07)** | **304 (0.05)** |
+| 0.001, 25, 3 | 12 (0.00) | 15 (0.00) |
+
+At the 14-diff-meth thresholds ~40 % of DMRs are expected false, which helps explain why the 302
+reference DMRs were a mix of real and spurious loci.
+
+**Result.** Primary DMRs are short (median ~200 bp, 5 DMCs) with large effects (median |Δ| 30
+points), and mostly **hypomethylated in siscowet** (206/268 and 248/304; at those DMRs lean fish
+average 59–65 % and siscowet fish 27–31 %). About 43 % place uniquely on the other assembly; of
+those, **101/111 (lean) and 119/131 (siscowet) replicate in the other frame** (same sign, p < 0.05,
+|Δ| ≥ 10; Spearman ρ 0.97 / 0.93). 101 loci were called independently in both frames; ~137 unique
+replicated loci, 113 genes. Robustness: lean and siscowet fish are completely separated at 265/268
+and 297/304 DMRs; dropping any one fish never flips a DMR or takes it below 10 points; 94 % keep
+their sign within each of the three sequencing runs. 63 % are intergenic, ~20 % promoter, ~14 %
+body; 10 per frame overlap a placed reference DMR. GO on replicated-DMR genes: transcription-factor
+/ cis-regulatory DNA binding (FDR 3e-4), but 12 of the 16 genes are dispersed C2H2 zinc-finger
+genes (a repeat-rich family not merged by 50 kb collapsing); the others are en1a, a forkhead E1-like,
+a HES-4-like and an ATF-like 3. No lipid term; calcium ion binding only at FDR 0.23 (3 genes). One
+tier-A gene (LOC120041427) and 14 tier-B genes (cnv + ref_divergence, mostly uncharacterized) carry
+a replicated DMR; 4 genes overlap the 23.12 robust features (AFG3-like 1, nudt19, a NET1-like,
+LOC120034056).
+
+**Phase 3 conclusion.** Ecotype methylation differences are **localized, large and reproducible**
+on native coordinates — a few hundred short regions, mostly siscowet hypomethylation, often
+intergenic — while promoter- and gene-wide methylation does not differ. The fixed, all-fish
+consistency of these differences is compatible with cis-genetic control as well as with a stable
+epigenetic ecotype difference; n = 4 wild-caught fish per ecotype cannot separate the two.
+
+**Next:** add a native-methylation line (replicated 23.13 DMRs) to the 23.7 evidence model and
+browser tracks (Phase 5); Phase 4 (BRAKER3) on raven.
