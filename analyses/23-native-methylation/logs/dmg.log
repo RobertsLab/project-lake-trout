@@ -1,0 +1,51 @@
+  [lean] bc2041: aggregating CpGs to genes ...
+  [lean] bc2068: aggregating CpGs to genes ...
+  [lean] bc2069: aggregating CpGs to genes ...
+  [lean] bc2070: aggregating CpGs to genes ...
+  [siscowet] bc2071: aggregating CpGs to genes ...
+  [siscowet] bc2072: aggregating CpGs to genes ...
+  [siscowet] bc2073: aggregating CpGs to genes ...
+  [siscowet] bc2096: aggregating CpGs to genes ...
+  genes with methylation in >=1 sample: 55,128
+  genes tested: 10,838  DMG (p<0.05, |diff|>=15%): 63  (FDR<0.10: 0)
+
+Ecotype-native differential methylation (gene-anchored)
+========================================================
+
+Genes tested (>= 3 samples/ecotype, >= 3 CpGs/gene): 10,838
+DMGs (p<0.05, |diff|>=15%): 63
+  hyper in siscowet: 37
+  hypo  in siscowet: 26
+DMGs at FDR<0.1: 0
+
+Reference-DMR confirmation on native coordinates
+--------------------------------------------------------
+Reference-DMR genes: 181
+  testable natively (enough coverage both ecotypes): 45
+  confirmed as native DMG: 0
+  direction-concordant: 0
+  confirmation rate among testable: 0.0%
+
+Top 20 native DMGs by |meth_diff|:
+  gene-LOC120042985 LOC120042985  diff=-96.5%  p=2.9e-02  [U1 spliceosomal RNA]
+  gene-LOC120041810 LOC120041810  diff=-95.1%  p=2.9e-02  [U1 spliceosomal RNA]
+  gene-trnaq-cug-55 trnaq-cug  diff=-87.1%  p=4.4e-02  [tRNA-Gln]
+  gene-LOC120052184 LOC120052184  diff=-85.3%  p=2.9e-02  [uncharacterized LOC120052184]
+  gene-ttyh2l ttyh2l  diff=+78.2%  p=5.0e-02  [tweety homolog 2, like]
+  gene-LOC120036806 LOC120036806  diff=+58.4%  p=2.9e-02  [5S ribosomal RNA]
+  gene-cacul1 cacul1  diff=-53.4%  p=2.9e-02  [CDK2 associated cullin domain 1]
+  gene-LOC120034155 LOC120034155  diff=+49.6%  p=2.9e-02  [monocyte to macrophage differentiation factor]
+  gene-LOC120039343 LOC120039343  diff=+47.9%  p=2.9e-02  [gastrula zinc finger protein XlCGF17.1-like]
+  gene-LOC120045278 LOC120045278  diff=+47.0%  p=2.9e-02  [5S ribosomal RNA]
+  gene-LOC120040804 LOC120040804  diff=+44.8%  p=2.9e-02  [uncharacterized LOC120040804]
+  gene-LOC120057139 LOC120057139  diff=+41.6%  p=2.9e-02  [CMP-N-acetylneuraminate-beta-galactosamide-al]
+  gene-tmbim4 tmbim4  diff=+39.2%  p=2.9e-02  [transmembrane BAX inhibitor motif containing ]
+  gene-LOC120032833 LOC120032833  diff=+38.1%  p=2.9e-02  [SH3 and PX domain-containing protein 2A-like]
+  gene-LOC120033680 LOC120033680  diff=-36.9%  p=2.9e-02  [uncharacterized LOC120033680]
+  gene-LOC120036592 LOC120036592  diff=+35.9%  p=5.0e-02  [non-structural maintenance of chromosomes ele]
+  gene-LOC120051268 LOC120051268  diff=+35.9%  p=2.9e-02  [tyrosine-protein phosphatase non-receptor typ]
+  gene-LOC120044697 LOC120044697  diff=-34.8%  p=2.9e-02  [ethanolamine-phosphate cytidylyltransferase-l]
+  gene-LOC120044866 LOC120044866  diff=+33.5%  p=2.9e-02  [nuclear GTPase SLIP-GC-like]
+  gene-LOC120039155 LOC120039155  diff=+33.0%  p=2.9e-02  [uncharacterized LOC120039155]
+
+Outputs -> /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation

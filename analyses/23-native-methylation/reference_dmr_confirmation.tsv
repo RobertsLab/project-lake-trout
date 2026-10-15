@@ -1,0 +1,182 @@
+gene_id	symbol	ref_dmr_direction	native_testable	native_dmg	native_direction	direction_concordant
+gene-LOC120017932	LOC120017932	hyper_siscowet	1	0	hyper_siscowet	0
+gene-LOC120017961	LOC120017961	hyper_siscowet	0	0		0
+gene-LOC120017972	LOC120017972	hyper_siscowet	0	0		0
+gene-LOC120018007	LOC120018007	hyper_siscowet	0	0		0
+gene-LOC120018068	LOC120018068	hyper_siscowet	0	0		0
+gene-LOC120024464	LOC120024464	hyper_siscowet	0	0		0
+gene-LOC120027990	LOC120027990	hyper_siscowet	1	0	hyper_siscowet	0
+gene-LOC120029926	LOC120029926	hypo_siscowet	0	0		0
+gene-LOC120032412	LOC120032412	hypo_siscowet	1	0	hyper_siscowet	0
+gene-LOC120032414	LOC120032414	hyper_siscowet	1	0	hyper_siscowet	0
+gene-LOC120032416	LOC120032416	hypo_siscowet	1	0	hyper_siscowet	0
+gene-LOC120032453	LOC120032453	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120033896	LOC120033896	hypo_siscowet	0	0		0
+gene-LOC120035322	LOC120035322	hypo_siscowet	0	0		0
+gene-LOC120035744	LOC120035744	hypo_siscowet	0	0		0
+gene-LOC120035745	LOC120035745	hypo_siscowet	0	0		0
+gene-LOC120035747	LOC120035747	hypo_siscowet	0	0		0
+gene-LOC120035749	LOC120035749	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120035750	LOC120035750	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120035752	LOC120035752	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120035754	LOC120035754	hypo_siscowet	0	0		0
+gene-LOC120035755	LOC120035755	hypo_siscowet	0	0		0
+gene-LOC120035757	LOC120035757	hypo_siscowet	0	0		0
+gene-LOC120036047	LOC120036047	hypo_siscowet	0	0		0
+gene-LOC120036048	LOC120036048	hypo_siscowet	0	0		0
+gene-LOC120036051	LOC120036051	hypo_siscowet	0	0		0
+gene-LOC120036374	LOC120036374	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120036375	LOC120036375	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120036470	LOC120036470	hypo_siscowet	0	0		0
+gene-LOC120036681	LOC120036681	hypo_siscowet	0	0		0
+gene-LOC120036685	LOC120036685	hypo_siscowet	0	0		0
+gene-LOC120036686	LOC120036686	hypo_siscowet	0	0		0
+gene-LOC120036788	LOC120036788	hyper_siscowet	0	0		0
+gene-LOC120036801	LOC120036801	hyper_siscowet	0	0		0
+gene-LOC120036893	LOC120036893	hypo_siscowet	0	0		0
+gene-LOC120036895	LOC120036895	hypo_siscowet	0	0		0
+gene-LOC120036897	LOC120036897	hypo_siscowet	0	0		0
+gene-LOC120037005	LOC120037005	hypo_siscowet	0	0		0
+gene-LOC120037711	LOC120037711	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120037712	LOC120037712	hyper_siscowet	1	0	hyper_siscowet	0
+gene-LOC120037713	LOC120037713	hyper_siscowet	1	0	hypo_siscowet	0
+gene-LOC120037768	LOC120037768	hypo_siscowet	0	0		0
+gene-LOC120037769	LOC120037769	hypo_siscowet	0	0		0
+gene-LOC120037770	LOC120037770	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120037787	LOC120037787	hypo_siscowet	0	0		0
+gene-LOC120037962	LOC120037962	hypo_siscowet	0	0		0
+gene-LOC120037963	LOC120037963	hypo_siscowet	0	0		0
+gene-LOC120037964	LOC120037964	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120038013	LOC120038013	hypo_siscowet	0	0		0
+gene-LOC120038015	LOC120038015	hypo_siscowet	0	0		0
+gene-LOC120038017	LOC120038017	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120038038	LOC120038038	hypo_siscowet	0	0		0
+gene-LOC120038040	LOC120038040	hypo_siscowet	0	0		0
+gene-LOC120038041	LOC120038041	hypo_siscowet	0	0		0
+gene-LOC120038221	LOC120038221	hypo_siscowet	0	0		0
+gene-LOC120038330	LOC120038330	hypo_siscowet	0	0		0
+gene-LOC120038331	LOC120038331	hypo_siscowet	0	0		0
+gene-LOC120038345	LOC120038345	hypo_siscowet	0	0		0
+gene-LOC120038347	LOC120038347	hypo_siscowet	0	0		0
+gene-LOC120038348	LOC120038348	hypo_siscowet	0	0		0
+gene-LOC120038388	LOC120038388	hypo_siscowet	0	0		0
+gene-LOC120038389	LOC120038389	hypo_siscowet	0	0		0
+gene-LOC120038390	LOC120038390	hypo_siscowet	0	0		0
+gene-LOC120038391	LOC120038391	hypo_siscowet	0	0		0
+gene-LOC120038392	LOC120038392	hypo_siscowet	0	0		0
+gene-LOC120038393	LOC120038393	hypo_siscowet	0	0		0
+gene-LOC120038434	LOC120038434	hypo_siscowet	0	0		0
+gene-LOC120038477	LOC120038477	hypo_siscowet	0	0		0
+gene-LOC120038478	LOC120038478	hypo_siscowet	0	0		0
+gene-LOC120038479	LOC120038479	hypo_siscowet	0	0		0
+gene-LOC120038480	LOC120038480	hypo_siscowet	0	0		0
+gene-LOC120038481	LOC120038481	hypo_siscowet	0	0		0
+gene-LOC120038487	LOC120038487	hypo_siscowet	0	0		0
+gene-LOC120038489	LOC120038489	hypo_siscowet	0	0		0
+gene-LOC120038491	LOC120038491	hypo_siscowet	0	0		0
+gene-LOC120038741	LOC120038741	hypo_siscowet	0	0		0
+gene-LOC120038742	LOC120038742	hypo_siscowet	1	0	hyper_siscowet	0
+gene-LOC120038856	LOC120038856	hypo_siscowet	0	0		0
+gene-LOC120038858	LOC120038858	hypo_siscowet	0	0		0
+gene-LOC120038859	LOC120038859	hypo_siscowet	0	0		0
+gene-LOC120038860	LOC120038860	hypo_siscowet	0	0		0
+gene-LOC120038861	LOC120038861	hypo_siscowet	0	0		0
+gene-LOC120038882	LOC120038882	hypo_siscowet	0	0		0
+gene-LOC120038883	LOC120038883	hypo_siscowet	0	0		0
+gene-LOC120038884	LOC120038884	hypo_siscowet	0	0		0
+gene-LOC120038925	LOC120038925	hypo_siscowet	0	0		0
+gene-LOC120038927	LOC120038927	hypo_siscowet	0	0		0
+gene-LOC120039105	LOC120039105	hypo_siscowet	0	0		0
+gene-LOC120039107	LOC120039107	hypo_siscowet	0	0		0
+gene-LOC120039128	LOC120039128	hypo_siscowet	0	0		0
+gene-LOC120039129	LOC120039129	hypo_siscowet	0	0		0
+gene-LOC120039139	LOC120039139	hypo_siscowet	0	0		0
+gene-LOC120039140	LOC120039140	hypo_siscowet	1	0	hyper_siscowet	0
+gene-LOC120039164	LOC120039164	hypo_siscowet	0	0		0
+gene-LOC120039165	LOC120039165	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120039353	LOC120039353	hypo_siscowet	0	0		0
+gene-LOC120039425	LOC120039425	hypo_siscowet	0	0		0
+gene-LOC120039426	LOC120039426	hypo_siscowet	0	0		0
+gene-LOC120039428	LOC120039428	hypo_siscowet	0	0		0
+gene-LOC120039430	LOC120039430	hypo_siscowet	0	0		0
+gene-LOC120039509	LOC120039509	hypo_siscowet	0	0		0
+gene-LOC120039510	LOC120039510	hypo_siscowet	0	0		0
+gene-LOC120039512	LOC120039512	hypo_siscowet	0	0		0
+gene-LOC120039520	LOC120039520	hypo_siscowet	0	0		0
+gene-LOC120039524	LOC120039524	hypo_siscowet	0	0		0
+gene-LOC120039625	LOC120039625	hypo_siscowet	0	0		0
+gene-LOC120039626	LOC120039626	hypo_siscowet	0	0		0
+gene-LOC120039627	LOC120039627	hypo_siscowet	0	0		0
+gene-LOC120039628	LOC120039628	hypo_siscowet	0	0		0
+gene-LOC120039629	LOC120039629	hypo_siscowet	0	0		0
+gene-LOC120039639	LOC120039639	hypo_siscowet	0	0		0
+gene-LOC120039703	LOC120039703	hypo_siscowet	0	0		0
+gene-LOC120039704	LOC120039704	hypo_siscowet	0	0		0
+gene-LOC120039709	LOC120039709	hypo_siscowet	0	0		0
+gene-LOC120039781	LOC120039781	hypo_siscowet	0	0		0
+gene-LOC120039809	LOC120039809	hypo_siscowet	0	0		0
+gene-LOC120039810	LOC120039810	hypo_siscowet	0	0		0
+gene-LOC120039823	LOC120039823	hypo_siscowet	0	0		0
+gene-LOC120039824	LOC120039824	hypo_siscowet	0	0		0
+gene-LOC120039825	LOC120039825	hypo_siscowet	0	0		0
+gene-LOC120039903	LOC120039903	hypo_siscowet	0	0		0
+gene-LOC120039922	LOC120039922	hypo_siscowet	0	0		0
+gene-LOC120039978	LOC120039978	hypo_siscowet	0	0		0
+gene-LOC120039979	LOC120039979	hypo_siscowet	0	0		0
+gene-LOC120039980	LOC120039980	hypo_siscowet	0	0		0
+gene-LOC120039981	LOC120039981	hypo_siscowet	0	0		0
+gene-LOC120039982	LOC120039982	hypo_siscowet	0	0		0
+gene-LOC120039983	LOC120039983	hypo_siscowet	0	0		0
+gene-LOC120040165	LOC120040165	hypo_siscowet	0	0		0
+gene-LOC120040166	LOC120040166	hypo_siscowet	0	0		0
+gene-LOC120040187	LOC120040187	hypo_siscowet	0	0		0
+gene-LOC120040188	LOC120040188	hypo_siscowet	0	0		0
+gene-LOC120040189	LOC120040189	hypo_siscowet	0	0		0
+gene-LOC120040310	LOC120040310	hypo_siscowet	0	0		0
+gene-LOC120040311	LOC120040311	hypo_siscowet	0	0		0
+gene-LOC120040312	LOC120040312	hypo_siscowet	0	0		0
+gene-LOC120040411	LOC120040411	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120040512	LOC120040512	hypo_siscowet	0	0		0
+gene-LOC120040513	LOC120040513	hypo_siscowet	0	0		0
+gene-LOC120040514	LOC120040514	hypo_siscowet	0	0		0
+gene-LOC120040706	LOC120040706	hypo_siscowet	0	0		0
+gene-LOC120040742	LOC120040742	hypo_siscowet	0	0		0
+gene-LOC120040743	LOC120040743	hypo_siscowet	0	0		0
+gene-LOC120041193	LOC120041193	hypo_siscowet	1	0	hyper_siscowet	0
+gene-LOC120041194	LOC120041194	hypo_siscowet	1	0	hyper_siscowet	0
+gene-LOC120041195	LOC120041195	hypo_siscowet	1	0	hyper_siscowet	0
+gene-LOC120041954	LOC120041954	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120041959	LOC120041959	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120042042	LOC120042042	hypo_siscowet	0	0		0
+gene-LOC120042061	LOC120042061	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120042062	LOC120042062	hypo_siscowet	1	0	hyper_siscowet	0
+gene-LOC120042327	LOC120042327	hypo_siscowet	0	0		0
+gene-LOC120042329	LOC120042329	hypo_siscowet	0	0		0
+gene-LOC120042335	LOC120042335	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120042551	LOC120042551	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120042897	LOC120042897	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120043843	LOC120043843	hyper_siscowet	1	0	hypo_siscowet	0
+gene-LOC120051056	LOC120051056	hyper_siscowet	1	0	hypo_siscowet	0
+gene-LOC120051555	LOC120051555	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120051620	LOC120051620	hyper_siscowet	1	0	hypo_siscowet	0
+gene-LOC120051637	LOC120051637	hypo_siscowet	0	0		0
+gene-LOC120054224	LOC120054224	hypo_siscowet	1	0	hypo_siscowet	0
+gene-LOC120054234	LOC120054234	hypo_siscowet	1	0	hyper_siscowet	0
+gene-LOC120062940	LOC120062940	hypo_siscowet	0	0		0
+gene-ano10a	ano10a	hypo_siscowet	1	0	hypo_siscowet	0
+gene-rbm24b	rbm24b	hyper_siscowet	1	0	hyper_siscowet	0
+gene-trnag-ucc-74	trnag-ucc	hypo_siscowet	1	0	hypo_siscowet	0
+gene-trnag-ucc-75	trnag-ucc	hypo_siscowet	0	0		0
+gene-trnag-ucc-76	trnag-ucc	hypo_siscowet	1	0	hyper_siscowet	0
+gene-trnag-ucc-77	trnag-ucc	hypo_siscowet	0	0		0
+gene-trnag-ucc-78	trnag-ucc	hypo_siscowet	0	0		0
+gene-trnag-ucc-79	trnag-ucc	hypo_siscowet	1	0	hyper_siscowet	0
+gene-trnag-ucc-80	trnag-ucc	hypo_siscowet	0	0		0
+gene-trnap-agg-59	trnap-agg	hypo_siscowet	0	0		0
+gene-trnap-agg-60	trnap-agg	hypo_siscowet	0	0		0
+gene-trnap-agg-61	trnap-agg	hypo_siscowet	0	0		0
+gene-trnap-agg-62	trnap-agg	hypo_siscowet	1	0	hyper_siscowet	0
+gene-trnap-agg-63	trnap-agg	hypo_siscowet	1	0	hypo_siscowet	0
+gene-trnap-agg-64	trnap-agg	hypo_siscowet	1	0	hyper_siscowet	0
+gene-trnap-agg-65	trnap-agg	hypo_siscowet	0	0		0
+gene-trnap-agg-66	trnap-agg	hypo_siscowet	0	0		0

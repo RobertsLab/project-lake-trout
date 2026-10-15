@@ -1,0 +1,53 @@
+Ecotype-native differential methylation, count-based (23.11)
+==============================================================
+
+Part A -- features on 36,668 genes single-copy in both assemblies
+  per-sample filter: >= 20 pooled calls and >= 3 CpGs; >= 3 samples per ecotype
+
+  body: tested 34,740
+    quasi-binomial p<0.05: 3,276   FDR<0.1: 317   FDR<0.1 & |diff|>=10: 245 (hyper 142 / hypo 103)
+    Mann-Whitney p<0.05 & |diff|>=15 (23.9 rule): 659
+    median dispersion: 12.60
+
+  promoter: tested 34,442
+    quasi-binomial p<0.05: 3,660   FDR<0.1: 1,089   FDR<0.1 & |diff|>=10: 1,031 (hyper 384 / hypo 647)
+    Mann-Whitney p<0.05 & |diff|>=15 (23.9 rule): 1,329
+    median dispersion: 4.62
+
+Part B -- the 302 reference DMRs (14-diff-meth) on native coordinates
+  placed uniquely on both assemblies: 23
+  testable natively: 22
+  sign agreement with reference diff: 19/22 (86%; 50 % expected by chance)
+  Spearman(ref diff, native diff): rho=0.68 (p=4.6e-04)
+  confirmed (same sign, p<0.05, |diff|>=10): 12
+  native |diff| median 17.8 vs reference |diff| median 23.6
+  placement MAPQ (primary hit >= 80 % of query): fraction MAPQ 0 / MAPQ 60
+    lean     reference DMRs 47% / 9%   random windows 3% / 86%
+    siscowet reference DMRs 54% / 9%   random windows 5% / 82%
+
+Top 25 differentially methylated features (FDR, by p):
+  gene-LOC120043555        promoter diff= -62.6  q=7.5e-04  LOC120043555   interferon beta-like
+  gene-LOC120039779        promoter diff= -68.8  q=7.5e-04  LOC120039779   zinc finger protein 501-like
+  gene-tmeff2a             promoter diff= -57.9  q=7.5e-04  tmeff2a        transmembrane protein with EGF-like and 
+  gene-LOC120034731        promoter diff= -87.5  q=7.5e-04  LOC120034731   uncharacterized LOC120034731
+  gene-fhit                promoter diff= +80.6  q=7.5e-04  fhit           fragile histidine triad diadenosine trip
+  gene-LOC120023541        promoter diff= +72.6  q=7.5e-04  LOC120023541   ribosomal protein S6 kinase-like 1
+  gene-LOC120057398        promoter diff= -51.8  q=7.5e-04  LOC120057398   transcription initiation factor TFIID su
+  gene-LOC120044040        promoter diff= -75.8  q=7.5e-04  LOC120044040   peroxiredoxin-1-like
+  gene-LOC120061310        promoter diff= -78.0  q=7.5e-04  LOC120061310   cadherin-4-like
+  gene-trnaq-cug-54        promoter diff= +87.9  q=7.5e-04  trnaq-cug      tRNA-Gln
+  gene-LOC120066762        promoter diff= +63.0  q=7.5e-04  LOC120066762   transcription factor PU.1-like
+  gene-LOC120037531        promoter diff= -46.3  q=7.5e-04  LOC120037531   piggyBac transposable element-derived pr
+  gene-LOC120023081        promoter diff= +71.7  q=7.5e-04  LOC120023081   fermitin family homolog 2
+  gene-trnae-cuc-22        promoter diff= +69.1  q=7.5e-04  trnae-cuc      tRNA-Glu
+  gene-LOC120058541        promoter diff= -78.3  q=7.5e-04  LOC120058541   transcriptional enhancer factor TEF-5-li
+  gene-LOC120037224        promoter diff= +80.4  q=7.5e-04  LOC120037224   netrin receptor UNC5B-a-like
+  gene-LOC120034874        promoter diff= -60.4  q=7.5e-04  LOC120034874   oocyte zinc finger protein XlCOF8.4-like
+  gene-LOC120042561        promoter diff= -83.2  q=7.8e-04  LOC120042561   dynein regulatory complex protein 9-like
+  gene-LOC120017786        body     diff= -52.3  q=6.0e-03  LOC120017786   MHC class II regulatory factor RFX1-like
+  gene-zgc:171704          promoter diff= -76.9  q=7.8e-04  zgc:171704     uncharacterized protein LOC100124619 hom
+  gene-LOC120044571        promoter diff= -65.4  q=7.8e-04  LOC120044571   desumoylating isopeptidase 1-like
+  gene-LOC120042493        promoter diff= -42.2  q=7.8e-04  LOC120042493   zinc finger protein 239-like
+  gene-trnaq-cug-55        promoter diff= -57.9  q=7.8e-04  trnaq-cug      tRNA-Gln
+  gene-LOC120022880        promoter diff= +83.6  q=7.8e-04  LOC120022880   small nucleolar RNA SNORD53/SNORD92
+  gene-setd9               promoter diff= +53.2  q=7.8e-04  setd9          SET domain containing 9
