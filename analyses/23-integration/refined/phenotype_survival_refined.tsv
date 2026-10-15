@@ -1,0 +1,9 @@
+set	group	go_id	name	fold_collapsed	k_collapsed	fdr_collapsed	fdr_uncollapsed	survives_collapsed_fdr0.25	genes
+cnv	calcium	GO:0008048	calcium sensitive guanylate cyclase activator activity				1.578e-01	N (term dropped: <3 clusters)	LOC120053171,LOC120053182,LOC120057055
+reciprocal_pav	calcium	GO:0005509	calcium ion binding	2.49	8	1.049e-01	9.357e-02	Y	LOC120020307,LOC120025009,LOC120030672,LOC120045058,LOC120049548,LOC120060868,cracr2b,pros1
+siscowet_only_corroborated	calcium	GO:0007204	positive regulation of cytosolic calcium ion concentration				1.864e-01	N (term dropped: <3 clusters)	LOC120035059,LOC120049761,LOC120049763
+tierA	calcium	GO:0005509	calcium ion binding	2.27	5	2.072e-01	2.232e-01	Y	LOC120025009,LOC120030672,LOC120049548,LOC120060868,cracr2b
+tierAB	calcium	GO:0007204	positive regulation of cytosolic calcium ion concentration	2.18	7	4.436e-01	1.461e-01	N	LOC120035059,LOC120039049,LOC120048215,LOC120049497,LOC120049759,LOC120062766,LOC120062892
+tierAB	calcium	GO:0008048	calcium sensitive guanylate cyclase activator activity				1.912e-01	N (term dropped: <3 clusters)	LOC120053171,LOC120053182,LOC120057055
+tierAB	lipid	GO:0019626	short-chain fatty acid catabolic process	12.71	3	1.184e-01	3.580e-02	Y	LOC120028089,LOC120051050,pck1
+tierAB	lipid	GO:0046459	short-chain fatty acid metabolic process	10.59	3	1.863e-01	6.139e-02	Y	LOC120028089,LOC120051050,pck1

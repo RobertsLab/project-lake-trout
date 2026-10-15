@@ -1,0 +1,147 @@
+======================================================================
+lean frame
+======================================================================
+  [lean] permutation 1/18 done
+  [lean] permutation 2/18 done
+  [lean] permutation 3/18 done
+  [lean] permutation 4/18 done
+  [lean] permutation 5/18 done
+  [lean] permutation 6/18 done
+  [lean] permutation 7/18 done
+  [lean] permutation 8/18 done
+  [lean] permutation 9/18 done
+  [lean] permutation 10/18 done
+  [lean] permutation 11/18 done
+  [lean] permutation 12/18 done
+  [lean] permutation 13/18 done
+  [lean] permutation 14/18 done
+  [lean] permutation 15/18 done
+  [lean] permutation 16/18 done
+  [lean] permutation 17/18 done
+  [lean] permutation 18/18 done
+======================================================================
+siscowet frame
+======================================================================
+  [siscowet] permutation 1/18 done
+  [siscowet] permutation 2/18 done
+  [siscowet] permutation 3/18 done
+  [siscowet] permutation 4/18 done
+  [siscowet] permutation 5/18 done
+  [siscowet] permutation 6/18 done
+  [siscowet] permutation 7/18 done
+  [siscowet] permutation 8/18 done
+  [siscowet] permutation 9/18 done
+  [siscowet] permutation 10/18 done
+  [siscowet] permutation 11/18 done
+  [siscowet] permutation 12/18 done
+  [siscowet] permutation 13/18 done
+  [siscowet] permutation 14/18 done
+  [siscowet] permutation 15/18 done
+  [siscowet] permutation 16/18 done
+  [siscowet] permutation 17/18 done
+  [siscowet] permutation 18/18 done
+  primary setting (np.float64(0.01), np.int64(15), np.int64(3)) (eFDR <= 0.1 in both frames: True)
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.11-native-meth-counts.py:245: RuntimeWarning: Mean of empty slice
+  lean_mean = np.nanmean(pct[:, ~is_sisc], axis=1)
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.11-native-meth-counts.py:246: RuntimeWarning: Mean of empty slice
+  sisc_mean = np.nanmean(pct[:, is_sisc], axis=1)
+  $ LC_ALL=C sort -k1,1 -k2,2n '/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/output/21.1-gene-anchored-synteny/lean.purged.liftoff.genes.bed' > '/home/s
+  $ LC_ALL=C sort -k1,1 -k2,2n '/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/cpg_scan/_lean.dmrs.bed' | '/usr/bin/bedtool
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.11-native-meth-counts.py:245: RuntimeWarning: Mean of empty slice
+  lean_mean = np.nanmean(pct[:, ~is_sisc], axis=1)
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.11-native-meth-counts.py:246: RuntimeWarning: Mean of empty slice
+  sisc_mean = np.nanmean(pct[:, is_sisc], axis=1)
+  $ LC_ALL=C sort -k1,1 -k2,2n '/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/output/21.1-gene-anchored-synteny/siscowet.purged.liftoff.genes.bed' > '/ho
+  $ LC_ALL=C sort -k1,1 -k2,2n '/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/cpg_scan/_siscowet.dmrs.bed' | '/usr/bin/bed
+
+Native CpG-level DMR scan inside each frame (23.13)
+====================================================
+
+CpG filter: >= 5 reads in >= 7/8 fish (label-free); DMCs chained within 250 bp, same direction
+
+  lean frame: 10,052,447 CpGs tested; p<0.05 at 0.4% of CpGs
+  siscowet frame: 9,414,996 CpGs tested; p<0.05 at 0.4% of CpGs
+
+Grid (18 balanced permutations; eFDR = permuted mean / observed):
+  frame     p_thr  diff  minCpG  observed  perm_mean  perm_max  eFDR
+  lean      0.05   15    3       2533      1085.3     1369      0.43
+  lean      0.05   15    5       1117      304.0      377       0.27
+  lean      0.01   15    3       268       17.5       45        0.07
+  lean      0.01   25    3       177       14.9       35        0.08
+  lean      0.01   25    5       87        5.1        16        0.06
+  lean      0.001  25    3       12        0.1        1         0.00
+  siscowet  0.05   15    3       2535      998.7      1253      0.39
+  siscowet  0.05   15    5       1154      280.8      369       0.24
+  siscowet  0.01   15    3       304       16.5       41        0.05
+  siscowet  0.01   25    3       202       13.8       33        0.07
+  siscowet  0.01   25    5       109       5.5        16        0.05
+  siscowet  0.001  25    3       15        0.0        0         0.00
+
+Primary setting: p<0.01, |diff|>=15, >=3 DMCs (empirical FDR <= 0.10 in both frames)
+  lean: 268 DMRs (hyper 62 / hypo 206 in siscowet); median 5 DMCs, 222 bp
+    placed and testable in the other frame: 111; replicated (same sign, p<0.05, |diff|>=10): 101
+    region: intergenic 170, promoter 57, body 41
+    overlapping a placed reference DMR: 10
+  siscowet: 304 DMRs (hyper 56 / hypo 248 in siscowet); median 5 DMCs, 192 bp
+    placed and testable in the other frame: 131; replicated (same sign, p<0.05, |diff|>=10): 119
+    region: intergenic 216, promoter 55, body 33
+    overlapping a placed reference DMR: 10
+
+GO over-representation, genes of replicated DMRs (background: genes with >= 3 tested CpGs in either frame; tandem clusters collapsed)
+  promoter genes   12 -> clusters in background    7; GO terms FDR<0.1: 1
+      regulation of response to stimulus                      k=  3 fold=  8.2 FDR=4.3e-03
+  body     genes   24 -> clusters in background   22; GO terms FDR<0.1: 0
+  all      genes  113 -> clusters in background   76; GO terms FDR<0.1: 24
+      RNA polymerase II cis-regulatory region sequence-specif k= 16 fold=  3.6 FDR=2.6e-04
+      cis-regulatory region sequence-specific DNA binding     k= 16 fold=  3.5 FDR=2.6e-04
+      transcription regulatory region nucleic acid binding    k= 17 fold=  3.2 FDR=2.6e-04
+      transcription cis-regulatory region binding             k= 17 fold=  3.2 FDR=2.6e-04
+      DNA-binding transcription repressor activity, RNA polym k=  4 fold= 25.6 FDR=2.6e-04
+      DNA-binding transcription repressor activity            k=  4 fold= 25.6 FDR=2.6e-04
+      sequence-specific double-stranded DNA binding           k= 17 fold=  3.1 FDR=2.6e-04
+      double-stranded DNA binding                             k= 17 fold=  3.0 FDR=3.5e-04
+  lipid / calcium terms at FDR<0.25:
+      [body] calcium: calcium ion binding k=3 FDR=0.23
+
+Replicated DMRs (by |diff|):
+  lean     LDMR_91    ptg001951l_1:163743-163873 n=3   diff= +84.6 other= +82.8  body       LOC120056713 protocadherin gamma-C5-like
+  siscowet SDMR_2     ptg000027l_1:989893-990023 n=3   diff= +84.6 other= +86.5  body       LOC120056713 protocadherin gamma-C5-like
+  siscowet SDMR_207   ptg008759l_1:78519-78551 n=5   diff= +84.1 other= +83.6  intergenic LOC120055155 protein FAM163A-like
+  lean     LDMR_37    ptg000664l_1:600519-600551 n=5   diff= +83.4 other= +83.3  intergenic LOC120055155 protein FAM163A-like
+  lean     LDMR_57    ptg001092l_1:1344217-1344387 n=5   diff= -82.5 other= -82.5  intergenic LOC120018760 P2X purinoceptor 5-like
+  siscowet SDMR_18    ptg000229l_1:1181106-1181276 n=5   diff= -82.5 other= -84.8  intergenic LOC120018760 P2X purinoceptor 5-like
+  siscowet SDMR_20    ptg000248l_1:321562-321571 n=3   diff= -81.8 other= -83.3  promoter   LOC120066138 AFG3-like protein 1
+  lean     LDMR_54    ptg000988l_1:2137013-2137022 n=3   diff= -81.8 other= -79.8  promoter   LOC120066138 AFG3-like protein 1
+  lean     LDMR_14    ptg000260l_1:1269789-1269822 n=3   diff= -79.9 other= -79.9  intergenic LOC120026279 putative tRNA (cytidine(32)/guanosine(
+  siscowet SDMR_110   ptg002085l_1:422018-422051 n=3   diff= -79.9 other= -79.9  intergenic LOC120026279 putative tRNA (cytidine(32)/guanosine(
+  lean     LDMR_119   ptg002620l_1:262097-262807 n=11  diff= +77.3 other= +77.6  body       LOC120050376 uncharacterized LOC120050376
+  siscowet SDMR_11    ptg000082l_1:128360-129070 n=11  diff= +77.3 other= +77.4  body       LOC120050376 uncharacterized LOC120050376
+  siscowet SDMR_46    ptg000635l_1:2079356-2080384 n=22  diff= -76.7 other= -62.8  intergenic LOC120065687 E3 ubiquitin-protein ligase TRAIP-like
+  lean     LDMR_32    ptg000580l_1:315754-316355 n=16  diff= -76.6 other= -76.6  body       coro1ca      coronin, actin binding protein, 1Ca
+  siscowet SDMR_22    ptg000288l_1:49287-49888 n=16  diff= -76.6 other= -76.6  body       coro1ca      coronin, actin binding protein, 1Ca
+  lean     LDMR_6     ptg000150l_1:242601-242852 n=8   diff= -76.1 other= -76.0  intergenic LOC120033941 synaptogyrin-1-like
+  siscowet SDMR_90    ptg001669l_1:465546-465797 n=8   diff= -76.1 other= -77.0  intergenic LOC120033941 synaptogyrin-1-like
+  lean     LDMR_19    ptg000357l_1:16130-16267 n=6   diff= +74.9 other= +74.9  intergenic LOC120030903 protein lin-28 homolog A-like
+  siscowet SDMR_8     ptg000055l_1:15343-15480 n=6   diff= +74.9 other= +74.9  intergenic LOC120030903 protein lin-28 homolog A-like
+  siscowet SDMR_187   ptg006174l_1:218262-218318 n=5   diff= -74.6 other= -74.6  intergenic en1a         engrailed homeobox 1a
+  lean     LDMR_79    ptg001570l_1:239553-239609 n=5   diff= -74.6 other= -74.6  intergenic en1a         engrailed homeobox 1a
+  lean     LDMR_62    ptg001215l_1:210078-210173 n=3   diff= -74.4 other= -71.8  promoter   LOC120032086 neuroepithelial cell-transforming gene
+  lean     LDMR_21    ptg000357l_1:498985-499537 n=9   diff= -73.4 other= -72.9  intergenic LOC120031424 CD276 antigen-like
+  siscowet SDMR_9     ptg000055l_1:496415-496967 n=9   diff= -73.3 other= -73.4  intergenic LOC120031424 CD276 antigen-like
+  siscowet SDMR_105   ptg001861l_1:187101-187196 n=3   diff= -73.1 other= -74.4  promoter   LOC120032086 neuroepithelial cell-transforming gene
+  lean     LDMR_34    ptg000610l_1:2144270-2144329 n=3   diff= +71.4 other= +72.3  body       LOC120056981 opioid-binding protein/cell adhesion m
+  siscowet SDMR_28    ptg000323l_1:6903388-6903447 n=3   diff= +71.4 other= +70.2  body       LOC120056981 opioid-binding protein/cell adhesion m
+  lean     LDMR_18    ptg000357l_1:15789-15858 n=3   diff= +70.4 other= +70.2  intergenic LOC120030903 protein lin-28 homolog A-like
+  siscowet SDMR_7     ptg000055l_1:15002-15071 n=3   diff= +70.2 other= +70.4  intergenic LOC120030903 protein lin-28 homolog A-like
+  siscowet SDMR_1     ptg000024l_1:2873459-2873499 n=3   diff= +68.2 other= +68.2  promoter   daam2        dishevelled associated activator of mo
+  lean     LDMR_33    ptg000588l_1:480541-480581 n=3   diff= +68.2 other= +68.2  promoter   daam2        dishevelled associated activator of mo
+  siscowet SDMR_115   ptg002289l_1:404962-405953 n=13  diff= -67.9 other= -68.5  intergenic LOC120034419 interferon alpha-6-like
+  lean     LDMR_162   ptg005066l_1:73242-74233 n=14  diff= -67.3 other= -67.0  intergenic LOC120034419 interferon alpha-6-like
+  lean     LDMR_44    ptg000911l_1:560323-561242 n=20  diff= -67.1 other= -78.1  intergenic LOC120065687 E3 ubiquitin-protein ligase TRAIP-like
+  lean     LDMR_106   ptg002242l_1:739710-739934 n=4   diff= -67.0 other= -69.2  intergenic LOC120033338 oocyte zinc finger protein XlCOF22-lik
+  siscowet SDMR_23    ptg000291l_1:111451-111535 n=5   diff= +66.3 other= +68.2  body       LOC120033367 RNA-binding protein 45-like
+  lean     LDMR_263   ptg020995l_1:282359-282443 n=5   diff= +66.3 other= +68.3  body       LOC120033367 RNA-binding protein 45-like
+  siscowet SDMR_39    ptg000504l_1:34986-35127 n=3   diff= -65.3 other= -65.5  intergenic LOC120053532 carbohydrate sulfotransferase 1-like
+  lean     LDMR_66    ptg001369l_1:393458-393599 n=3   diff= -65.1 other= -65.3  intergenic LOC120053532 carbohydrate sulfotransferase 1-like
+  siscowet SDMR_13    ptg000111l_1:92914-92963 n=3   diff= +65.1 other= +65.6  intergenic tmem144a     transmembrane protein 144a
+

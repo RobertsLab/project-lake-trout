@@ -254,6 +254,7 @@ def main():
         o.write("Gene-level integration of Phase-2 (native reciprocal PAV, ecotype-only gene "
                 "presence, CNV) with Phase-1 SVs and the prior reference DMR/PAV tables. "
                 "See `code/23.6-integrate-phase2.py`.\n\n")
+        o.write("> **Superseded for interpretation by `refined/`** (code/23.7-refine-evidence-model.py): the ecotype_only / ref_pav / sv lines below are not independent, ecotype_only is Liftoff-sensitivity-inflated, and the GO tests are tandem-cluster driven. This file is kept as the Step-3 record.\n\n")
         o.write("## Evidence lines (genes per line)\n\n")
         for k in flag_cols:
             o.write(f"- **{k}**: {len(lines[k]):,}\n")

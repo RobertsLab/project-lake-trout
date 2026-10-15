@@ -1,0 +1,13 @@
+go_id	name	namespace	study_k	study_n	bg_K	bg_N	fold_enrichment	p_value	fdr	phenotype	genes
+GO:0005509	calcium ion binding	molecular_function	3	22	897	26289	4.0	3.762e-02	2.304e-01		LOC120038521,LOC120043828,LOC120057529
+GO:0008092	cytoskeletal protein binding	molecular_function	3	22	980	26289	3.66	4.693e-02	2.304e-01	Y	LOC120017708,LOC120023746,coro1ca
+GO:0030154	cell differentiation	biological_process	3	22	1374	26289	2.61	1.048e-01	2.304e-01		LOC120038521,LOC120052503,coro1ca
+GO:0048869	cellular developmental process	biological_process	3	22	1375	26289	2.61	1.050e-01	2.304e-01		LOC120038521,LOC120052503,coro1ca
+GO:0048523	negative regulation of cellular process	biological_process	3	22	1707	26289	2.1	1.685e-01	2.304e-01		LOC120021596,LOC120032743,LOC120036759
+GO:0048519	negative regulation of biological process	biological_process	3	22	1785	26289	2.01	1.849e-01	2.304e-01		LOC120021596,LOC120032743,LOC120036759
+GO:0000981	DNA-binding transcription factor activity, RNA polymerase II-specific	molecular_function	3	22	1816	26289	1.97	1.915e-01	2.304e-01		LOC120036759,LOC120040579,LOC120050376
+GO:0001067	transcription regulatory region nucleic acid binding	molecular_function	3	22	1839	26289	1.95	1.965e-01	2.304e-01		LOC120036759,LOC120040579,LOC120050376
+GO:0000976	transcription cis-regulatory region binding	molecular_function	3	22	1839	26289	1.95	1.965e-01	2.304e-01		LOC120036759,LOC120040579,LOC120050376
+GO:1990837	sequence-specific double-stranded DNA binding	molecular_function	3	22	1869	26289	1.92	2.030e-01	2.304e-01		LOC120036759,LOC120040579,LOC120050376
+GO:0003690	double-stranded DNA binding	molecular_function	3	22	1929	26289	1.86	2.162e-01	2.304e-01		LOC120036759,LOC120040579,LOC120050376
+GO:0003700	DNA-binding transcription factor activity	molecular_function	3	22	1992	26289	1.8	2.304e-01	2.304e-01		LOC120036759,LOC120040579,LOC120050376

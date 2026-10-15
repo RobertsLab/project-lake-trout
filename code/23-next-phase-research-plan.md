@@ -174,4 +174,191 @@ and calcium ion transport (FDR 9e-3); reciprocal-PAV genes for calcium ion bindi
 more reference-dependent than the calcium signal and should be treated cautiously pending Phase 3
 (native methylation) and Phase 4 (de novo genes). See `analyses/23-integration/phenotype_survival.tsv`.
 
-**Next:** Phase 3 (ecotype-native differential methylation) and Phase 4 (BRAKER3) remain.
+**Step 4 — evidence-model refinement (2026-09)** ([`23.7`](23.7-refine-evidence-model.py),
+`analyses/23-integration/refined/`). Review of the Step-3 matrix found three problems: (i) the
+`ecotype_only`, `ref_pav` and `sv` lines all measure distance from the lean reference and co-occur
+heavily (1,565 genes share ecotype_only+ref_pav), so `n_lines` over-stated independence; (ii)
+`ecotype_only` (14,647) is dominated by Liftoff sensitivity between two contig-level assemblies —
+only ~30 % of each "only" set is corroborated by the other assembly's `unmapped_features`; (iii) the
+GO signals were tandem-cluster driven (18 hemoglobin genes at one NC_052347.1 locus lead lean_only;
+histone / tRNA / snRNA / protocadherin arrays dominate cnv). 23.7 collapses the three reference-
+divergence lines into one, splits ecotype_only into corroborated (kept as its own line) and
+Liftoff-only (demoted), and collapses same-family genes within 50 kb to one representative in study
+and background before the GO test.
+
+| line (refined) | genes |
+|---|---|
+| reciprocal_pav | 114 |
+| ecotype_only_corroborated | 4,382 (lean 1,434 / siscowet 2,948; unique reference IDs after collapsing Liftoff `_N` copy suffixes — cf. 1,474 / 3,040 raw rows in 23.5) |
+| cnv | 2,359 |
+| dmr | 181 |
+| ref_divergence (sv ∪ ref_pav ∪ Liftoff-only) | 16,068 |
+
+Tiers: **A** (reciprocal_pav + ≥1) = 77 genes (66 flag-free; 48 siscowet-present, 29 lean-present);
+**B** (corroborated-only or cnv + ≥1) = 4,011; **C** (dmr + ref_divergence only) = 15. The 23.6
+figure of 2,895 "two-genome candidates" is superseded by tier A+B = 4,088, of which only tier A has
+read-level native support.
+
+Outcome for the hypotheses: the **calcium signal survives collapsing** (lean_only_corroborated:
+voltage-gated calcium channel activity fold 4.5, FDR 0.028 collapsed vs 8e-4 uncollapsed; calcium
+ion transport FDR 0.062; reciprocal_pav calcium ion binding FDR 0.10). **No lipid term reaches
+FDR 0.1** in any set (best: long-chain fatty acid metabolic process, FDR 0.24, 4 clusters). Tier-A
+GO is small-n but points at insulin response / muscle contraction (gpia, mitochondrial PEPCK, two
+PDEs, grb10-like, ROR-alpha paralogs partitioned one per ecotype, calsequestrin-1, troponin T).
+Phase-18 headline fate (`phase18_candidate_fate.tsv`): 3 of 4 convergent genes are tier C
+(reference-only), LOC120040411 is tier B via cnv inside a 5-paralog cluster; `angptl5` is tier B
+(corroborated siscowet-only, no read support), `mogat2` and epoxide hydrolase 1 have no native line.
+
+**Step 5 — read-coverage filter on corroborated ecotype-only genes (2026-10-14)** (23.7 updated).
+Checking `angptl5` showed lean reads cover it at genome depth in all four lean fish when aligned to
+the siscowet assembly; the whole ~280 kb block (LOC120049129–LOC120050016, ref
+NC_052312.1:40.30–40.54 Mb) is missing from the lean *assembly*, not lean fish. Two
+assemblies agreeing on absence is therefore not enough. Each corroborated gene is now checked
+against the 23.4 mosdepth windows of the other ecotype's reads on the assembly that carries it;
+genes with ≥80 % of their length at ≥25 % of genome-mean depth in ≥3 of 4 fish are `read_covered`
+(assembly gaps) and lose the line. The coverage distribution is bimodal; the cutoff sits in the gap.
+
+Result: **3,891 of 4,382 (89 %) corroborated genes are read-covered**; 491 remain (lean 147 /
+siscowet 344). Tier A unchanged (77 / 66 flag-free); tier B 4,011 → 2,509. All 18 hemoglobin genes
+and all 9 genes behind the lean_only voltage-gated calcium channel enrichment are read-covered, so
+**the calcium-channel signal was an assembly-gap effect** and is withdrawn. Remaining calcium
+evidence: reciprocal_pav calcium ion binding (FDR 0.10, 8 genes) and individual tier-A genes.
+Lipid unchanged (no term at FDR 0.1). `angptl5` drops to reference divergence only. Caveat:
+coverage counts MAPQ-0 reads, so recent paralogs can look covered; BAM-level MAPQ filtering on the
+Linux box would tighten this.
+The hemoglobin cluster absent from the siscowet assembly is not flagged by reciprocal PAV, consistent
+with an assembly gap. Landing page and README updated to this model.
+
+### Phase 3 — pass 1 (2026-07, run on raven; committed there 2026-07-09 but not pushed until 2026-10)
+
+Ecotype-native differential methylation, gene-anchored ([`23.8`](23.8-native-meth-pipeline.py),
+[`23.9`](23.9-native-meth-dmg.py), `analyses/23-native-methylation/`).
+
+**Step A — native calling** ([`23.8`](23.8-native-meth-pipeline.py)). Each ecotype's 4 HiFi samples
+aligned (pbmm2 CCS, MM/ML preserved, reusing the Phase-2 purged indexes) to its OWN purged assembly;
+5mC called with `modkit pileup --cpg --combine-strands`. Tooling note: modkit was not installed, and
+the current **v0.6.4 rejects these reads** (no `MN` tag + dual 6mA/5mC mods); dropped to **v0.5.0**
+(the version 10-mCG-call used) which processes them cleanly. Per-sample CpGs at cov≥10 ranged widely
+(bc2069 0.68 M → bc2096 27 M), reflecting uneven per-sample depth.
+
+**Step B — gene-anchored DMG** ([`23.9`](23.9-native-meth-dmg.py)). Coordinate harmonization by the
+shared Liftoff gene ID (per approved plan): each CpG assigned to a gene on its native assembly,
+coverage-weighted mean methylation per gene per sample (`bedtools map`, ≥3 CpGs/gene), then
+Mann-Whitney lean vs siscowet per gene (14-diff-meth recipe: 15% diff, BH-FDR).
+
+Result: **10,838 genes testable** (limited by native coverage in ≥3 samples/ecotype);
+**63 nominal DMGs** (p<0.05, |Δ|≥15%; 37 hyper / 26 hypo in siscowet) but **0 at FDR<0.10** — with
+only 4 vs 4 samples the Mann-Whitney floor is p≈0.029, so nothing survives multiple testing. Of the
+181 reference-DMR genes, only **45 were testable natively** and **0 were confirmed** as native DMGs
+(chance overlap ≈0.3), i.e. the reference-based methylation differences do **not** reproduce on
+native two-genome coordinates.
+
+*Superseded by pass 2 below — the "0 confirmed" result was a power artifact.*
+
+**Interpretation at the time (with caveats).** This corroborates the Phase-2 theme that single-reference
+signals are fragile — the reference DMRs show no native confirmation. But the result is strongly
+**power- and coverage-limited**: n=4/group caps sensitivity, gene-level aggregation is coarser than
+per-CpG DMRs, and only ~1/5 of shared genes (and 45/181 reference-DMR genes) had enough native
+coverage to test. So this is best read as "reference DMRs are not corroborated natively at current
+depth," not "definitively artifacts." A deeper or CpG-level native test (or more samples) is the way
+to settle it. Outputs: `native_methylation_by_gene.tsv`, `dmg_results.tsv`, `dmg_significant.tsv`,
+`reference_dmr_confirmation.tsv`, `native_dmg_report.txt`.
+
+### Phase 3 — pass 2 (2026-10-14): count-based test, reference-DMR placement, frame control
+
+Pass 1 kept only CpGs with ≥10 reads per fish (native depth is ~8–20×, so bc2069 kept 0.68 M CpGs)
+and used Mann-Whitney on 4 vs 4 (smallest possible p = 0.029). Pass 2 reuses the 23.8 alignments
+and bedMethyl files; all compute ran on raven (Klone was not needed — data and indexes were already
+there, and no realignment was required).
+
+**Step C — count-based features** ([`23.11`](23.11-native-meth-counts.py)). Every 5mC CpG call
+(Nvalid ≥ 1) pooled into promoter (2 kb upstream of TSS) and gene-body features of the 36,668 genes
+single-copy in both Liftoff annotations, paired by gene ID. Quasi-binomial test (closed-form
+two-group GLM, Pearson dispersion, t on n−2 df), BH per feature class. 34,740 bodies / 34,442
+promoters testable (vs 10,838 genes in pass 1). 1,031 promoters and 245 bodies at FDR < 0.10 and
+|Δ| ≥ 10 points. Label permutation (all 34 other balanced 4/4 splits, including splits by
+sequencing run) gives 0–1 hits, so the test is calibrated and run batch is not the driver.
+
+**Step C′ — reference DMRs on native coordinates** (23.11 Part B). Each of the 302 reference DMRs
+± 500 bp was placed on both purged assemblies with minimap2 `asm5`. **About half are MAPQ 0 — present
+in ≥ 2 near-identical copies — in the native assemblies (lean 47 %, siscowet 54 %), against 3–5 %
+of 1,000 random reference windows; only 9 % reach MAPQ 60 vs 82–86 % of random windows**
+(`ref_dmr_placement_mapq.tsv`). The reference DMRs are concentrated in duplicated / repetitive
+sequence where reference read placement is ambiguous. The 23 placed uniquely on both assemblies
+mostly reproduce (sign agrees 19/22, Spearman ρ = 0.68).
+
+**Step D — frame control** ([`23.12`](23.12-native-meth-frame-control.py)). In Step C ecotype is
+confounded with assembly. modkit was run on the 23.4 cross alignments (MM/ML preserved;
+`meth_cross/run_modkit_cross.sh`), so each assembly holds both ecotypes' reads on identical
+coordinates, and every feature was re-tested inside the lean frame and inside the siscowet frame.
+
+| | lean frame | siscowet frame |
+|---|---|---|
+| features tested | 69,635 | 69,720 |
+| p < 0.05 | 5.2 % | 5.2 % |
+| π0 estimate | 0.96 | 0.97 |
+| FDR < 0.10 | 0 (min q 0.91) | 0 (min q 0.91) |
+| reference DMRs testable / sign agrees / ρ | 48 / 47 / 0.71 | 38 / 34 / 0.61 |
+| reference DMRs same sign, p < 0.05, \|Δ\| ≥ 10 | 32 | 19 |
+
+**Result.** (1) **The Step-C feature hits are almost all coordinate-harmonization artifacts**: e.g.
+the `tmeff2a` promoter reads ~65 % methylated in all eight fish on the lean assembly and ~10 % in all
+eight on the siscowet assembly — the two Liftoff "promoters" are different sequence, not different
+methylation. Correlation of Step-C differences with either frame is ρ ≈ 0.1. Only **63 features (57
+promoters, 6 bodies) keep sign, p < 0.05 and |Δ| ≥ 10 in both frames** (`dmf_robust.tsv`); these are
+nominal candidates, none in tier A/B, 19 carrying only ref_divergence. They include individual genes
+of interest — a DGAT2-like promoter (+21 points in siscowet), hippocalcin-like 1, pro-opiomelanocortin
+A, `sik2b`, carbonic anhydrase 4-like — but GO over-representation gives only generic terms
+(FDR 0.09) and **no lipid or calcium term**. (2) **Genome-wide, promoter and gene-body methylation
+does not differ detectably between ecotypes** (null p-value distribution in both frames). (3) **The
+reference DMRs that can be placed uniquely are real**: they replicate inside both frames, including
+the siscowet frame where no read touches the lean reference. Pass 1's "0 confirmed" was a power
+artifact. The other ~half of reference DMRs lie in multi-copy sequence and cannot be adjudicated with
+these assemblies.
+
+Methodological lesson: pairing features across two assemblies by Liftoff gene ID is not a valid
+basis for a quantitative cross-ecotype comparison; a shared frame (both ecotypes' reads on one
+assembly), tested in both directions, is. Tables: `dmf_frame_{lean,siscowet}.tsv.gz`,
+`dmf_robust.tsv`, `ref_dmr_frame_tests.tsv`, `ref_dmr_native_loci.tsv`, reports
+`native_meth_counts_report.txt` and `native_meth_frame_report.txt`.
+
+**Step E — CpG-level DMR scan inside each frame (2026-10-15)**
+([`23.13`](23.13-native-meth-cpg-scan.py), `analyses/23-native-methylation/cpg_scan/`). The 14-diff-meth
+design (DMCs chained within 250 bp, same direction) repeated inside each frame on CpGs with ≥ 5
+reads in ≥ 7 of 8 fish (label-free filter; 10.05 M CpGs lean frame, 9.41 M siscowet frame), per-CpG
+quasi-binomial test, and **empirical FDR from the 18 fully balanced relabelings** (2 lean + 2
+siscowet per group) over a threshold grid (`dmr_scan_grid.tsv`):
+
+| setting (DMC p, \|Δ\|, min DMCs) | lean frame DMRs (eFDR) | siscowet frame DMRs (eFDR) |
+|---|---|---|
+| 0.05, 15, 3 — the 14-diff-meth recipe | 2,533 (0.43) | 2,535 (0.39) |
+| **0.01, 15, 3 — primary** | **268 (0.07)** | **304 (0.05)** |
+| 0.001, 25, 3 | 12 (0.00) | 15 (0.00) |
+
+At the 14-diff-meth thresholds ~40 % of DMRs are expected false, which helps explain why the 302
+reference DMRs were a mix of real and spurious loci.
+
+**Result.** Primary DMRs are short (median ~200 bp, 5 DMCs) with large effects (median |Δ| 30
+points), and mostly **hypomethylated in siscowet** (206/268 and 248/304; at those DMRs lean fish
+average 59–65 % and siscowet fish 27–31 %). About 43 % place uniquely on the other assembly; of
+those, **101/111 (lean) and 119/131 (siscowet) replicate in the other frame** (same sign, p < 0.05,
+|Δ| ≥ 10; Spearman ρ 0.97 / 0.93). 101 loci were called independently in both frames; ~137 unique
+replicated loci, 113 genes. Robustness: lean and siscowet fish are completely separated at 265/268
+and 297/304 DMRs; dropping any one fish never flips a DMR or takes it below 10 points; 94 % keep
+their sign within each of the three sequencing runs. 63 % are intergenic, ~20 % promoter, ~14 %
+body; 10 per frame overlap a placed reference DMR. GO on replicated-DMR genes: transcription-factor
+/ cis-regulatory DNA binding (FDR 3e-4), but 12 of the 16 genes are dispersed C2H2 zinc-finger
+genes (a repeat-rich family not merged by 50 kb collapsing); the others are en1a, a forkhead E1-like,
+a HES-4-like and an ATF-like 3. No lipid term; calcium ion binding only at FDR 0.23 (3 genes). One
+tier-A gene (LOC120041427) and 14 tier-B genes (cnv + ref_divergence, mostly uncharacterized) carry
+a replicated DMR; 4 genes overlap the 23.12 robust features (AFG3-like 1, nudt19, a NET1-like,
+LOC120034056).
+
+**Phase 3 conclusion.** Ecotype methylation differences are **localized, large and reproducible**
+on native coordinates — a few hundred short regions, mostly siscowet hypomethylation, often
+intergenic — while promoter- and gene-wide methylation does not differ. The fixed, all-fish
+consistency of these differences is compatible with cis-genetic control as well as with a stable
+epigenetic ecotype difference; n = 4 wild-caught fish per ecotype cannot separate the two.
+
+**Next:** add a native-methylation line (replicated 23.13 DMRs) to the 23.7 evidence model and
+browser tracks (Phase 5); Phase 4 (BRAKER3) on raven.
