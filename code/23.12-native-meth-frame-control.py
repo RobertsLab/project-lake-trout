@@ -134,7 +134,7 @@ def refdmr_frame_test(frame):
     return res[testable].set_index("dmr_id")
 
 
-def go_robust(robust, tested_genes):
+def go_robust(robust, tested_genes, prefix="go_robust", out=OUT):
     if len(robust) < 10:
         return [f"  {len(robust)} robust features -- too few for GO; skipped"]
     m7 = load_module("23.7-refine-evidence-model.py", "refine_evidence_237")
@@ -171,7 +171,7 @@ def go_robust(robust, tested_genes):
                    "calcium" if m7.PHENO_CALCIUM.search(r["name"]) else None)
             if grp and r["fdr"] < 0.25:
                 pheno.append(f"      [{key}] {grp}: {r['name']} k={r['study_k']} FDR={r['fdr']:.2g}")
-        go.write(rows, OUT / f"go_robust_{key}.tsv")      # formats fdr as text in place
+        go.write(rows, out / f"{prefix}_{key}.tsv")      # formats fdr as text in place
     lines.append("  lipid / calcium terms at FDR<0.25:")
     lines += pheno or ["      none"]
     return lines
