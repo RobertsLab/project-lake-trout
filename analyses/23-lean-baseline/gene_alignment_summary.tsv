@@ -1,0 +1,6 @@
+group	genes	lean_aligned_median	siscowet_aligned_median	lean_aligned_lt_0_2	siscowet_aligned_lt_0_2
+all_other_genes	14719	0.956	0.998	0.369	0.3
+corroborated_lean_only	65	0.173	0.0	0.508	0.754
+corroborated_siscowet_only	200	0.0	1.0	0.88	0.29
+reciprocal_present_in_lean	38	0.992	1.0	0.132	0.053
+reciprocal_present_in_siscowet	55	1.0	0.996	0.145	0.2
