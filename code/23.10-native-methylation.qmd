@@ -76,6 +76,28 @@ genome, we can ask which of those differences are real.
   DNA-binding gene regulators, but mostly from one large, repetitive family (zinc-finger genes); a
   few developmental regulators stand out (engrailed-1a, a forkhead and a HES factor).
 
+## Genes or environment?
+
+Because every fish of an ecotype agrees so closely at these spots, we checked whether they sit next
+to DNA sequence differences between the ecotypes ([23.15](23.15-dmr-fixed-variants.py)). On each
+shared yardstick we read the DNA letters of all eight fish around every methylation difference and
+around ten look-alike stretches of genome for each one.
+
+- **No methylation difference has a fully fixed DNA difference (all four lean fish one letter, all
+  four siscowet another) within 1,000 letters.** Such fixed differences are rare everywhere in these
+  fish. The one striking exception is a cluster of interferon (antiviral) genes, where a whole block
+  of fixed differences sits beside two of the methylation differences.
+- **Partial DNA differences are two to three times more common next to the methylation differences**
+  than in the look-alike stretches, especially for the ones confirmed on both genomes.
+- **About a third of the spots also differ in read depth between the ecotypes**, a sign that the
+  ecotypes carry different numbers of copies of duplicated DNA there (salmon and trout genomes are
+  full of ancient duplicates).
+
+So genetics and methylation are partly tangled: DNA or copy-number differences mark about half of
+the methylation spots, compared with under a third of comparison stretches. Most spots still have no
+obvious genetic partner. Measuring methylation separately on each of a fish's two chromosome copies
+is the direct way to tell cause from coincidence.
+
 ## Why this matters
 
 This step corrected two earlier readings. The first native pass said the old methylation
@@ -103,6 +125,8 @@ All tables are hosted on gannet under
 - The single-CpG scan: every region on each yardstick, the ones that replicate, and the
   chance-calibration table — `cpg_scan/dmrs_lean.tsv`, `cpg_scan/dmrs_siscowet.tsv`,
   `cpg_scan/dmrs_replicated.tsv`, `cpg_scan/dmr_scan_grid.tsv`
+- DNA differences near the regions — `fixed_variants/fixed_variant_report.txt`,
+  `fixed_variants/fixed_sites_*.tsv`, `fixed_variants/window_depth_*.tsv`
 - Plain-text summaries — `native_meth_counts_report.txt`, `native_meth_frame_report.txt`,
   `cpg_scan/cpg_scan_report.txt`
 
@@ -110,8 +134,9 @@ All tables are hosted on gannet under
 
 - **Fold the 137 regions into the evidence model** alongside presence/absence and gene-content
   lines, and add them as genome-browser tracks.
-- **Genetics or environment?** Checking whether the regions sit next to fixed sequence differences
-  between the ecotypes would show whether they are likely genetically set.
+- **Chromosome-copy-specific methylation.** HiFi reads carry both the DNA letters and the
+  methylation, so in fish carrying two different versions of a region we can ask whether the
+  methylation follows the DNA version.
 - **Phase 4 — new genes.** A from-scratch gene annotation (BRAKER3) of each ecotype's genome to
   find genes the reference cannot show.
 

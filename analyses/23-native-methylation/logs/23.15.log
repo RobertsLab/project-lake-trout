@@ -1,0 +1,110 @@
+======================================================================
+lean frame
+======================================================================
+  [lean] 2,789 merged regions, 29.4 Mb genotyped in 24 chunks
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.15-dmr-fixed-variants.py:252: RuntimeWarning: Mean of empty slice
+  d = np.nanmean(af[:, IS_SISC], 1) - np.nanmean(af[:, ~IS_SISC], 1)
+======================================================================
+siscowet frame
+======================================================================
+  [siscowet] 3,132 merged regions, 33.0 Mb genotyped in 24 chunks
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.15-dmr-fixed-variants.py:252: RuntimeWarning: Mean of empty slice
+  d = np.nanmean(af[:, IS_SISC], 1) - np.nanmean(af[:, ~IS_SISC], 1)
+
+Fixed sequence differences near native DMRs (23.15)
+====================================================
+
+Fixed = >= 4 reads in all 8 fish; all 4 of one ecotype alt fraction <= 0.2 and all 4 of the other >= 0.8. bcftools mpileup -X pacbio-ccs -q 20, QUAL >= 20. Controls: 10 per DMR, same length, tested-CpG count within 30 %, >= 20 kb from any DMR.
+
+lean frame: 268 DMRs, 2680 controls (median 10 per DMR; 0 DMRs with fewer than 10)
+  variant sites with >= 4 reads in all fish: 251,280; fixed: 75 (alt in lean 0, alt in siscowet 75)
+  QC: covered sites where all 8 fish look heterozygous (collapsed paralogs): 29,213 (12%); differentiated SNVs |dAF|>=0.75: 384, >=0.5: 3,361
+  all DMRs:
+    class             bin          DMR windows hit  control       p   rate/kb DMR  control
+    fixed SNV/indel   core1kb        0/268  ( 0.0%)    0.1%  1.0000         0.000    0.006
+    fixed SNV/indel   far            4/268  ( 1.5%)    0.3%  0.0084         0.020    0.002
+    SNV |dAF|>=0.75   core1kb       12/268  ( 4.5%)    1.1%  0.0003         0.099    0.020
+    SNV |dAF|>=0.75   far           15/268  ( 5.6%)    2.4%  0.0010         0.086    0.013
+    SNV |dAF|>=0.5    core1kb       38/268  (14.2%)    7.2%  0.0001         0.650    0.203
+    SNV |dAF|>=0.5    far           57/268  (21.3%)   13.7%  0.0002         0.465    0.168
+  replicated DMRs (n=101):
+    class             bin          DMR windows hit  control       p   rate/kb DMR  control
+    fixed SNV/indel   core1kb        0/101  ( 0.0%)    0.1%  1.0000         0.000    0.003
+    fixed SNV/indel   far            2/101  ( 2.0%)    0.2%  0.0102         0.023    0.002
+    SNV |dAF|>=0.75   core1kb        7/101  ( 6.9%)    1.1%  0.0001         0.062    0.013
+    SNV |dAF|>=0.75   far            7/101  ( 6.9%)    2.5%  0.0092         0.050    0.013
+    SNV |dAF|>=0.5    core1kb       23/101  (22.8%)    6.3%  0.0001         0.740    0.135
+    SNV |dAF|>=0.5    far           33/101  (32.7%)   14.4%  0.0001         0.427    0.140
+  hypomethylated in siscowet (n=206):
+    class             bin          DMR windows hit  control       p   rate/kb DMR  control
+    fixed SNV/indel   core1kb        0/206  ( 0.0%)    0.1%  1.0000         0.000    0.005
+    fixed SNV/indel   far            4/206  ( 1.9%)    0.4%  0.0053         0.025    0.002
+    SNV |dAF|>=0.75   core1kb        7/206  ( 3.4%)    1.1%  0.0052         0.098    0.022
+    SNV |dAF|>=0.75   far           10/206  ( 4.9%)    2.5%  0.0243         0.084    0.014
+    SNV |dAF|>=0.5    core1kb       23/206  (11.2%)    7.4%  0.0245         0.560    0.210
+    SNV |dAF|>=0.5    far           36/206  (17.5%)   14.3%  0.1030         0.387    0.182
+  hypermethylated in siscowet (n=62):
+    class             bin          DMR windows hit  control       p   rate/kb DMR  control
+    fixed SNV/indel   core1kb        0/62   ( 0.0%)    0.2%  1.0000         0.000    0.010
+    fixed SNV/indel   far            0/62   ( 0.0%)    0.2%  1.0000         0.000    0.003
+    SNV |dAF|>=0.75   core1kb        5/62   ( 8.1%)    1.1%  0.0001         0.105    0.016
+    SNV |dAF|>=0.75   far            5/62   ( 8.1%)    2.1%  0.0056         0.096    0.011
+    SNV |dAF|>=0.5    core1kb       15/62   (24.2%)    6.5%  0.0001         1.066    0.179
+    SNV |dAF|>=0.5    far           21/62   (33.9%)   11.5%  0.0001         0.825    0.121
+  copy-number check (|log2 siscowet/lean depth| >= 0.5):
+    DMR windows 26.9% vs matched controls 14.0% (one-sided p 0.0001)
+    DMRs with a |dAF|>=0.5 SNV within 1 kb 21.1% (n=38) vs without 27.8% (n=230)
+    hypo-in-siscowet DMRs: siscowet depth lower 30, higher 30
+  DMR windows with a fixed difference within 5 kb (window: bin=count):
+    LDMR_147  single_frame  hypo_siscowet   far=17
+    LDMR_162  replicated    hypo_siscowet   far=1
+    LDMR_163  replicated    hypo_siscowet   far=12
+    LDMR_222  single_frame  hypo_siscowet   far=1
+
+siscowet frame: 304 DMRs, 3040 controls (median 10 per DMR; 0 DMRs with fewer than 10)
+  variant sites with >= 4 reads in all fish: 214,770; fixed: 62 (alt in lean 62, alt in siscowet 0)
+  QC: covered sites where all 8 fish look heterozygous (collapsed paralogs): 16,760 (8%); differentiated SNVs |dAF|>=0.75: 402, >=0.5: 3,253
+  all DMRs:
+    class             bin          DMR windows hit  control       p   rate/kb DMR  control
+    fixed SNV/indel   core1kb        0/304  ( 0.0%)    0.2%  1.0000         0.000    0.003
+    fixed SNV/indel   far            5/304  ( 1.6%)    0.3%  0.0014         0.017    0.002
+    SNV |dAF|>=0.75   core1kb        6/304  ( 2.0%)    1.0%  0.0838         0.021    0.021
+    SNV |dAF|>=0.75   far            8/304  ( 2.6%)    2.1%  0.3014         0.054    0.020
+    SNV |dAF|>=0.5    core1kb       40/304  (13.2%)    7.6%  0.0001         0.648    0.169
+    SNV |dAF|>=0.5    far           61/304  (20.1%)   14.1%  0.0013         0.429    0.168
+  replicated DMRs (n=119):
+    class             bin          DMR windows hit  control       p   rate/kb DMR  control
+    fixed SNV/indel   core1kb        0/119  ( 0.0%)    0.1%  1.0000         0.000    0.001
+    fixed SNV/indel   far            4/119  ( 3.4%)    0.3%  0.0001         0.031    0.001
+    SNV |dAF|>=0.75   core1kb        4/119  ( 3.4%)    0.7%  0.0043         0.035    0.019
+    SNV |dAF|>=0.75   far            6/119  ( 5.0%)    2.0%  0.0245         0.055    0.009
+    SNV |dAF|>=0.5    core1kb       22/119  (18.5%)    6.1%  0.0001         0.708    0.139
+    SNV |dAF|>=0.5    far           33/119  (27.7%)   13.4%  0.0001         0.386    0.160
+  hypomethylated in siscowet (n=248):
+    class             bin          DMR windows hit  control       p   rate/kb DMR  control
+    fixed SNV/indel   core1kb        0/248  ( 0.0%)    0.2%  1.0000         0.000    0.003
+    fixed SNV/indel   far            3/248  ( 1.2%)    0.3%  0.0276         0.018    0.003
+    SNV |dAF|>=0.75   core1kb        5/248  ( 2.0%)    1.0%  0.0891         0.023    0.019
+    SNV |dAF|>=0.75   far            7/248  ( 2.8%)    2.1%  0.2448         0.063    0.017
+    SNV |dAF|>=0.5    core1kb       30/248  (12.1%)    7.5%  0.0049         0.588    0.154
+    SNV |dAF|>=0.5    far           45/248  (18.1%)   13.8%  0.0291         0.420    0.161
+  hypermethylated in siscowet (n=56):
+    class             bin          DMR windows hit  control       p   rate/kb DMR  control
+    fixed SNV/indel   core1kb        0/56   ( 0.0%)    0.2%  1.0000         0.000    0.001
+    fixed SNV/indel   far            2/56   ( 3.6%)    0.4%  0.0095         0.008    0.001
+    SNV |dAF|>=0.75   core1kb        1/56   ( 1.8%)    1.2%  0.5199         0.012    0.032
+    SNV |dAF|>=0.75   far            1/56   ( 1.8%)    2.3%  0.7524         0.008    0.033
+    SNV |dAF|>=0.5    core1kb       10/56   (17.9%)    8.0%  0.0098         0.956    0.236
+    SNV |dAF|>=0.5    far           16/56   (28.6%)   15.7%  0.0070         0.481    0.202
+  copy-number check (|log2 siscowet/lean depth| >= 0.5):
+    DMR windows 33.2% vs matched controls 15.5% (one-sided p 0.0001)
+    DMRs with a |dAF|>=0.5 SNV within 1 kb 25.0% (n=40) vs without 34.5% (n=264)
+    hypo-in-siscowet DMRs: siscowet depth lower 45, higher 41
+  DMR windows with a fixed difference within 5 kb (window: bin=count):
+    SDMR_114  replicated    hypo_siscowet   far=18
+    SDMR_115  replicated    hypo_siscowet   far=1
+    SDMR_32   single_frame  hypo_siscowet   far=5
+    SDMR_57   replicated    hyper_siscowet  far=1
+    SDMR_58   replicated    hyper_siscowet  far=1
+
+

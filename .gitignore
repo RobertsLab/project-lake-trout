@@ -72,3 +72,6 @@ analyses/23-native-methylation/meth/*.cov10.bedGraph
 analyses/23-native-methylation/counts/
 code/04-pacbio/tools/modkit
 analyses/23-native-methylation/meth_cross/*.bedmethyl
+analyses/23-native-methylation/fixed_variants/vcf/
+analyses/23-native-methylation/fixed_variants/callable/
+analyses/23-native-methylation/fixed_variants/_*

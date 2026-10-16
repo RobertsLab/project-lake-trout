@@ -572,7 +572,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Contig-level assemblies and Liftoff sensitivity.</strong> Both genomes are thousands of contigs. The raw ecotype-only gene counts (5,058 lean, 9,589 siscowet) track assembly contiguity more than biology. Even genes where both assemblies agree are mostly assembly gaps: 89 % are covered by the other ecotype’s reads. Only the 491 genes that pass both checks count as evidence.</p>
 </div>
 <div class="warn-box">
-<p><strong>Methylation: compare on a shared genome.</strong> Pairing promoters across the two assemblies by gene ID produced &gt;1,000 apparent differences that vanish when both ecotypes’ reads are tested on the same assembly. Tested that way, ~137 short DMRs replicate in both directions, while promoter- and gene-wide methylation does not differ. The evidence model now uses these native DMRs; the reference DMRs (whose thresholds carry ~40 % expected false calls) are kept for reference only. Only ~70 % of replicated native DMRs place uniquely on SaNama_1.0, so the reference-coordinate browser track is a subset; the purged-assembly tracks in JBrowse show all of them.</p>
+<p><strong>Methylation: compare on a shared genome.</strong> Pairing promoters across the two assemblies by gene ID produced &gt;1,000 apparent differences that vanish when both ecotypes’ reads are tested on the same assembly. Tested that way, ~137 short DMRs replicate in both directions, while promoter- and gene-wide methylation does not differ. The evidence model now uses these native DMRs; the reference DMRs (whose thresholds carry ~40 % expected false calls) are kept for reference only. No native DMR has a fixed sequence difference within 1 kb, but differentiated SNVs (2–3×) and ecotype copy-number-like depth differences (~2×) are enriched at them (23.15): genetic and epigenetic divergence are entangled, and n = 4 per ecotype cannot separate cause. Only ~70 % of replicated native DMRs place uniquely on SaNama_1.0, so the reference-coordinate browser track is a subset; the purged-assembly tracks in JBrowse show all of them.</p>
 </div>
 <div class="warn-box">
 <p><strong>Small numbers, no validation.</strong> Four fish per ecotype. Tier-A GO terms rest on three to five genes each. All links are associations with no functional test; the liver RNA-seq comes from a separate parasite study and is orthogonal support at best.</p>
@@ -633,7 +633,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="next" class="level3">
 <h3 class="anchored" data-anchor-id="next">Next</h3>
 <ul>
-<li><strong>Phase 3 follow-up</strong> — test whether native DMRs sit next to fixed sequence variants between the ecotypes</li>
+<li><strong>Phase 3 follow-up</strong> — allele-specific methylation at native DMRs that sit in differentiated haplotypes</li>
 <li><strong>Phase 4</strong> — BRAKER3 de novo annotation to recover genes absent from the reference</li>
 <li><strong>Phase 5</strong> — browser tracks for SV / reciprocal PAV / native DMRs; manuscript; NCBI assembly submission</li>
 </ul>
