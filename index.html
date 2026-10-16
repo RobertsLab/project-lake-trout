@@ -54,6 +54,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#go-enrichment-after-tandem-cluster-collapsing" id="toc-go-enrichment-after-tandem-cluster-collapsing" class="nav-link" data-scroll-target="#go-enrichment-after-tandem-cluster-collapsing">GO enrichment after tandem-cluster collapsing</a></li>
   </ul></li>
+  <li><a href="#lean-vs-published-lean-a-baseline" id="toc-lean-vs-published-lean-a-baseline" class="nav-link" data-scroll-target="#lean-vs-published-lean-a-baseline">Lean vs Published Lean: A Baseline</a></li>
   <li><a href="#what-happened-to-the-earlier-headline-candidates" id="toc-what-happened-to-the-earlier-headline-candidates" class="nav-link" data-scroll-target="#what-happened-to-the-earlier-headline-candidates">What Happened to the Earlier Headline Candidates</a></li>
   <li><a href="#hypothesized-links-to-ecotype-biology-revised" id="toc-hypothesized-links-to-ecotype-biology-revised" class="nav-link" data-scroll-target="#hypothesized-links-to-ecotype-biology-revised">Hypothesized Links to Ecotype Biology, Revised</a></li>
   <li><a href="#interactive-genome-browsers" id="toc-interactive-genome-browsers" class="nav-link" data-scroll-target="#interactive-genome-browsers">Interactive Genome Browsers</a></li>
@@ -128,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="stats-container">
   <div class="stat-box"><div class="stat-number">2</div>Ecotype genome assemblies<br><small>lean 2.58 Gb · siscowet 2.84 Gb</small></div>
   <div class="stat-box"><div class="stat-number">683</div>Reciprocal presence/absence regions<br><small>on native coordinates</small></div>
-  <div class="stat-box"><div class="stat-number">76</div>Native-anchored candidate genes<br><small>66 with no caution flag</small></div>
+  <div class="stat-box"><div class="stat-number">76</div>Native-anchored candidate genes<br><small>66 flag-free · 3 lose coding sequence</small></div>
   <div class="stat-box"><div class="stat-number">1 of 4</div>Earlier convergent genes<br><small>retained any two-genome support</small></div>
 </div>
 <div class="finding-box">
@@ -154,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>Genome</td>
-<td>NCBI SaNama_1.0, lean-background doubled haploid</td>
+<td>NCBI SaNama_1.0, a Seneca-strain lean doubled haploid</td>
 <td>Lean and siscowet hifiasm assemblies, haplotig-purged, 12,700 and 8,159 contigs</td>
 </tr>
 <tr class="even">
@@ -178,6 +179,11 @@ ul.task-list li input[type="checkbox"] {
 <td>Ecotype-only gene sets, corroborated by the other assembly’s unmapped list (1,474 lean-only, 3,040 siscowet-only), then checked against the other ecotype’s reads: 147 / 344 genes remain; 2,359 copy-number divergent</td>
 </tr>
 <tr class="even">
+<td>Baseline</td>
+<td>none</td>
+<td><strong>Lean vs published lean</strong> (23.17): two lean genomes differ at the sequence level about as much as lean and siscowet do; a quarter of lean–siscowet SVs are differences of our lean assembly alone</td>
+</tr>
+<tr class="odd">
 <td>Methylation</td>
 <td>302 DMRs on reference</td>
 <td>Both ecotypes’ reads tested on each purged assembly. ~137 short DMRs replicate across both frames (empirical FDR ≈ 6 %; ~75 % hypomethylated in siscowet, all 8 fish separated). No promoter- or gene-wide difference. Half the reference DMRs sit in multi-copy sequence; the uniquely placed ones replicate</td>
@@ -267,7 +273,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="native-anchored-candidates-tier-a" class="level2">
 <h2 class="anchored" data-anchor-id="native-anchored-candidates-tier-a">Native-Anchored Candidates (Tier A)</h2>
-<p>Seventy-six genes sit in sequence present in one ecotype’s genome and absent from every read set of the other. Forty-seven are siscowet-present, twenty-nine lean-present. A selection of the flag-free, protein-coding set:</p>
+<p>Seventy-six genes contain sequence present in one ecotype’s genome and absent from every read set of the other. Forty-seven are siscowet-present, twenty-nine lean-present.</p>
+<div class="warn-box">
+<p><strong>Most tier-A genes are not missing genes (23.18).</strong> The absent segment is usually a small piece of a large gene (median 3 % of its length), and for about 90 % of tier-A genes it is intronic only. Coding sequence is hit at less than half the rate expected from random placement in the same genes. Only three single-copy annotated genes lose coding sequence: <code>ttll9</code> (56 % of CDS, absent in lean fish), <code>grb10</code>-like (18 %, absent in siscowet) and <code>gpia</code> (12 %, absent in lean). Every reciprocal-PAV gene is also annotated in the published lean genome, so a gene absent from our four lean fish is not absent from lean trout in general.</p>
+</div>
+<p>A selection of the flag-free, protein-coding set (<strong>CDS</strong> marks coding-sequence loss; all others are intronic or UTR):</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -290,87 +300,94 @@ ul.task-list li input[type="checkbox"] {
 <td><code>gpia</code></td>
 <td>Glucose-6-phosphate isomerase a</td>
 <td>siscowet</td>
-<td>reciprocal PAV · CNV · ref</td>
+<td>reciprocal PAV · CNV · ref · <strong>CDS</strong></td>
 <td>energy metabolism</td>
 </tr>
 <tr class="even">
+<td><code>ttll9</code></td>
+<td>Tubulin tyrosine ligase-like 9</td>
+<td>siscowet</td>
+<td>reciprocal PAV · CNV · ref · <strong>CDS</strong></td>
+<td>cilia / microtubules</td>
+</tr>
+<tr class="odd">
 <td>LOC120028089</td>
 <td>Phosphoenolpyruvate carboxykinase, mitochondrial-like</td>
 <td>siscowet</td>
 <td>reciprocal PAV · ref</td>
 <td>gluconeogenesis</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>LOC120024897</td>
 <td>cGMP-inhibited 3′,5′-cyclic phosphodiesterase B-like</td>
 <td>siscowet</td>
 <td>reciprocal PAV · ref</td>
 <td>insulin / lipolysis signalling</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>LOC120053718</td>
 <td>cAMP-specific phosphodiesterase 4D-like</td>
 <td>lean</td>
 <td>reciprocal PAV · ref</td>
 <td>cAMP signalling</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>LOC120022070</td>
 <td>Growth factor receptor-bound protein 10-like</td>
 <td>lean</td>
-<td>reciprocal PAV · CNV · ref</td>
+<td>reciprocal PAV · CNV · ref · <strong>CDS</strong></td>
 <td>insulin / IGF signalling, growth</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>LOC120066682 / LOC120053938</td>
 <td>Nuclear receptor ROR-alpha A (two paralogs)</td>
 <td>lean / siscowet</td>
 <td>reciprocal PAV · ref</td>
 <td>circadian &amp; lipid-metabolic regulator, one paralog per ecotype</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>LOC120030672</td>
 <td>Calsequestrin-1-like</td>
 <td>siscowet</td>
 <td>reciprocal PAV · ref</td>
 <td>calcium handling, muscle</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>cracr2b</code></td>
 <td>Calcium release-activated channel regulator 2B</td>
 <td>siscowet</td>
 <td>reciprocal PAV · ref</td>
 <td>calcium signalling</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>LOC120056805</td>
 <td>Troponin T, fast skeletal muscle-like</td>
 <td>siscowet</td>
 <td>reciprocal PAV · ref</td>
 <td>muscle</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>LOC120020198</td>
 <td>Synapsin-2-like</td>
 <td>lean</td>
 <td>reciprocal PAV · ref</td>
 <td>neural</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>LOC120066463</td>
 <td>Contactin-1a-like</td>
 <td>siscowet</td>
 <td>reciprocal PAV · ref</td>
 <td>neural adhesion</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>bco2a</code></td>
 <td>Beta-carotene oxygenase 2a</td>
 <td>siscowet</td>
 <td>reciprocal PAV · ref</td>
 <td>carotenoid / pigment</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>ptprc</code>, LOC120024920</td>
 <td>PTPRC; MHC class I-related</td>
 <td>lean / siscowet</td>
@@ -379,7 +396,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>Full list: <a href="analyses/23-integration/refined/two_genome_candidates_refined.tsv"><code>two_genome_candidates_refined.tsv</code></a>.</p>
+<p>Full list: <a href="analyses/23-integration/refined/two_genome_candidates_refined.tsv"><code>two_genome_candidates_refined.tsv</code></a>; exon placement per gene: <a href="analyses/23-lean-baseline/reciprocal_pav_exon.tsv"><code>reciprocal_pav_exon.tsv</code></a>.</p>
 <section id="go-enrichment-after-tandem-cluster-collapsing" class="level3">
 <h3 class="anchored" data-anchor-id="go-enrichment-after-tandem-cluster-collapsing">GO enrichment after tandem-cluster collapsing</h3>
 <p>Same-family genes within 50 kb of each other were collapsed to one representative in both the study sets and the background. This removes the cluster artifacts that drove several earlier signals (histone, tRNA and snRNA arrays in the copy-number set). The read-coverage filter above removed the rest: the 18-gene hemoglobin cluster and the calcium-channel genes that led the lean-only set are all covered by siscowet reads.</p>
@@ -448,6 +465,59 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>The earlier calcium-channel signal was an assembly-gap effect.</strong> What remains on read-level evidence is a modest calcium-binding enrichment and a few muscle and insulin-response genes. No lipid term reaches FDR 0.1 in any two-genome set, collapsed or not. Tables: <a href="analyses/23-integration/refined/phenotype_survival_refined.tsv"><code>phenotype_survival_refined.tsv</code></a>, <a href="analyses/23-integration/refined/cluster_diagnostics.tsv"><code>cluster_diagnostics.tsv</code></a>.</p>
 <hr>
 </section>
+</section>
+<section id="lean-vs-published-lean-a-baseline" class="level2">
+<h2 class="anchored" data-anchor-id="lean-vs-published-lean-a-baseline">Lean vs Published Lean: A Baseline</h2>
+<p>The reference fish is a single Seneca-strain lean, bred as a gynogenetic doubled haploid, so it carries one homozygous lean haplotype. Two lean genomes should differ only by within-lean variation and assembly artifacts, which sets the scale for reading lean–siscowet differences. The three SyRI comparisons were reused (23.17).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>lean vs ref</th>
+<th>siscowet vs ref</th>
+<th>lean vs siscowet</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SNPs</td>
+<td>1.14 M</td>
+<td>1.23 M</td>
+<td>1.24 M</td>
+</tr>
+<tr class="even">
+<td>Highly diverged (Mb)</td>
+<td>231</td>
+<td>175</td>
+<td>197</td>
+</tr>
+<tr class="odd">
+<td>Inversions (Mb)</td>
+<td>9.9</td>
+<td>21.3</td>
+<td>29.3</td>
+</tr>
+<tr class="even">
+<td>Translocations (Mb)</td>
+<td>62.6</td>
+<td>107.9</td>
+<td>120.8</td>
+</tr>
+<tr class="odd">
+<td>Not aligned, query (Mb)</td>
+<td>230</td>
+<td>380</td>
+<td>491</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Sequence-level variation shows no ecotype signal.</strong> SNPs, indels and diverged blocks differ as much between two lean genomes as between lean and siscowet.</li>
+<li><strong>Large rearrangements are 2–3× larger between ecotypes</strong>, but siscowet vs reference carries most of that excess on its own and the siscowet assembly is larger. Real siscowet structure and assembly differences are not yet separable.</li>
+<li><strong>Polarizing each lean–siscowet SV</strong> against the published lean: in 25 % (99 Mb) siscowet matches the published lean and only our lean differs, so these are not ecotype differences. For indels, lean-side and siscowet-side cases are equally common. Duplications, translocations and inversions skew to the siscowet side.</li>
+</ul>
+<p>Details: <a href="analyses/23-lean-baseline/README.md"><code>analyses/23-lean-baseline/README.md</code></a>.</p>
+<hr>
 </section>
 <section id="what-happened-to-the-earlier-headline-candidates" class="level2">
 <h2 class="anchored" data-anchor-id="what-happened-to-the-earlier-headline-candidates">What Happened to the Earlier Headline Candidates</h2>
@@ -535,7 +605,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="hypothesized-links-to-ecotype-biology-revised">Hypothesized Links to Ecotype Biology, Revised</h2>
 <ul>
 <li><strong>⚡ Calcium handling and excitability</strong> <em>(weakened)</em> — the lean-only calcium-channel enrichment did not survive the read-coverage check: siscowet fish carry those genes too. What remains is a calcium-binding enrichment in the reciprocal PAV set (FDR 0.10), and calsequestrin-1, <code>cracr2b</code> and fast-muscle troponin T among the siscowet-present tier-A genes. Plausibly relevant to muscle function in a deep, cold habitat, but now a handful of genes rather than a pathway signal.</li>
-<li><strong>🔋 Energy metabolism and insulin signalling</strong> <em>(new)</em> — <code>gpia</code>, mitochondrial PEPCK, two phosphodiesterases, <code>grb10</code>-like and a ROR-alpha paralog partition between the ecotypes on read-level evidence. A metabolic-rate or fuel-partitioning hypothesis fits the lean/siscowet contrast better than the earlier lipid-storage genes did, but it rests on a handful of genes.</li>
+<li><strong>🔋 Energy metabolism and insulin signalling</strong> <em>(new, narrowed)</em> — <code>gpia</code>, mitochondrial PEPCK, two phosphodiesterases, <code>grb10</code>-like and a ROR-alpha paralog carry read-level presence/absence segments. Only <code>gpia</code> and <code>grb10</code>-like lose coding sequence; the rest are intronic, so any effect would be regulatory. A metabolic-rate or fuel-partitioning hypothesis fits the lean/siscowet contrast better than the earlier lipid-storage genes did, but it rests on a handful of genes.</li>
 <li><strong>🫧 Lipid storage</strong> <em>(demoted)</em> — the defining siscowet phenotype, yet the earlier lipid-gene deletions, called against the lean-background reference, are not supported on the ecotype genomes (most likely reference divergence rather than gene loss), and no lipid GO term is enriched on native coordinates. This does not rule out a genetic basis: it may be regulatory rather than structural, or lie in genes Liftoff cannot see. Native methylation found no lipid signal either (a DGAT2-like promoter is one nominal exception); de novo annotation (Phase 4) is the remaining test.</li>
 <li><strong>🛡️ Immune</strong> — PTPRC, an MHC class I-related gene, CEACAM and TRIM39 appear in tier A. These families evolve fast and vary in copy number within populations; treat as expected background until population-level data exist.</li>
 <li><strong>🩸 Hemoglobin cluster: resolved as an assembly gap</strong> — the 18 “lean-only” hemoglobin genes on NC_052347.1 are fully covered by siscowet reads in all four siscowet fish. Siscowet fish carry the cluster; the siscowet assembly does not.</li>
@@ -573,6 +643,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="warn-box">
 <p><strong>Methylation: compare on a shared genome.</strong> Pairing promoters across the two assemblies by gene ID produced &gt;1,000 apparent differences that vanish when both ecotypes’ reads are tested on the same assembly. Tested that way, ~137 short DMRs replicate in both directions, while promoter- and gene-wide methylation does not differ. The evidence model now uses these native DMRs; the reference DMRs (whose thresholds carry ~40 % expected false calls) are kept for reference only. No native DMR has a fixed sequence difference within 1 kb, but differentiated SNVs (2–3×) and ecotype copy-number-like depth differences (~2×) are enriched at them (23.15): genetic and epigenetic divergence are entangled. Where a fish is heterozygous for a differentiated SNV (~20 % of DMRs), reads phased by allele show methylation following the haplotype (allelic difference ≈ 0.8 × the ecotype difference, both frames; 23.16): mostly cis-genetic, with a smaller trans / environmental part in siscowet. Only ~70 % of replicated native DMRs place uniquely on SaNama_1.0, so the reference-coordinate browser track is a subset; the purged-assembly tracks in JBrowse show all of them.</p>
+</div>
+<div class="warn-box">
+<p><strong>Two lean genomes differ as much as lean and siscowet at the sequence level.</strong> A difference between our two assemblies is ecotype-informative only if the published lean sides with our lean (23.17). Reciprocal PAV marks segments, not whole genes: 90 % are intronic (23.18).</p>
 </div>
 <div class="warn-box">
 <p><strong>Small numbers, no validation.</strong> Four fish per ecotype. Tier-A GO terms rest on three to five genes each. All links are associations with no functional test; the liver RNA-seq comes from a separate parasite study and is orthogonal support at best.</p>
@@ -628,6 +701,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Reciprocal PAV: each ecotype’s reads aligned to the other’s purged assembly (pbmm2, mosdepth, CIGAR)</li>
 <li>Shared / ecotype-only / copy-number gene sets from the two Liftoff annotations</li>
 <li>Five-line evidence model with tiers; tandem-cluster-collapsed GO over-representation</li>
+<li>Lean vs published-lean baseline: lean–siscowet SVs polarized against the reference; exon placement of reciprocal-PAV segments</li>
 </ol>
 </section>
 <section id="next" class="level3">
@@ -646,6 +720,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>GitHub Repository</strong>: <a href="https://github.com/RobertsLab/project-lake-trout">RobertsLab/project-lake-trout</a></li>
 <li><strong>Two-genome plan and progress log</strong>: <a href="code/23-next-phase-research-plan.md"><code>code/23-next-phase-research-plan.md</code></a></li>
 <li><strong>Refined evidence model</strong>: <a href="analyses/23-integration/refined/README.md"><code>analyses/23-integration/refined/README.md</code></a></li>
+<li><strong>Lean vs published-lean baseline</strong>: <a href="analyses/23-lean-baseline/README.md"><code>analyses/23-lean-baseline/README.md</code></a></li>
 <li><strong>Single-reference annotation layer (2025)</strong>: <a href="code/18-diff-annotation-phenotype-plan.md"><code>code/18-diff-annotation-phenotype-plan.md</code></a></li>
 </ul>
 </section>
