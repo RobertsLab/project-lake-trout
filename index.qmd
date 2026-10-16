@@ -264,7 +264,9 @@ gene ID produced >1,000 apparent differences that vanish when both ecotypes' rea
 the same assembly. Tested that way, ~137 short DMRs replicate in both directions, while promoter- and
 gene-wide methylation does not differ. The evidence model now uses these native DMRs; the
 reference DMRs (whose thresholds carry ~40 % expected false calls) are kept for reference only.
-Only ~70 % of replicated native DMRs place uniquely on SaNama_1.0, so the reference-coordinate
+No native DMR has a fixed sequence difference within 1 kb, but differentiated SNVs (2–3×) and
+ecotype copy-number-like depth differences (~2×) are enriched at them (23.15): genetic and epigenetic
+divergence are entangled, and n = 4 per ecotype cannot separate cause. Only ~70 % of replicated native DMRs place uniquely on SaNama_1.0, so the reference-coordinate
 browser track is a subset; the purged-assembly tracks in JBrowse show all of them.
 :::
 
@@ -301,7 +303,7 @@ separate parasite study and is orthogonal support at best.
 8. Five-line evidence model with tiers; tandem-cluster-collapsed GO over-representation
 
 ### Next
-- **Phase 3 follow-up** — test whether native DMRs sit next to fixed sequence variants between the ecotypes
+- **Phase 3 follow-up** — allele-specific methylation at native DMRs that sit in differentiated haplotypes
 - **Phase 4** — BRAKER3 de novo annotation to recover genes absent from the reference
 - **Phase 5** — browser tracks for SV / reciprocal PAV / native DMRs; manuscript; NCBI assembly submission
 

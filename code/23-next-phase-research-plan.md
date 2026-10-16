@@ -377,5 +377,39 @@ frame): all 572 DMRs on the lean and siscowet purged assemblies in JBrowse; 243 
 on SaNama_1.0 (152 of 220 replicated), merged into 160 reference loci (85 replicated) for IGV and
 JBrowse. Reference DMR tracks were renamed "Reference DMRs".
 
-**Next:** test whether native DMRs sit next to fixed sequence variants between the ecotypes; Phase 4
-(BRAKER3) on raven.
+**Step G — sequence differences near native DMRs (2026-10-15)**
+([`23.15`](23.15-dmr-fixed-variants.py), `analyses/23-native-methylation/fixed_variants/`). Inside each
+frame, all eight fish were genotyped (bcftools 1.14 `-X pacbio-ccs`, MAPQ ≥ 20, QUAL ≥ 20) over every
+DMR ± 5 kb and over 10 matched control windows per DMR (same length, tested-CpG count within 30 %,
+≥ 20 kb from any DMR). Callable = ≥ 4 reads in all 8 fish. Window-level tests (fraction of windows
+hit, matched resampling), so one divergent block cannot dominate.
+
+| lean frame / siscowet frame | DMR windows | matched controls | p |
+|---|---|---|---|
+| fixed difference (all 4 vs all 4) within 1 kb | 0 / 0 % | 0.1 / 0.2 % | — |
+| fixed difference 1–5 kb | 1.5 / 1.6 % | 0.3 / 0.3 % | 0.008 / 0.0005 |
+| SNV \|ΔAF\| ≥ 0.5 within 1 kb | 14.2 / 13.2 % | 7.2 / 7.6 % | 0.0001 / 0.0003 |
+| same, replicated DMRs | 22.8 / 18.5 % | 6.3 / 6.1 % | 0.0001 / 0.0001 |
+| ecotype depth ratio ≥ 1.4-fold | 26.9 / 33.2 % | 14.0 / 15.5 % | 0.0001 / 0.0001 |
+
+**Result.** (1) **No DMR has a fixed sequence difference within 1 kb**; fixed differences are rare
+everywhere in these eight fish (62–75 per frame in ~16 Mb callable, ~1 per 300–500 kb). The 1–5 kb
+excess comes mostly from one interferon cluster (interferon a3-like / alpha-6-like; LDMR_162/163 =
+SDMR_114/115), where a block of 12–18 fixed differences flanks replicated hypomethylated DMRs in
+both frames. (2) **Differentiated SNVs are 2–3× enriched within 1 kb of DMRs**, most strongly at
+replicated DMRs and consistently in both frames, so a substantial minority of DMRs (~15–20 %) sit in
+genetically differentiated haplotypes. (3) **About a third of DMRs show an ecotype read-depth
+difference** (vs ~15 % of controls), in both directions and not tied to methylation direction: copy-
+number variation of collapsed paralogs (salmonid WGD) is a second, partly separate contributor. DMRs
+with differentiated SNVs are not more depth-deviant (21–25 % vs 28–35 %), so (2) is not just (3).
+QC: 8–12 % of covered variant sites are heterozygous-looking in all 8 fish (collapsed paralogs).
+
+**Interpretation.** Most native DMRs have neither a nearby fixed difference nor a differentiated
+SNV, so a simple "fixed cis variant" model does not explain them; but genetic differentiation and
+copy-number differences are each enriched at DMRs. A differentiated SNV within 5 kb or a depth
+difference marks 47–52 % of DMR windows vs 28–30 % of matched controls, an excess of ~20 points. Genetic
+and epigenetic ecotype divergence are therefore entangled, and n = 4 wild fish per ecotype cannot
+resolve causality. Allele-specific methylation in heterozygous fish (HiFi reads carry both) is the
+direct next test.
+
+**Next:** allele-specific methylation at DMRs with differentiated SNVs; Phase 4 (BRAKER3) on raven.

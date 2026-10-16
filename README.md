@@ -171,7 +171,9 @@ contigs / 59,968 lifted genes; 50,379 genes shared.
 gene-wide methylation does not differ, but a CpG-level scan ([`23.13`](code/23.13-native-meth-cpg-scan.py))
 finds ~137 short DMRs that replicate across both assemblies (empirical FDR ≈ 6 %, mostly
 hypomethylated in siscowet). About half of the 302 reference DMRs fall in multi-copy sequence; the
-uniquely placed ones replicate natively.
+uniquely placed ones replicate natively. No native DMR has a fixed sequence difference within 1 kb,
+but differentiated SNVs and copy-number-like depth differences are enriched at them
+([`23.15`](code/23.15-dmr-fixed-variants.py)).
 
 **Open phases:** BRAKER3 de novo annotation (Phase 4), browser tracks and manuscript (Phase 5).
 
