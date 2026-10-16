@@ -47,7 +47,7 @@ what survived that test, what did not, and what remains open.
 <div class="stats-container">
   <div class="stat-box"><div class="stat-number">2</div>Ecotype genome assemblies<br><small>lean 2.58 Gb · siscowet 2.84 Gb</small></div>
   <div class="stat-box"><div class="stat-number">683</div>Reciprocal presence/absence regions<br><small>on native coordinates</small></div>
-  <div class="stat-box"><div class="stat-number">76</div>Native-anchored candidate genes<br><small>66 with no caution flag</small></div>
+  <div class="stat-box"><div class="stat-number">76</div>Native-anchored candidate genes<br><small>66 flag-free · 3 lose coding sequence</small></div>
   <div class="stat-box"><div class="stat-number">1 of 4</div>Earlier convergent genes<br><small>retained any two-genome support</small></div>
 </div>
 ```
@@ -65,11 +65,12 @@ sample size is four fish per ecotype, and the assemblies are contig-level.
 
 | Layer | Single-reference analysis (2025) | Two-genome analysis (2026) |
 |---|---|---|
-| Genome | NCBI SaNama_1.0, lean-background doubled haploid | Lean and siscowet hifiasm assemblies, haplotig-purged, 12,700 and 8,159 contigs |
+| Genome | NCBI SaNama_1.0, a Seneca-strain lean doubled haploid | Lean and siscowet hifiasm assemblies, haplotig-purged, 12,700 and 8,159 contigs |
 | Annotation | 46,359 RefSeq genes | Liftoff transfer: 55,437 lean, 59,968 siscowet gene models; 50,379 shared |
 | Structure | 3,465 stringent siscowet deletions, one direction only | SyRI structural-variant map for lean↔ref, siscowet↔ref, lean↔siscowet; ~18–20 % of reference PAVs are SV-confirmed |
 | Presence/absence | Reads → reference only | **Reciprocal PAV**: each ecotype's reads → the other's genome. 340 siscowet-present and 343 lean-present regions, 1.57 Mb, 115 genes |
 | Gene content | not testable | Ecotype-only gene sets, corroborated by the other assembly's unmapped list (1,474 lean-only, 3,040 siscowet-only), then checked against the other ecotype's reads: 147 / 344 genes remain; 2,359 copy-number divergent |
+| Baseline | none | **Lean vs published lean** (23.17): two lean genomes differ at the sequence level about as much as lean and siscowet do; a quarter of lean–siscowet SVs are differences of our lean assembly alone |
 | Methylation | 302 DMRs on reference | Both ecotypes' reads tested on each purged assembly. ~137 short DMRs replicate across both frames (empirical FDR ≈ 6 %; ~75 % hypomethylated in siscowet, all 8 fish separated). No promoter- or gene-wide difference. Half the reference DMRs sit in multi-copy sequence; the uniquely placed ones replicate |
 
 Plan and progress log: [`code/23-next-phase-research-plan.md`](code/23-next-phase-research-plan.md).
@@ -106,17 +107,30 @@ tables: [`analyses/23-integration/refined/README.md`](analyses/23-integration/re
 
 ## Native-Anchored Candidates (Tier A)
 
-Seventy-six genes sit in sequence present in one ecotype's genome and absent from every read set
-of the other. Forty-seven are siscowet-present, twenty-nine lean-present. A selection of the
-flag-free, protein-coding set:
+Seventy-six genes contain sequence present in one ecotype's genome and absent from every read set
+of the other. Forty-seven are siscowet-present, twenty-nine lean-present.
+
+::: {.warn-box}
+**Most tier-A genes are not missing genes (23.18).** The absent segment is usually a small piece
+of a large gene (median 3 % of its length), and for about 90 % of tier-A genes it is intronic only.
+Coding sequence is hit at less than half the rate expected from random placement in the same genes.
+Only three single-copy annotated genes lose coding sequence: `ttll9` (56 % of CDS, absent in lean
+fish), `grb10`-like (18 %, absent in siscowet) and `gpia` (12 %, absent in lean). Every
+reciprocal-PAV gene is also annotated in the published lean genome, so a gene absent from our
+four lean fish is not absent from lean trout in general.
+:::
+
+A selection of the flag-free, protein-coding set (**CDS** marks coding-sequence loss; all others
+are intronic or UTR):
 
 | Gene | Product | Present in | Lines | Axis |
 |---|---|---|---|---|
-| `gpia` | Glucose-6-phosphate isomerase a | siscowet | reciprocal PAV · CNV · ref | energy metabolism |
+| `gpia` | Glucose-6-phosphate isomerase a | siscowet | reciprocal PAV · CNV · ref · **CDS** | energy metabolism |
+| `ttll9` | Tubulin tyrosine ligase-like 9 | siscowet | reciprocal PAV · CNV · ref · **CDS** | cilia / microtubules |
 | LOC120028089 | Phosphoenolpyruvate carboxykinase, mitochondrial-like | siscowet | reciprocal PAV · ref | gluconeogenesis |
 | LOC120024897 | cGMP-inhibited 3′,5′-cyclic phosphodiesterase B-like | siscowet | reciprocal PAV · ref | insulin / lipolysis signalling |
 | LOC120053718 | cAMP-specific phosphodiesterase 4D-like | lean | reciprocal PAV · ref | cAMP signalling |
-| LOC120022070 | Growth factor receptor-bound protein 10-like | lean | reciprocal PAV · CNV · ref | insulin / IGF signalling, growth |
+| LOC120022070 | Growth factor receptor-bound protein 10-like | lean | reciprocal PAV · CNV · ref · **CDS** | insulin / IGF signalling, growth |
 | LOC120066682 / LOC120053938 | Nuclear receptor ROR-alpha A (two paralogs) | lean / siscowet | reciprocal PAV · ref | circadian & lipid-metabolic regulator, one paralog per ecotype |
 | LOC120030672 | Calsequestrin-1-like | siscowet | reciprocal PAV · ref | calcium handling, muscle |
 | `cracr2b` | Calcium release-activated channel regulator 2B | siscowet | reciprocal PAV · ref | calcium signalling |
@@ -126,7 +140,8 @@ flag-free, protein-coding set:
 | `bco2a` | Beta-carotene oxygenase 2a | siscowet | reciprocal PAV · ref | carotenoid / pigment |
 | `ptprc`, LOC120024920 | PTPRC; MHC class I-related | lean / siscowet | reciprocal PAV · ref | immune, rapidly evolving |
 
-Full list: [`two_genome_candidates_refined.tsv`](analyses/23-integration/refined/two_genome_candidates_refined.tsv).
+Full list: [`two_genome_candidates_refined.tsv`](analyses/23-integration/refined/two_genome_candidates_refined.tsv);
+exon placement per gene: [`reciprocal_pav_exon.tsv`](analyses/23-lean-baseline/reciprocal_pav_exon.tsv).
 
 ### GO enrichment after tandem-cluster collapsing
 
@@ -149,6 +164,35 @@ evidence is a modest calcium-binding enrichment and a few muscle and insulin-res
 lipid term reaches FDR 0.1 in any two-genome set, collapsed or not.
 Tables: [`phenotype_survival_refined.tsv`](analyses/23-integration/refined/phenotype_survival_refined.tsv),
 [`cluster_diagnostics.tsv`](analyses/23-integration/refined/cluster_diagnostics.tsv).
+
+---
+
+## Lean vs Published Lean: A Baseline
+
+The reference fish is a single Seneca-strain lean, bred as a gynogenetic doubled haploid, so it
+carries one homozygous lean haplotype. Two lean genomes should differ only by within-lean variation
+and assembly artifacts, which sets the scale for reading lean–siscowet differences. The three SyRI
+comparisons were reused (23.17).
+
+| | lean vs ref | siscowet vs ref | lean vs siscowet |
+|---|---|---|---|
+| SNPs | 1.14 M | 1.23 M | 1.24 M |
+| Highly diverged (Mb) | 231 | 175 | 197 |
+| Inversions (Mb) | 9.9 | 21.3 | 29.3 |
+| Translocations (Mb) | 62.6 | 107.9 | 120.8 |
+| Not aligned, query (Mb) | 230 | 380 | 491 |
+
+- **Sequence-level variation shows no ecotype signal.** SNPs, indels and diverged blocks differ as
+  much between two lean genomes as between lean and siscowet.
+- **Large rearrangements are 2–3× larger between ecotypes**, but siscowet vs reference carries most
+  of that excess on its own and the siscowet assembly is larger. Real siscowet structure and
+  assembly differences are not yet separable.
+- **Polarizing each lean–siscowet SV** against the published lean: in 25 % (99 Mb) siscowet matches
+  the published lean and only our lean differs, so these are not ecotype differences. For indels,
+  lean-side and siscowet-side cases are equally common. Duplications, translocations and inversions
+  skew to the siscowet side.
+
+Details: [`analyses/23-lean-baseline/README.md`](analyses/23-lean-baseline/README.md).
 
 ---
 
@@ -194,10 +238,12 @@ assembly, not from lean fish. That is the outcome the two-genome design was buil
   calcium-binding enrichment in the reciprocal PAV set (FDR 0.10), and calsequestrin-1, `cracr2b`
   and fast-muscle troponin T among the siscowet-present tier-A genes. Plausibly relevant to muscle
   function in a deep, cold habitat, but now a handful of genes rather than a pathway signal.
-- **🔋 Energy metabolism and insulin signalling** *(new)* — `gpia`, mitochondrial PEPCK, two
-  phosphodiesterases, `grb10`-like and a ROR-alpha paralog partition between the ecotypes on
-  read-level evidence. A metabolic-rate or fuel-partitioning hypothesis fits the lean/siscowet
-  contrast better than the earlier lipid-storage genes did, but it rests on a handful of genes.
+- **🔋 Energy metabolism and insulin signalling** *(new, narrowed)* — `gpia`, mitochondrial
+  PEPCK, two phosphodiesterases, `grb10`-like and a ROR-alpha paralog carry read-level
+  presence/absence segments. Only `gpia` and `grb10`-like lose coding sequence; the rest are
+  intronic, so any effect would be regulatory. A metabolic-rate or fuel-partitioning hypothesis
+  fits the lean/siscowet contrast better than the earlier lipid-storage genes did, but it rests on
+  a handful of genes.
 - **🫧 Lipid storage** *(demoted)* — the defining siscowet phenotype, yet the earlier lipid-gene
   deletions, called against the lean-background reference, are not supported on the ecotype
   genomes (most likely reference divergence rather than gene loss), and no lipid GO term is
@@ -274,6 +320,12 @@ browser track is a subset; the purged-assembly tracks in JBrowse show all of the
 :::
 
 ::: {.warn-box}
+**Two lean genomes differ as much as lean and siscowet at the sequence level.** A difference
+between our two assemblies is ecotype-informative only if the published lean sides with our lean
+(23.17). Reciprocal PAV marks segments, not whole genes: 90 % are intronic (23.18).
+:::
+
+::: {.warn-box}
 **Small numbers, no validation.** Four fish per ecotype. Tier-A GO terms rest on three to five
 genes each. All links are associations with no functional test; the liver RNA-seq comes from a
 separate parasite study and is orthogonal support at best.
@@ -304,6 +356,7 @@ separate parasite study and is orthogonal support at best.
 6. Reciprocal PAV: each ecotype's reads aligned to the other's purged assembly (pbmm2, mosdepth, CIGAR)
 7. Shared / ecotype-only / copy-number gene sets from the two Liftoff annotations
 8. Five-line evidence model with tiers; tandem-cluster-collapsed GO over-representation
+9. Lean vs published-lean baseline: lean–siscowet SVs polarized against the reference; exon placement of reciprocal-PAV segments
 
 ### Next
 - **Methylation follow-up** — population sample of both ecotypes to test the cis haplotypes and the ~80 % of DMRs that cannot be phased with four fish
@@ -317,4 +370,5 @@ separate parasite study and is orthogonal support at best.
 - **GitHub Repository**: [RobertsLab/project-lake-trout](https://github.com/RobertsLab/project-lake-trout)
 - **Two-genome plan and progress log**: [`code/23-next-phase-research-plan.md`](code/23-next-phase-research-plan.md)
 - **Refined evidence model**: [`analyses/23-integration/refined/README.md`](analyses/23-integration/refined/README.md)
+- **Lean vs published-lean baseline**: [`analyses/23-lean-baseline/README.md`](analyses/23-lean-baseline/README.md)
 - **Single-reference annotation layer (2025)**: [`code/18-diff-annotation-phenotype-plan.md`](code/18-diff-annotation-phenotype-plan.md)
