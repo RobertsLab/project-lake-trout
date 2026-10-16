@@ -75,3 +75,14 @@ analyses/23-native-methylation/meth_cross/*.bedmethyl
 analyses/23-native-methylation/fixed_variants/vcf/
 analyses/23-native-methylation/fixed_variants/callable/
 analyses/23-native-methylation/fixed_variants/_*
+
+# Phase 4 de novo annotation (23.17 / 23.18) — containers, evidence and working dirs stay on raven
+analyses/23-denovo-annotation/containers/
+analyses/23-denovo-annotation/evidence/
+analyses/23-denovo-annotation/tmp/
+analyses/23-denovo-annotation/smoke/
+analyses/23-denovo-annotation/rnaseq/
+analyses/23-denovo-annotation/repeats/
+analyses/23-denovo-annotation/braker/
+analyses/23-denovo-annotation/busco/
+analyses/23-denovo-annotation/busco_downloads/

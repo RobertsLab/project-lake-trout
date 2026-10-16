@@ -446,3 +446,27 @@ environment — with a minority trans / environmental component, larger in sisco
 
 **Next:** Phase 4 (BRAKER3) on raven; for methylation, a population sample (more fish, both
 ecotypes) would test the cis haplotypes and the untestable ~80 % of DMRs.
+
+### Phase 4 — de novo annotation (BRAKER3) — RUNNING (started 2026-10-16 on raven)
+
+**Setup** ([`23.17`](23.17-denovo-setup.sh), `analyses/23-denovo-annotation/`): containers
+`teambraker/braker3:v3.1.1` (BRAKER 3.0.8, GeneMark-ETP, AUGUSTUS, ProtHint, TSEBRA),
+`dfam/tetools:2.00` (RepeatModeler 2.0.9, RepeatMasker 4.2.4) and BUSCO 6.1.0
+(`actinopterygii_odb12`); RNA-seq PRJNA316738 (72 liver runs, 36 bp single-end GAIIx) pooled per
+ecotype (lean 257 M reads, siscowet 237 M); proteins = OrthoDB v12 Vertebrata (19.39 M) + SaNama_1.0
+RefSeq (58 k).
+
+**Pipeline** ([`23.18`](23.18-denovo-pipeline.sh)), one resumable chain per ecotype, both in parallel at
+24 threads (niced): RepeatModeler2 `-LTRStruct` → RepeatMasker soft-mask with the ecotype's own
+library → HISAT2 own-ecotype RNA-seq → BRAKER3 (RNA + proteins) → BUSCO protein mode.
+
+**Smoke test** (one ~5 Mb gene-dense contig per assembly, 12 threads): every stage ran; lean contig
+44 % soft-masked, 149 BRAKER genes vs 106 Liftoff genes. Timing: BRAKER 83 min, of which DIAMOND
+vs the 19 M proteins was 3 min and ProtHint / spaln ~40 min (scales with gene number). Extrapolated
+full run: RepeatModeler ~3–4 days, BRAKER ~6–8 days per ecotype, ~1.5–2 weeks wall time.
+Caveat: the only RNA-seq is 36 bp single-end liver, so splice support is weak and non-liver genes
+rely on protein evidence.
+
+**Remaining after BRAKER:** merge with Liftoff (TSEBRA / overlap rule) keeping BRAKER-unique models
+with provenance tags, functional annotation of new models (eggNOG / DIAMOND + InterProScan as in
+18-build-gene-function-table.py), browser tracks.
