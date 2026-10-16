@@ -1,0 +1,116 @@
+gene_id	present_in	gene_len	absent_bp	absent_frac	tier	product
+gene-LOC120042129	siscowet	22765	1000	0.044		cytochrome P450 3A27-like
+gene-LOC120050135	siscowet	27191	1000	0.037	A	nucleosome assembly protein 1-like 1-A
+gene-LOC120019576	siscowet	52954	2000	0.038		radixin-like
+gene-cpn1	siscowet	159860	1000	0.006	A	carboxypeptidase N, polypeptide 1
+gene-LOC120024458	siscowet	181726	2000	0.011	A	sodium/potassium-transporting ATPase subunit beta-1-interact
+gene-triob	siscowet	89584	1000	0.011		trio Rho guanine nucleotide exchange factor b
+gene-LOC120053938	siscowet	290675	1000	0.003	A	nuclear receptor ROR-alpha A-like
+gene-LOC120064465	siscowet	30731	1000	0.033		ras-related protein Rab-22A-like
+gene-LOC120032210	siscowet	44790	4000	0.089	A	kinesin-like protein KIF21A
+gene-LOC120048669	siscowet	67047	9000	0.134	A	carcinoembryonic antigen-related cell adhesion molecule 5-li
+gene-LOC120065442	siscowet	62736	5000	0.080	A	protein CBFA2T2-like
+gene-LOC120032530	siscowet	94767	1000	0.011		signal-induced proliferation-associated 1-like protein 2
+gene-vps50	siscowet	230687	3000	0.013	A	VPS50 EARP/GARPII complex subunit
+gene-LOC120056879	siscowet	987	859	0.870	A	uncharacterized LOC120056879
+gene-gpia_1	siscowet	30984	2000	0.065		
+gene-LOC120065642	siscowet	227458	2000	0.009	A	protein kinase C alpha type
+gene-LOC120031305	siscowet	218413	1000	0.005	A	opioid-binding protein/cell adhesion molecule-like
+gene-LOC120017525	siscowet	59152	3000	0.051		uncharacterized LOC120017525
+gene-LOC120039615	siscowet	3275	1000	0.305		uncharacterized LOC120039615
+gene-dnah2	siscowet	63832	1000	0.016	A	dynein, axonemal, heavy chain 2
+gene-LOC120024920	siscowet	3371	704	0.209	A	major histocompatibility complex class I-related gene protei
+gene-LOC120032728	siscowet	59371	2000	0.034	A	E3 ubiquitin-protein ligase TRIM39-like
+gene-LOC120044851	siscowet	14689	4000	0.272	A	uncharacterized LOC120044851
+gene-iqsec3a	siscowet	97721	2000	0.020		IQ motif and Sec7 domain ArfGEF 3a
+gene-crtc3	siscowet	76073	2000	0.026	A	CREB regulated transcription coactivator 3
+gene-LOC120053598	siscowet	106393	1000	0.009	A	lisH domain-containing protein ARMC9
+gene-LOC120057339	siscowet	12040	1000	0.083		reticulon-3-like
+gene-LOC120020909	siscowet	118343	1000	0.008		mitogen-activated protein kinase kinase kinase 1-like
+gene-LOC120045058	siscowet	34960	1000	0.029		protocadherin alpha-C2-like
+gene-LOC120063528	siscowet	11209	1000	0.089	A	
+gene-LOC120031768	siscowet	74642	3000	0.040	A	myotubularin-related protein 5-like
+gene-LOC120038650	siscowet	69001	1000	0.014	A	prickle-like protein 1
+gene-pphln1	siscowet	32160	2000	0.062	A	periphilin 1
+gene-LOC120042766	siscowet	59741	1000	0.017	A	tumor necrosis factor receptor superfamily member 16-like
+gene-LOC120066294	siscowet	23388	1000	0.043		NACHT, LRR and PYD domains-containing protein 12-like
+gene-LOC120029476	siscowet	118069	4000	0.034	A	KH domain-containing, RNA-binding, signal transduction-assoc
+gene-LOC120060868	siscowet	380651	1000	0.003	A	agrin-like
+gene-LOC120056235	siscowet	85935	1000	0.012		vertebrate ancient opsin-like
+gene-ttll9_1	siscowet	10891	3000	0.275		
+gene-mpp6b	siscowet	42808	4000	0.093	A	membrane protein, palmitoylated 6b (MAGUK p55 subfamily memb
+gene-LOC120020307	siscowet	87204	2000	0.023		cadherin-2-like
+gene-tmc6b	siscowet	56433	1000	0.018	A	transmembrane channel-like 6b
+gene-LOC120066718	siscowet	170394	1000	0.006	A	SH3 and multiple ankyrin repeat domains protein 2-like
+gene-LOC120048047	siscowet	190128	1000	0.005	A	alpha-1,3-mannosyl-glycoprotein 4-beta-N-acetylglucosaminylt
+gene-LOC120066463	siscowet	185803	4000	0.022	A	contactin-1a-like
+gene-LOC120056031	siscowet	24211	4000	0.165		nuclear receptor ROR-beta-like
+gene-gde1	siscowet	8438	1000	0.119	A	glycerophosphodiester phosphodiesterase 1
+gene-LOC120046589	siscowet	147631	1000	0.007		ankyrin-3-like
+gene-LOC120028089	siscowet	30394	1000	0.033	A	phosphoenolpyruvate carboxykinase [GTP], mitochondrial-like
+gene-LOC120039112	siscowet	21409	4000	0.187		sialoadhesin-like
+gene-LOC120025537	siscowet	392303	4000	0.010	A	astrotactin-2-like
+gene-LOC120056805	siscowet	29478	1000	0.034	A	troponin T, fast skeletal muscle isoforms-like
+gene-LOC120061515	siscowet	16295	1000	0.061	A	uncharacterized LOC120061515
+gene-LOC120036268	siscowet	39206	1000	0.026		pneumococcal serine-rich repeat protein-like
+gene-LOC120054371	siscowet	111267	2000	0.018	A	lipoma-preferred partner homolog
+gene-LOC120042986	siscowet	70475	1000	0.014		receptor-type tyrosine-protein phosphatase N2-like
+gene-LOC120035702	siscowet	11854	1000	0.084		tripartite motif-containing protein 16-like
+gene-cracr2b	siscowet	44037	1000	0.023	A	calcium release activated channel regulator 2B
+gene-LOC120051748_32	siscowet	2085	2085	1.000		
+gene-tmem45a	siscowet	79139	2000	0.025		transmembrane protein 45a
+gene-LOC120032363	siscowet	89284	2000	0.022		spectrin beta chain, non-erythrocytic 1-like
+gene-LOC120032364	siscowet	10427	2000	0.192		uncharacterized LOC120032364
+gene-LOC120024897	siscowet	87086	2000	0.023	A	cGMP-inhibited 3',5'-cyclic phosphodiesterase B-like
+gene-bco2a	siscowet	105024	1000	0.010	A	beta-carotene oxygenase 2a
+gene-LOC120030672	siscowet	39000	1000	0.026	A	calsequestrin-1-like
+gene-LOC120040161	siscowet	38858	6000	0.154	A	sperm-associated antigen 1A-like
+gene-LOC120019149	siscowet	22906	1000	0.044	A	histone chaperone asf1b-B-like
+gene-sh3yl1	siscowet	46265	1000	0.022	A	SH3 and SYLF domain containing 1
+gene-LOC120038491	siscowet	6827	762	0.112		28S ribosomal RNA
+gene-LOC120041427_26	siscowet	641	580	0.905		
+gene-LOC120039613_2	siscowet	5533	1000	0.181		
+gene-LOC120055406	lean	17725	1000	0.056		SLAM family member 9-like
+gene-LOC120065085	lean	67455	1000	0.015		son of sevenless homolog 1-like
+gene-map4k3a	lean	97052	1000	0.010		mitogen-activated protein kinase kinase kinase kinase 3a
+gene-ap2b1	lean	129035	1000	0.008	A	adaptor related protein complex 2 subunit beta 1
+gene-LOC120056503	lean	57357	2000	0.035		vacuolar protein sorting-associated protein 37D-like
+gene-LOC120025522	lean	92075	4000	0.043	A	ankyrin-1-like
+gene-smg6	lean	24771	1000	0.040		SMG6 nonsense mediated mRNA decay factor
+gene-LOC120021129	lean	7864	1000	0.127	A	CMP-N-acetylneuraminate-beta-galactosamide-alpha-2,3-sialylt
+gene-nek7	lean	170542	1000	0.006	A	NIMA-related kinase 7
+gene-LOC120053718	lean	47633	3000	0.063	A	cAMP-specific 3',5'-cyclic phosphodiesterase 4D-like
+gene-dnase1l1l	lean	20937	1000	0.048		deoxyribonuclease I-like 1-like
+gene-ptprc	lean	24601	1000	0.041	A	protein tyrosine phosphatase receptor type C
+gene-asap1a	lean	154233	3000	0.019	A	ArfGAP with SH3 domain, ankyrin repeat and PH domain 1a
+gene-LOC120025009	lean	476742	2000	0.004	A	protein kinase C-binding protein NELL1-like
+gene-LOC120056781	lean	177928	3000	0.017	A	kin of IRRE-like protein 3
+gene-LOC120022070_1	lean	51256	1000	0.020		
+gene-sh2d3a	lean	19087	1000	0.052	A	SH2 domain containing 3A
+gene-LOC120025549	lean	175292	1000	0.006	A	leucine-rich repeat transmembrane neuronal protein 4-like
+gene-LOC120051748_18	lean	2085	2085	1.000		
+gene-LOC120055734	lean	36485	4000	0.110	A	LARGE xylosyl- and glucuronyltransferase 2-like
+gene-LOC120055730	lean	117917	1000	0.008	A	uncharacterized LOC120055730
+gene-LOC120045630	lean	157758	1000	0.006		cGMP-dependent protein kinase 1-like
+gene-LOC120040412	lean	34108	3000	0.088	A	plexin-B2-like
+gene-LOC120038469	lean	23243	1000	0.043		RNA-splicing ligase RtcB homolog
+gene-LOC120063770_8	lean	967	775	0.801		
+gene-LOC120053194	lean	170689	4000	0.023	A	NT-3 growth factor receptor-like
+gene-LOC120062883	lean	87343	4000	0.046		5-hydroxytryptamine receptor 7-like
+gene-sugct	lean	172880	1000	0.006	A	succinyl-CoA:glutarate-CoA transferase
+gene-tmeff2a	lean	142710	11000	0.077	A	transmembrane protein with EGF-like and two follistatin-like
+gene-LOC120038202	lean	5175	2000	0.386		GTPase IMAP family member 7-like
+gene-LOC120054763	lean	93885	1000	0.011	A	DNA-directed RNA polymerase, mitochondrial-like
+gene-LOC120041588	lean	25036	2000	0.080		centrosomal protein of 170 kDa-like
+gene-LOC120030386	lean	16650	3000	0.180		splicing factor 3B subunit 2-like
+gene-LOC120049548	lean	226008	1000	0.004	A	glucosidase 2 subunit beta-like
+gene-unc5c	lean	193680	3000	0.015	A	unc-5 netrin receptor C
+gene-LOC120043213	lean	79129	1000	0.013	A	extracellular serine/threonine protein kinase FAM20C-like
+gene-LOC120020198	lean	121169	3000	0.025	A	synapsin-2-like
+gene-LOC120034744_20	lean	3838	468	0.122		
+gene-LOC120034415	lean	55251	1000	0.018	A	inactive rhomboid protein 1-like
+gene-LOC120027905	lean	22286	1000	0.045	A	band 4.1-like protein 3
+gene-LOC120066682	lean	289389	1000	0.003	A	nuclear receptor ROR-alpha A
+gene-pros1	lean	42253	1000	0.024		protein S
+gene-LOC120063782	lean	70406	2000	0.028	A	ubiquitin-conjugating enzyme E2 E3
+gene-LOC120043897_11	lean	3414	3414	1.000		
