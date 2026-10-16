@@ -16,14 +16,14 @@ GO:0016071	mRNA metabolic process	biological_process	3	76	491	34266	2.75	9.586e-
 GO:0031175	neuron projection development	biological_process	3	76	509	34266	2.66	1.039e-01	5.116e-01		LOC120023487,LOC120032645,LOC120044712
 GO:0006511	ubiquitin-dependent protein catabolic process	biological_process	3	76	541	34266	2.5	1.189e-01	5.116e-01		LOC120036222,LOC120037120,LOC120042770
 GO:0048666	neuron development	biological_process	3	76	555	34266	2.44	1.257e-01	5.116e-01		LOC120023487,LOC120032645,LOC120044712
-GO:0043632	modification-dependent macromolecule catabolic process	biological_process	3	76	566	34266	2.39	1.311e-01	5.116e-01		LOC120036222,LOC120037120,LOC120042770
 GO:0019941	modification-dependent protein catabolic process	biological_process	3	76	566	34266	2.39	1.311e-01	5.116e-01		LOC120036222,LOC120037120,LOC120042770
+GO:0043632	modification-dependent macromolecule catabolic process	biological_process	3	76	566	34266	2.39	1.311e-01	5.116e-01		LOC120036222,LOC120037120,LOC120042770
 GO:0030163	protein catabolic process	biological_process	3	76	632	34266	2.14	1.654e-01	5.116e-01		LOC120036222,LOC120037120,LOC120042770
 GO:0046914	transition metal ion binding	molecular_function	6	76	1670	34266	1.62	1.656e-01	5.116e-01		LOC120031334,LOC120031504,LOC120038192,LOC120042770,LOC120051977,LOC120056450
 GO:0007010	cytoskeleton organization	biological_process	5	76	1324	34266	1.7	1.705e-01	5.116e-01		LOC120034119,LOC120037120,LOC120044712,LOC120066791,plek2
 GO:0030036	actin cytoskeleton organization	biological_process	3	76	660	34266	2.05	1.807e-01	5.116e-01		LOC120044712,LOC120066791,plek2
-GO:0015629	actin cytoskeleton	cellular_component	3	76	678	34266	1.99	1.907e-01	5.116e-01		LOC120018338,LOC120045555,LOC120066791
 GO:0030029	actin filament-based process	biological_process	3	76	678	34266	1.99	1.907e-01	5.116e-01		LOC120044712,LOC120066791,plek2
+GO:0015629	actin cytoskeleton	cellular_component	3	76	678	34266	1.99	1.907e-01	5.116e-01		LOC120018338,LOC120045555,LOC120066791
 GO:0003924	GTPase activity	molecular_function	3	76	688	34266	1.97	1.963e-01	5.116e-01		LOC120034119,LOC120044701,LOC120044712
 GO:0030182	neuron differentiation	biological_process	3	76	726	34266	1.86	2.181e-01	5.116e-01		LOC120023487,LOC120032645,LOC120044712
 GO:0035556	intracellular signal transduction	biological_process	5	76	1456	34266	1.55	2.214e-01	5.116e-01		LOC120033924,LOC120041464,LOC120042035,LOC120044712,plek2

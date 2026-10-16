@@ -360,5 +360,22 @@ intergenic — while promoter- and gene-wide methylation does not differ. The fi
 consistency of these differences is compatible with cis-genetic control as well as with a stable
 epigenetic ecotype difference; n = 4 wild-caught fish per ecotype cannot separate the two.
 
-**Next:** add a native-methylation line (replicated 23.13 DMRs) to the 23.7 evidence model and
-browser tracks (Phase 5); Phase 4 (BRAKER3) on raven.
+**Step F — native DMRs as evidence line and browser tracks (2026-10-15)**
+([`23.14`](23.14-native-dmr-tracks.py); [`23.7`](23.7-refine-evidence-model.py) rerun). Each 23.13
+DMR gets a status: replicated (220), single_frame (330, not placeable / testable on the other
+assembly), not_replicated (22). Genes within 5 kb on the DMR's own assembly are listed with a
+strand-aware location class (`cpg_scan/native_dmr_gene_assignments.tsv`). **`native_dmr` (71 genes
+near a replicated DMR) replaces the reference `dmr` line** in 23.7; the reference set is kept as the
+`ref_dmr` column. Tier B now also admits native_dmr; tier C (reference DMR + reference divergence)
+is retired. Tiers: A 77 → 76 (a 28S rRNA lost its reference-DMR line), B 2,509 → 2,527 (+22 via
+native_dmr, −4 that relied on the reference DMR), former tier C (15) → single-line. 30 tier-B genes carry a
+native DMR; none in tier A. native_dmr GO is the same C2H2 zinc-finger repressor signal as 23.13;
+no lipid or calcium term reaches significance.
+
+Tracks (BED9, itemRgb; blue = lower in siscowet, red = higher; dark = replicated, light = single
+frame): all 572 DMRs on the lean and siscowet purged assemblies in JBrowse; 243 DMRs placed uniquely
+on SaNama_1.0 (152 of 220 replicated), merged into 160 reference loci (85 replicated) for IGV and
+JBrowse. Reference DMR tracks were renamed "Reference DMRs".
+
+**Next:** test whether native DMRs sit next to fixed sequence variants between the ecotypes; Phase 4
+(BRAKER3) on raven.

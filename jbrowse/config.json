@@ -268,7 +268,7 @@
     {
       "type": "FeatureTrack",
       "trackId": "dmrs_hyper_siscowet",
-      "name": "DMRs Hyper in Siscowet",
+      "name": "Reference DMRs Hyper in Siscowet",
       "category": [
         "Methylation",
         "DMRs"
@@ -286,7 +286,7 @@
     {
       "type": "FeatureTrack",
       "trackId": "dmrs_hypo_siscowet",
-      "name": "DMRs Hypo in Siscowet",
+      "name": "Reference DMRs Hypo in Siscowet",
       "category": [
         "Methylation",
         "DMRs"
@@ -380,6 +380,118 @@
           "uri": "data/lake-trout/siscowet_purged.mcscan.bed"
         }
       }
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "native_dmrs_hypo_ref",
+      "name": "Native DMRs hypo in siscowet (placed on reference)",
+      "category": [
+        "Methylation",
+        "Native DMRs"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/lake-trout/native_dmrs_hypo_siscowet.ref.bed"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "native_dmrs_hypo_ref-LinearBasicDisplay",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "color1": "jexl:'rgb('+get(feature,'itemRgb')+')'"
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "native_dmrs_hyper_ref",
+      "name": "Native DMRs hyper in siscowet (placed on reference)",
+      "category": [
+        "Methylation",
+        "Native DMRs"
+      ],
+      "assemblyNames": [
+        "SaNama_1.0"
+      ],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/lake-trout/native_dmrs_hyper_siscowet.ref.bed"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "native_dmrs_hyper_ref-LinearBasicDisplay",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "color1": "jexl:'rgb('+get(feature,'itemRgb')+')'"
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "native_dmrs_lean_purged",
+      "name": "Native DMRs (lean assembly)",
+      "category": [
+        "Methylation",
+        "Native DMRs"
+      ],
+      "assemblyNames": [
+        "lean_purged"
+      ],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/lake-trout/native_dmrs.lean_purged.bed"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "native_dmrs_lean_purged-LinearBasicDisplay",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "color1": "jexl:'rgb('+get(feature,'itemRgb')+')'"
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "native_dmrs_siscowet_purged",
+      "name": "Native DMRs (siscowet assembly)",
+      "category": [
+        "Methylation",
+        "Native DMRs"
+      ],
+      "assemblyNames": [
+        "siscowet_purged"
+      ],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/lake-trout/native_dmrs.siscowet_purged.bed"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "native_dmrs_siscowet_purged-LinearBasicDisplay",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "color1": "jexl:'rgb('+get(feature,'itemRgb')+')'"
+          }
+        }
+      ]
     }
   ],
   "defaultSession": {

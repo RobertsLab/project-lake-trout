@@ -1,7 +1,7 @@
 go_id	name	namespace	study_k	study_n	bg_K	bg_N	fold_enrichment	p_value	fdr	phenotype	genes
 GO:0045179	apical cortex	cellular_component	3	77	11	31285	110.81	2.332e-06	2.635e-04		LOC120035949,LOC120036775,LOC120043108
-GO:0099568	cytoplasmic region	cellular_component	3	77	56	31285	21.77	3.618e-04	1.363e-02		LOC120035949,LOC120036775,LOC120043108
 GO:0099738	cell cortex region	cellular_component	3	77	56	31285	21.77	3.618e-04	1.363e-02		LOC120035949,LOC120036775,LOC120043108
+GO:0099568	cytoplasmic region	cellular_component	3	77	56	31285	21.77	3.618e-04	1.363e-02		LOC120035949,LOC120036775,LOC120043108
 GO:0002682	regulation of immune system process	biological_process	5	77	372	31285	5.46	2.269e-03	6.411e-02	Y	LOC120035241,LOC120036255,LOC120036773,LOC120037498,LOC120043723
 GO:0001817	regulation of cytokine production	biological_process	3	77	129	31285	9.45	4.011e-03	8.737e-02		LOC120035241,LOC120036255,LOC120043723
 GO:0005938	cell cortex	cellular_component	4	77	275	31285	5.91	4.782e-03	8.737e-02		LOC120035949,LOC120036775,LOC120043108,LOC120044712
@@ -108,7 +108,7 @@ GO:0022607	cellular component assembly	biological_process	3	77	1674	31285	0.73	7
 GO:0051641	cellular localization	biological_process	3	77	1790	31285	0.68	8.242e-01	8.586e-01		LOC120042239,LOC120060929,LOC120063954
 GO:1902494	catalytic complex	cellular_component	3	77	1856	31285	0.66	8.427e-01	8.586e-01		LOC120026894,LOC120041464,LOC120051978
 GO:0022857	transmembrane transporter activity	molecular_function	3	77	1879	31285	0.65	8.487e-01	8.586e-01		LOC120044088,LOC120044103,LOC120044677
-GO:0038023	signaling receptor activity	molecular_function	3	77	1884	31285	0.65	8.500e-01	8.586e-01		LOC120059541,LOC120064653,lhcgr
 GO:0060089	molecular transducer activity	molecular_function	3	77	1884	31285	0.65	8.500e-01	8.586e-01		LOC120059541,LOC120064653,lhcgr
+GO:0038023	signaling receptor activity	molecular_function	3	77	1884	31285	0.65	8.500e-01	8.586e-01		LOC120059541,LOC120064653,lhcgr
 GO:0044085	cellular component biogenesis	biological_process	3	77	1888	31285	0.65	8.510e-01	8.586e-01		LOC120036183,LOC120036773,LOC120037498
 GO:0005215	transporter activity	molecular_function	3	77	1985	31285	0.61	8.741e-01	8.741e-01		LOC120044088,LOC120044103,LOC120044677

@@ -32,12 +32,18 @@ WHAT THIS DOES.
         reciprocal_pav            native, bidirectional read evidence         (Phase 2)
         ecotype_only_corroborated two-assembly agreement on gene absence      (Phase 2)
         cnv                       Liftoff copy-number divergence              (Phase 2)
-        dmr                       reference-based methylation                 (Phase 14/18)
+        native_dmr                gene within 5 kb of a native DMR replicated in both frames
+                                  (23.13 / 23.14; added 2026-10-15)
         ref_divergence            SyRI SV | reference PAV | Liftoff-only ecotype_only
      and assigns a tier:
-        A  reciprocal_pav + >=1 other line          (native-anchored two-genome candidate)
-        B  corroborated ecotype_only or cnv + >=1   (two-assembly candidate, no read support yet)
-        C  >=2 lines but only dmr + ref_divergence  (reference-only association, Phase-18 style)
+        A  reciprocal_pav + >=1 other line                        (native-anchored candidate)
+        B  corroborated ecotype_only, cnv or native_dmr + >=1     (two-assembly candidate)
+     NATIVE DMR LINE (2026-10-15). The reference-based DMR set (Phase 14/18) used to be the `dmr`
+     line. Phase 3 showed that about half of those DMRs sit in multi-copy sequence and that its
+     calling thresholds carry ~40 % expected false DMRs, while native DMRs called with both ecotypes'
+     reads on each assembly replicate across frames. `native_dmr` therefore replaces `dmr` as the
+     methylation line; the reference set is kept as the information column `ref_dmr`. The old
+     tier C ("dmr + ref_divergence only") is retired: without a reference DMR line it cannot occur.
   4. Re-runs GO over-representation (18.3 machinery) with TANDEM-CLUSTER COLLAPSING: genes of the
      same product family (first product token) within 50 kb of each other on the same chromosome
      are collapsed genome-wide to one representative carrying the union of their GO terms, for the
@@ -53,6 +59,7 @@ INPUTS (all in repo):
   analyses/23-gene-sets/{lean_only,siscowet_only,cnv}.tsv
   analyses/18-annotation/{gene_function_table,dmr_gene_assignments,pav_gene_assignments,
                           integrated_candidate_genes}.tsv
+  analyses/23-native-methylation/cpg_scan/native_dmr_gene_assignments.tsv   (23.14)
   analyses/18-annotation/raw/go-basic.obo   (re-download: http://purl.obolibrary.org/obo/go/go-basic.obo)
 
 OUTPUTS (analyses/23-integration/refined/):
@@ -84,6 +91,7 @@ GENESETS = BASE / "analyses" / "23-gene-sets"
 ANN = BASE / "analyses" / "18-annotation"
 OUT = INT / "refined"
 SYN = BASE / "output" / "21.1-gene-anchored-synteny"
+NATIVE_DMR = BASE / "analyses" / "23-native-methylation" / "cpg_scan" / "native_dmr_gene_assignments.tsv"
 
 # read-coverage filter: side the gene is present in -> (other ecotype's samples, target assembly)
 OTHER_READS = {"siscowet": (["bc2041", "bc2068", "bc2069", "bc2070"], "siscowet"),
@@ -258,7 +266,13 @@ def main():
         cnv.add(g)
         copies[g] = (r["copies_lean"], r["copies_siscowet"])
 
-    dmr = {canon(r["gene_id"]) for r in read_tsv(ANN / "dmr_gene_assignments.tsv") if r["gene_id"]}
+    ref_dmr = {canon(r["gene_id"]) for r in read_tsv(ANN / "dmr_gene_assignments.tsv") if r["gene_id"]}
+    native_dmr, native_dmr_ids = set(), defaultdict(set)
+    for r in read_tsv(NATIVE_DMR):
+        if r["status"] == "replicated" and r["gene_id"]:
+            g = canon(r["gene_id"])
+            native_dmr.add(g)
+            native_dmr_ids[g].add(f"{r['dmr_id']}:{r['location_class']}:{float(r['meth_diff']):+.0f}")
     ref_pav = {canon(r["gene_id"]) for r in read_tsv(ANN / "pav_gene_assignments.tsv") if r["gene_id"]}
 
     # sv: recompute from SyRI if the (untracked) outputs are present, else reuse the 23.6 matrix
@@ -279,7 +293,7 @@ def main():
         "reciprocal_pav": recip,
         "ecotype_only_corroborated": eco_corr,
         "cnv": cnv,
-        "dmr": dmr,
+        "native_dmr": native_dmr,
         "ref_divergence": ref_div,
     }
     for k, v in lines.items():
@@ -297,10 +311,8 @@ def main():
         n = sum(flags.values())
         if flags["reciprocal_pav"] and n >= 2:
             tier = "A"
-        elif (flags["ecotype_only_corroborated"] or flags["cnv"]) and n >= 2:
+        elif (flags["ecotype_only_corroborated"] or flags["cnv"] or flags["native_dmr"]) and n >= 2:
             tier = "B"
-        elif n >= 2:
-            tier = "C"
         else:
             tier = ""
         a = fn.get(g, {})
@@ -328,6 +340,8 @@ def main():
             "ecotype_only_side": eco_side.get(g, ""),
             "other_ecotype_read_cov": ",".join(f"{x:.2f}" for x in readcov[g]) if g in readcov else "",
             "copies_lean": cl, "copies_siscowet": cs,
+            "native_dmrs": ",".join(sorted(native_dmr_ids.get(g, ()))),
+            "ref_dmr": int(g in ref_dmr),
             "sv": int(g in sv), "ref_pav": int(g in ref_pav),
             "n_lines_23_6": old.get(g, {}).get("n_lines", ""),
             "cluster_rep": rep, "cluster_size": csize,
@@ -335,7 +349,7 @@ def main():
             "phase18_convergent": int(g in PHASE18_CONVERGENT),
             "phase18_rank_score": p18.get(g, {}).get("rank_score", ""),
         })
-    tier_order = {"A": 0, "B": 1, "C": 2, "": 3}
+    tier_order = {"A": 0, "B": 1, "": 2}
     rows.sort(key=lambda r: (tier_order[r["tier"]], -r["n_lines_refined"],
                              r["caution"] != "", r["gene_id"]))
     cols = list(rows[0].keys())
@@ -387,6 +401,7 @@ def main():
         "lean_only_corroborated": {g for g in eco_corr if eco_side[g] == "lean"},
         "siscowet_only_corroborated": {g for g in eco_corr if eco_side[g] == "siscowet"},
         "cnv": cnv,
+        "native_dmr": native_dmr,
     }
     pheno = {}      # (set, go_id) -> row
     diag = []
@@ -487,7 +502,7 @@ def main():
             "n_lines_refined": r["n_lines_refined"] if r else 0,
             "lines_refined": r["lines_refined"] if r else "",
             "native_support": "Y" if r and (r["reciprocal_pav"] or r["ecotype_only_corroborated"]
-                                            or r["cnv"]) else "N",
+                                            or r["cnv"] or r["native_dmr"]) else "N",
         })
     fc = list(fate[0].keys())
     with open(OUT / "phase18_candidate_fate.tsv", "w") as o:
@@ -512,7 +527,9 @@ def main():
                 f"siscowet {sum(1 for g in eco_corr if eco_side[g]=='siscowet'):,}), and NOT covered "
                 f"by the other ecotype's reads |\n")
         o.write(f"| cnv | {n(cnv)} | Liftoff copy-number divergence |\n")
-        o.write(f"| dmr | {n(dmr)} | reference-based DMR within 5 kb |\n")
+        o.write(f"| native_dmr | {n(native_dmr)} | within 5 kb of a native DMR replicated in both "
+                f"assemblies (23.13 / 23.14); replaces the reference DMR line ({n(ref_dmr)} genes, "
+                f"now the `ref_dmr` column) |\n")
         o.write(f"| ref_divergence | {n(ref_div)} | SyRI SV ({n(sv)}) ∪ reference PAV ({n(ref_pav)}) ∪ "
                 f"Liftoff-only ecotype_only ({n(eco_lift)}) |\n\n")
         o.write(f"SV line source: {sv_src}.\n\n")
@@ -526,8 +543,8 @@ def main():
         o.write("## Candidate tiers\n\n")
         o.write("| tier | definition | genes | of which no caution flag |\n|---|---|---|---|\n")
         for t, d in (("A", "reciprocal_pav + ≥1 other line"),
-                     ("B", "corroborated ecotype_only or cnv + ≥1 other line, no reciprocal PAV"),
-                     ("C", "dmr + ref_divergence only (reference-only association)")):
+                     ("B", "corroborated ecotype_only, cnv or native_dmr + ≥1 other line, "
+                           "no reciprocal PAV")):
             tr = [r for r in rows if r["tier"] == t]
             o.write(f"| {t} | {d} | {len(tr):,} | {sum(1 for r in tr if not r['caution']):,} |\n")
         o.write(f"\nCompare 23.6: 2,895 \"two-genome candidates\" at ≥2 of 6 lines; refined tier A+B = "
@@ -562,16 +579,19 @@ def main():
                     f"{r['refined_tier']} | {r['lines_refined'] or '—'} | {r['native_support']} |\n")
         o.write("\n## Reading guide\n\n")
         o.write("- Only tier A carries read-level, bidirectional evidence on native coordinates. "
-                "Tier B rests on two Liftoff annotations agreeing, after removing genes the other "
-                "ecotype's reads cover; tier C is the Phase-18 style "
-                "single-reference association and is retained for continuity only.\n")
+                "Tier B rests on two Liftoff annotations agreeing (after removing genes the other "
+                "ecotype's reads cover), copy-number divergence, or a native DMR replicated in both "
+                "assemblies. The Phase-18 style tier C (reference DMR + reference divergence) is "
+                "retired; reference DMR genes are flagged in `ref_dmr`.\n")
         o.write("- `ref_divergence` is one line no matter how many of SV / reference PAV / "
                 "Liftoff-only presence a gene carries: they share a cause (distance from the "
                 "lean reference).\n")
         o.write("- `caution` flags noncoding biotypes, repeat / tandem families, and clusters of ≥5 "
                 "genes; rank on the flag-free subset first.\n")
-        o.write("- Phase 3 (native methylation) will add the first native epigenetic line and can "
-                "promote tier-B genes; Phase 4 (BRAKER3) addresses genes Liftoff cannot see at all.\n")
+        o.write("- `native_dmr` lists genes within 5 kb of a 23.13 DMR replicated in both frames; "
+                "`native_dmrs` gives DMR id, location class and siscowet − lean difference. DMRs "
+                "significant in only one frame are not counted. Phase 4 (BRAKER3) addresses genes "
+                "Liftoff cannot see at all.\n")
     print(f"\nDone. Outputs -> {OUT}")
 
 

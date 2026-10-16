@@ -172,10 +172,23 @@
             <div class="legend-card">
                 <div class="legend-header">
                     <div class="legend-color" style="background: linear-gradient(135deg, #DC2626, #2563EB);"></div>
-                    <h3 class="legend-title">Differentially Methylated Regions</h3>
+                    <h3 class="legend-title">Native DMRs</h3>
                 </div>
                 <p class="legend-desc">
-                    302 total DMRs: 20 hypermethylated and 282 hypomethylated in Siscowet (p < 0.05, ≥15% diff).
+                    Called with both ecotypes' reads on each ecotype's own assembly (empirical FDR ≈ 6 %) and
+                    placed on SaNama_1.0: 160 loci, 85 replicated in both assemblies (dark) and 75 significant
+                    in one assembly only (light). Blue = lower in siscowet, red = higher.
+                </p>
+            </div>
+            <div class="legend-card">
+                <div class="legend-header">
+                    <div class="legend-color" style="background: linear-gradient(135deg, #DC2626, #2563EB);"></div>
+                    <h3 class="legend-title">Reference DMRs (2025)</h3>
+                </div>
+                <p class="legend-desc">
+                    302 DMRs called against the reference: 20 hypermethylated and 282 hypomethylated in Siscowet
+                    (p < 0.05, ≥15% diff). About half lie in multi-copy sequence; at these thresholds ~40 % are
+                    expected false (see code/23.13).
                 </p>
             </div>
             <div class="legend-card">

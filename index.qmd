@@ -47,7 +47,7 @@ what survived that test, what did not, and what remains open.
 <div class="stats-container">
   <div class="stat-box"><div class="stat-number">2</div>Ecotype genome assemblies<br><small>lean 2.58 Gb · siscowet 2.84 Gb</small></div>
   <div class="stat-box"><div class="stat-number">683</div>Reciprocal presence/absence regions<br><small>on native coordinates</small></div>
-  <div class="stat-box"><div class="stat-number">77</div>Native-anchored candidate genes<br><small>66 with no caution flag</small></div>
+  <div class="stat-box"><div class="stat-number">76</div>Native-anchored candidate genes<br><small>66 with no caution flag</small></div>
   <div class="stat-box"><div class="stat-number">1 of 4</div>Earlier convergent genes<br><small>retained any two-genome support</small></div>
 </div>
 ```
@@ -87,14 +87,16 @@ lean reference and co-occurred heavily, so they are collapsed into one.
 | **Reciprocal PAV** | 114 | Region of one ecotype's own genome with zero coverage in all four of the other ecotype's read sets, flanked by covered sequence. Native, bidirectional, read-level. |
 | **Corroborated ecotype-only** | 491 | Gene lifted into one assembly only, explicitly unmapped by Liftoff in the other, *and* not covered by the other ecotype's reads. Of 4,382 genes where the two assemblies agree, 3,891 (89 %) are covered by the other ecotype's reads at normal depth: the gene is in the fish but missing from that assembly. |
 | **Copy-number divergence** | 2,359 | Liftoff copy count differs between the assemblies. Dominated by tRNA, snRNA, histone and protocadherin clusters. |
-| **DMR** | 181 | Reference-based differentially methylated region within 5 kb. |
+| **Native DMR** | 71 | Within 5 kb of a DMR called with both ecotypes' reads on each assembly and replicated on the other (23.13). Replaces the reference DMR line (181 genes, now an information column): half the reference DMRs sit in multi-copy sequence and its thresholds carry ~40 % expected false DMRs. |
 | **Reference divergence** | 16,068 | Any of: SyRI SV, reference PAV, Liftoff-only ecotype presence. One line regardless of how many apply. |
 
 | Tier | Definition | Genes | Flag-free |
 |---|---|---|---|
-| **A** | Reciprocal PAV + ≥1 other line | 77 | 66 |
-| **B** | Corroborated ecotype-only or copy-number + ≥1 other line | 2,509 | 1,461 |
-| **C** | DMR + reference divergence only (the earlier single-reference association) | 15 | 6 |
+| **A** | Reciprocal PAV + ≥1 other line | 76 | 66 |
+| **B** | Corroborated ecotype-only, copy-number or native DMR + ≥1 other line | 2,527 | 1,479 |
+
+The former tier C (reference DMR + reference divergence, the Phase-18 association) is retired with
+the reference DMR line; 30 tier-B genes now carry a native DMR.
 
 Caution flags mark noncoding biotypes, repeat and tandem families, and clusters of five or more
 same-family genes. Only tier A carries read-level evidence on native coordinates. Methods and full
@@ -104,8 +106,8 @@ tables: [`analyses/23-integration/refined/README.md`](analyses/23-integration/re
 
 ## Native-Anchored Candidates (Tier A)
 
-Seventy-seven genes sit in sequence present in one ecotype's genome and absent from every read set
-of the other. Forty-eight are siscowet-present, twenty-nine lean-present. A selection of the
+Seventy-six genes sit in sequence present in one ecotype's genome and absent from every read set
+of the other. Forty-seven are siscowet-present, twenty-nine lean-present. A selection of the
 flag-free, protein-coding set:
 
 | Gene | Product | Present in | Lines | Axis |
@@ -158,21 +160,21 @@ deletion) and a lipid axis built on exonic deletions. Under the two-genome model
 **Native support** means at least one evidence line comes from comparing the two ecotype
 assemblies directly, with no reference involved: reciprocal PAV (read-level absence, tested in
 both directions), corroborated ecotype-only (the gene lifts into one assembly and is explicitly
-unmapped in the other), or copy-number divergence between the assemblies. DMRs and deletions or
-SVs called against the reference do not count. In the table, *weak* marks a copy-number
+unmapped in the other), copy-number divergence between the assemblies, or a native DMR replicated
+on both assemblies. Reference DMRs and deletions or SVs called against the reference do not count. In the table, *weak* marks a copy-number
 difference inside a paralog cluster, where Liftoff may not distinguish which copy differs;
 *assembly-level only* marks agreement between the two annotations without a read-level
 reciprocal test.
 
 | Gene | Product | Earlier role | Now | Native support |
 |---|---|---|---|---|
-| LOC120032414 | Zinc finger protein 883-like | top convergent | Tier C: DMR + reference divergence only | no |
+| LOC120032414 | Zinc finger protein 883-like | top convergent | reference divergence only; its reference DMR is not a native DMR | no |
 | LOC120040411 | Gastrula zinc finger XlCGF57.1-like | convergent | Tier B via copy-number, inside a 5-paralog cluster | weak |
-| LOC120043843 | Septin-9-like | convergent | Tier C | no |
-| LOC120039781 | Uncharacterized | convergent | Tier C | no |
+| LOC120043843 | Septin-9-like | convergent | reference divergence only | no |
+| LOC120039781 | Uncharacterized | convergent | reference divergence only | no |
 | LOC120050008 | Angiopoietin-related protein 5-like (`angptl5`) | lipid axis | none: present in both ecotypes, missing from the lean assembly | no |
 | LOC120041635 | 2-acylglycerol O-acyltransferase 2-A-like (`mogat2`) | lipid axis | reference divergence only | no |
-| LOC120029926 | Epoxide hydrolase 1-like | lipid axis | Tier C | no |
+| LOC120029926 | Epoxide hydrolase 1-like | lipid axis | reference divergence only | no |
 
 The stringent siscowet "deletions" that defined these genes came from siscowet reads aligned to
 the lean-background reference, a one-direction test that cannot separate true loss from sequence
@@ -217,18 +219,19 @@ assembly, not from lean fish. That is the outcome the two-genome design was buil
 Explore methylation, PAV, gene, and ecotype-synteny tracks across the SaNama_1.0 assembly. Genes
 carry functional annotation, and lean/siscowet synteny blocks are projected onto the reference.
 JBrowse also offers a lean ↔ siscowet Linear Synteny View on the purged assemblies. Structural
-variant, reciprocal PAV and native methylation tracks are planned for Phase 5.
+variant and reciprocal PAV tracks are planned for Phase 5. Native DMRs are available: placed on
+SaNama_1.0 in both browsers, and on the lean and siscowet purged assemblies in JBrowse.
 
 ::: {.columns}
 ::: {.column width="50%"}
 ### 🔬 IGV.js — *quick exploration*
-Functionally-annotated genes · lean & siscowet synteny blocks · PAV insertions & deletions · CpG methylation (8 samples) · DMRs
+Functionally-annotated genes · lean & siscowet synteny blocks · PAV insertions & deletions · CpG methylation (8 samples) · native & reference DMRs
 
 <a href="genome-browser/index.html" class="browser-link">Launch IGV Browser →</a>
 :::
 ::: {.column width="50%"}
 ### 🧬 JBrowse 2 — *advanced analysis*
-Functionally-annotated genes (GFF3) · synteny blocks · PAV structural variants · CpG methylation · differential methylation · **lean ↔ siscowet Linear Synteny View**
+Functionally-annotated genes (GFF3) · synteny blocks · PAV structural variants · CpG methylation · native DMRs on all three assemblies · **lean ↔ siscowet Linear Synteny View**
 
 <a href="jbrowse/index.html" class="browser-link">Launch JBrowse 2 →</a>
 
@@ -259,9 +262,10 @@ other ecotype's reads. Only the 491 genes that pass both checks count as evidenc
 **Methylation: compare on a shared genome.** Pairing promoters across the two assemblies by
 gene ID produced >1,000 apparent differences that vanish when both ecotypes' reads are tested on
 the same assembly. Tested that way, ~137 short DMRs replicate in both directions, while promoter- and
-gene-wide methylation does not differ. The DMR line in the evidence model is still the
-reference-based set (the 14-diff-meth thresholds carry ~40 % expected false DMRs); replacing it
-with the native DMRs is Phase 5 work.
+gene-wide methylation does not differ. The evidence model now uses these native DMRs; the
+reference DMRs (whose thresholds carry ~40 % expected false calls) are kept for reference only.
+Only ~70 % of replicated native DMRs place uniquely on SaNama_1.0, so the reference-coordinate
+browser track is a subset; the purged-assembly tracks in JBrowse show all of them.
 :::
 
 ::: {.warn-box}
@@ -297,7 +301,7 @@ separate parasite study and is orthogonal support at best.
 8. Five-line evidence model with tiers; tandem-cluster-collapsed GO over-representation
 
 ### Next
-- **Phase 3 follow-up** — add the native DMRs as an evidence line and browser track; test for nearby fixed sequence variants
+- **Phase 3 follow-up** — test whether native DMRs sit next to fixed sequence variants between the ecotypes
 - **Phase 4** — BRAKER3 de novo annotation to recover genes absent from the reference
 - **Phase 5** — browser tracks for SV / reciprocal PAV / native DMRs; manuscript; NCBI assembly submission
 
