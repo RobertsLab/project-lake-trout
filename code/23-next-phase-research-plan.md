@@ -412,4 +412,37 @@ and epigenetic ecotype divergence are therefore entangled, and n = 4 wild fish p
 resolve causality. Allele-specific methylation in heterozygous fish (HiFi reads carry both) is the
 direct next test.
 
-**Next:** allele-specific methylation at DMRs with differentiated SNVs; Phase 4 (BRAKER3) on raven.
+**Step H — allele-specific methylation at differentiated DMRs (2026-10-16)**
+([`23.16`](23.16-dmr-allele-specific-meth.py), `analyses/23-native-methylation/asm/`). In fish
+heterozygous for a differentiated SNV (|ΔAF| ≥ 0.5, within 5 kb), HiFi reads spanning the SNV and the
+DMR core were split by allele and 5mC (MM/ML, ML ≥ 128) pooled per allele at the core CpGs.
+ASM = siscowet-allele % − lean-allele %, same fish. Cis predicts ASM ≈ DMR difference (slope 1);
+trans / environment predicts ASM ≈ 0. Controls: the 23.15 matched windows with a differentiated SNV.
+
+| | lean frame | siscowet frame |
+|---|---|---|
+| DMRs testable (phased heterozygotes) | 55 of 268 | 66 of 304 |
+| \|ASM\| median, DMR vs control | 34 vs 6 points | 20 vs 5 points |
+| slope ASM ~ DMR difference (95 % CI) | 0.79 (0.60–0.98) | 0.72 (0.53–0.91) |
+| sign agreement | 47/55 | 51/66 |
+| excluding ecotype depth-different windows | 0.84 (0.63–1.05), 38/43 | 0.78 (0.57–1.01), 37/48 |
+| replicated DMRs only | 0.81 (0.55–1.05), 27/30 | 0.82 (0.60–1.05), 29/33 |
+| slope in lean / siscowet heterozygotes | 0.82 / 0.65 | 0.90 / 0.55 |
+| cis-like / intermediate / trans-like | 32 / 19 / 4 | 27 / 32 / 7 |
+
+**Result.** At the DMRs that can be phased, **methylation follows the haplotype**: the two alleles
+inside one fish differ by most of the ecotype difference (slope ~0.8), in lean and in siscowet
+heterozygotes, robust to excluding copy-number-suspect windows and to restricting to replicated DMRs.
+Cis-like DMRs include `aldh1a3`, talin-2-like, FMR1-like, transmembrane protein 271-like, mitochondrial
+Rho GTPase 1-A, an ATF-like bZIP, several C2H2 zinc-finger genes and interferon a3-like. The slope is
+lower in siscowet heterozygotes (0.55–0.67) than in lean (0.82–0.94), so part of the difference does
+not follow the allele in siscowet fish (a trans or environmental component, or incomplete phasing).
+Scope: this covers the ~20 % of DMRs with a differentiated SNV and a heterozygous fish; the rest cannot
+be phased with these data, and the two frames share many loci.
+
+**Phase 3 conclusion (updated).** Where it can be tested, ecotype methylation divergence at the native
+DMRs is largely **cis-genetic** — carried by differentiated haplotypes rather than set by ecotype
+environment — with a minority trans / environmental component, larger in siscowet.
+
+**Next:** Phase 4 (BRAKER3) on raven; for methylation, a population sample (more fish, both
+ecotypes) would test the cis haplotypes and the untestable ~80 % of DMRs.

@@ -266,7 +266,10 @@ gene-wide methylation does not differ. The evidence model now uses these native 
 reference DMRs (whose thresholds carry ~40 % expected false calls) are kept for reference only.
 No native DMR has a fixed sequence difference within 1 kb, but differentiated SNVs (2–3×) and
 ecotype copy-number-like depth differences (~2×) are enriched at them (23.15): genetic and epigenetic
-divergence are entangled, and n = 4 per ecotype cannot separate cause. Only ~70 % of replicated native DMRs place uniquely on SaNama_1.0, so the reference-coordinate
+divergence are entangled. Where a fish is heterozygous for a differentiated SNV (~20 % of DMRs),
+reads phased by allele show methylation following the haplotype (allelic difference ≈ 0.8 × the
+ecotype difference, both frames; 23.16): mostly cis-genetic, with a smaller trans / environmental
+part in siscowet. Only ~70 % of replicated native DMRs place uniquely on SaNama_1.0, so the reference-coordinate
 browser track is a subset; the purged-assembly tracks in JBrowse show all of them.
 :::
 
@@ -303,7 +306,7 @@ separate parasite study and is orthogonal support at best.
 8. Five-line evidence model with tiers; tandem-cluster-collapsed GO over-representation
 
 ### Next
-- **Phase 3 follow-up** — allele-specific methylation at native DMRs that sit in differentiated haplotypes
+- **Methylation follow-up** — population sample of both ecotypes to test the cis haplotypes and the ~80 % of DMRs that cannot be phased with four fish
 - **Phase 4** — BRAKER3 de novo annotation to recover genes absent from the reference
 - **Phase 5** — browser tracks for SV / reciprocal PAV / native DMRs; manuscript; NCBI assembly submission
 

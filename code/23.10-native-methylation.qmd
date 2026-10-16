@@ -94,9 +94,21 @@ around ten look-alike stretches of genome for each one.
   full of ancient duplicates).
 
 So genetics and methylation are partly tangled: DNA or copy-number differences mark about half of
-the methylation spots, compared with under a third of comparison stretches. Most spots still have no
-obvious genetic partner. Measuring methylation separately on each of a fish's two chromosome copies
-is the direct way to tell cause from coincidence.
+the methylation spots, compared with under a third of comparison stretches.
+
+To tell cause from coincidence we used a trick specific to these long reads: each read carries both
+the DNA letters and the methylation marks. In a fish that inherited one "lean-type" and one
+"siscowet-type" version of a region, we sorted its reads by version and measured methylation on each
+([23.16](23.16-dmr-allele-specific-meth.py)). If the DNA version sets the methylation, the two
+versions inside one fish should differ almost as much as the two ecotypes do; if the fish's
+environment or overall ecotype sets it, both versions should look the same.
+
+**The DNA version wins.** At about 120 testable spots, the two versions inside a single fish differ
+by roughly 80 % of the ecotype difference, in lean and siscowet fish alike — and nine times in ten in
+the same direction. Comparison stretches show almost no such difference. In siscowet fish the effect
+is a bit weaker, hinting that something beyond the local DNA also plays a part there. Only about a
+fifth of the spots could be tested this way; the rest lack a suitable DNA difference or a fish
+carrying both versions.
 
 ## Why this matters
 
@@ -104,10 +116,9 @@ This step corrected two earlier readings. The first native pass said the old met
 differences "did not reproduce", and the pooled analysis briefly suggested over a thousand new
 ones. Both were artifacts — one of low coverage, the other of comparing two different genomes. The
 fair summary: **lean and siscowet differ in methylation at roughly a hundred-odd short, sharply
-defined spots — mostly lower in siscowet — not across whole genes; the reference-based regions in
-unique DNA are genuine; those in duplicated DNA remain open.** Because every fish of an ecotype
-agrees so closely, these spots could be set by DNA sequence differences nearby as much as by
-environment; with four wild fish per ecotype we cannot yet tell which. It also gives a method lesson for
+defined spots — mostly lower in siscowet — not across whole genes; where it can be tested, the
+difference travels with the local DNA version rather than with the fish's ecotype.** The
+reference-based regions in unique DNA are genuine; those in duplicated DNA remain open. It also gives a method lesson for
 any two-genome study: compare methylation on a shared genome, in both directions, rather than by
 matching gene names across genomes.
 
@@ -125,6 +136,7 @@ All tables are hosted on gannet under
 - The single-CpG scan: every region on each yardstick, the ones that replicate, and the
   chance-calibration table — `cpg_scan/dmrs_lean.tsv`, `cpg_scan/dmrs_siscowet.tsv`,
   `cpg_scan/dmrs_replicated.tsv`, `cpg_scan/dmr_scan_grid.tsv`
+- Methylation on each DNA version — `asm/asm_report.txt`, `asm/asm_windows_*.tsv`
 - DNA differences near the regions — `fixed_variants/fixed_variant_report.txt`,
   `fixed_variants/fixed_sites_*.tsv`, `fixed_variants/window_depth_*.tsv`
 - Plain-text summaries — `native_meth_counts_report.txt`, `native_meth_frame_report.txt`,
@@ -134,9 +146,9 @@ All tables are hosted on gannet under
 
 - **Fold the 137 regions into the evidence model** alongside presence/absence and gene-content
   lines, and add them as genome-browser tracks.
-- **Chromosome-copy-specific methylation.** HiFi reads carry both the DNA letters and the
-  methylation, so in fish carrying two different versions of a region we can ask whether the
-  methylation follows the DNA version.
+- **More fish.** With only four fish per ecotype, most spots cannot be tested this way. A larger
+  sample of both ecotypes would test the rest and show how common the methylation-setting DNA
+  versions are in each population.
 - **Phase 4 — new genes.** A from-scratch gene annotation (BRAKER3) of each ecotype's genome to
   find genes the reference cannot show.
 
