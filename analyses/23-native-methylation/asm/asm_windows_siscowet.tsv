@@ -1,0 +1,386 @@
+window_id	type	dmr_id	asm	n_fish	n_lean_het	n_sisc_het	asm_in_lean	asm_in_sisc	min_snv_dist	meth_diff	status	direction	symbol	product	log2_depth_ratio	depth_dev	class
+SDMR_1	dmr	SDMR_1	10.12	2	0	2		10.12	551	68.23	replicated	hyper_siscowet	daam2	dishevelled associated activator of morphogenesis 2	0.0488	False	intermediate
+SDMR_101_c4	control	SDMR_101	-4.165	2	1	1	-25	16.67	249	-16.89	replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.3077	False	
+SDMR_101_c8	control	SDMR_101	-41.67	1	0	1		-41.67	4062	-16.89	replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	0.4615	False	
+SDMR_103_c5	control	SDMR_103	0	3	2	1	0	0	663	-22.11	single_frame	hypo_siscowet	LOC120041726	uncharacterized LOC120041726	-0.4474	False	
+SDMR_103_c8	control	SDMR_103	-2.08	1	0	1		-2.08	1732	-22.11	single_frame	hypo_siscowet	LOC120041726	uncharacterized LOC120041726	-0.04199	False	
+SDMR_105_c5	control	SDMR_105	18.75	1	0	1		18.75	1820	-73.06	replicated	hypo_siscowet	LOC120032086	neuroepithelial cell-transforming gene 1 protein-like	0.1332	False	
+SDMR_106_c7	control	SDMR_106	25	1	0	1		25	2014	51.97	single_frame	hyper_siscowet	LOC120044491	interferon a3-like	0.1794	False	
+SDMR_107	dmr	SDMR_107	-100	1	1	0	-100		3440	-52.53	replicated	hypo_siscowet	LOC120062499	synaptic functional regulator FMR1-like	0.1256	False	cis_like
+SDMR_108	dmr	SDMR_108	-81.25	1	1	0	-81.25		4045	-60.8	replicated	hypo_siscowet	LOC120062499	synaptic functional regulator FMR1-like	-0.06359	False	cis_like
+SDMR_108_c6	control	SDMR_108	0	1	1	0	0		320	-60.8	replicated	hypo_siscowet	LOC120062499	synaptic functional regulator FMR1-like	0.2218	False	
+SDMR_109_c6	control	SDMR_109	37.5	2	1	1	-25	100	444	-62.05	replicated	hypo_siscowet	LOC120024313	cyclin-C-like	-0.7458	True	
+SDMR_109_c8	control	SDMR_109	1.04	4	1	3	8.33	-1.39	0	-62.05	replicated	hypo_siscowet	LOC120024313	cyclin-C-like	-0.1351	False	
+SDMR_10_c10	control	SDMR_10	0	1	0	1		0	3362	40.63	replicated	hyper_siscowet	LOC120043587	seizure protein 6-like	-0.4119	False	
+SDMR_10_c2	control	SDMR_10	-11.76	3	1	2	8.07	-21.68	793	40.63	replicated	hyper_siscowet	LOC120043587	seizure protein 6-like	0.09716	False	
+SDMR_110_c7	control	SDMR_110	1.67	1	1	0	1.67		20	-79.94	replicated	hypo_siscowet	LOC120026279	putative tRNA (cytidine(32)/guanosine(34)-2'-O)-methyltransferase	-0.5505	True	
+SDMR_111	dmr	SDMR_111	-6.667	1	0	1		-6.667	3921	-53.96	replicated	hypo_siscowet	si:ch211-214p13.9	cell surface glycoprotein CD200 receptor 1-A	0.059	False	intermediate
+SDMR_111_c1	control	SDMR_111	10.26	1	1	0	10.26		1603	-53.96	replicated	hypo_siscowet	si:ch211-214p13.9	cell surface glycoprotein CD200 receptor 1-A	-0.9397	True	
+SDMR_111_c9	control	SDMR_111	-8.08	1	0	1		-8.08	1576	-53.96	replicated	hypo_siscowet	si:ch211-214p13.9	cell surface glycoprotein CD200 receptor 1-A	0.05464	False	
+SDMR_113	dmr	SDMR_113	-53.9	4	2	2	-89.14	-18.65	642	-56.41	replicated	hypo_siscowet	LOC120043828	mitochondrial Rho GTPase 1-A	-0.1852	False	cis_like
+SDMR_113_c3	control	SDMR_113	-5	1	0	1		-5	352	-56.41	replicated	hypo_siscowet	LOC120043828	mitochondrial Rho GTPase 1-A	-0.2818	False	
+SDMR_114	dmr	SDMR_114	-46.67	1	0	1		-46.67	52	-62.21	replicated	hypo_siscowet	LOC120034056	interferon a3-like	-0.4811	False	cis_like
+SDMR_114_c5	control	SDMR_114	-1.545	2	2	0	-1.545		1833	-62.21	replicated	hypo_siscowet	LOC120034056	interferon a3-like	-0.8144	True	
+SDMR_115	dmr	SDMR_115	-28.85	3	1	2	-56.48	-15.03	0	-67.91	replicated	hypo_siscowet	LOC120034419	interferon alpha-6-like	-0.1903	False	intermediate
+SDMR_117_c4	control	SDMR_117	-14.01	3	0	3		-14.01	712	-26.5	single_frame	hypo_siscowet	LOC120042507	zinc finger protein 135-like	0.4676	False	
+SDMR_11_c1	control	SDMR_11	-1.82	1	1	0	-1.82		2546	77.26	replicated	hyper_siscowet	LOC120050376	uncharacterized LOC120050376	0.07973	False	
+SDMR_12	dmr	SDMR_12	41.87	2	1	1	66.27	17.46	1321	60.33	replicated	hyper_siscowet	LOC120064371	E3 ubiquitin-protein ligase Itchy-like	-0.07282	False	cis_like
+SDMR_121_c4	control	SDMR_121	2.423	4	1	3	2.82	2.29	767	17.25	single_frame	hyper_siscowet	LOC120018041	histone H2B	0.5663	True	
+SDMR_121_c9	control	SDMR_121	-5	1	1	0	-5		118	17.25	single_frame	hyper_siscowet	LOC120018041	histone H2B	0.03259	False	
+SDMR_122_c3	control	SDMR_122	-0.405	2	1	1	-1.82	1.01	695	23.08	single_frame	hyper_siscowet	LOC120017972	histone H3	-0.3059	False	
+SDMR_124_c1	control	SDMR_124	-3.374	5	1	4	-3.12	-3.438	0	16.12	single_frame	hyper_siscowet	LOC120041402	piggyBac transposable element-derived protein 4-like	0.2765	False	
+SDMR_124_c4	control	SDMR_124	4.48	1	1	0	4.48		1101	16.12	single_frame	hyper_siscowet	LOC120041402	piggyBac transposable element-derived protein 4-like	0.0604	False	
+SDMR_124_c8	control	SDMR_124	-5.83	4	2	2	-4.325	-7.335	124	16.12	single_frame	hyper_siscowet	LOC120041402	piggyBac transposable element-derived protein 4-like	-0.04363	False	
+SDMR_125_c8	control	SDMR_125	-16.23	1	1	0	-16.23		1104	-31.93	single_frame	hypo_siscowet	LOC120032965	zinc finger protein 135-like	0.1438	False	
+SDMR_126_c4	control	SDMR_126	2.883	3	2	1	4.425	-0.2	0	61.35	replicated	hyper_siscowet	LOC120023322	RILP-like protein 2	-0.4071	False	
+SDMR_126_c6	control	SDMR_126	23.97	1	1	0	23.97		0	61.35	replicated	hyper_siscowet	LOC120023322	RILP-like protein 2	-0.6984	True	
+SDMR_127_c1	control	SDMR_127	4	1	1	0	4		1044	49.39	single_frame	hyper_siscowet	LOC120036121	uncharacterized LOC120036121	-0.2118	False	
+SDMR_127_c10	control	SDMR_127	-18.09	2	0	2		-18.09	26	49.39	single_frame	hyper_siscowet	LOC120036121	uncharacterized LOC120036121	0.2583	False	
+SDMR_127_c6	control	SDMR_127	2.38	1	0	1		2.38	2348	49.39	single_frame	hyper_siscowet	LOC120036121	uncharacterized LOC120036121	-0.2617	False	
+SDMR_12_c5	control	SDMR_12	-5.47	2	1	1	0.92	-11.86	293	60.33	replicated	hyper_siscowet	LOC120064371	E3 ubiquitin-protein ligase Itchy-like	-0.00716	False	
+SDMR_130	dmr	SDMR_130	-7.958	6	4	2	0.65	-25.18	0	-21.43	single_frame	hypo_siscowet	LOC120039763	18S ribosomal RNA	-0.1083	False	intermediate
+SDMR_130_c4	control	SDMR_130	3.39	2	1	1	1.36	5.42	0	-21.43	single_frame	hypo_siscowet	LOC120039763	18S ribosomal RNA	-0.4915	False	
+SDMR_131	dmr	SDMR_131	-2.718	6	4	2	-4.645	1.135	2665	-18.64	single_frame	hypo_siscowet	LOC120039763	18S ribosomal RNA	-0.239	False	intermediate
+SDMR_132_c3	control	SDMR_132	-8.33	1	1	0	-8.33		917	-30.8	not_replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	0.2082	False	
+SDMR_132_c6	control	SDMR_132	-3.262	4	2	2	-4.025	-2.5	0	-30.8	not_replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.7316	True	
+SDMR_133_c5	control	SDMR_133	-6.013	3	0	3		-6.013	293	-28.89	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	0.1146	False	
+SDMR_135_c3	control	SDMR_135	8.053	2	2	0	8.053		1935	-27.35	replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.2948	False	
+SDMR_135_c6	control	SDMR_135	2.38	1	0	1		2.38	138	-27.35	replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.1806	False	
+SDMR_135_c8	control	SDMR_135	-2.295	2	1	1	-5.36	0.77	1313	-27.35	replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.3236	False	
+SDMR_137_c3	control	SDMR_137	6.042	2	0	2		6.042	1301	-15.11	replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.3992	False	
+SDMR_137_c4	control	SDMR_137	2.86	1	0	1		2.86	1680	-15.11	replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.003787	False	
+SDMR_138_c3	control	SDMR_138	3.43	2	0	2		3.43	95	-18.98	replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.126	False	
+SDMR_139_c8	control	SDMR_139	5	2	0	2		5	727	-21.62	replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.1126	False	
+SDMR_13_c2	control	SDMR_13	0	1	0	1		0	1320	65.08	replicated	hyper_siscowet	tmem144a	transmembrane protein 144a	-0.1576	False	
+SDMR_13_c7	control	SDMR_13	-3.57	1	0	1		-3.57	300	65.08	replicated	hyper_siscowet	tmem144a	transmembrane protein 144a	-0.2243	False	
+SDMR_140_c5	control	SDMR_140	-5.88	1	1	0	-5.88		3837	-21.9	replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	0.5122	True	
+SDMR_141_c3	control	SDMR_141	0	2	2	0	0		0	55.05	replicated	hyper_siscowet	LOC120025505	matrix metalloproteinase-17-like	0.05669	False	
+SDMR_142_c7	control	SDMR_142	-6.94	1	1	0	-6.94		263	-28.29	not_replicated	hypo_siscowet	LOC120033474	zinc finger protein 214-like	0.0475	False	
+SDMR_144_c10	control	SDMR_144	-17.79	3	2	1	17.09	-87.55	179	-43.49	replicated	hypo_siscowet	LOC120035684	zinc finger protein 32-like	-0.05431	False	
+SDMR_145_c3	control	SDMR_145	1.457	3	1	2	18.75	-7.19	377	-18.13	single_frame	hypo_siscowet	LOC120035369	18S ribosomal RNA	-0.5051	True	
+SDMR_148_c7	control	SDMR_148	0	2	2	0	0		1049	-39.07	replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.5788	True	
+SDMR_149_c7	control	SDMR_149	6.55	2	1	1	14.29	-1.19	13	-23.03	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.1918	False	
+SDMR_14_c6	control	SDMR_14	-8.929	1	1	0	-8.929		663	-63.91	single_frame	hypo_siscowet	LOC120057838	twist-related protein 2-like	-0.3583	False	
+SDMR_15	dmr	SDMR_15	2.08	1	1	0	2.08		205	57.64	replicated	hyper_siscowet	epsti1	epithelial stromal interaction 1	-0.6868	True	trans_like
+SDMR_150_c8	control	SDMR_150	3.74	4	1	3	3.21	3.917	0	-26.71	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.3419	False	
+SDMR_151_c5	control	SDMR_151	10	1	0	1		10	289	-50.64	replicated	hypo_siscowet	LOC120051553	zinc finger protein 883-like	-0.05721	False	
+SDMR_151_c6	control	SDMR_151	-25	1	0	1		-25	67	-50.64	replicated	hypo_siscowet	LOC120051553	zinc finger protein 883-like	-0.5685	True	
+SDMR_151_c8	control	SDMR_151	33.33	1	0	1		33.33	2759	-50.64	replicated	hypo_siscowet	LOC120051553	zinc finger protein 883-like	0.006938	False	
+SDMR_152_c10	control	SDMR_152	4.29	1	0	1		4.29	257	-20.08	replicated	hypo_siscowet	LOC120050894	zinc finger protein OZF-like	0.9048	True	
+SDMR_153	dmr	SDMR_153	-7.779	3	2	1	-13.23	3.13	1412	-30.63	replicated	hypo_siscowet	LOC120050895	zinc finger protein 658B-like	0.5249	True	intermediate
+SDMR_153_c1	control	SDMR_153	-40.43	3	0	3		-40.43	448	-30.63	replicated	hypo_siscowet	LOC120050895	zinc finger protein 658B-like	0.06944	False	
+SDMR_154	dmr	SDMR_154	-68.75	4	2	2	-77.36	-60.13	0	-61.32	replicated	hypo_siscowet	LOC120033640	zinc finger protein 664-like	-0.05292	False	cis_like
+SDMR_155	dmr	SDMR_155	-68.66	3	2	1	-67.77	-70.45	0	-59.89	replicated	hypo_siscowet	LOC120033338	oocyte zinc finger protein XlCOF22-like	0.008322	False	cis_like
+SDMR_155_c6	control	SDMR_155	-3.25	1	1	0	-3.25		3658	-59.89	replicated	hypo_siscowet	LOC120033338	oocyte zinc finger protein XlCOF22-like	-1.104	True	
+SDMR_156_c3	control	SDMR_156	6.03	4	3	1	6.559	4.444	295	25.82	replicated	hyper_siscowet	LOC120033489	gastrula zinc finger protein XlCGF17.1-like	-0.5639	True	
+SDMR_156_c5	control	SDMR_156	0.5767	3	0	3		0.5767	312	25.82	replicated	hyper_siscowet	LOC120033489	gastrula zinc finger protein XlCGF17.1-like	0.0767	False	
+SDMR_157_c1	control	SDMR_157	-19.01	2	2	0	-19.01		1057	-20.52	not_replicated	hypo_siscowet	LOC120038663	oocyte zinc finger protein XlCOF19-like	-0.2997	False	
+SDMR_157_c9	control	SDMR_157	0	1	1	0	0		22	-20.52	not_replicated	hypo_siscowet	LOC120038663	oocyte zinc finger protein XlCOF19-like	0.07672	False	
+SDMR_158_c4	control	SDMR_158	9.994	5	1	4	21.31	7.165	0	-18.91	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	0.06068	False	
+SDMR_158_c6	control	SDMR_158	-19.87	2	2	0	-19.87		2761	-18.91	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.256	False	
+SDMR_159	dmr	SDMR_159	-13.77	4	2	2	-1.825	-25.71	2747	-19.13	single_frame	hypo_siscowet	LOC120041195	28S ribosomal RNA	0.1167	False	intermediate
+SDMR_159_c7	control	SDMR_159	0	2	2	0	0		81	-19.13	single_frame	hypo_siscowet	LOC120041195	28S ribosomal RNA	0.2499	False	
+SDMR_159_c8	control	SDMR_159	22.6	1	0	1		22.6	0	-19.13	single_frame	hypo_siscowet	LOC120041195	28S ribosomal RNA	0.01242	False	
+SDMR_15_c9	control	SDMR_15	3.125	2	0	2		3.125	734	57.64	replicated	hyper_siscowet	epsti1	epithelial stromal interaction 1	0.1614	False	
+SDMR_160	dmr	SDMR_160	-31.71	4	2	2	-29.47	-33.95	3561	-18.91	single_frame	hypo_siscowet	LOC120041195	28S ribosomal RNA	0.1792	False	cis_like
+SDMR_160_c4	control	SDMR_160	1.67	1	1	0	1.67		1068	-18.91	single_frame	hypo_siscowet	LOC120041195	28S ribosomal RNA	0.3735	False	
+SDMR_160_c8	control	SDMR_160	3.535	2	1	1	25.27	-18.2	404	-18.91	single_frame	hypo_siscowet	LOC120041195	28S ribosomal RNA	0.3123	False	
+SDMR_161	dmr	SDMR_161	-13.18	4	2	2	-0.8	-25.57	4501	-19.15	single_frame	hypo_siscowet	LOC120042890	18S ribosomal RNA	0.0896	False	intermediate
+SDMR_162_c8	control	SDMR_162	-4.85	3	3	0	-4.85		580	-18.1	single_frame	hypo_siscowet	LOC120042890	18S ribosomal RNA	-0.8395	True	
+SDMR_164	dmr	SDMR_164	-59.23	3	0	3		-59.23	225	-56.29	single_frame	hypo_siscowet	LOC120040411	gastrula zinc finger protein XlCGF57.1-like	0.03496	False	cis_like
+SDMR_165	dmr	SDMR_165	-48.66	4	0	4		-48.66	3	-44.43	single_frame	hypo_siscowet	LOC120040411	gastrula zinc finger protein XlCGF57.1-like	0.04508	False	cis_like
+SDMR_165_c3	control	SDMR_165	-4.447	3	1	2	-6.67	-3.335	450	-44.43	single_frame	hypo_siscowet	LOC120040411	gastrula zinc finger protein XlCGF57.1-like	0.188	False	
+SDMR_168	dmr	SDMR_168	-9.049	2	0	2		-9.049	858	-42.07	single_frame	hypo_siscowet	LOC120047326	polysialoglycoprotein-like	-0.7621	True	intermediate
+SDMR_168_c3	control	SDMR_168	13.33	1	1	0	13.33		144	-42.07	single_frame	hypo_siscowet	LOC120047326	polysialoglycoprotein-like	0.2571	False	
+SDMR_168_c6	control	SDMR_168	0	1	0	1		0	867	-42.07	single_frame	hypo_siscowet	LOC120047326	polysialoglycoprotein-like	0.1148	False	
+SDMR_168_c8	control	SDMR_168	12.5	1	0	1		12.5	0	-42.07	single_frame	hypo_siscowet	LOC120047326	polysialoglycoprotein-like	0.0866	False	
+SDMR_169_c9	control	SDMR_169	-4.165	2	1	1	5	-13.33	1669	-23.76	single_frame	hypo_siscowet	LOC120033262	fibroblast growth factor 14-like	0.003167	False	
+SDMR_171_c7	control	SDMR_171	0.4967	3	1	2	13.33	-5.92	1960	59.03	single_frame	hyper_siscowet	LOC120042580	guanine nucleotide-binding protein subunit alpha-13	0.61	True	
+SDMR_172	dmr	SDMR_172	-8.783	3	2	1	0.99	-28.33	1365	-43.92	replicated	hypo_siscowet	LOC120038521	uncharacterized LOC120038521	-0.8649	True	intermediate
+SDMR_174_c5	control	SDMR_174	-5.56	1	0	1		-5.56	4510	-20.9	single_frame	hypo_siscowet	LOC120035752	28S ribosomal RNA	0.2107	False	
+SDMR_174_c8	control	SDMR_174	-5.18	4	1	3	0	-6.907	473	-20.9	single_frame	hypo_siscowet	LOC120035752	28S ribosomal RNA	0.4339	False	
+SDMR_175_c8	control	SDMR_175	-10.18	1	0	1		-10.18	317	-26.14	replicated	hypo_siscowet	LOC120035752	28S ribosomal RNA	0.2457	False	
+SDMR_176_c2	control	SDMR_176	-0.79	1	1	0	-0.79		70	-24.04	single_frame	hypo_siscowet	LOC120035752	28S ribosomal RNA	0.1252	False	
+SDMR_176_c9	control	SDMR_176	0	1	0	1		0	2312	-24.04	single_frame	hypo_siscowet	LOC120035752	28S ribosomal RNA	0.4141	False	
+SDMR_177_c10	control	SDMR_177	-2.365	2	2	0	-2.365		0	-21.66	not_replicated	hypo_siscowet	LOC120041726	uncharacterized LOC120041726	-0.4187	False	
+SDMR_177_c7	control	SDMR_177	-0.085	2	0	2		-0.085	1849	-21.66	not_replicated	hypo_siscowet	LOC120041726	uncharacterized LOC120041726	0.2116	False	
+SDMR_178_c7	control	SDMR_178	0	1	1	0	0		0	-43.49	single_frame	hypo_siscowet	LOC120032561	uncharacterized LOC120032561	-1.017	True	
+SDMR_179_c8	control	SDMR_179	14.81	1	1	0	14.81		606	-28.76	single_frame	hypo_siscowet	LOC120041875	uncharacterized LOC120041875	-0.466	False	
+SDMR_180_c10	control	SDMR_180	-12.5	1	1	0	-12.5		2020	-15.2	single_frame	hypo_siscowet	LOC120030535	galactose-specific lectin nattectin-like	-0.5902	True	
+SDMR_181_c2	control	SDMR_181	3.846	1	1	0	3.846		799	41.85	replicated	hyper_siscowet	nudt19	nudix (nucleoside diphosphate linked moiety X)-type motif 19	-0.1677	False	
+SDMR_181_c7	control	SDMR_181	-0.93	1	0	1		-0.93	1021	41.85	replicated	hyper_siscowet	nudt19	nudix (nucleoside diphosphate linked moiety X)-type motif 19	-0.3149	False	
+SDMR_182_c10	control	SDMR_182	-9.167	3	2	1	-5.415	-16.67	13	51.29	replicated	hyper_siscowet	nudt19	nudix (nucleoside diphosphate linked moiety X)-type motif 19	-0.4606	False	
+SDMR_183	dmr	SDMR_183	-42.86	6	2	4	-74.03	-27.28	1540	-46.5	single_frame	hypo_siscowet	LOC120044867	uncharacterized LOC120044867	-0.2029	False	cis_like
+SDMR_184	dmr	SDMR_184	-28.85	6	2	4	-50.21	-18.17	583	-49.43	single_frame	hypo_siscowet	LOC120044867	uncharacterized LOC120044867	-0.06361	False	intermediate
+SDMR_184_c9	control	SDMR_184	4.19	2	0	2		4.19	760	-49.43	single_frame	hypo_siscowet	LOC120044867	uncharacterized LOC120044867	-0.09337	False	
+SDMR_185	dmr	SDMR_185	10.21	4	2	2	44.73	-24.3	83	-55.75	replicated	hypo_siscowet	LOC120058933	transcription factor HES-4-B-like	-0.2576	False	intermediate
+SDMR_186	dmr	SDMR_186	6.25	1	0	1		6.25	3719	-43.95	replicated	hypo_siscowet	LOC120058933	transcription factor HES-4-B-like	0.2329	False	intermediate
+SDMR_186_c7	control	SDMR_186	-13.33	1	0	1		-13.33	1181	-43.95	replicated	hypo_siscowet	LOC120058933	transcription factor HES-4-B-like	-0.3875	False	
+SDMR_188_c1	control	SDMR_188	0.7867	6	2	4	3.93	-0.785	100	-17.75	single_frame	hypo_siscowet	trnad-guc	tRNA-Asp	-0.05835	False	
+SDMR_190_c4	control	SDMR_190	0	3	1	2	0	0	714	-26.5	single_frame	hypo_siscowet	LOC120039512	18S ribosomal RNA	0.1229	False	
+SDMR_191_c10	control	SDMR_191	8.33	1	0	1		8.33	3780	62.32	replicated	hyper_siscowet	LOC120019079	uronyl 2-sulfotransferase-like	0.02447	False	
+SDMR_191_c8	control	SDMR_191	26.67	1	1	0	26.67		1591	62.32	replicated	hyper_siscowet	LOC120019079	uronyl 2-sulfotransferase-like	0.2394	False	
+SDMR_192	dmr	SDMR_192	-0.4025	4	0	4		-0.4025	1090	-19.95	single_frame	hypo_siscowet	LOC120042610	18S ribosomal RNA	-0.05904	False	intermediate
+SDMR_192_c10	control	SDMR_192	-10.98	1	0	1		-10.98	534	-19.95	single_frame	hypo_siscowet	LOC120042610	18S ribosomal RNA	0.192	False	
+SDMR_192_c2	control	SDMR_192	-4.945	2	2	0	-4.945		536	-19.95	single_frame	hypo_siscowet	LOC120042610	18S ribosomal RNA	-0.09559	False	
+SDMR_192_c6	control	SDMR_192	6.945	2	0	2		6.945	0	-19.95	single_frame	hypo_siscowet	LOC120042610	18S ribosomal RNA	0.3868	False	
+SDMR_193	dmr	SDMR_193	3.133	4	0	4		3.133	426	-21.09	single_frame	hypo_siscowet	LOC120042610	18S ribosomal RNA	-0.07549	False	trans_like
+SDMR_193_c1	control	SDMR_193	-36.36	1	1	0	-36.36		3302	-21.09	single_frame	hypo_siscowet	LOC120042610	18S ribosomal RNA	0.4929	False	
+SDMR_193_c7	control	SDMR_193	6.82	1	1	0	6.82		634	-21.09	single_frame	hypo_siscowet	LOC120042610	18S ribosomal RNA	0.3078	False	
+SDMR_194	dmr	SDMR_194	5.837	3	0	3		5.837	1927	-19.5	single_frame	hypo_siscowet	LOC120042610	18S ribosomal RNA	0.1359	False	intermediate
+SDMR_194_c5	control	SDMR_194	5.21	2	2	0	5.21		195	-19.5	single_frame	hypo_siscowet	LOC120042610	18S ribosomal RNA	0.1531	False	
+SDMR_196_c4	control	SDMR_196	-1.79	1	0	1		-1.79	0	-22.2	single_frame	hypo_siscowet	LOC120036016	18S ribosomal RNA	-0.6481	True	
+SDMR_197	dmr	SDMR_197	21.34	3	0	3		21.34	4166	-18.58	single_frame	hypo_siscowet	LOC120039165	28S ribosomal RNA	0.2366	False	intermediate
+SDMR_197_c1	control	SDMR_197	11.96	3	1	2	-8.17	22.02	395	-18.58	single_frame	hypo_siscowet	LOC120039165	28S ribosomal RNA	-0.7118	True	
+SDMR_198	dmr	SDMR_198	13.18	3	0	3		13.18	2043	-15.15	single_frame	hypo_siscowet	LOC120039165	28S ribosomal RNA	0.3357	False	intermediate
+SDMR_198_c4	control	SDMR_198	3.48	1	0	1		3.48	2033	-15.15	single_frame	hypo_siscowet	LOC120039165	28S ribosomal RNA	0.1097	False	
+SDMR_199_c3	control	SDMR_199	5.715	2	1	1	-10	21.43	2634	20.69	single_frame	hyper_siscowet	LOC120040581	piggyBac transposable element-derived protein 4-like	0.1066	False	
+SDMR_199_c4	control	SDMR_199	0.8833	3	2	1	3.25	-3.85	476	20.69	single_frame	hyper_siscowet	LOC120040581	piggyBac transposable element-derived protein 4-like	-0.2297	False	
+SDMR_1_c3	control	SDMR_1	22.73	1	0	1		22.73	672	68.23	replicated	hyper_siscowet	daam2	dishevelled associated activator of morphogenesis 2	0.1527	False	
+SDMR_1_c6	control	SDMR_1	0	1	1	0	0		2924	68.23	replicated	hyper_siscowet	daam2	dishevelled associated activator of morphogenesis 2	0.09376	False	
+SDMR_200	dmr	SDMR_200	-66.94	4	1	3	7.78	-91.85	1000	-58.57	replicated	hypo_siscowet	LOC120061865	transmembrane protein 271-like	-0.5	False	cis_like
+SDMR_201	dmr	SDMR_201	-72.74	4	1	3	-7.62	-94.45	367	-53.8	replicated	hypo_siscowet	LOC120061865	transmembrane protein 271-like	-0.4678	False	cis_like
+SDMR_201_c4	control	SDMR_201	0	1	0	1		0	53	-53.8	replicated	hypo_siscowet	LOC120061865	transmembrane protein 271-like	-0.1738	False	
+SDMR_202	dmr	SDMR_202	62.7	1	1	0	62.7		3048	45.19	replicated	hyper_siscowet	aldh1a3	aldehyde dehydrogenase 1 family, member A3	0.1757	False	cis_like
+SDMR_203	dmr	SDMR_203	89.74	1	1	0	89.74		1250	51.69	replicated	hyper_siscowet	aldh1a3	aldehyde dehydrogenase 1 family, member A3	0.09303	False	cis_like
+SDMR_203_c2	control	SDMR_203	0	1	1	0	0		177	51.69	replicated	hyper_siscowet	aldh1a3	aldehyde dehydrogenase 1 family, member A3	-0.6036	True	
+SDMR_203_c4	control	SDMR_203	3.33	1	1	0	3.33		805	51.69	replicated	hyper_siscowet	aldh1a3	aldehyde dehydrogenase 1 family, member A3	-0.2066	False	
+SDMR_205	dmr	SDMR_205	25	1	1	0	25		964	-53.85	replicated	hypo_siscowet	LOC120045521	gamma-crystallin M2-like	-0.1078	False	intermediate
+SDMR_205_c10	control	SDMR_205	20	1	1	0	20		2440	-53.85	replicated	hypo_siscowet	LOC120045521	gamma-crystallin M2-like	0.1613	False	
+SDMR_206	dmr	SDMR_206	-75.95	4	2	2	-61.91	-90	212	-48.98	replicated	hypo_siscowet	LOC120031279	gasdermin-E-like	0.1509	False	cis_like
+SDMR_207_c2	control	SDMR_207	-3.887	3	1	2	-8.33	-1.665	1673	84.13	replicated	hyper_siscowet	LOC120055155	protein FAM163A-like	0.03412	False	
+SDMR_207_c3	control	SDMR_207	-4.305	2	0	2		-4.305	700	84.13	replicated	hyper_siscowet	LOC120055155	protein FAM163A-like	-0.1619	False	
+SDMR_207_c9	control	SDMR_207	0	1	0	1		0	606	84.13	replicated	hyper_siscowet	LOC120055155	protein FAM163A-like	0.1445	False	
+SDMR_208_c2	control	SDMR_208	-3.33	2	2	0	-3.33		0	-23.87	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	-0.5225	True	
+SDMR_208_c3	control	SDMR_208	-3.06	2	0	2		-3.06	0	-23.87	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	0.5839	True	
+SDMR_208_c4	control	SDMR_208	6.755	4	3	1	12.09	-9.26	111	-23.87	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	-0.2634	False	
+SDMR_208_c7	control	SDMR_208	-13.32	2	0	2		-13.32	2005	-23.87	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	0.1881	False	
+SDMR_21	dmr	SDMR_21	-64.91	2	0	2		-64.91	0	-59.57	replicated	hypo_siscowet	LOC120019503	basic leucine zipper transcriptional factor ATF-like 3	-0.5006	True	cis_like
+SDMR_213_c10	control	SDMR_213	42.86	1	0	1		42.86	596	-19.7	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	0.4909	False	
+SDMR_214_c2	control	SDMR_214	-33.33	1	1	0	-33.33		3377	-27.25	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	0.01578	False	
+SDMR_214_c5	control	SDMR_214	0	1	0	1		0	2092	-27.25	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	-0.423	False	
+SDMR_214_c7	control	SDMR_214	26.67	1	0	1		26.67	2267	-27.25	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	-0.647	True	
+SDMR_215_c4	control	SDMR_215	-1.313	3	0	3		-1.313	0	-24.06	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	-0.1619	False	
+SDMR_215_c7	control	SDMR_215	-4.69	1	1	0	-4.69		1620	-24.06	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	-0.2477	False	
+SDMR_215_c8	control	SDMR_215	1.39	1	1	0	1.39		2277	-24.06	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	0.1031	False	
+SDMR_217_c2	control	SDMR_217	6.67	1	1	0	6.67		1967	-16.45	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	0.1219	False	
+SDMR_217_c6	control	SDMR_217	-34.27	2	1	1	-45	-23.53	2864	-16.45	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	0.1616	False	
+SDMR_217_c7	control	SDMR_217	1.023	4	1	3	4.76	-0.2233	332	-16.45	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	-0.07528	False	
+SDMR_218_c2	control	SDMR_218	1.04	2	1	1	2.08	0	0	-16.58	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	-0.2939	False	
+SDMR_218_c5	control	SDMR_218	8.93	1	1	0	8.93		136	-16.58	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	-0.1119	False	
+SDMR_219_c6	control	SDMR_219	-7.145	2	2	0	-7.145		620	-19.44	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	0.3144	False	
+SDMR_219_c7	control	SDMR_219	0	2	2	0	0		1236	-19.44	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	-0.3851	False	
+SDMR_219_c8	control	SDMR_219	0	2	2	0	0		605	-19.44	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	-0.05791	False	
+SDMR_219_c9	control	SDMR_219	1.042	4	2	2	0	2.083	22	-19.44	single_frame	hypo_siscowet	LOC120036752	18S ribosomal RNA	-0.3826	False	
+SDMR_21_c10	control	SDMR_21	3.15	2	0	2		3.15	1424	-59.57	replicated	hypo_siscowet	LOC120019503	basic leucine zipper transcriptional factor ATF-like 3	-0.03433	False	
+SDMR_221_c9	control	SDMR_221	0	1	0	1		0	2496	-29.95	single_frame	hypo_siscowet	LOC120036037	NACHT, LRR and PYD domains-containing protein 1 homolog	-0.1875	False	
+SDMR_223_c3	control	SDMR_223	-32.22	1	0	1		-32.22	2959	-38.69	single_frame	hypo_siscowet	LOC120037789	NACHT, LRR and PYD domains-containing protein 3-like	-0.1649	False	
+SDMR_224_c9	control	SDMR_224	-26.47	4	2	2	-46.38	-6.555	1365	-37.3	replicated	hypo_siscowet	LOC120037789	NACHT, LRR and PYD domains-containing protein 3-like	-0.4632	False	
+SDMR_225_c10	control	SDMR_225	-12.12	1	1	0	-12.12		192	-18.76	replicated	hypo_siscowet	LOC120040612	5.8S ribosomal RNA	-0.325	False	
+SDMR_225_c4	control	SDMR_225	-3.52	3	1	2	0	-5.28	279	-18.76	replicated	hypo_siscowet	LOC120040612	5.8S ribosomal RNA	0.3931	False	
+SDMR_225_c7	control	SDMR_225	0.6033	3	2	1	-0.665	3.14	833	-18.76	replicated	hypo_siscowet	LOC120040612	5.8S ribosomal RNA	-0.3958	False	
+SDMR_226_c8	control	SDMR_226	-4.925	2	1	1	0	-9.85	0	-37.08	single_frame	hypo_siscowet	LOC120040612	5.8S ribosomal RNA	-0.4293	False	
+SDMR_227_c8	control	SDMR_227	-10.71	1	0	1		-10.71	797	-44.09	not_replicated	hypo_siscowet	LOC120040612	5.8S ribosomal RNA	0.3701	False	
+SDMR_228_c3	control	SDMR_228	-14.44	3	1	2	-13.33	-15	653	-25.26	single_frame	hypo_siscowet	LOC120040581	piggyBac transposable element-derived protein 4-like	-0.5714	True	
+SDMR_229_c2	control	SDMR_229	-0.3233	3	0	3		-0.3233	0	-25.04	single_frame	hypo_siscowet	LOC120040581	piggyBac transposable element-derived protein 4-like	0.3977	False	
+SDMR_22_c3	control	SDMR_22	2.38	1	0	1		2.38	1928	-76.58	replicated	hypo_siscowet	coro1ca	coronin, actin binding protein, 1Ca	-0.5384	True	
+SDMR_232_c3	control	SDMR_232	11.84	2	2	0	11.84		0	-20.2	single_frame	hypo_siscowet	LOC120040581	piggyBac transposable element-derived protein 4-like	-0.2708	False	
+SDMR_232_c5	control	SDMR_232	2.917	4	0	4		2.917	261	-20.2	single_frame	hypo_siscowet	LOC120040581	piggyBac transposable element-derived protein 4-like	0.368	False	
+SDMR_234_c7	control	SDMR_234	-1.046	1	1	0	-1.046		1753	-20.04	single_frame	hypo_siscowet	LOC120040581	piggyBac transposable element-derived protein 4-like	0.2389	False	
+SDMR_236_c2	control	SDMR_236	2.273	3	2	1	3.41	0	728	-19.18	single_frame	hypo_siscowet	LOC120040581	piggyBac transposable element-derived protein 4-like	-0.6209	True	
+SDMR_236_c4	control	SDMR_236	5.223	3	0	3		5.223	70	-19.18	single_frame	hypo_siscowet	LOC120040581	piggyBac transposable element-derived protein 4-like	0.03097	False	
+SDMR_236_c7	control	SDMR_236	32.14	1	0	1		32.14	2686	-19.18	single_frame	hypo_siscowet	LOC120040581	piggyBac transposable element-derived protein 4-like	0.02118	False	
+SDMR_236_c8	control	SDMR_236	-17.66	2	0	2		-17.66	38	-19.18	single_frame	hypo_siscowet	LOC120040581	piggyBac transposable element-derived protein 4-like	-0.4043	False	
+SDMR_237_c10	control	SDMR_237	15	1	0	1		15	1085	-19.57	single_frame	hypo_siscowet	LOC120040581	piggyBac transposable element-derived protein 4-like	-0.1196	False	
+SDMR_239_c2	control	SDMR_239	4.794	5	3	2	6.553	2.155	308	39.6	single_frame	hyper_siscowet	LOC120032557	zinc finger protein 2 homolog	-0.1983	False	
+SDMR_243	dmr	SDMR_243	-9.316	4	4	0	-9.316		161	-16.57	single_frame	hypo_siscowet	LOC120037151	histone H3-like	-0.5574	True	intermediate
+SDMR_243_c6	control	SDMR_243	0	1	1	0	0		473	-16.57	single_frame	hypo_siscowet	LOC120037151	histone H3-like	-0.1159	False	
+SDMR_244	dmr	SDMR_244	-23.06	4	4	0	-23.06		335	-13.83	single_frame	hypo_siscowet	LOC120037151	histone H3-like	-0.3513	False	intermediate
+SDMR_244_c5	control	SDMR_244	-25	1	0	1		-25	187	-13.83	single_frame	hypo_siscowet	LOC120037151	histone H3-like	-0.6183	True	
+SDMR_244_c8	control	SDMR_244	-6.12	1	0	1		-6.12	718	-13.83	single_frame	hypo_siscowet	LOC120037151	histone H3-like	-0.202	False	
+SDMR_245_c7	control	SDMR_245	2.5	1	0	1		2.5	1776	-19.57	replicated	hypo_siscowet	LOC120039765	28S ribosomal RNA	0.3023	False	
+SDMR_247_c10	control	SDMR_247	-3.08	1	1	0	-3.08		913	-24.95	single_frame	hypo_siscowet	LOC120039765	28S ribosomal RNA	-0.1583	False	
+SDMR_247_c5	control	SDMR_247	17.54	1	0	1		17.54	3232	-24.95	single_frame	hypo_siscowet	LOC120039765	28S ribosomal RNA	-0.3954	False	
+SDMR_248_c10	control	SDMR_248	-0.895	2	1	1	0	-1.79	356	-22.74	single_frame	hypo_siscowet	LOC120039765	28S ribosomal RNA	0.003495	False	
+SDMR_249_c3	control	SDMR_249	-10	1	1	0	-10		1500	-22.57	single_frame	hypo_siscowet			-0.3932	False	
+SDMR_24_c10	control	SDMR_24	-8.33	1	1	0	-8.33		2623	-51.85	replicated	hypo_siscowet	LOC120057031	ras-related protein Rab-24-like	0.1042	False	
+SDMR_24_c7	control	SDMR_24	0	1	0	1		0	363	-51.85	replicated	hypo_siscowet	LOC120057031	ras-related protein Rab-24-like	-0.3743	False	
+SDMR_250_c2	control	SDMR_250	-0.2803	4	1	3	0	-0.3737	300	-27.85	single_frame	hypo_siscowet	LOC120039521	zinc finger protein 2 homolog	0.09748	False	
+SDMR_251_c10	control	SDMR_251	10.41	2	0	2		10.41	3010	-26.24	single_frame	hypo_siscowet	LOC120039521	zinc finger protein 2 homolog	0.06519	False	
+SDMR_252_c9	control	SDMR_252	-12.5	1	0	1		-12.5	1938	-27.06	single_frame	hypo_siscowet	LOC120039521	zinc finger protein 2 homolog	0.5236	True	
+SDMR_253_c3	control	SDMR_253	0	1	1	0	0		0	-18.89	single_frame	hypo_siscowet	LOC120036637	18S ribosomal RNA	-0.1418	False	
+SDMR_253_c5	control	SDMR_253	0.48	4	0	4		0.48	24	-18.89	single_frame	hypo_siscowet	LOC120036637	18S ribosomal RNA	0.1249	False	
+SDMR_253_c6	control	SDMR_253	11.43	3	1	2	0	17.15	95	-18.89	single_frame	hypo_siscowet	LOC120036637	18S ribosomal RNA	-0.02857	False	
+SDMR_254_c3	control	SDMR_254	-23.62	2	1	1	-31.48	-15.75	4045	-14.94	single_frame	hypo_siscowet	LOC120036637	18S ribosomal RNA	0.059	False	
+SDMR_254_c8	control	SDMR_254	-6.877	3	0	3		-6.877	673	-14.94	single_frame	hypo_siscowet	LOC120036637	18S ribosomal RNA	-0.3131	False	
+SDMR_255_c10	control	SDMR_255	5.67	1	0	1		5.67	0	-17.74	single_frame	hypo_siscowet	LOC120036637	18S ribosomal RNA	-0.2031	False	
+SDMR_255_c2	control	SDMR_255	10.48	1	0	1		10.48	0	-17.74	single_frame	hypo_siscowet	LOC120036637	18S ribosomal RNA	-0.3501	False	
+SDMR_256_c4	control	SDMR_256	4.925	4	3	1	5.613	2.86	1686	-15.53	single_frame	hypo_siscowet	LOC120036637	18S ribosomal RNA	-0.5223	True	
+SDMR_257_c3	control	SDMR_257	-0.77	1	0	1		-0.77	1322	-27.77	single_frame	hypo_siscowet			0.1039	False	
+SDMR_259_c1	control	SDMR_259	-2.57	1	1	0	-2.57		646	-19.95	single_frame	hypo_siscowet			-0.5128	True	
+SDMR_259_c5	control	SDMR_259	-3.25	1	0	1		-3.25	1623	-19.95	single_frame	hypo_siscowet			-0.7535	True	
+SDMR_25_c3	control	SDMR_25	0	1	0	1		0	451	-46.47	replicated	hypo_siscowet	LOC120057031	ras-related protein Rab-24-like	-0.2603	False	
+SDMR_26	dmr	SDMR_26	-68.52	1	1	0	-68.52		1636	-43.95	replicated	hypo_siscowet	LOC120055464	uncharacterized LOC120055464	-0.5126	True	cis_like
+SDMR_260	dmr	SDMR_260	0	1	0	1		0	2480	87.74	single_frame	hyper_siscowet	LOC120058286	inhibin beta B chain-like	0.1617	False	trans_like
+SDMR_260_c1	control	SDMR_260	-26.67	1	1	0	-26.67		1450	87.74	single_frame	hyper_siscowet	LOC120058286	inhibin beta B chain-like	-0.001106	False	
+SDMR_260_c10	control	SDMR_260	5	1	1	0	5		655	87.74	single_frame	hyper_siscowet	LOC120058286	inhibin beta B chain-like	0.02845	False	
+SDMR_260_c9	control	SDMR_260	0	2	1	1	0	0	1720	87.74	single_frame	hyper_siscowet	LOC120058286	inhibin beta B chain-like	0.3506	False	
+SDMR_261_c3	control	SDMR_261	-25.33	3	2	1	-16.97	-42.07	99	-26.71	single_frame	hypo_siscowet			-0.405	False	
+SDMR_263_c5	control	SDMR_263	-19.84	1	1	0	-19.84		2264	-30.9	single_frame	hypo_siscowet			-0.03261	False	
+SDMR_264_c1	control	SDMR_264	1.135	2	0	2		1.135	497	-27.82	single_frame	hypo_siscowet	LOC120042541	uncharacterized LOC120042541	-0.3036	False	
+SDMR_264_c7	control	SDMR_264	0	3	0	3		0	289	-27.82	single_frame	hypo_siscowet	LOC120042541	uncharacterized LOC120042541	0.1155	False	
+SDMR_266_c4	control	SDMR_266	9.21	1	0	1		9.21	1478	29.12	replicated	hyper_siscowet	LOC120041454	uncharacterized LOC120041454	-0.02166	False	
+SDMR_266_c6	control	SDMR_266	-16.67	1	0	1		-16.67	4261	29.12	replicated	hyper_siscowet	LOC120041454	uncharacterized LOC120041454	-0.08598	False	
+SDMR_267_c2	control	SDMR_267	29.91	4	1	3	39.58	26.69	0	-38	replicated	hypo_siscowet	LOC120040574	zinc finger protein 135-like	0.1617	False	
+SDMR_268_c3	control	SDMR_268	-10.46	1	0	1		-10.46	606	23.75	single_frame	hyper_siscowet	LOC120056766	uncharacterized LOC120056766	-0.3407	False	
+SDMR_269	dmr	SDMR_269	-53.8	2	1	1	-49.5	-58.09	60	-56.54	replicated	hypo_siscowet	LOC120023746	myosin heavy chain, fast skeletal muscle-like	0.1511	False	cis_like
+SDMR_26_c7	control	SDMR_26	-7.42	3	1	2	11.39	-16.83	858	-43.95	replicated	hypo_siscowet	LOC120055464	uncharacterized LOC120055464	0.1298	False	
+SDMR_27	dmr	SDMR_27	77.09	2	2	0	77.09		822	46.14	replicated	hyper_siscowet	LOC120056999	phosphatidylinositol glycan anchor biosynthesis, class P	-0.4632	False	cis_like
+SDMR_270_c9	control	SDMR_270	0.91	1	1	0	0.91		0	-19.02	single_frame	hypo_siscowet	LOC120038638	18S ribosomal RNA	0.2662	False	
+SDMR_271_c4	control	SDMR_271	0	1	1	0	0		3589	-15.06	single_frame	hypo_siscowet	LOC120038638	18S ribosomal RNA	0.1193	False	
+SDMR_272_c4	control	SDMR_272	2.38	4	2	2	3.57	1.19	489	-19.27	single_frame	hypo_siscowet	LOC120038638	18S ribosomal RNA	0.1991	False	
+SDMR_272_c7	control	SDMR_272	-4.17	3	0	3		-4.17	3190	-19.27	single_frame	hypo_siscowet	LOC120038638	18S ribosomal RNA	0.1497	False	
+SDMR_272_c9	control	SDMR_272	0	2	0	2		0	62	-19.27	single_frame	hypo_siscowet	LOC120038638	18S ribosomal RNA	0.1293	False	
+SDMR_273	dmr	SDMR_273	-18.36	2	1	1	-16.55	-20.17	3460	-18.45	single_frame	hypo_siscowet			0.4616	False	intermediate
+SDMR_273_c5	control	SDMR_273	14.29	1	0	1		14.29	221	-18.45	single_frame	hypo_siscowet			0.08148	False	
+SDMR_273_c8	control	SDMR_273	-2.86	1	0	1		-2.86	2681	-18.45	single_frame	hypo_siscowet			0.06029	False	
+SDMR_274	dmr	SDMR_274	12.59	2	1	1	33.17	-7.99	2660	-16.19	single_frame	hypo_siscowet			0.3305	False	intermediate
+SDMR_275	dmr	SDMR_275	3.445	2	1	1	13.03	-6.14	2250	-19.79	single_frame	hypo_siscowet			0.4093	False	intermediate
+SDMR_275_c3	control	SDMR_275	-2.98	1	0	1		-2.98	625	-19.79	single_frame	hypo_siscowet			0.1471	False	
+SDMR_275_c4	control	SDMR_275	15.28	1	0	1		15.28	2001	-19.79	single_frame	hypo_siscowet			-0.409	False	
+SDMR_275_c9	control	SDMR_275	-2.095	2	2	0	-2.095		625	-19.79	single_frame	hypo_siscowet			-0.8938	True	
+SDMR_276	dmr	SDMR_276	-12.23	2	1	1	-17.62	-6.84	1661	-17.95	single_frame	hypo_siscowet			0.6071	True	intermediate
+SDMR_276_c3	control	SDMR_276	1.812	4	3	1	2	1.25	159	-17.95	single_frame	hypo_siscowet			-0.3214	False	
+SDMR_277	dmr	SDMR_277	4.823	2	1	1	4.88	4.766	877	-22.12	single_frame	hypo_siscowet			0.9655	True	trans_like
+SDMR_277_c7	control	SDMR_277	5.665	2	0	2		5.665	3080	-22.12	single_frame	hypo_siscowet			0.4701	False	
+SDMR_277_c8	control	SDMR_277	0	1	1	0	0		0	-22.12	single_frame	hypo_siscowet			0.1267	False	
+SDMR_278	dmr	SDMR_278	25	1	0	1		25	322	-18.72	single_frame	hypo_siscowet			1.313	True	intermediate
+SDMR_279_c10	control	SDMR_279	-11.02	4	2	2	-6.25	-15.8	0	-17.28	replicated	hypo_siscowet	LOC120039211	zinc finger protein 271-like	0.2893	False	
+SDMR_279_c6	control	SDMR_279	-29.02	2	1	1	-43.75	-14.29	34	-17.28	replicated	hypo_siscowet	LOC120039211	zinc finger protein 271-like	-0.07957	False	
+SDMR_282	dmr	SDMR_282	13.65	1	0	1		13.65	4034	-23.51	single_frame	hypo_siscowet	LOC120036015	18S ribosomal RNA	0.633	True	intermediate
+SDMR_282_c1	control	SDMR_282	-0.14	1	1	0	-0.14		0	-23.51	single_frame	hypo_siscowet	LOC120036015	18S ribosomal RNA	-0.01214	False	
+SDMR_282_c10	control	SDMR_282	-18.8	1	0	1		-18.8	312	-23.51	single_frame	hypo_siscowet	LOC120036015	18S ribosomal RNA	0.2006	False	
+SDMR_282_c2	control	SDMR_282	8.055	2	1	1	-4.19	20.3	0	-23.51	single_frame	hypo_siscowet	LOC120036015	18S ribosomal RNA	0.315	False	
+SDMR_282_c8	control	SDMR_282	2.34	2	1	1	5.95	-1.27	0	-23.51	single_frame	hypo_siscowet	LOC120036015	18S ribosomal RNA	-0.177	False	
+SDMR_283_c5	control	SDMR_283	17.14	1	0	1		17.14	1189	-25.53	single_frame	hypo_siscowet	LOC120028058	uncharacterized LOC120028058	-0.1582	False	
+SDMR_284_c5	control	SDMR_284	-7.92	1	0	1		-7.92	287	-18.23	single_frame	hypo_siscowet	LOC120028058	uncharacterized LOC120028058	0.2923	False	
+SDMR_286_c2	control	SDMR_286	8.13	1	1	0	8.13		4825	-36.35	single_frame	hypo_siscowet	LOC120042713	protein FAM126B-like	-0.5524	True	
+SDMR_287_c2	control	SDMR_287	0.56	1	1	0	0.56		607	-33.33	single_frame	hypo_siscowet	LOC120042713	protein FAM126B-like	0.07828	False	
+SDMR_288_c7	control	SDMR_288	10.62	1	0	1		10.62	2062	-46.23	single_frame	hypo_siscowet	LOC120042713	protein FAM126B-like	-0.3294	False	
+SDMR_28_c9	control	SDMR_28	5	2	0	2		5	4871	71.44	replicated	hyper_siscowet	LOC120056981	opioid-binding protein/cell adhesion molecule-like	0.5826	True	
+SDMR_290	dmr	SDMR_290	-4.395	4	2	2	9.71	-18.5	3200	-20.41	single_frame	hypo_siscowet	LOC120038633	18S ribosomal RNA	-0.1788	False	trans_like
+SDMR_290_c1	control	SDMR_290	7.727	3	1	2	2.39	10.39	129	-20.41	single_frame	hypo_siscowet	LOC120038633	18S ribosomal RNA	-0.0134	False	
+SDMR_290_c4	control	SDMR_290	-0.2367	3	0	3		-0.2367	1163	-20.41	single_frame	hypo_siscowet	LOC120038633	18S ribosomal RNA	-0.03963	False	
+SDMR_291	dmr	SDMR_291	-14.69	4	2	2	-11.91	-17.47	0	-20.94	single_frame	hypo_siscowet	LOC120038633	18S ribosomal RNA	-0.2541	False	intermediate
+SDMR_292	dmr	SDMR_292	-4.832	5	3	2	-3.003	-7.575	813	-17.11	single_frame	hypo_siscowet	LOC120038633	18S ribosomal RNA	-0.5878	True	intermediate
+SDMR_292_c2	control	SDMR_292	-3.12	1	1	0	-3.12		54	-17.11	single_frame	hypo_siscowet	LOC120038633	18S ribosomal RNA	-0.1727	False	
+SDMR_292_c6	control	SDMR_292	6.26	3	1	2	11.79	3.495	2446	-17.11	single_frame	hypo_siscowet	LOC120038633	18S ribosomal RNA	0.097	False	
+SDMR_293_c1	control	SDMR_293	-13.89	2	0	2		-13.89	1406	-20.09	replicated	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.2662	False	
+SDMR_295_c10	control	SDMR_295	-2.117	4	2	2	-7.01	2.775	1243	-14.41	single_frame	hypo_siscowet	LOC120037964	28S ribosomal RNA	-0.3279	False	
+SDMR_295_c5	control	SDMR_295	4.909	5	1	4	25.19	-0.1607	242	-14.41	single_frame	hypo_siscowet	LOC120037964	28S ribosomal RNA	0.3018	False	
+SDMR_296_c3	control	SDMR_296	-4	1	0	1		-4	2124	-45.27	not_replicated	hypo_siscowet			-0.435	False	
+SDMR_297_c10	control	SDMR_297	-41.67	1	0	1		-41.67	980	-17.41	single_frame	hypo_siscowet			-0.2144	False	
+SDMR_299_c1	control	SDMR_299	-2.22	2	1	1	0	-4.44	915	-27.52	not_replicated	hypo_siscowet			0.05385	False	
+SDMR_299_c6	control	SDMR_299	-13.94	2	2	0	-13.94		331	-27.52	not_replicated	hypo_siscowet			0.1003	False	
+SDMR_299_c7	control	SDMR_299	2.76	4	1	3	-10.34	7.127	475	-27.52	not_replicated	hypo_siscowet			0.6021	True	
+SDMR_29_c2	control	SDMR_29	0	1	0	1		0	773	-36.99	single_frame	hypo_siscowet	LOC120036429	uncharacterized LOC120036429	-0.6521	True	
+SDMR_29_c7	control	SDMR_29	-5	1	0	1		-5	51	-36.99	single_frame	hypo_siscowet	LOC120036429	uncharacterized LOC120036429	-0.03758	False	
+SDMR_2_c7	control	SDMR_2	-11.92	2	1	1	-29.46	5.62	181	84.57	replicated	hyper_siscowet	LOC120056713	protocadherin gamma-C5-like	-0.1844	False	
+SDMR_2_c9	control	SDMR_2	-4.567	4	1	3	-18.75	0.16	1616	84.57	replicated	hyper_siscowet	LOC120056713	protocadherin gamma-C5-like	0.4942	False	
+SDMR_302	dmr	SDMR_302	41.04	3	1	2	87.61	17.76	0	62.13	single_frame	hyper_siscowet			0.3662	False	cis_like
+SDMR_302_c10	control	SDMR_302	-7.935	2	2	0	-7.935		905	62.13	single_frame	hyper_siscowet			-0.1608	False	
+SDMR_302_c6	control	SDMR_302	4.817	3	1	2	13.61	0.42	474	62.13	single_frame	hyper_siscowet			-0.1807	False	
+SDMR_304_c3	control	SDMR_304	-14.86	2	2	0	-14.86		809	-24.49	single_frame	hypo_siscowet			-0.1196	False	
+SDMR_304_c4	control	SDMR_304	3.09	1	0	1		3.09	312	-24.49	single_frame	hypo_siscowet			0.2794	False	
+SDMR_304_c5	control	SDMR_304	-9.56	1	0	1		-9.56	3607	-24.49	single_frame	hypo_siscowet			0.2929	False	
+SDMR_304_c8	control	SDMR_304	-0.39	3	1	2	-9.17	4	640	-24.49	single_frame	hypo_siscowet			0.02567	False	
+SDMR_30_c3	control	SDMR_30	6.19	1	0	1		6.19	0	-50.92	single_frame	hypo_siscowet	LOC120047185	ankyrin repeat domain-containing protein 34A-like	-0.2174	False	
+SDMR_30_c8	control	SDMR_30	0	1	0	1		0	3962	-50.92	single_frame	hypo_siscowet	LOC120047185	ankyrin repeat domain-containing protein 34A-like	0.1436	False	
+SDMR_33_c10	control	SDMR_33	12.33	2	0	2		12.33	1926	-40.17	replicated	hypo_siscowet	LOC120036759	zinc finger protein 436-like	-0.09595	False	
+SDMR_33_c2	control	SDMR_33	-13.33	1	1	0	-13.33		502	-40.17	replicated	hypo_siscowet	LOC120036759	zinc finger protein 436-like	-0.1124	False	
+SDMR_33_c6	control	SDMR_33	-24.76	1	1	0	-24.76		395	-40.17	replicated	hypo_siscowet	LOC120036759	zinc finger protein 436-like	-0.382	False	
+SDMR_36	dmr	SDMR_36	-2.083	1	1	0	-2.083		701	62.82	replicated	hyper_siscowet	LOC120021596	SLIT-ROBO Rho GTPase-activating protein 3-like	-0.2226	False	trans_like
+SDMR_36_c10	control	SDMR_36	-81.7	2	0	2		-81.7	3215	62.82	replicated	hyper_siscowet	LOC120021596	SLIT-ROBO Rho GTPase-activating protein 3-like	0.2443	False	
+SDMR_36_c8	control	SDMR_36	18.75	1	1	0	18.75		978	62.82	replicated	hyper_siscowet	LOC120021596	SLIT-ROBO Rho GTPase-activating protein 3-like	-0.2265	False	
+SDMR_37	dmr	SDMR_37	50	1	1	0	50		202	61.71	replicated	hyper_siscowet	LOC120053939	talin-2-like	-0.2742	False	cis_like
+SDMR_38	dmr	SDMR_38	62.5	1	1	0	62.5		134	60.09	replicated	hyper_siscowet	LOC120053939	talin-2-like	-0.4485	False	cis_like
+SDMR_38_c4	control	SDMR_38	-10.71	1	1	0	-10.71		1021	60.09	replicated	hyper_siscowet	LOC120053939	talin-2-like	0.06784	False	
+SDMR_39_c1	control	SDMR_39	-2.59	3	1	2	-10	1.115	970	-65.3	replicated	hypo_siscowet	LOC120053532	carbohydrate sulfotransferase 1-like	0.4956	False	
+SDMR_39_c10	control	SDMR_39	14.33	3	1	2	30	6.49	99	-65.3	replicated	hypo_siscowet	LOC120053532	carbohydrate sulfotransferase 1-like	0.4509	False	
+SDMR_3_c5	control	SDMR_3	0	1	0	1		0	3314	53.57	replicated	hyper_siscowet	LOC120042527	uncharacterized LOC120042527	0.2776	False	
+SDMR_41_c1	control	SDMR_41	6.06	1	1	0	6.06		2068	-60.21	not_replicated	hypo_siscowet	LOC120018242	uncharacterized LOC120018242	-0.4143	False	
+SDMR_41_c3	control	SDMR_41	0.8335	2	2	0	0.8335		273	-60.21	not_replicated	hypo_siscowet	LOC120018242	uncharacterized LOC120018242	-0.2039	False	
+SDMR_45_c9	control	SDMR_45	9.09	1	0	1		9.09	4311	-52.25	replicated	hypo_siscowet	LOC120041694	uncharacterized LOC120041694	-0.2546	False	
+SDMR_47_c5	control	SDMR_47	-4.774	4	1	3	0	-6.365	231	-39.31	replicated	hypo_siscowet	LOC120030292	E3 ubiquitin/ISG15 ligase TRIM25-like	-0.6789	True	
+SDMR_49	dmr	SDMR_49	-50.18	4	3	1	-55.09	-35.45	0	-43.2	not_replicated	hypo_siscowet	LOC120023758	NLR family CARD domain-containing protein 3-like	0.2563	False	cis_like
+SDMR_4_c10	control	SDMR_4	0	1	1	0	0		4916	-38.39	single_frame	hypo_siscowet	LOC120037031	NACHT, LRR and PYD domains-containing protein 1 homolog	0.3213	False	
+SDMR_4_c4	control	SDMR_4	33.33	1	1	0	33.33		1992	-38.39	single_frame	hypo_siscowet	LOC120037031	NACHT, LRR and PYD domains-containing protein 1 homolog	-0.08342	False	
+SDMR_4_c8	control	SDMR_4	11.51	3	1	2	2.377	16.07	361	-38.39	single_frame	hypo_siscowet	LOC120037031	NACHT, LRR and PYD domains-containing protein 1 homolog	-0.4841	False	
+SDMR_50_c4	control	SDMR_50	13.64	4	1	3	3.64	16.98	58	-44.8	replicated	hypo_siscowet	LOC120051702	forkhead box protein E1-like	0.09483	False	
+SDMR_51	dmr	SDMR_51	17.91	2	2	0	17.91		560	34.42	single_frame	hyper_siscowet	trnal-uag	tRNA-Leu	-0.5162	True	intermediate
+SDMR_51_c1	control	SDMR_51	2.38	1	1	0	2.38		374	34.42	single_frame	hyper_siscowet	trnal-uag	tRNA-Leu	0.04927	False	
+SDMR_53_c2	control	SDMR_53	0	1	0	1		0	145	21.46	single_frame	hyper_siscowet	LOC120035420	5S ribosomal RNA	0.075	False	
+SDMR_53_c3	control	SDMR_53	15.33	1	1	0	15.33		496	21.46	single_frame	hyper_siscowet	LOC120035420	5S ribosomal RNA	0.171	False	
+SDMR_56_c2	control	SDMR_56	7.407	3	2	1	12.5	-2.78	769	-60.72	replicated	hypo_siscowet	LOC120042123	uncharacterized LOC120042123	-0.2233	False	
+SDMR_56_c5	control	SDMR_56	-5.83	1	1	0	-5.83		2902	-60.72	replicated	hypo_siscowet	LOC120042123	uncharacterized LOC120042123	-0.114	False	
+SDMR_56_c9	control	SDMR_56	65	1	0	1		65	3033	-60.72	replicated	hypo_siscowet	LOC120042123	uncharacterized LOC120042123	0.1083	False	
+SDMR_57	dmr	SDMR_57	6.985	2	0	2		6.985	4426	39.2	replicated	hyper_siscowet	LOC120049938	general transcription factor II-I repeat domain-containing protein 2B-like	0.5853	True	intermediate
+SDMR_57_c7	control	SDMR_57	7.89	2	1	1	6.11	9.67	1232	39.2	replicated	hyper_siscowet	LOC120049938	general transcription factor II-I repeat domain-containing protein 2B-like	-0.6447	True	
+SDMR_58	dmr	SDMR_58	3.335	2	0	2		3.335	4021	31.74	replicated	hyper_siscowet	LOC120049938	general transcription factor II-I repeat domain-containing protein 2B-like	0.6927	True	trans_like
+SDMR_58_c1	control	SDMR_58	10	1	0	1		10	1259	31.74	replicated	hyper_siscowet	LOC120049938	general transcription factor II-I repeat domain-containing protein 2B-like	0.1284	False	
+SDMR_59_c2	control	SDMR_59	-1.43	1	0	1		-1.43	523	49.49	replicated	hyper_siscowet	LOC120039362	probable polypeptide N-acetylgalactosaminyltransferase 8	-0.7919	True	
+SDMR_59_c8	control	SDMR_59	-7.14	2	0	2		-7.14	2419	49.49	replicated	hyper_siscowet	LOC120039362	probable polypeptide N-acetylgalactosaminyltransferase 8	0.09911	False	
+SDMR_59_c9	control	SDMR_59	0	1	0	1		0	3566	49.49	replicated	hyper_siscowet	LOC120039362	probable polypeptide N-acetylgalactosaminyltransferase 8	0.334	False	
+SDMR_6	dmr	SDMR_6	16.27	3	2	1	9.705	29.41	3024	-43.1	single_frame	hypo_siscowet	LOC120036683	NACHT, LRR and PYD domains-containing protein 3-like	-2.144	True	intermediate
+SDMR_60	dmr	SDMR_60	100	1	1	0	100		1601	51.84	replicated	hyper_siscowet	LOC120043883	E3 ubiquitin-protein ligase TRIM47-like	0.2546	False	cis_like
+SDMR_60_c8	control	SDMR_60	10	1	0	1		10	2749	51.84	replicated	hyper_siscowet	LOC120043883	E3 ubiquitin-protein ligase TRIM47-like	0.7685	True	
+SDMR_61	dmr	SDMR_61	-60.49	4	1	3	-100	-47.32	575	-30.8	single_frame	hypo_siscowet	LOC120035682	uncharacterized LOC120035682	0.8423	True	cis_like
+SDMR_62_c8	control	SDMR_62	-12.6	3	2	1	-13.54	-10.71	201	-48.18	single_frame	hypo_siscowet	LOC120033322	gastrula zinc finger protein XlCGF17.1-like	0.1841	False	
+SDMR_64	dmr	SDMR_64	-100	1	1	0	-100		1513	-49.35	replicated	hypo_siscowet	LOC120017708	echinoderm microtubule-associated protein-like 6	-0.2463	False	cis_like
+SDMR_64_c4	control	SDMR_64	-2.963	3	1	2	-20	5.555	39	-49.35	replicated	hypo_siscowet	LOC120017708	echinoderm microtubule-associated protein-like 6	0.6089	True	
+SDMR_65_c3	control	SDMR_65	-33.33	1	1	0	-33.33		1612	-55.12	replicated	hypo_siscowet	LOC120043660	myosin heavy chain, fast skeletal muscle-like	-0.9857	True	
+SDMR_66_c1	control	SDMR_66	17.45	2	2	0	17.45		1193	-21.17	single_frame	hypo_siscowet	LOC120040979	18S ribosomal RNA	-0.1063	False	
+SDMR_66_c5	control	SDMR_66	11.73	2	1	1	30	-6.54	365	-21.17	single_frame	hypo_siscowet	LOC120040979	18S ribosomal RNA	-0.7306	True	
+SDMR_67_c5	control	SDMR_67	5	1	0	1		5	2059	-22.92	single_frame	hypo_siscowet	LOC120040979	18S ribosomal RNA	-0.3287	False	
+SDMR_68_c2	control	SDMR_68	3.335	2	1	1	0	6.67	636	-22.74	single_frame	hypo_siscowet	LOC120040979	18S ribosomal RNA	-0.319	False	
+SDMR_68_c6	control	SDMR_68	-2.98	2	1	1	8.33	-14.29	1260	-22.74	single_frame	hypo_siscowet	LOC120040979	18S ribosomal RNA	-0.8095	True	
+SDMR_69_c3	control	SDMR_69	6.06	1	0	1		6.06	0	-25.55	single_frame	hypo_siscowet	LOC120040979	18S ribosomal RNA	-0.5493	True	
+SDMR_69_c4	control	SDMR_69	-4.7	1	0	1		-4.7	1280	-25.55	single_frame	hypo_siscowet	LOC120040979	18S ribosomal RNA	-0.1976	False	
+SDMR_70_c10	control	SDMR_70	12.16	4	0	4		12.16	0	-21.1	single_frame	hypo_siscowet	LOC120040979	18S ribosomal RNA	0.1246	False	
+SDMR_71_c10	control	SDMR_71	-7	1	1	0	-7		203	-22.5	single_frame	hypo_siscowet	LOC120040979	18S ribosomal RNA	-0.08252	False	
+SDMR_71_c9	control	SDMR_71	-11.6	3	3	0	-11.6		0	-22.5	single_frame	hypo_siscowet	LOC120040979	18S ribosomal RNA	0.1185	False	
+SDMR_76_c10	control	SDMR_76	-4.385	2	0	2		-4.385	275	-22.15	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.02673	False	
+SDMR_76_c4	control	SDMR_76	-17.11	1	0	1		-17.11	2341	-22.15	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.4078	False	
+SDMR_76_c7	control	SDMR_76	5.96	1	0	1		5.96	1234	-22.15	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.1487	False	
+SDMR_77_c10	control	SDMR_77	2.56	1	0	1		2.56	4915	-26.1	single_frame	hypo_siscowet	LOC120039522	zinc finger protein 2 homolog	-0.5133	True	
+SDMR_77_c2	control	SDMR_77	0	1	1	0	0		0	-26.1	single_frame	hypo_siscowet	LOC120039522	zinc finger protein 2 homolog	-0.2694	False	
+SDMR_79_c2	control	SDMR_79	0	2	1	1	0	0	0	-21.31	single_frame	hypo_siscowet	LOC120039522	zinc finger protein 2 homolog	-0.3152	False	
+SDMR_7_c6	control	SDMR_7	-4.676	5	4	1	-0.3325	-22.05	1762	70.24	replicated	hyper_siscowet	LOC120030903	protein lin-28 homolog A-like	0.607	True	
+SDMR_7_c8	control	SDMR_7	-1.19	3	2	1	-1.786	0	590	70.24	replicated	hyper_siscowet	LOC120030903	protein lin-28 homolog A-like	-0.4291	False	
+SDMR_7_c9	control	SDMR_7	0	1	0	1		0	1409	70.24	replicated	hyper_siscowet	LOC120030903	protein lin-28 homolog A-like	-0.4705	False	
+SDMR_80_c5	control	SDMR_80	13.46	1	1	0	13.46		2545	-22.55	single_frame	hypo_siscowet	LOC120038871	zinc finger protein 436-like	-0.2081	False	
+SDMR_80_c6	control	SDMR_80	-2.906	4	2	2	-1.252	-4.56	0	-22.55	single_frame	hypo_siscowet	LOC120038871	zinc finger protein 436-like	-0.2064	False	
+SDMR_82_c3	control	SDMR_82	0	1	0	1		0	3017	-26.59	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.4233	False	
+SDMR_82_c4	control	SDMR_82	2.86	1	0	1		2.86	1378	-26.59	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	0.1498	False	
+SDMR_82_c8	control	SDMR_82	0	2	1	1	0	0	2199	-26.59	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.3226	False	
+SDMR_85_c4	control	SDMR_85	3.633	3	2	1	5.45	0	170	-22.23	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.4954	False	
+SDMR_85_c5	control	SDMR_85	-34.38	2	0	2		-34.38	2565	-22.23	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.04163	False	
+SDMR_87	dmr	SDMR_87	-18.37	5	2	3	-73	18.06	556	-44	replicated	hypo_siscowet	LOC120053339	C-type natriuretic peptide 4-like	0.8563	True	intermediate
+SDMR_87_c7	control	SDMR_87	-5.042	5	3	2	-5.277	-4.69	1614	-44	replicated	hypo_siscowet	LOC120053339	C-type natriuretic peptide 4-like	-0.9654	True	
+SDMR_88_c2	control	SDMR_88	3.095	2	1	1	-7.14	13.33	421	33.07	single_frame	hyper_siscowet			-0.4144	False	
+SDMR_88_c4	control	SDMR_88	0	1	0	1		0	118	33.07	single_frame	hyper_siscowet			0.04729	False	
+SDMR_89_c2	control	SDMR_89	26.68	3	0	3		26.68	14	43.77	replicated	hyper_siscowet	LOC120045152	uncharacterized LOC120045152	1.647	True	
+SDMR_8_c6	control	SDMR_8	8.182	4	3	1	11.11	-0.6	63	74.91	replicated	hyper_siscowet	LOC120030903	protein lin-28 homolog A-like	0.08693	False	
+SDMR_90_c7	control	SDMR_90	-22.5	2	2	0	-22.5		1400	-76.09	replicated	hypo_siscowet	LOC120033941	synaptogyrin-1-like	0.01312	False	
+SDMR_92_c8	control	SDMR_92	-5.953	3	2	1	-16.07	14.28	153	-40.17	single_frame	hypo_siscowet	LOC120041427	uncharacterized LOC120041427	-0.4768	False	
+SDMR_93_c10	control	SDMR_93	0.385	4	2	2	0.77	0	1465	-25.03	single_frame	hypo_siscowet	LOC120039528	zinc finger protein 2-like	0.1173	False	
+SDMR_93_c9	control	SDMR_93	6.67	1	0	1		6.67	1290	-25.03	single_frame	hypo_siscowet	LOC120039528	zinc finger protein 2-like	-0.06541	False	
+SDMR_94_c2	control	SDMR_94	-6.39	1	0	1		-6.39	3096	-22.66	single_frame	hypo_siscowet	LOC120039528	zinc finger protein 2-like	-0.1676	False	
+SDMR_95_c3	control	SDMR_95	-0.07	1	0	1		-0.07	1424	-16.44	single_frame	hypo_siscowet	LOC120032553	zinc finger protein 2 homolog	-0.1351	False	
+SDMR_95_c5	control	SDMR_95	14.55	1	1	0	14.55		4167	-16.44	single_frame	hypo_siscowet	LOC120032553	zinc finger protein 2 homolog	-0.5327	True	
+SDMR_96_c3	control	SDMR_96	21.61	2	1	1	24.33	18.89	342	-17.03	single_frame	hypo_siscowet	LOC120032553	zinc finger protein 2 homolog	0.07042	False	
+SDMR_97_c1	control	SDMR_97	0.25	2	1	1	-4.44	4.94	945	-26.11	not_replicated	hypo_siscowet	LOC120039344	zinc finger protein 180-like	-0.6358	True	
+SDMR_97_c10	control	SDMR_97	0	1	0	1		0	3592	-26.11	not_replicated	hypo_siscowet	LOC120039344	zinc finger protein 180-like	0.2141	False	
+SDMR_97_c4	control	SDMR_97	0	1	1	0	0		1829	-26.11	not_replicated	hypo_siscowet	LOC120039344	zinc finger protein 180-like	-0.04802	False	
+SDMR_99_c4	control	SDMR_99	-2.26	4	2	2	-1.315	-3.205	532	-17.27	single_frame	hypo_siscowet	LOC120035231	uncharacterized LOC120035231	-0.2937	False	
+SDMR_9_c1	control	SDMR_9	0	1	1	0	0		2519	-73.34	replicated	hypo_siscowet	LOC120031424	CD276 antigen-like	-1.077	True	

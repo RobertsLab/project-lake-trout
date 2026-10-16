@@ -1,0 +1,105 @@
+== lean frame
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.16-dmr-allele-specific-meth.py:119: RuntimeWarning: Mean of empty slice
+  d = np.nanmean(af[:, IS_SISC], 1) - np.nanmean(af[:, ~IS_SISC], 1)
+== siscowet frame
+/home/shared/16TB_HDD_01/sr320/github/project-lake-trout/code/23.16-dmr-allele-specific-meth.py:119: RuntimeWarning: Mean of empty slice
+  d = np.nanmean(af[:, IS_SISC], 1) - np.nanmean(af[:, ~IS_SISC], 1)
+
+Allele-specific methylation at differentiated native DMRs (23.16)
+================================================================
+
+Differentiated SNV |dAF| >= 0.5 within 5 kb of the window core; heterozygote = alt fraction 0.2-0.8 with >= 3 reads per allele; >= 3 phased reads and >= 10 core CpG calls per allele; reads must span SNV and core; ML >= 128/255 = methylated. ASM = siscowet-allele % - lean-allele %.
+
+lean frame: 3,361 differentiated SNVs (0 paralog-like); DMR windows with a heterozygote at one within 5 kb: 65
+  primary (paralog-like SNVs excluded): DMR windows with phased heterozygotes 55; control windows 249
+    control |ASM|: median 5.6, 95th pct 26.6 points; DMR |ASM| median 34.4 (Mann-Whitney p 8.5e-16)
+    slope ASM ~ DMR difference: 0.79 (95 % CI 0.60 to 0.98; cis = 1, trans = 0); Spearman rho 0.70 (p 3.5e-09)
+    sign agreement 47/55 (binomial p 4e-08)
+    in lean heterozygotes (n=41 DMRs): slope 0.82
+    in siscowet heterozygotes (n=36 DMRs): slope 0.65
+    classes: cis_like 32, intermediate 19, trans_like 4
+      cis_like: replicated 19/32, depth difference 4/32
+      trans_like: replicated 2/4, depth difference 2/4
+  including paralog-like SNVs: DMR windows with phased heterozygotes 55; control windows 249
+    control |ASM|: median 5.6, 95th pct 26.6 points; DMR |ASM| median 34.4 (Mann-Whitney p 8.5e-16)
+    slope ASM ~ DMR difference: 0.79 (95 % CI 0.60 to 0.98; cis = 1, trans = 0); Spearman rho 0.70 (p 3.5e-09)
+    sign agreement 47/55 (binomial p 4e-08)
+    in lean heterozygotes (n=41 DMRs): slope 0.82
+    in siscowet heterozygotes (n=36 DMRs): slope 0.65
+    classes: cis_like 32, intermediate 19, trans_like 4
+      cis_like: replicated 19/32, depth difference 4/32
+      trans_like: replicated 2/4, depth difference 2/4
+    DMRs (largest differences first): DMR diff | ASM (lean hets / siscowet hets) | class
+      LDMR_109   -71.1 |  -21.1 (-56 / +13) n=2 | intermediate single_frame  LOC120019421 myosin heavy chain, fast skeletal 
+      LDMR_147   -69.9 |   -3.0 (-19 / +13) n=4 | trans_like   single_frame  –          –
+      LDMR_33    +68.2 |  +10.1 (– / +10) n=2 | intermediate replicated    daam2        dishevelled associated activator o
+      LDMR_162   -67.3 |  -29.6 (-57 / -16) n=3 | intermediate replicated    LOC120034419 interferon alpha-6-like
+      LDMR_106   -67.0 |  -67.5 (-74 / -54) n=3 | cis_like     replicated    LOC120033338 oocyte zinc finger protein XlCOF22
+      LDMR_43    -64.3 |  -91.5 (– / -91) n=2 | cis_like     replicated    LOC120026269 protein Niban 2-like
+      LDMR_155   -64.3 |  -36.4 (– / -36) n=1 | cis_like     single_frame  LOC120019745 cyclic AMP-dependent transcription
+      LDMR_4     +62.5 |   -2.1 (-2 / –) n=1 | trans_like   replicated    LOC120021596 SLIT-ROBO Rho GTPase-activating pr
+      LDMR_163   -62.2 |  -46.7 (– / -47) n=1 | cis_like     replicated    LOC120034056 interferon a3-like
+      LDMR_40    +62.2 |  +66.9 (– / +67) n=3 | cis_like     not_replicated LOC120019384 4-galactosyl-N-acetylglucosaminide
+      LDMR_23    +61.7 |  +50.0 (+50 / –) n=1 | cis_like     replicated    LOC120053939 talin-2-like
+      LDMR_16    -60.8 |  -81.2 (-81 / –) n=1 | cis_like     replicated    LOC120062499 synaptic functional regulator FMR1
+      LDMR_39    +60.2 |  +81.0 (– / +81) n=3 | cis_like     single_frame  LOC120019384 4-galactosyl-N-acetylglucosaminide
+      LDMR_22    +60.1 |  +62.5 (+62 / –) n=1 | cis_like     replicated    LOC120053939 talin-2-like
+      LDMR_154   -59.6 |  -64.9 (– / -65) n=2 | cis_like     replicated    LOC120019503 basic leucine zipper transcription
+      LDMR_69    -59.3 |  -38.6 (– / -39) n=1 | cis_like     replicated    LOC120038521 uncharacterized LOC120038521
+      LDMR_240   +57.6 |   +2.1 (+2 / –) n=1 | trans_like   replicated    epsti1       epithelial stromal interaction 1
+      LDMR_107   -57.5 |  -74.3 (-74 / –) n=2 | cis_like     replicated    LOC120033338 oocyte zinc finger protein XlCOF22
+      LDMR_114   +56.4 |  +14.2 (– / +14) n=2 | intermediate single_frame  LOC120032768 apoptosis-stimulating of p53 prote
+      LDMR_113   -56.1 |  -33.4 (-48 / -19) n=4 | cis_like     replicated    LOC120043828 mitochondrial Rho GTPase 1-A
+      LDMR_108   -55.5 |  -70.0 (+0 / -93) n=4 | cis_like     replicated    LOC120061865 transmembrane protein 271-like
+      LDMR_80    -55.4 |  -12.6 (-10 / -14) n=3 | intermediate replicated    LOC120053338 C-type natriuretic peptide 4-like
+      LDMR_25    -55.4 |  -13.1 (-2 / -24) n=4 | intermediate replicated    LOC120058933 transcription factor HES-4-B-like
+      LDMR_31    -54.1 |   -6.7 (– / -7) n=1 | intermediate replicated    si:ch211-214 cell surface glycoprotein CD200 re
+      LDMR_41    -53.9 |  +25.0 (+25 / –) n=1 | intermediate replicated    LOC120045521 gamma-crystallin M2-like
+
+siscowet frame: 3,253 differentiated SNVs (0 paralog-like); DMR windows with a heterozygote at one within 5 kb: 72
+  primary (paralog-like SNVs excluded): DMR windows with phased heterozygotes 66; control windows 319
+    control |ASM|: median 4.9, 95th pct 30.1 points; DMR |ASM| median 19.9 (Mann-Whitney p 4.9e-14)
+    slope ASM ~ DMR difference: 0.72 (95 % CI 0.54 to 0.91; cis = 1, trans = 0); Spearman rho 0.70 (p 4.7e-11)
+    sign agreement 51/66 (binomial p 5e-06)
+    in lean heterozygotes (n=48 DMRs): slope 0.90
+    in siscowet heterozygotes (n=50 DMRs): slope 0.55
+    classes: intermediate 32, cis_like 27, trans_like 7
+      cis_like: replicated 20/27, depth difference 3/27
+      trans_like: replicated 3/7, depth difference 3/7
+  including paralog-like SNVs: DMR windows with phased heterozygotes 66; control windows 319
+    control |ASM|: median 4.9, 95th pct 30.1 points; DMR |ASM| median 19.9 (Mann-Whitney p 4.9e-14)
+    slope ASM ~ DMR difference: 0.72 (95 % CI 0.53 to 0.91; cis = 1, trans = 0); Spearman rho 0.70 (p 4.7e-11)
+    sign agreement 51/66 (binomial p 5e-06)
+    in lean heterozygotes (n=48 DMRs): slope 0.90
+    in siscowet heterozygotes (n=50 DMRs): slope 0.55
+    classes: intermediate 32, cis_like 27, trans_like 7
+      cis_like: replicated 20/27, depth difference 3/27
+      trans_like: replicated 3/7, depth difference 3/7
+    DMRs (largest differences first): DMR diff | ASM (lean hets / siscowet hets) | class
+      SDMR_260   +87.7 |   +0.0 (– / +0) n=1 | trans_like   single_frame  LOC120058286 inhibin beta B chain-like
+      SDMR_1     +68.2 |  +10.1 (– / +10) n=2 | intermediate replicated    daam2        dishevelled associated activator o
+      SDMR_115   -67.9 |  -28.8 (-56 / -15) n=3 | intermediate replicated    LOC120034419 interferon alpha-6-like
+      SDMR_36    +62.8 |   -2.1 (-2 / –) n=1 | trans_like   replicated    LOC120021596 SLIT-ROBO Rho GTPase-activating pr
+      SDMR_114   -62.2 |  -46.7 (– / -47) n=1 | cis_like     replicated    LOC120034056 interferon a3-like
+      SDMR_302   +62.1 |  +41.0 (+88 / +18) n=3 | cis_like     single_frame  –          –
+      SDMR_37    +61.7 |  +50.0 (+50 / –) n=1 | cis_like     replicated    LOC120053939 talin-2-like
+      SDMR_154   -61.3 |  -68.7 (-77 / -60) n=4 | cis_like     replicated    LOC120033640 zinc finger protein 664-like
+      SDMR_108   -60.8 |  -81.2 (-81 / –) n=1 | cis_like     replicated    LOC120062499 synaptic functional regulator FMR1
+      SDMR_12    +60.3 |  +41.9 (+66 / +17) n=2 | cis_like     replicated    LOC120064371 E3 ubiquitin-protein ligase Itchy-
+      SDMR_38    +60.1 |  +62.5 (+62 / –) n=1 | cis_like     replicated    LOC120053939 talin-2-like
+      SDMR_155   -59.9 |  -68.7 (-68 / -70) n=3 | cis_like     replicated    LOC120033338 oocyte zinc finger protein XlCOF22
+      SDMR_21    -59.6 |  -64.9 (– / -65) n=2 | cis_like     replicated    LOC120019503 basic leucine zipper transcription
+      SDMR_200   -58.6 |  -66.9 (+8 / -92) n=4 | cis_like     replicated    LOC120061865 transmembrane protein 271-like
+      SDMR_15    +57.6 |   +2.1 (+2 / –) n=1 | trans_like   replicated    epsti1       epithelial stromal interaction 1
+      SDMR_269   -56.5 |  -53.8 (-49 / -58) n=2 | cis_like     replicated    LOC120023746 myosin heavy chain, fast skeletal 
+      SDMR_113   -56.4 |  -53.9 (-89 / -19) n=4 | cis_like     replicated    LOC120043828 mitochondrial Rho GTPase 1-A
+      SDMR_164   -56.3 |  -59.2 (– / -59) n=3 | cis_like     single_frame  LOC120040411 gastrula zinc finger protein XlCGF
+      SDMR_185   -55.8 |  +10.2 (+45 / -24) n=4 | intermediate replicated    LOC120058933 transcription factor HES-4-B-like
+      SDMR_111   -54.0 |   -6.7 (– / -7) n=1 | intermediate replicated    si:ch211-214 cell surface glycoprotein CD200 re
+      SDMR_205   -53.9 |  +25.0 (+25 / –) n=1 | intermediate replicated    LOC120045521 gamma-crystallin M2-like
+      SDMR_201   -53.8 |  -72.7 (-8 / -94) n=4 | cis_like     replicated    LOC120061865 transmembrane protein 271-like
+      SDMR_107   -52.5 | -100.0 (-100 / –) n=1 | cis_like     replicated    LOC120062499 synaptic functional regulator FMR1
+      SDMR_60    +51.8 | +100.0 (+100 / –) n=1 | cis_like     replicated    LOC120043883 E3 ubiquitin-protein ligase TRIM47
+      SDMR_203   +51.7 |  +89.7 (+90 / –) n=1 | cis_like     replicated    aldh1a3      aldehyde dehydrogenase 1 family, m
+
+

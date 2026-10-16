@@ -173,7 +173,9 @@ finds ~137 short DMRs that replicate across both assemblies (empirical FDR ≈ 6
 hypomethylated in siscowet). About half of the 302 reference DMRs fall in multi-copy sequence; the
 uniquely placed ones replicate natively. No native DMR has a fixed sequence difference within 1 kb,
 but differentiated SNVs and copy-number-like depth differences are enriched at them
-([`23.15`](code/23.15-dmr-fixed-variants.py)).
+([`23.15`](code/23.15-dmr-fixed-variants.py)). In heterozygous fish, reads phased by allele show DMR
+methylation following the haplotype (slope ~0.8; [`23.16`](code/23.16-dmr-allele-specific-meth.py)):
+largely cis-genetic.
 
 **Open phases:** BRAKER3 de novo annotation (Phase 4), browser tracks and manuscript (Phase 5).
 
