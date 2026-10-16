@@ -72,7 +72,32 @@ lean).
 
 **What this means for tier A.** Reciprocal PAV is real, read-level and bidirectional, but at gene level it
 mostly marks sub-gene segments (1 kb resolution). Whether these segments hit exons, introns or flanks has
-not been tested, and that is the next check before any tier-A gene is described as present/absent.
+was tested next (section 4).
+
+## 4. Where the reciprocal-PAV segments fall in the gene (`reciprocal_pav_exon*.tsv`, 23.18)
+
+Built by `code/23.18-reciprocal-pav-exon.py`. It splits each gene's absent bp into CDS, non-coding exon
+and intron, using the native Liftoff gene models.
+
+| | genes | CDS hit | non-coding exon only | intron only | CDS bp observed / expected |
+|---|---|---|---|---|---|
+| all | 115 | 7 | 5 | 103 | 0.46 |
+| tier A | 77 | 6 | 4 | 67 | 0.46 |
+
+- **90% of reciprocal-PAV genes lose only intronic sequence.** Coding sequence is hit at less than half
+  the rate that random placement inside the same genes would give, as expected if coding sequence is
+  under constraint.
+- **CDS hits in single-copy annotated genes (all tier A):**
+  - `ttll9`: present in siscowet; 7 of 14 exons, 56% of CDS absent in lean fish.
+  - `grb10-like` (LOC120022070): present in lean; 3 of 20 exons, 18% of CDS.
+  - `gpia`: present in siscowet; 3 of 18 exons, 12% of CDS.
+
+  These are the candidates where presence/absence could change the protein.
+- **The other CDS hits are not good candidates.** They are the transposon-like K02A2.6-like
+  (LOC120051748, one copy absent in each direction), an extra copy of LOC120043897, and 12 bp of
+  LOC120034744.
+- **Practical reading of tier A.** Most entries mark intronic structural variation inside genes. They can
+  still matter for regulation, but should not be described as gene presence/absence.
 
 ## Files
 

@@ -1,0 +1,10 @@
+present_in	subset	genes	cds_hit	noncoding_exon_hit	intron_only	cds_frac_absent_ge_0_5	obs_cds_bp	exp_cds_bp	obs_over_exp
+lean	all	44	4	1	39	2	4312	7586.9	0.568
+lean	tier_A	30	3	1	26	1	1403	2944.4	0.476
+lean	protein_coding	42	4	0	38	2	4312	7586.9	0.568
+siscowet	all	71	3	4	64	2	1991	6175.1	0.322
+siscowet	tier_A	47	3	3	41	2	1991	4382.4	0.454
+siscowet	protein_coding	62	3	1	58	2	1991	6175.1	0.322
+ALL	all	115	7	5	103	4	6303	13762.0	0.458
+ALL	tier_A	77	6	4	67	3	3394	7326.8	0.463
+ALL	protein_coding	104	7	1	96	4	6303	13762.0	0.458
