@@ -497,5 +497,15 @@ db_versions.txt). Writes `final/{eco}/gene_function_table.tsv` (reference-table 
 ref_gene_id, evidence) and `{eco}.braker_new.function.tsv`. Smoke contig: of 16 hq new genes, 56 % have
 a Swiss-Prot hit, 50 % Pfam, 25 % TE-like; 2 are novel candidates (hq, no RefSeq hit, not TE-like).
 
-**Remaining after BRAKER:** run 23.19 then 23.20 on both ecotypes, BUSCO on the merged proteins,
-browser tracks.
+**Browser track script ready** ([`23.21`](23.21-denovo-browser-tracks.py), tested on the lean smoke
+merge in a local JBrowse copy). JBrowse only, on `lean_purged` / `siscowet_purged`: a merged-gene BED
+(Liftoff grey, BRAKER hq teal, lq light teal, TE-like light grey; name = symbol) and a bgzip / tabix
+GFF3 of the BRAKER-only models with product, quality, ref_status, Swiss-Prot hit, Pfam and TE flag on
+the gene line. `build` runs on raven (htslib); `stage` copies the tracks into
+`jbrowse/data/lake-trout/` and adds them to `jbrowse/config.json` idempotently. While testing,
+itemRgb colouring turned out to render black in JBrowse 3.6.2: the default BED9 autoSql types the
+column as `uint reserved`. Tracks now declare a string-`itemRgb` autoSql; the live native DMR tracks
+from Step F had the same bug (fix in a separate PR).
+
+**Remaining after BRAKER:** run 23.19 → 23.20 → 23.21 build/stage on both ecotypes; BUSCO on the
+merged proteins.
