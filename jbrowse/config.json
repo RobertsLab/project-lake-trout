@@ -396,7 +396,8 @@
         "type": "BedAdapter",
         "bedLocation": {
           "uri": "data/lake-trout/native_dmrs_hypo_siscowet.ref.bed"
-        }
+        },
+        "autoSql": "table bed9rgb\n\"BED9 with a string itemRgb column\"\n    (\n    string chrom;      \"Reference sequence chromosome or scaffold\"\n    uint   chromStart; \"Start position in chromosome\"\n    uint   chromEnd;   \"End position in chromosome\"\n    string name;       \"Name of item\"\n    uint   score;      \"Score\"\n    char[1] strand;    \"+ or - or .\"\n    uint   thickStart; \"Start of where display should be thick\"\n    uint   thickEnd;   \"End of where display should be thick\"\n    string itemRgb;    \"R,G,B colour\"\n    )\n"
       },
       "displays": [
         {
@@ -424,7 +425,8 @@
         "type": "BedAdapter",
         "bedLocation": {
           "uri": "data/lake-trout/native_dmrs_hyper_siscowet.ref.bed"
-        }
+        },
+        "autoSql": "table bed9rgb\n\"BED9 with a string itemRgb column\"\n    (\n    string chrom;      \"Reference sequence chromosome or scaffold\"\n    uint   chromStart; \"Start position in chromosome\"\n    uint   chromEnd;   \"End position in chromosome\"\n    string name;       \"Name of item\"\n    uint   score;      \"Score\"\n    char[1] strand;    \"+ or - or .\"\n    uint   thickStart; \"Start of where display should be thick\"\n    uint   thickEnd;   \"End of where display should be thick\"\n    string itemRgb;    \"R,G,B colour\"\n    )\n"
       },
       "displays": [
         {
@@ -452,7 +454,8 @@
         "type": "BedAdapter",
         "bedLocation": {
           "uri": "data/lake-trout/native_dmrs.lean_purged.bed"
-        }
+        },
+        "autoSql": "table bed9rgb\n\"BED9 with a string itemRgb column\"\n    (\n    string chrom;      \"Reference sequence chromosome or scaffold\"\n    uint   chromStart; \"Start position in chromosome\"\n    uint   chromEnd;   \"End position in chromosome\"\n    string name;       \"Name of item\"\n    uint   score;      \"Score\"\n    char[1] strand;    \"+ or - or .\"\n    uint   thickStart; \"Start of where display should be thick\"\n    uint   thickEnd;   \"End of where display should be thick\"\n    string itemRgb;    \"R,G,B colour\"\n    )\n"
       },
       "displays": [
         {
@@ -480,7 +483,8 @@
         "type": "BedAdapter",
         "bedLocation": {
           "uri": "data/lake-trout/native_dmrs.siscowet_purged.bed"
-        }
+        },
+        "autoSql": "table bed9rgb\n\"BED9 with a string itemRgb column\"\n    (\n    string chrom;      \"Reference sequence chromosome or scaffold\"\n    uint   chromStart; \"Start position in chromosome\"\n    uint   chromEnd;   \"End position in chromosome\"\n    string name;       \"Name of item\"\n    uint   score;      \"Score\"\n    char[1] strand;    \"+ or - or .\"\n    uint   thickStart; \"Start of where display should be thick\"\n    uint   thickEnd;   \"End of where display should be thick\"\n    string itemRgb;    \"R,G,B colour\"\n    )\n"
       },
       "displays": [
         {
