@@ -467,6 +467,24 @@ full run: RepeatModeler ~3–4 days, BRAKER ~6–8 days per ecotype, ~1.5–2 we
 Caveat: the only RNA-seq is 36 bp single-end liver, so splice support is weak and non-liver genes
 rely on protein evidence.
 
-**Remaining after BRAKER:** merge with Liftoff (TSEBRA / overlap rule) keeping BRAKER-unique models
-with provenance tags, functional annotation of new models (eggNOG / DIAMOND + InterProScan as in
-18-build-gene-function-table.py), browser tracks.
+**Merge script ready** ([`23.19`](23.19-merge-annotation.py), written while BRAKER runs; tested on the
+lean smoke contig). BRAKER genes are classed by bedtools overlap with the polished Liftoff GFF3:
+`shared` (same-strand CDS overlap; Liftoff model kept, CDS Jaccard recorded), `liftoff_locus`
+(inside a Liftoff gene of any biotype / strand; reported only) or `new` (no Liftoff gene; added with
+provenance=braker). New genes get hq / lq from protein length ≥ 50 aa, CDS repeat fraction < 0.5 and
+evidence (≥ 1 intron matching an RNA-seq b2h or ProtHint intron hint, or ProtHint CDSpart coverage
+≥ 0.5), and a reference-homology status from DIAMOND vs SaNama RefSeq proteins (ref_homolog ≥ 90 %
+identity = likely Liftoff miss; ref_paralog; no_ref_hit = novel candidate). Outputs per ecotype in
+`final/{eco}/`: merged GFF3 (gffread-valid), genes BED, new-gene GFF3 / protein / CDS FASTA, merged
+proteins for BUSCO, per-gene class table, summary. Smoke contig (lean, 4.8 Mb): 149 BRAKER genes =
+67 shared (median CDS Jaccard 0.96) / 22 liftoff_locus / 60 new (16 hq; 37 no_ref_hit, 3 of them
+hq); 59 % of Liftoff protein-coding genes matched by a BRAKER CDS.
+
+Smoke note: the siscowet smoke BRAKER run failed in GeneMark-ETP's masking-penalty step ("input
+sequence size is too small", 11 reliable genes on the 5 Mb contig), which is a small-genome
+artifact. 23.18 now logs stage failures to the chain log; this change is committed but **not**
+deployed to raven while the pipeline that reads it is running.
+
+**Remaining after BRAKER:** run 23.19 on both ecotypes, BUSCO on the merged proteins, functional
+annotation of new hq genes (eggNOG / DIAMOND + InterProScan as in 18-build-gene-function-table.py),
+browser tracks.

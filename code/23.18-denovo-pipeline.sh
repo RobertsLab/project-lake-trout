@@ -13,7 +13,10 @@
 #   5. BUSCO (protein mode, actinopterygii_odb12) on braker.aa     -> busco/{eco}/
 #
 # Every stage writes a .done marker and is skipped on re-run, so the script can be restarted after
-# an interruption. Inputs come from 23.17-denovo-setup.sh. Liftoff merge (TSEBRA / overlap rule),
+# an interruption. A failing stage writes "<stage> FAILED" to logs/chain.{eco}.log.
+# Note: GeneMark-ETP's masking-penalty step needs >~100 kb of reliable-gene sequence, so a smoke
+# test on a contig with few genes can fail there ("input sequence size is too small"); this is a
+# smoke-genome artifact, not a pipeline error. Inputs come from 23.17-denovo-setup.sh. Liftoff merge (TSEBRA / overlap rule),
 # provenance tags and functional annotation of the BRAKER-unique genes follow in a later script.
 #
 # Run on raven (detached):
@@ -55,7 +58,8 @@ chain() {
     log $eco "RepeatModeler2 start"
     ( cd "$R" && $SX --pwd "$R" "$TETOOLS" BuildDatabase -name "$eco" "$fa" > "$L/$eco.builddb.log" 2>&1 \
       && $SX --pwd "$R" "$TETOOLS" RepeatModeler -database "$eco" -threads "$THREADS" -LTRStruct \
-         > "$L/$eco.repeatmodeler.log" 2>&1 )
+         > "$L/$eco.repeatmodeler.log" 2>&1 ) \
+      || { log $eco "RepeatModeler FAILED (exit $?)"; return 1; }
     [ -s "$R/$eco-families.fa" ] || { log $eco "RepeatModeler produced no library"; return 1; }
     mark "$R/repeatmodeler"
   fi
@@ -66,7 +70,8 @@ chain() {
   if ! done_ "$R/repeatmasker"; then
     log $eco "RepeatMasker start"
     $SX --pwd "$R" "$TETOOLS" RepeatMasker -pa "$RM_PA" -lib "$R/$eco-families.fa" -xsmall -gff \
-      -dir "$R" "$fa" > "$L/$eco.repeatmasker.log" 2>&1
+      -dir "$R" "$fa" > "$L/$eco.repeatmasker.log" 2>&1 \
+      || { log $eco "RepeatMasker FAILED (exit $?)"; return 1; }
     [ -s "$masked" ] || { log $eco "RepeatMasker produced no masked FASTA"; return 1; }
     mark "$R/repeatmasker"
   fi
@@ -100,7 +105,8 @@ chain() {
     $SX --pwd "$B" "$BRAKER" braker.pl --genome="$masked" --bam="$bam" \
       --prot_seq="$EVID/proteins/proteins.fa" --species="snamaycush_${eco}_p4" \
       --threads="$THREADS" --workingdir="$B" --AUGUSTUS_CONFIG_PATH="$B/augustus_config" --gff3 \
-      > "$L/$eco.braker.log" 2>&1
+      > "$L/$eco.braker.log" 2>&1 \
+      || { log $eco "BRAKER3 FAILED (exit $?); see $L/$eco.braker.log and $B/errors/"; return 1; }
     [ -s "$B/braker.aa" ] || { log $eco "BRAKER3 produced no proteins"; return 1; }
     mark "$B/braker"
   fi
@@ -111,7 +117,7 @@ chain() {
     log $eco "BUSCO protein mode"
     $SX --pwd "$Q" "$BUSCO" busco -i "$B/braker.aa" -m proteins -l actinopterygii_odb12 \
       --offline --download_path "$BASE/analyses/23-denovo-annotation/busco_downloads" -c "$THREADS" -o "$eco" --out_path "$Q" -f \
-      > "$L/$eco.busco.log" 2>&1
+      > "$L/$eco.busco.log" 2>&1 || { log $eco "BUSCO FAILED (exit $?)"; return 1; }
     mark "$Q/busco"
   fi
   log $eco "BUSCO: $(grep -h 'C:' "$Q"/$eco/short_summary*.txt | head -1 | tr -s ' \t')"
