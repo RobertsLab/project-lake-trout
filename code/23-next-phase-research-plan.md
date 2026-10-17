@@ -485,6 +485,17 @@ sequence size is too small", 11 reliable genes on the 5 Mb contig), which is a s
 artifact. 23.18 now logs stage failures to the chain log; this change is committed but **not**
 deployed to raven while the pipeline that reads it is running.
 
-**Remaining after BRAKER:** run 23.19 on both ecotypes, BUSCO on the merged proteins, functional
-annotation of new hq genes (eggNOG / DIAMOND + InterProScan as in 18-build-gene-function-table.py),
+**Functional annotation script ready** ([`23.20`](23.20-functional-annotation.py), written while BRAKER
+runs; tested on the lean smoke merge). Liftoff genes inherit the reference function table through
+their reference gene ID. New BRAKER genes get: DIAMOND `--sensitive` vs UniProt Swiss-Prot (hit at
+e ≤ 1e-5, query cover ≥ 50 %; named at ≥ 30 % identity and e ≤ 1e-10, symbol = Swiss-Prot gene +
+"-like"); GO terms of the named hit (UniProt reviewed GO table); Pfam-A domains (hmmsearch
+`--cut_ga`); and a TE flag (TE Pfam domain, TE-like hit name, or CDS repeat fraction ≥ 0.5). Swiss-Prot
++ Pfam stand in for eggNOG-mapper / InterProScan, whose databases (~50 / ~15 GB) are not on raven.
+Databases are in `evidence/function/` (approved downloads 2026-10-17; release info in
+db_versions.txt). Writes `final/{eco}/gene_function_table.tsv` (reference-table columns + provenance,
+ref_gene_id, evidence) and `{eco}.braker_new.function.tsv`. Smoke contig: of 16 hq new genes, 56 % have
+a Swiss-Prot hit, 50 % Pfam, 25 % TE-like; 2 are novel candidates (hq, no RefSeq hit, not TE-like).
+
+**Remaining after BRAKER:** run 23.19 then 23.20 on both ecotypes, BUSCO on the merged proteins,
 browser tracks.
