@@ -16,7 +16,9 @@ New genes (final/{eco}/{eco}.braker_new.aa):
   3. Domains: hmmsearch --cut_ga vs Pfam-A; per gene the domains in sequence order.
   4. TE flag: a transposable-element Pfam domain (RVT_*, rve, DDE_*, Transposase*, MULE, HAT*,
      Exo_endo_phos*, gag/RNase H families ...) or a TE-like hit name, or CDS repeat fraction
-     >= 0.5 (23.19).
+     >= 0.5 (23.19); a DNA_pol_B domain without a near-identical RefSeq match (Polinton / Maverick
+     self-synthesizing transposons; real POLA/D/E genes match the reference); or a protein sequence
+     identical in >= MULTICOPY_MIN new genes (high-copy element).
 Output columns match the reference table (gene_id, symbol, geneid, biotype, chrom, start, end,
 strand, is_named, product, n_go, go_bp, go_mf, go_cc, go_terms) plus provenance / evidence columns;
 start is 0-based (BED convention, as in final/{eco}/{eco}.merged.genes.bed) for every row.
@@ -66,6 +68,7 @@ URL_PFAM = "https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.
 URL_PFAM_REL = "https://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/relnotes.txt"
 
 HIT_EVALUE, HIT_QCOV = 1e-5, 50
+MULTICOPY_MIN = 3
 NAME_PID, NAME_EVALUE = 30.0, 1e-10
 TE_PFAM = re.compile(r"^(RVT_\d|RVT_thumb|rve|rve_\d|DDE_|Transposase|MULE|HAT|hAT|Dimer_Tnp_hAT|"
                      r"Exo_endo_phos|DUF4371|Tnp_|THAP|Retrotrans_gag|gag|zf-CCHC|RNase_H|"
@@ -127,6 +130,16 @@ def annotate_new(eco, final, sprot_db, go, pfam):
     classes = pd.read_csv(final / "braker_gene_classes.tsv", sep="\t")
     new = classes[classes["class"] == "new"].copy()
     new["gene_id"] = f"{eco}_braker_" + new["braker_gene"]
+    seqs = {}
+    name = None
+    for line in open(aa):
+        if line.startswith(">"):
+            name = line[1:].split()[0].rsplit(".", 1)[0]
+            seqs[name] = ""
+        elif name:
+            seqs[name] += line.strip().rstrip("*")
+    copies = pd.Series(list(seqs.values())).value_counts()
+    multicopy = {g for g, sq in seqs.items() if sq and copies.get(sq, 0) >= MULTICOPY_MIN}
 
     # 1. Swiss-Prot
     hits = final / "_new_vs_sprot.tsv"
@@ -163,9 +176,12 @@ def annotate_new(eco, final, sprot_db, go, pfam):
         g = go.get(r.sp_acc, {}) if is_named else {}
         sym = (g.get("gene") or "").lower()
         prod = g.get("protein") or (r.sp_desc if isinstance(r.sp_desc, str) else "")
-        te = bool(any(TE_PFAM.match(d) for d in r.pfam_domains.split(",") if d)
+        doms = [d for d in r.pfam_domains.split(",") if d]
+        te = bool(any(TE_PFAM.match(d) for d in doms)
                   or (isinstance(r.sp_desc, str) and TE_NAME.search(r.sp_desc))
-                  or (r.repeat_frac >= 0.5))
+                  or (r.repeat_frac >= 0.5)
+                  or ("DNA_pol_B" in doms and r.ref_status != "ref_homolog")
+                  or (r.gene_id in multicopy))
         gos = {k: sorted(set(g.get(k, []))) for k in ("P", "F", "C")}
         rows.append({
             "gene_id": r.gene_id,
@@ -186,6 +202,7 @@ def annotate_new(eco, final, sprot_db, go, pfam):
             "sp_species": r.sp_species if isinstance(r.sp_species, str) else "",
             "sp_pident": r.sp_pident, "sp_qcov": r.sp_qcov, "sp_evalue": r.sp_evalue,
             "pfam_domains": r.pfam_domains, "te_like": int(te),
+            "multicopy_identical": int(r.gene_id in multicopy),
             "aa_len": r.aa_len, "n_introns": r.n_introns, "introns_rna": r.introns_rna,
             "prothint_cov": r.prothint_cov, "repeat_frac": r.repeat_frac,
         })

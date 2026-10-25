@@ -33,7 +33,8 @@ Outputs (analyses/23-denovo-annotation/final/{eco}/):
   {eco}.merged.genes.bed         gene BED (chrom, start, end, ID, provenance, strand)
   {eco}.braker_new.gff3 / .aa / .cds.fa   new BRAKER genes only
   {eco}.merged.proteins.fa       Liftoff proteins (gffread -y on the purged assembly) + new BRAKER
-                                 proteins, for BUSCO / functional annotation
+                                 proteins, for functional annotation
+  {eco}.merged.proteins.longest.fa   one protein per gene (longest isoform), for BUSCO
   braker_gene_classes.tsv        per BRAKER gene: class, overlaps, evidence, quality
   merge_summary.txt
 
@@ -301,12 +302,20 @@ def merge_one(eco, p4, genome_dir):
     rename = {g: f"{eco}_braker_{g}" for g in new.index}
     keep_tx = set(bmrna.loc[bmrna["gene"].isin(new.index), "ID"])
 
+    def rename_id(x):
+        g = x.split(".", 1)[0]                   # g12 / g12.t1 / g12.t1.CDS3 -> gene g12
+        return rename[g] + x[len(g):] if g in rename else x
+
     def new_attr(r):
-        a = r.attributes
-        for old, nw in rename.items():
-            a = re.sub(rf"(ID|Parent)={re.escape(old)}(?=[.;]|$)", rf"\1={nw}", a)
+        kv = []
+        for item in r.attributes.strip().strip(";").split(";"):
+            k, _, v = item.partition("=")
+            if k in ("ID", "Parent"):
+                v = ",".join(rename_id(x) for x in v.split(","))
+            kv.append(f"{k}={v}")
+        a = ";".join(kv) + ";"
         if r.type == "gene":
-            a = a.rstrip(";") + f";provenance=braker;quality={new.loc[r.ID, 'quality']}"
+            a += f"provenance=braker;quality={new.loc[r.ID, 'quality']};"
         return a
 
     bsel = bg[(bg["type"] == "gene") & bg["ID"].isin(new.index) |
@@ -352,6 +361,18 @@ def merge_one(eco, p4, genome_dir):
                 f.write(f">{name} provenance=liftoff\n{seq.replace('.', '*')}\n")
         for name, seq in read_fasta(out / f"{eco}.braker_new.aa").items():
             f.write(f">{name}\n{seq}\n")
+    # one protein per gene (longest isoform) for BUSCO: Liftoff transcripts -> gene via Parent;
+    # new BRAKER genes already carry one (best) transcript each
+    tx2gene = dict(zip(lo.loc[lo["type"].isin(["mRNA", "transcript"]), "ID"],
+                       lo.loc[lo["type"].isin(["mRNA", "transcript"]), "Parent"]))
+    longest = {}
+    for name, seq in read_fasta(out / f"{eco}.merged.proteins.fa").items():
+        g = tx2gene.get(name, name.rsplit(".", 1)[0])
+        if g not in longest or len(seq) > len(longest[g][1]):
+            longest[g] = (name, seq)
+    with open(out / f"{eco}.merged.proteins.longest.fa", "w") as f:
+        for g, (name, seq) in longest.items():
+            f.write(f">{name} gene={g}\n{seq}\n")
 
     # ---- reference homology of new genes ---------------------------------------------------------
     ref = BASE / REF_PROTEINS
