@@ -509,3 +509,32 @@ from Step F had the same bug (fix in a separate PR).
 
 **Remaining after BRAKER:** run 23.19 → 23.20 → 23.21 build/stage on both ecotypes; BUSCO on the
 merged proteins.
+
+**Run log (2026-10-16 → 10-25).** RepeatModeler2's `-LTRStruct` step dominated: `ltrharvest` ran
+single-threaded for 128 h (lean) and 146 h (siscowet), growing to ~65–78 GB RSS each, with no output
+until it finished; LTR_retriever then took ~9–13 h (siscowet fell back from a 16,622-sequence redundant
+LTR library to 1,150 non-redundant). The wait was kept (decision points on 10-20 / 10-22) and the LTR
+step added ~300–370 families. BRAKER3 then took only ~33 h for lean.
+
+| | lean | siscowet |
+|---|---|---|
+| repeat families | 1,995 | 1,916 |
+| soft-masked | 51.4 % | 52.5 % |
+| own-ecotype RNA-seq aligned (HISAT2) | 84.2 % | 88.6 % |
+| BRAKER3 genes / proteins | 26,820 / 32,554 | running (started 10-25 03:39) |
+| BUSCO, BRAKER3 alone | C 73.5 % [S 39.5, D 34.0], F 3.5, M 23.0 | |
+
+**Lean merge + function (23.19 / 23.20, 2026-10-25).** BRAKER genes: 22,469 shared with Liftoff
+(median CDS Jaccard 1.00), 710 inside a Liftoff locus, **3,641 new** (hq 3,356 / lq 285); 59 % of
+Liftoff protein-coding genes have a same-strand BRAKER CDS. New genes by reference homology: 646
+ref_homolog (≥ 90 % identity — most likely Liftoff misses), 1,543 ref_paralog, 1,452 no_ref_hit.
+Merged set **59,078 genes** (55,437 Liftoff + 3,641 BRAKER). New hq genes: Swiss-Prot hit 52 %, Pfam
+53 %, GO 40 %, TE-like 7 %. **1,137 novel candidates** (hq, no RefSeq hit, not TE-like): 130 named via
+Swiss-Prot, 268 Pfam-only, 739 unannotated. Two fixes from the full-size run: 23.19's rename step was
+quadratic (now a dict lookup), and 23.20 now flags Polinton / Maverick DNA_pol_B proteins and
+proteins identical in ≥ 3 new genes as TE-like (−103 false candidates).
+
+BUSCO (actinopterygii_odb12, one protein per gene): **Liftoff alone C 89.4 % (M 7.4 %) → merged
+C 90.0 % (M 6.7 %)**; BRAKER adds 41 complete / −47 missing conserved genes. As expected, conserved
+genes are already in the lean reference; BRAKER's contribution is the non-conserved and
+reference-absent layer that BUSCO does not measure.
