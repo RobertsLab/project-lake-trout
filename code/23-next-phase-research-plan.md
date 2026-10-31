@@ -538,3 +538,27 @@ BUSCO (actinopterygii_odb12, one protein per gene): **Liftoff alone C 89.4 % (M 
 C 90.0 % (M 6.7 %)**; BRAKER adds 41 complete / −47 missing conserved genes. As expected, conserved
 genes are already in the lean reference; BRAKER's contribution is the non-conserved and
 reference-absent layer that BUSCO does not measure.
+
+**Siscowet (BRAKER3 done 10-26 after ~28 h; merge / function / BUSCO run 10-31).**
+
+| | lean | siscowet |
+|---|---|---|
+| Liftoff genes | 55,437 | 59,968 |
+| BRAKER3 genes / proteins | 26,820 / 32,554 | 30,375 / 36,742 |
+| BUSCO, BRAKER3 alone | C 73.5 %, M 23.0 % | C 77.0 %, M 19.5 % |
+| BRAKER: shared / liftoff_locus / **new** | 22,469 / 710 / **3,641** | 25,219 / 721 / **4,435** |
+| new hq / lq | 3,356 / 285 | 4,069 / 366 |
+| new: ref_homolog / ref_paralog / no_ref_hit | 646 / 1,543 / 1,452 | 861 / 1,877 / 1,697 |
+| **merged gene set** | **59,078** | **64,403** |
+| novel candidates (hq, no RefSeq hit, not TE-like) | 1,137 | 1,262 |
+| BUSCO, Liftoff only | C 89.4 % [D 36.8], M 7.4 % | C 91.8 % [D 45.3], M 5.6 % |
+| **BUSCO, merged** | **C 90.0 % [S 52.8, D 37.2], M 6.7 %** | **C 92.4 % [S 46.5, D 45.9], M 4.9 %** |
+
+Caveat: siscowet's higher BUSCO duplication (46 % vs 37 %), larger purged assembly (2.84 vs 2.58 Gb)
+and more Liftoff copies point to residual uncollapsed haplotype sequence in the siscowet assembly, so
+ecotype differences in gene / copy counts should not be read as biology without a per-gene check
+(e.g. read-depth or Liftoff copy-pair identity). Disk housekeeping 10-31: smoke/, per-run SRA FASTQs,
+tmp/ and the standalone Vertebrata.fa (all reproducible / duplicated) were removed from raven
+(−105 GB); the shared disk was at 99 % mainly from a separate project (sr320/whale, 1.3 TB).
+
+**Remaining:** 23.21 browser tracks (build on raven, stage locally) and the Phase 4 PR.
