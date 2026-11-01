@@ -209,3 +209,39 @@ to settle it. Outputs: `native_methylation_by_gene.tsv`, `dmg_results.tsv`, `dmg
 
 **Next:** Phase 4 (BRAKER3 de novo annotation) remains; Phases 1–3 (the scientific core that retires
 the single-reference caveat) are complete.
+
+### Phase 4 — PLANNED, not started (plan drafted 2026-11-01)
+
+Execution plan targeted at **Klone/Hyak**: [`23.11-phase4-klone-plan.md`](23.11-phase4-klone-plan.md),
+scripts in [`23.11-phase4-klone/`](23.11-phase4-klone/). Nothing has been run.
+
+**Why Klone and not the local box.** Peak Phase-4 scratch is ~0.9–1.3 TB (RepeatModeler and BRAKER
+working directories dominate — the RNAseq itself is only 13.4 GB), against **333 GB free** on
+`/home/shared/16TB_HDD_01` (98% full). Klone also lets the two ecotypes run as parallel jobs. This
+matches open decision #4 of [`20-ecotype-genomes.md`](20-ecotype-genomes.md).
+
+**Blocker found while drafting — the RNAseq evidence is weak.** `PRJNA316738` is 72 runs of
+**36 bp single-end, liver-only** Illumina GA IIx (2016). At 36 bp almost no read spans an intron with
+enough flank to yield a confident junction, so the intron hints BRAKER3 actually wants will be
+sparse; liver-only additionally means no evidence for genes not expressed in adult liver. The plan
+therefore makes **protein evidence the primary arm** (OrthoDB Actinopterygii + SaNama RefSeq
+proteins; `ARM=protein`) and treats the RNAseq as a comparison arm. The real fix is modern
+paired-end multi-tissue RNAseq — a sequencing decision worth making before Phase-4
+"ecotype-specific gene" counts are leaned on.
+
+**Three design decisions baked into the plan:**
+- **Purged assemblies, not raw hifiasm primaries** (which `20-ecotype-genomes.md` listed). Phases 2–3
+  ran on `output/21.1-gene-anchored-synteny/{lean,siscowet}.purged.fa`; annotating anything else
+  would put Phase-4 models on coordinates incompatible with the reciprocal-PAV and native-DMG
+  results that Phase 5 must integrate. Purging also removes retained haplotigs that would otherwise
+  yield duplicate models masquerading as ecotype-specific genes.
+- **One de novo repeat library, not two.** Same species, so build on lean and mask both. Halves the
+  phase's most expensive step and removes a differential-masking confound.
+- **A reciprocal genomic-absence screen** ([`06-specific.sbatch`](23.11-phase4-klone/06-specific.sbatch)).
+  A model absent from the other ecotype's *annotation* is not an ecotype-specific gene — that is
+  equally consistent with prediction failure. Candidates are mapped back to the other assembly with
+  miniprot and only genomic absence counts, then cross-referenced against Phase-2 reciprocal PAV.
+
+**Still open before launch:** evidence arm; whether to wait for better RNAseq; allocated vs `ckpt`
+partition; GeneMark key validity; and whether to run Phase 4 at all versus proceeding to Phase 5
+with Liftoff-only annotation and recording the ecotype-specific-gene question as open.
