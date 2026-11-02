@@ -1,0 +1,7 @@
+lean: Liftoff genes 55,437 (protein-coding 37,018); BRAKER genes 26,820
+  BRAKER classes: shared 22,469, liftoff_locus 710, new 3,641
+  agreement: 21,962 of 37,018 protein-coding Liftoff genes (59.3%) have a same-strand BRAKER CDS overlap; median CDS Jaccard of shared genes 1.00
+  new: hq 3,356, lq 285; mono-exonic 35.4%; median aa 180; repeat_frac >= 0.5 2.9%
+  BRAKER overall: mono-exonic 13.3%; with >= 1 RNA-supported intron 58.5%; ProtHint CDS cov >= 0.5 94.8%
+  new by reference homology (SaNama RefSeq proteins): ref_paralog 1543 (hq 1463), no_ref_hit 1452 (hq 1277), ref_homolog 646 (hq 616)
+  merged gene set: 59,078 genes (liftoff 55,437 + braker 3,641)

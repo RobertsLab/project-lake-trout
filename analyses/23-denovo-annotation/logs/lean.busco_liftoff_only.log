@@ -1,0 +1,37 @@
+2026-10-25 10:05:09 INFO:	***** Start a BUSCO v6.1.0 analysis, current time: 10/25/2026 10:05:09 *****
+2026-10-25 10:05:09 INFO:	Configuring BUSCO with local environment
+2026-10-25 10:05:09 INFO:	Running proteins mode
+2026-10-25 10:05:09 INFO:	Input file is /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-denovo-annotation/final/lean/lean.liftoff_only.proteins.longest.fa
+2026-10-25 10:05:10 INFO:	Running BUSCO using lineage dataset actinopterygii_odb12 (eukaryota, 2026-05-22)
+2026-10-25 10:05:10 INFO:	***** Run HMMER on gene sequences *****
+2026-10-25 10:05:10 INFO:	Running 7207 job(s) on hmmsearch, starting at 10/25/2026 10:05:10
+2026-10-25 10:06:47 INFO:	[hmmsearch]	721 of 7207 task(s) completed
+2026-10-25 10:08:28 INFO:	[hmmsearch]	1442 of 7207 task(s) completed
+2026-10-25 10:10:07 INFO:	[hmmsearch]	2163 of 7207 task(s) completed
+2026-10-25 10:12:15 INFO:	[hmmsearch]	2883 of 7207 task(s) completed
+2026-10-25 10:14:43 INFO:	[hmmsearch]	3604 of 7207 task(s) completed
+2026-10-25 10:17:14 INFO:	[hmmsearch]	4325 of 7207 task(s) completed
+2026-10-25 10:19:41 INFO:	[hmmsearch]	5045 of 7207 task(s) completed
+2026-10-25 10:22:25 INFO:	[hmmsearch]	5766 of 7207 task(s) completed
+2026-10-25 10:25:07 INFO:	[hmmsearch]	6487 of 7207 task(s) completed
+2026-10-25 10:30:45 INFO:	[hmmsearch]	7207 of 7207 task(s) completed
+2026-10-25 10:32:44 INFO:	
+
+    ---------------------------------------------------
+    |Results from dataset actinopterygii_odb12         |
+    ---------------------------------------------------
+    |C:89.4%[S:52.6%,D:36.8%],F:3.2%,M:7.4%,n:7207     |
+    |6444    Complete BUSCOs (C)                       |
+    |3792    Complete and single-copy BUSCOs (S)       |
+    |2652    Complete and duplicated BUSCOs (D)        |
+    |231    Fragmented BUSCOs (F)                      |
+    |532    Missing BUSCOs (M)                         |
+    |7207    Total BUSCO groups searched               |
+    ---------------------------------------------------
+2026-10-25 10:32:44 INFO:	BUSCO analysis done. Total running time: 1655 seconds
+2026-10-25 10:32:44 INFO:	Results written in /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-denovo-annotation/busco/lean_liftoff_only
+2026-10-25 10:32:44 INFO:	For assistance with interpreting the results, please consult the userguide: https://busco.ezlab.org/busco_userguide.html
+
+2026-10-25 10:32:44 INFO:	Visit this page https://gitlab.com/ezlab/busco#how-to-cite-busco to see how to cite BUSCO
+2026-10-25 10:32:44 INFO:	Thank you for using BUSCO! Anonymous usage data is gathered to improve the tool. You may opt out with --opt-out-run-stats.
+ALL_OK

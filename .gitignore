@@ -86,3 +86,8 @@ analyses/23-denovo-annotation/repeats/
 analyses/23-denovo-annotation/braker/
 analyses/23-denovo-annotation/busco/
 analyses/23-denovo-annotation/busco_downloads/
+# Phase 4 final outputs too large for GitHub (>100 MB) or redundant: stay on raven
+analyses/23-denovo-annotation/final/*/_work/
+analyses/23-denovo-annotation/final/*/*.merged.gff3
+analyses/23-denovo-annotation/final/*/*.merged.proteins.fa
+analyses/23-denovo-annotation/final/*/*.liftoff_only.proteins.longest.fa

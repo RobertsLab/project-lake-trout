@@ -1,0 +1,10 @@
+containers:
+  4096	.
+  4096	..
+  3211653120	braker3_v3.1.1.sif
+  788656128	busco_6.1.0.sif
+  824623104	tetools_2.00.sif
+rnaseq lean: 257049964 reads
+rnaseq siscowet: 236900209 reads
+proteins: 19452102 sequences (OrthoDB Vertebrata 19393872, SaNama RefSeq 58230)
+busco lineage: actinopterygii_odb12

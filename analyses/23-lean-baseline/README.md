@@ -71,7 +71,7 @@ behave as expected: the missing assembly does not align across them (median 0.0 
 lean).
 
 **What this means for tier A.** Reciprocal PAV is real, read-level and bidirectional, but at gene level it
-mostly marks sub-gene segments (1 kb resolution). Whether these segments hit exons, introns or flanks has
+mostly marks sub-gene segments (1 kb resolution). Whether these segments hit exons, introns or flanks
 was tested next (section 4).
 
 ## 4. Where the reciprocal-PAV segments fall in the gene (`reciprocal_pav_exon*.tsv`, 23.18)

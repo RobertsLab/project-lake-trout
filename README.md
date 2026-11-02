@@ -140,7 +140,8 @@ contigs / 59,968 lifted genes; 50,379 genes shared.
 - **SyRI structural-variant map** for lean↔ref, siscowet↔ref and lean↔siscowet; ~18–20 % of
   reference-based PAVs fall inside SV-confirmed regions
 - **Reciprocal PAV** (each ecotype's reads → the other's genome): 340 siscowet-present and 343
-  lean-present regions (1.57 Mb), 115 genes, free of lean-reference inflation
+  lean-present regions (1.57 Mb), 115 genes (114 distinct once Liftoff `_N` copy suffixes are
+  merged), free of lean-reference inflation
 - **Gene content:** 1,474 lean-only and 3,040 siscowet-only genes corroborated by both assemblies,
   but 89 % of these are covered by the other ecotype's reads (assembly gaps, not absences); 147 /
   344 remain. 2,359 copy-number-divergent genes (dominated by tRNA / snRNA / histone arrays)
@@ -177,7 +178,22 @@ but differentiated SNVs and copy-number-like depth differences are enriched at t
 methylation following the haplotype (slope ~0.8; [`23.16`](code/23.16-dmr-allele-specific-meth.py)):
 largely cis-genetic.
 
-**Open phases:** BRAKER3 de novo annotation (Phase 4), browser tracks and manuscript (Phase 5).
+**Phase 4 result (BRAKER3, 2026-10/11):** each purged assembly was repeat-masked with its own
+RepeatModeler library and annotated de novo with BRAKER3 (own-ecotype liver RNA-seq + OrthoDB
+Vertebrata / SaNama proteins; [`23.17`](code/23.17-denovo-setup.sh), [`23.18`](code/23.18-denovo-pipeline.sh)),
+then merged with Liftoff ([`23.19`](code/23.19-merge-annotation.py)) and functionally annotated with
+Swiss-Prot / Pfam ([`23.20`](code/23.20-functional-annotation.py)). Merged sets: 59,078 lean / 64,403
+siscowet genes (BUSCO actinopterygii_odb12 C 90.0 % / 92.4 %). BRAKER added 3,641 / 4,435 genes not in
+Liftoff, of which 1,137 / 1,262 were "novel candidates" (hq, no RefSeq hit, not TE-like). A reciprocal
+genomic-absence screen ([`23.22`](code/23.22-reciprocal-absence-screen.py), miniprot to the other
+assembly) finds **99 % of them present as near-identical loci in the other ecotype's genome**; 0 lean and
+7 siscowet candidates survive, none in a read-level ecotype-specific region. BRAKER-new is therefore an
+annotation-gap signal, not ecotype-specific gene content. Evidence caveat: the only RNA-seq is 36 bp
+single-end liver (parasitized and non-parasitized fish), so the new models rest mostly on protein
+homology. Outputs in [`analyses/23-denovo-annotation/`](analyses/23-denovo-annotation/).
+
+**Open phase:** Phase 5 — merged-annotation browser tracks ([`23.21`](code/23.21-denovo-browser-tracks.py),
+not yet staged), manuscript, NCBI assembly submission.
 
 ---
 
