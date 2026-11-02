@@ -496,6 +496,130 @@
           }
         }
       ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "lean_purged_genes_merged",
+      "name": "Lean genes, Liftoff + BRAKER3 (merged)",
+      "category": [
+        "Annotation",
+        "Phase 4 de novo"
+      ],
+      "assemblyNames": [
+        "lean_purged"
+      ],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/lake-trout/lean_purged.genes_merged.bed"
+        },
+        "autoSql": "table bed9rgb\n\"BED9 with a string itemRgb column\"\n    (\n    string chrom;      \"Reference sequence chromosome or scaffold\"\n    uint   chromStart; \"Start position in chromosome\"\n    uint   chromEnd;   \"End position in chromosome\"\n    string name;       \"Name of item\"\n    uint   score;      \"Score\"\n    char[1] strand;    \"+ or - or .\"\n    uint   thickStart; \"Start of where display should be thick\"\n    uint   thickEnd;   \"End of where display should be thick\"\n    string itemRgb;    \"R,G,B colour\"\n    )\n"
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "lean_purged_genes_merged-LinearBasicDisplay",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "color1": "jexl:'rgb('+get(feature,'itemRgb')+')'"
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "lean_purged_braker_new",
+      "name": "Lean BRAKER3-only genes (not in Liftoff)",
+      "category": [
+        "Annotation",
+        "Phase 4 de novo"
+      ],
+      "assemblyNames": [
+        "lean_purged"
+      ],
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "data/lake-trout/lean_purged.braker_new.gff3.gz"
+        },
+        "index": {
+          "location": {
+            "uri": "data/lake-trout/lean_purged.braker_new.gff3.gz.tbi"
+          }
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "lean_purged_braker_new-LinearBasicDisplay",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "color1": "jexl:get(feature,'te_like')=='1' ? 'rgb(209,213,219)' : (get(feature,'quality')=='hq' ? 'rgb(13,148,136)' : 'rgb(94,234,212)')"
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "siscowet_purged_genes_merged",
+      "name": "Siscowet genes, Liftoff + BRAKER3 (merged)",
+      "category": [
+        "Annotation",
+        "Phase 4 de novo"
+      ],
+      "assemblyNames": [
+        "siscowet_purged"
+      ],
+      "adapter": {
+        "type": "BedAdapter",
+        "bedLocation": {
+          "uri": "data/lake-trout/siscowet_purged.genes_merged.bed"
+        },
+        "autoSql": "table bed9rgb\n\"BED9 with a string itemRgb column\"\n    (\n    string chrom;      \"Reference sequence chromosome or scaffold\"\n    uint   chromStart; \"Start position in chromosome\"\n    uint   chromEnd;   \"End position in chromosome\"\n    string name;       \"Name of item\"\n    uint   score;      \"Score\"\n    char[1] strand;    \"+ or - or .\"\n    uint   thickStart; \"Start of where display should be thick\"\n    uint   thickEnd;   \"End of where display should be thick\"\n    string itemRgb;    \"R,G,B colour\"\n    )\n"
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "siscowet_purged_genes_merged-LinearBasicDisplay",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "color1": "jexl:'rgb('+get(feature,'itemRgb')+')'"
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "siscowet_purged_braker_new",
+      "name": "Siscowet BRAKER3-only genes (not in Liftoff)",
+      "category": [
+        "Annotation",
+        "Phase 4 de novo"
+      ],
+      "assemblyNames": [
+        "siscowet_purged"
+      ],
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "uri": "data/lake-trout/siscowet_purged.braker_new.gff3.gz"
+        },
+        "index": {
+          "location": {
+            "uri": "data/lake-trout/siscowet_purged.braker_new.gff3.gz.tbi"
+          }
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "siscowet_purged_braker_new-LinearBasicDisplay",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "color1": "jexl:get(feature,'te_like')=='1' ? 'rgb(209,213,219)' : (get(feature,'quality')=='hq' ? 'rgb(13,148,136)' : 'rgb(94,234,212)')"
+          }
+        }
+      ]
     }
   ],
   "defaultSession": {

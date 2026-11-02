@@ -510,7 +510,7 @@ column as `uint reserved`. Tracks now declare a string-`itemRgb` autoSql; the li
 from Step F had the same bug (fix in a separate PR).
 
 **Remaining after BRAKER** *(status note 2026-11-02: 23.19, 23.20 and BUSCO were run on both ecotypes,
-see below; 23.21 build/stage is still open)*: run 23.19 → 23.20 → 23.21 build/stage on both ecotypes;
+see below; 23.21 build/stage done 2026-11-02)*: run 23.19 → 23.20 → 23.21 build/stage on both ecotypes;
 BUSCO on the merged proteins.
 
 **Run log (2026-10-16 → 10-25).** RepeatModeler2's `-LTRStruct` step dominated: `ltrharvest` ran
@@ -633,8 +633,12 @@ content — it says this annotation-difference method cannot demonstrate otherwi
 test needs read-level or assembly-level evidence (Phase 2's reciprocal PAV) rather than a comparison
 of two independent annotation runs.
 
-**Remaining:** 23.21 browser tracks (build on raven, stage locally). The Phase 4 PRs are merged
-(#26 pipeline + scripts, #29 / #30 reciprocal screen).
+**Remaining:** none. 23.21 browser tracks were built on raven and staged (2026-11-02): per ecotype a
+merged-gene BED (`{asm}.genes_merged.bed`, 4.0 / 4.4 MB; 59,078 lean / 64,403 siscowet genes) and a
+bgzip + tabix GFF3 of the BRAKER3-only models (`{asm}.braker_new.gff3.gz`, 0.7 / 0.9 MB; 3,641 / 4,435
+genes) in `jbrowse/data/lake-trout/`, with four tracks (`{asm}_genes_merged`, `{asm}_braker_new`) under
+Annotation → Phase 4 de novo in `jbrowse/config.json`. The Phase 4 PRs are merged (#26 pipeline +
+scripts, #29 / #30 reciprocal screen, #31 outputs).
 
 **Committed outputs (2026-11-02).** `analyses/23-denovo-annotation/final/{eco}/`: `braker_gene_classes.tsv`,
 `merge_summary.txt`, `{eco}.braker_new.{gff3,aa,cds.fa,function.tsv}`, `{eco}.merged.genes.bed`,
