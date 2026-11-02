@@ -62,7 +62,10 @@ Outputs (analyses/23-denovo-annotation/final/{eco}/):
   reciprocal_screen_summary.txt
 
 Usage (raven, after 23.19):
-  /home/sr320/miniconda3/bin/python code/23.22-reciprocal-absence-screen.py [lean siscowet]
+  /home/sr320/miniconda3/bin/python code/23.22-reciprocal-absence-screen.py [lean siscowet] \
+      --miniprot /home/sr320/miniconda3/envs/miniprot_env/bin/miniprot
+  From a worktree, output/ is not checked out, so also pass the assemblies and Phase-4 root:
+      --syn /path/to/repo/output/21.1-gene-anchored-synteny --p4 /path/to/repo/analyses/23-denovo-annotation
 
 Author: Generated for project-lake-trout
 Date: 2026-11-01
@@ -77,7 +80,7 @@ import pandas as pd
 BASE = Path(__file__).resolve().parent.parent
 SYN = BASE / "output" / "21.1-gene-anchored-synteny"
 BEDTOOLS = "/usr/bin/bedtools"
-MINIPROT = "miniprot"
+MINIPROT = "miniprot"          # override with --miniprot; not on PATH by default on raven
 
 MIN_IDENT = 0.60
 MIN_COV = 0.60
@@ -129,7 +132,7 @@ def parse_paf(gff_path):
     return best
 
 
-def screen(eco, p4, keep_lq):
+def screen(eco, p4, syn, miniprot, keep_lq):
     other = OTHER[eco]
     out = p4 / "final" / eco
     work = out / "reciprocal_screen"
@@ -144,22 +147,40 @@ def screen(eco, p4, keep_lq):
         print(f"{eco}: no candidates")
         return None
 
-    # 23.19 writes one protein per new gene, named by transcript; map back to gene via the table.
+    # ID SPACES. braker_gene_classes.tsv carries BRAKER's INTERNAL ids (gene "g2", transcript
+    # "g2.t1"). Every other 23.19 product -- the protein FASTA, merged.genes.bed, the function
+    # table -- uses the RENAMED id, which is just those prefixed with "{eco}_braker_"
+    # ("lean_braker_g2", "lean_braker_g2.t1"). Joining on the raw internal id silently matches
+    # nothing, which would make every candidate look absent_from_other, so build both keys here
+    # and assert the join below.
+    cand["native_gene"] = f"{eco}_braker_" + cand["braker_gene"].astype(str)
+    cand["native_tx"] = f"{eco}_braker_" + cand["best_tx"].astype(str)
+    key = "native_tx"
+
     aa = read_fasta(out / f"{eco}.braker_new.aa")
-    tx_col = "braker_tx" if "braker_tx" in cand.columns else "tx"
-    ids = set(cand[tx_col]) if tx_col in cand.columns else set(cand["braker_gene"])
+    ids = set(cand[key])
     q_fa = work / "candidates.aa"
+    n_fa = 0
     with open(q_fa, "w") as f:
         for name, seq in aa.items():
             if name in ids:
                 f.write(f">{name}\n{seq}\n")
+                n_fa += 1
+    # Hard stop, not a warning: a zero/partial join here yields a confident, wholly wrong answer
+    # (every candidate "absent"), and it is cheaper to fail now than after indexing a 2.8 Gb genome.
+    if n_fa != len(cand):
+        raise SystemExit(
+            f"{eco}: ID JOIN FAILED -- {len(cand)} candidates but {n_fa} proteins matched in "
+            f"{eco}.braker_new.aa. Expected keys like {next(iter(ids))}. Refusing to run: an "
+            f"unmatched candidate would be scored absent_from_other and reported as ecotype-specific.")
 
-    target = SYN / f"{other}.purged.fa"
+    target = syn / f"{other}.purged.fa"
+    if not target.exists():
+        raise SystemExit(f"missing assembly {target} (pass --syn)")
     gff = work / f"vs_{other}.gff"
-    sh(f"{MINIPROT} -t 16 --gff {target} {q_fa} > {gff}")
+    sh(f"{miniprot} -t 16 --gff {target} {q_fa} > {gff}")
     best = parse_paf(gff)
 
-    key = tx_col if tx_col in cand.columns else "braker_gene"
     cand["hit_contig"] = cand[key].map(lambda q: best.get(q, {}).get("hit_contig"))
     cand["hit_ident"] = cand[key].map(lambda q: best.get(q, {}).get("ident"))
     cand["hit_cov"] = cand[key].map(lambda q: best.get(q, {}).get("cov"))
@@ -180,7 +201,9 @@ def screen(eco, p4, keep_lq):
     if pav.exists() and genes_bed.exists():
         gb = pd.read_csv(genes_bed, sep="\t", header=None,
                          names=["chrom", "start", "end", "gene_id", "provenance", "strand"])
-        sub = gb[gb["gene_id"].isin(set(cand["braker_gene"]))]
+        sub = gb[gb["gene_id"].isin(set(cand["native_gene"]))]
+        if sub.empty:
+            raise SystemExit(f"{eco}: no candidate matched {genes_bed.name} -- ID join broken")
         if not sub.empty:
             a = work / "cand.bed"
             sub.sort_values(["chrom", "start"]).to_csv(a, sep="\t", header=False, index=False)
@@ -188,14 +211,25 @@ def screen(eco, p4, keep_lq):
             sh(f"{BEDTOOLS} intersect -u -a {a} -b {pav} > {hit}")
             if hit.stat().st_size:
                 supported = set(pd.read_csv(hit, sep="\t", header=None, usecols=[3])[3])
-                cand["pav_supported"] = cand["braker_gene"].isin(supported)
+                cand["pav_supported"] = cand["native_gene"].isin(supported)
     else:
         print(f"{eco}: WARNING no Phase-2 PAV regions at {pav} -- pav_supported left False")
 
+    fn = out / f"{eco}.braker_new.function.tsv"
+    if fn.exists():
+        ft = pd.read_csv(fn, sep="\t")
+        te_col = next((c for c in ("te_like", "is_te", "te_flag") if c in ft.columns), None)
+        id_col = next((c for c in ("gene_id", "braker_gene") if c in ft.columns), None)
+        if te_col and id_col:
+            cand = cand.merge(ft[[id_col, te_col]].rename(columns={id_col: "native_gene",
+                                                                   te_col: "te_like"}),
+                              on="native_gene", how="left")
+        else:
+            print(f"{eco}: WARNING no TE column in {fn.name} -- te_like not joined")
     cand.to_csv(out / f"{eco}.reciprocal_screen.tsv", sep="\t", index=False)
 
     keep = cand[cand["screen_call"].eq("absent_from_other")]
-    keep[["braker_gene"]].to_csv(out / f"{eco}.ecotype_specific.ids",
+    keep[["native_gene"]].to_csv(out / f"{eco}.ecotype_specific.ids",
                                  sep="\t", header=False, index=False)
     keep_ids = set(keep[key])
     with open(out / f"{eco}.ecotype_specific.aa", "w") as f:
@@ -205,13 +239,17 @@ def screen(eco, p4, keep_lq):
 
     n = len(cand)
     counts = cand["screen_call"].value_counts()
-    both = int((cand["screen_call"].eq("absent_from_other") & cand["pav_supported"]).sum())
+    absent = cand["screen_call"].eq("absent_from_other")
+    both = int((absent & cand["pav_supported"]).sum())
+    non_te = int((absent & ~cand.get("te_like", pd.Series(False, index=cand.index))
+                  .fillna(False).astype(bool)).sum()) if "te_like" in cand.columns else None
     return {
         "ecotype": eco, "other": other, "candidates": n,
         "absent_from_other": int(counts.get("absent_from_other", 0)),
         "weak_hit_in_other": int(counts.get("weak_hit_in_other", 0)),
         "present_in_other": int(counts.get("present_in_other", 0)),
         "pav_supported": both,
+        "absent_non_te": non_te,
     }
 
 
@@ -221,12 +259,17 @@ def main():
     ap.add_argument("ecotypes", nargs="*", default=["lean", "siscowet"])
     ap.add_argument("--p4", default="analyses/23-denovo-annotation",
                     help="Phase 4 output root (default: %(default)s)")
+    ap.add_argument("--syn", default=None,
+                    help="dir holding {eco}.purged.fa (default: <repo>/output/21.1-gene-anchored-synteny). "
+                         "Needed when running from a worktree, where output/ is not checked out.")
+    ap.add_argument("--miniprot", default=MINIPROT, help="miniprot binary (default: %(default)s)")
     ap.add_argument("--keep-lq", action="store_true",
                     help="also screen lq candidates (default: hq only, matching 23.19's headline)")
     a = ap.parse_args()
 
     p4 = (BASE / a.p4) if not Path(a.p4).is_absolute() else Path(a.p4)
-    rows = [r for eco in a.ecotypes if (r := screen(eco, p4, a.keep_lq))]
+    syn = Path(a.syn) if a.syn else SYN
+    rows = [r for eco in a.ecotypes if (r := screen(eco, p4, syn, a.miniprot, a.keep_lq))]
     if not rows:
         return
     df = pd.DataFrame(rows)

@@ -594,4 +594,40 @@ rest mostly on protein homology, and the counts should be read as protein-eviden
 paired-end multi-tissue RNA-seq is the fix, and would be worth having before these counts are used
 as an ecotype-divergence result.
 
-**Remaining:** 23.21 browser tracks (build on raven, stage locally), 23.22 reciprocal screen (run on raven), and the Phase 4 PR.
+**Step 7 result (run 2026-11-01 on raven, miniprot 0.18-r281).**
+
+| | lean → siscowet | siscowet → lean |
+|---|---|---|
+| hq `no_ref_hit` candidates screened | 1,277 | 1,481 |
+| `present_in_other` | **1,272 (99.6 %)** | **1,466 (99.0 %)** |
+| `weak_hit_in_other` | 5 | 8 |
+| **`absent_from_other`** | **0** | **7** |
+| of those, not TE-like | 0 | 7 |
+| `pav_supported` (also a Phase-2 read-level ecotype-specific region) | 0 | 0 |
+
+**The BRAKER-new "novel candidates" are almost entirely annotation gaps, not ecotype-specific
+genes.** Essentially every candidate has a locus in the other ecotype's assembly; BRAKER simply
+predicted a gene on one assembly and not the other. The headline counts above (1,137 lean / 1,262
+siscowet novel candidates) should not be read as ecotype-specific gene content.
+
+The hits are not pseudo-tetraploid artifacts. In a salmonid the obvious worry is that a permissive
+60 %/60 % threshold just finds the ohnolog, but the matches are far better than that: median
+identity **1.000** and median query coverage **1.000** in both directions, with 98.0 % (lean) and
+95.6 % (siscowet) of hits at ≥ 90 % identity. These are near-identical, full-length loci. Tightening
+the identity cut to 0.90 would still leave only 31 / 1,277 and 79 / 1,481 absent, so the conclusion
+does not hinge on the threshold.
+
+Surviving candidates: **7 siscowet genes, 0 lean** (`siscowet.ecotype_specific.ids`). All 7 are
+non-TE with repeat fraction ≈ 0, 96–268 aa; 5 have at least one evidence-supported intron and 2 are
+mono-exonic. None falls in a Phase-2 read-level ecotype-specific region, so none has a second
+independent line, and at n = 7 against an assembly with known residual haplotypes they are leads at
+best. The lean/siscowet asymmetry (0 vs 7) is in the direction the residual-haplotype caveat
+predicts.
+
+Interpretation: this retires "BRAKER-new" as a proxy for ecotype-specific gene content, the same way
+Phase 3 pass 2 retired the single-reference DMRs. It does not say the ecotypes have identical gene
+content — it says this annotation-difference method cannot demonstrate otherwise, and that a real
+test needs read-level or assembly-level evidence (Phase 2's reciprocal PAV) rather than a comparison
+of two independent annotation runs.
+
+**Remaining:** 23.21 browser tracks (build on raven, stage locally) and the Phase 4 PR.
