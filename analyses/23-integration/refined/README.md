@@ -130,6 +130,7 @@ Genome-wide, 2,965 clusters of ≥2 same-family genes within 50 kb were collapse
 
 ## Reading guide
 
+- **23.23 caveat (2026-11-02):** the `reciprocal_pav` regions were never checked against the carrying ecotype's own reads. Doing so (`../../23-reciprocal-pav/target_coverage/`) shows only 7 of the 76 tier-A genes are fixed in all four fish of their ecotype; the rest are within-ecotype polymorphisms. This table has not been re-scored.
 - Only tier A carries read-level, bidirectional evidence on native coordinates. Tier B rests on two Liftoff annotations agreeing (after removing genes the other ecotype's reads cover), copy-number divergence, or a native DMR replicated in both assemblies. The Phase-18 style tier C (reference DMR + reference divergence) is retired; reference DMR genes are flagged in `ref_dmr`.
 - `ref_divergence` is one line no matter how many of SV / reference PAV / Liftoff-only presence a gene carries: they share a cause (distance from the lean reference).
 - `caution` flags noncoding biotypes, repeat / tandem families, and clusters of ≥5 genes; rank on the flag-free subset first.

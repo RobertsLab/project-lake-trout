@@ -282,6 +282,9 @@ ul.task-list li input[type="checkbox"] {
 <div class="warn-box">
 <p><strong>Most tier-A genes are not missing genes (23.18).</strong> The absent segment is usually a small piece of a large gene (median 3 % of its length), and for about 90 % of tier-A genes it is intronic only. Coding sequence is hit at less than half the rate expected from random placement in the same genes. Only three single-copy annotated genes lose coding sequence: <code>ttll9</code> (56 % of CDS, absent in lean fish), <code>grb10</code>-like (18 %, absent in siscowet) and <code>gpia</code> (12 %, absent in lean). Every reciprocal-PAV gene is also annotated in the published lean genome, so a gene absent from our four lean fish is not absent from lean trout in general.</p>
 </div>
+<div class="warn-box">
+<p><strong>Most tier-A regions are not fixed in the ecotype that carries them (23.23).</strong> Checked against the four fish of the <em>same</em> ecotype aligned to their own assembly, only 9 % (siscowet) and 6 % (lean) of reciprocal-PAV regions are covered in all four (random regions: 73 % and 56 %); 57–67 % are missing from at least one of them. <strong>Seven of the 76 tier-A genes are fixed in all four fish of their ecotype</strong> (<code>gpia</code>, a KH-domain RNA-binding gene, a myotubularin-related-5-like, a CEACAM5-like and a ROR-alpha-like in siscowet; <code>nek7</code> and <code>tmeff2a</code> in lean); the other 69 are large indels segregating within the ecotype that happened to be absent from the four fish of the other. Tables: <a href="analyses/23-reciprocal-pav/target_coverage/README.md"><code>analyses/23-reciprocal-pav/target_coverage/</code></a>.</p>
+</div>
 <p>A selection of the flag-free, protein-coding set (<strong>CDS</strong> marks coding-sequence loss; all others are intronic or UTR):</p>
 <table class="table">
 <colgroup>
@@ -708,12 +711,14 @@ ul.task-list li input[type="checkbox"] {
 <li>Five-line evidence model with tiers; tandem-cluster-collapsed GO over-representation</li>
 <li>Lean vs published-lean baseline: lean–siscowet SVs polarized against the reference; exon placement of reciprocal-PAV segments</li>
 <li>Phase 4: RepeatModeler2 + BRAKER3 de novo annotation per ecotype, Liftoff merge, Swiss-Prot / Pfam function, reciprocal genomic-absence screen of BRAKER-new genes (miniprot)</li>
+<li>Target-ecotype coverage of the reciprocal-PAV regions on each ecotype’s own reads, with a shuffled-region null (23.23)</li>
 </ol>
 </section>
 <section id="next" class="level3">
 <h3 class="anchored" data-anchor-id="next">Next</h3>
 <ul>
 <li><strong>Methylation follow-up</strong> — population sample of both ecotypes to test the cis haplotypes and the ~80 % of DMRs that cannot be phased with four fish</li>
+<li><strong>Population sample</strong> — tens of fish per ecotype to turn the within-ecotype polymorphisms behind tier A into allele-frequency differences</li>
 <li><strong>RNA-seq</strong> — paired-end, multi-tissue RNA-seq from both ecotypes; the 36 bp single-end liver data leave BRAKER3’s new models resting on protein homology</li>
 <li><strong>Phase 5</strong> — JBrowse tracks for the merged Liftoff + BRAKER annotation (23.21); manuscript; NCBI assembly submission</li>
 </ul>

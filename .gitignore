@@ -91,3 +91,6 @@ analyses/23-denovo-annotation/final/*/_work/
 analyses/23-denovo-annotation/final/*/*.merged.gff3
 analyses/23-denovo-annotation/final/*/*.merged.proteins.fa
 analyses/23-denovo-annotation/final/*/*.liftoff_only.proteins.longest.fa
+
+# 23.23 scratch intervals
+analyses/23-reciprocal-pav/target_coverage/_work/

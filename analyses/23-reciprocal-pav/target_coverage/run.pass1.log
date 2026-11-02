@@ -1,0 +1,33 @@
+
+== siscowet-present regions, siscowet fish on own assembly ==
+  $ /usr/bin/samtools depth -a -b /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/.claude/worktrees/repo-state-analysis-6a6768/analyses/23-reciprocal-pav/target_coverage/_work/siscowet.intervals.sorted.bed -@ 4 /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/align/bc2071.to_own.sorted.bam
+  $ /usr/bin/samtools depth -a -b /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/.claude/worktrees/repo-state-analysis-6a6768/analyses/23-reciprocal-pav/target_coverage/_work/siscowet.intervals.sorted.bed -@ 4 /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/align/bc2072.to_own.sorted.bam
+  $   $/usr/bin/samtools depth -a -b /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/.claude/worktrees/repo-state-analysis-6a6768/analyses/23-reciprocal-pav/target_coverage/_work/siscowet.intervals.sorted.bed -@ 4 /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/align/bc2073.to_own.sorted.bam /usr/bin/samtools depth -a -b /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/.claude/worktrees/repo-state-analysis-6a6768/analyses/23-reciprocal-pav/target_coverage/_work/siscowet.intervals.sorted.bed -@ 4 /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/align/bc2096.to_own.sorted.bam
+
+
+== lean-present regions, lean fish on own assembly ==
+  $ /usr/bin/samtools depth -a -b /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/.claude/worktrees/repo-state-analysis-6a6768/analyses/23-reciprocal-pav/target_coverage/_work/lean.intervals.sorted.bed -@ 4 /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/align/bc2041.to_own.sorted.bam
+  $   $/usr/bin/samtools depth -a -b /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/.claude/worktrees/repo-state-analysis-6a6768/analyses/23-reciprocal-pav/target_coverage/_work/lean.intervals.sorted.bed -@ 4 /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/align/bc2068.to_own.sorted.bam /usr/bin/samtools depth -a -b /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/.claude/worktrees/repo-state-analysis-6a6768/analyses/23-reciprocal-pav/target_coverage/_work/lean.intervals.sorted.bed -@ 4 /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/align/bc2069.to_own.sorted.bam
+
+  $ /usr/bin/samtools depth -a -b /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/.claude/worktrees/repo-state-analysis-6a6768/analyses/23-reciprocal-pav/target_coverage/_work/lean.intervals.sorted.bed -@ 4 /home/shared/16TB_HDD_01/sr320/github/project-lake-trout/analyses/23-native-methylation/align/bc2070.to_own.sorted.bam
+
+siscowet-present regions (n=340, 697,000 bp); siscowet fish median flank depth: bc2071 5.3x, bc2072 3.7x, bc2073 5.8x, bc2096 9.4x
+  fixed_present    32 regions     73,000 bp     6 genes
+  mixed           110 regions    250,000 bp    23 genes
+  polymorphic     192 regions    364,000 bp    41 genes
+  low_all           6 regions     10,000 bp     1 genes
+  absent_all        0 regions          0 bp     0 genes
+lean-present regions (n=343, 870,000 bp); lean fish median flank depth: bc2041 6.3x, bc2068 3.4x, bc2069 2.2x, bc2070 4.6x
+  fixed_present    21 regions     95,000 bp     3 genes
+  mixed            86 regions    220,000 bp     9 genes
+  polymorphic     231 regions    548,000 bp    31 genes
+  low_all           5 regions      7,000 bp     1 genes
+  absent_all        0 regions          0 bp     0 genes
+
+Tier-A genes (n=76) by target-ecotype coverage class of their reciprocal-PAV region:
+  fixed_present      7
+  mixed             21
+  polymorphic       47
+  low_all            1
+
+Definitions: per fish present = frac>=1x >= 0.80 and region/flank depth ratio >= 0.60; absent = frac>=1x < 0.20; low = in between. fixed_present = all 4 present; polymorphic = >=1 absent and >=1 present; low_all = all low; absent_all = all absent; mixed = other. Flanks = 2 kb each side on the same assembly.
