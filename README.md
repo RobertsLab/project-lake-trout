@@ -192,8 +192,9 @@ annotation-gap signal, not ecotype-specific gene content. Evidence caveat: the o
 single-end liver (parasitized and non-parasitized fish), so the new models rest mostly on protein
 homology. Outputs in [`analyses/23-denovo-annotation/`](analyses/23-denovo-annotation/).
 
-**Open phase:** Phase 5 — merged-annotation browser tracks ([`23.21`](code/23.21-denovo-browser-tracks.py),
-not yet staged), manuscript, NCBI assembly submission.
+**Open phase:** Phase 5 — manuscript and NCBI assembly submission. The merged-annotation browser
+tracks ([`23.21`](code/23.21-denovo-browser-tracks.py)) are staged in the JBrowse instance (Annotation →
+Phase 4 de novo: merged genes and BRAKER3-only genes for each purged assembly).
 
 ---
 
