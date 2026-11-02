@@ -343,7 +343,8 @@ points), and mostly **hypomethylated in siscowet** (206/268 and 248/304; at thos
 average 59–65 % and siscowet fish 27–31 %). About 43 % place uniquely on the other assembly; of
 those, **101/111 (lean) and 119/131 (siscowet) replicate in the other frame** (same sign, p < 0.05,
 |Δ| ≥ 10; Spearman ρ 0.97 / 0.93). 101 loci were called independently in both frames; ~137 unique
-replicated loci, 113 genes. Robustness: lean and siscowet fish are completely separated at 265/268
+replicated loci, 113 genes by nearest-gene assignment (71 once Step F's within-5-kb,
+same-assembly rule is applied; 71 is the `native_dmr` count used from Step F on). Robustness: lean and siscowet fish are completely separated at 265/268
 and 297/304 DMRs; dropping any one fish never flips a DMR or takes it below 10 points; 94 % keep
 their sign within each of the three sequencing runs. 63 % are intergenic, ~20 % promoter, ~14 %
 body; 10 per frame overlap a placed reference DMR. GO on replicated-DMR genes: transcription-factor
@@ -351,7 +352,8 @@ body; 10 per frame overlap a placed reference DMR. GO on replicated-DMR genes: t
 genes (a repeat-rich family not merged by 50 kb collapsing); the others are en1a, a forkhead E1-like,
 a HES-4-like and an ATF-like 3. No lipid term; calcium ion binding only at FDR 0.23 (3 genes). One
 tier-A gene (LOC120041427) and 14 tier-B genes (cnv + ref_divergence, mostly uncharacterized) carry
-a replicated DMR; 4 genes overlap the 23.12 robust features (AFG3-like 1, nudt19, a NET1-like,
+a replicated DMR by nearest-gene assignment (*superseded by Step F: under the 5 kb rule LOC120041427
+has `native_dmr` = 0 and no tier-A gene carries a replicated DMR*); 4 genes overlap the 23.12 robust features (AFG3-like 1, nudt19, a NET1-like,
 LOC120034056).
 
 **Phase 3 conclusion.** Ecotype methylation differences are **localized, large and reproducible**
@@ -447,7 +449,7 @@ environment — with a minority trans / environmental component, larger in sisco
 **Next:** Phase 4 (BRAKER3) on raven; for methylation, a population sample (more fish, both
 ecotypes) would test the cis haplotypes and the untestable ~80 % of DMRs.
 
-### Phase 4 — de novo annotation (BRAKER3) — RUNNING (started 2026-10-16 on raven)
+### Phase 4 — de novo annotation (BRAKER3) — DONE (ran 2026-10-16 → 11-01 on raven; PRs #26, #29, #30 merged)
 
 **Setup** ([`23.17`](23.17-denovo-setup.sh), `analyses/23-denovo-annotation/`): containers
 `teambraker/braker3:v3.1.1` (BRAKER 3.0.8, GeneMark-ETP, AUGUSTUS, ProtHint, TSEBRA),
@@ -507,8 +509,9 @@ itemRgb colouring turned out to render black in JBrowse 3.6.2: the default BED9 
 column as `uint reserved`. Tracks now declare a string-`itemRgb` autoSql; the live native DMR tracks
 from Step F had the same bug (fix in a separate PR).
 
-**Remaining after BRAKER:** run 23.19 → 23.20 → 23.21 build/stage on both ecotypes; BUSCO on the
-merged proteins.
+**Remaining after BRAKER** *(status note 2026-11-02: 23.19, 23.20 and BUSCO were run on both ecotypes,
+see below; 23.21 build/stage is still open)*: run 23.19 → 23.20 → 23.21 build/stage on both ecotypes;
+BUSCO on the merged proteins.
 
 **Run log (2026-10-16 → 10-25).** RepeatModeler2's `-LTRStruct` step dominated: `ltrharvest` ran
 single-threaded for 128 h (lean) and 146 h (siscowet), growing to ~65–78 GB RSS each, with no output
@@ -521,8 +524,8 @@ step added ~300–370 families. BRAKER3 then took only ~33 h for lean.
 | repeat families | 1,995 | 1,916 |
 | soft-masked | 51.4 % | 52.5 % |
 | own-ecotype RNA-seq aligned (HISAT2) | 84.2 % | 88.6 % |
-| BRAKER3 genes / proteins | 26,820 / 32,554 | running (started 10-25 03:39) |
-| BUSCO, BRAKER3 alone | C 73.5 % [S 39.5, D 34.0], F 3.5, M 23.0 | |
+| BRAKER3 genes / proteins | 26,820 / 32,554 | 30,375 / 36,742 (started 10-25 03:39, done 10-26) |
+| BUSCO, BRAKER3 alone | C 73.5 % [S 39.5, D 34.0], F 3.5, M 23.0 | C 77.0 % [S 37.5, D 39.5], F 3.5, M 19.5 |
 
 **Lean merge + function (23.19 / 23.20, 2026-10-25).** BRAKER genes: 22,469 shared with Liftoff
 (median CDS Jaccard 1.00), 710 inside a Liftoff locus, **3,641 new** (hq 3,356 / lq 285); 59 % of
@@ -563,7 +566,7 @@ tmp/ and the standalone Vertebrata.fa (all reproducible / duplicated) were remov
 
 
 **Step 7 — reciprocal genomic-absence screen** ([`23.22`](23.22-reciprocal-absence-screen.py),
-written 2026-11-01, not yet run). This is the per-gene check the caveat above asks for, applied to
+written and run 2026-11-01; result below). This is the per-gene check the caveat above asks for, applied to
 gene content rather than copy number.
 
 23.19 classes a BRAKER gene as `new` against that ecotype's own Liftoff annotation, and as
@@ -630,4 +633,14 @@ content — it says this annotation-difference method cannot demonstrate otherwi
 test needs read-level or assembly-level evidence (Phase 2's reciprocal PAV) rather than a comparison
 of two independent annotation runs.
 
-**Remaining:** 23.21 browser tracks (build on raven, stage locally) and the Phase 4 PR.
+**Remaining:** 23.21 browser tracks (build on raven, stage locally). The Phase 4 PRs are merged
+(#26 pipeline + scripts, #29 / #30 reciprocal screen).
+
+**Committed outputs (2026-11-02).** `analyses/23-denovo-annotation/final/{eco}/`: `braker_gene_classes.tsv`,
+`merge_summary.txt`, `{eco}.braker_new.{gff3,aa,cds.fa,function.tsv}`, `{eco}.merged.genes.bed`,
+`{eco}.merged.proteins.longest.fa` (BUSCO input), `gene_function_table.tsv`, `function_summary.txt`,
+`{eco}.reciprocal_screen.tsv`, `{eco}.ecotype_specific.ids`, `reciprocal_screen/`; plus
+`busco/short_summary.*.txt` (six runs), `setup_summary.txt`, `db_versions.txt` and the stage logs in
+`logs/`. Not committed (on raven only, gitignored): the merged GFF3s (383 / 425 MB, over GitHub's limit),
+the full merged protein FASTAs, the Liftoff-only longest-isoform FASTAs, `final/*/_work/`, and the
+raw BRAKER / RepeatModeler / BUSCO working directories.

@@ -1,0 +1,7 @@
+siscowet: Liftoff genes 59,968 (protein-coding 39,880); BRAKER genes 30,375
+  BRAKER classes: shared 25,219, liftoff_locus 721, new 4,435
+  agreement: 24,646 of 39,880 protein-coding Liftoff genes (61.8%) have a same-strand BRAKER CDS overlap; median CDS Jaccard of shared genes 1.00
+  new: hq 4,069, lq 366; mono-exonic 34.8%; median aa 199; repeat_frac >= 0.5 3.0%
+  BRAKER overall: mono-exonic 13.8%; with >= 1 RNA-supported intron 57.9%; ProtHint CDS cov >= 0.5 94.8%
+  new by reference homology (SaNama RefSeq proteins): ref_paralog 1877 (hq 1761), no_ref_hit 1697 (hq 1481), ref_homolog 861 (hq 827)
+  merged gene set: 64,403 genes (liftoff 59,968 + braker 4,435)

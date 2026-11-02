@@ -1,0 +1,36 @@
+siscowet: merged gene function table 64,403 genes (liftoff 59,968, braker 4,435)
+  new hq 4,069: Swiss-Prot hit 52%, named 40%, Pfam 56%, GO 41%, TE-like 8%
+    no_ref_hit  1,481: TE-like 15%, named 10%
+    ref_paralog 1,761: TE-like 5%, named 48%
+    ref_homolog   827: TE-like 3%, named 78%
+  new lq 366: Swiss-Prot hit 23%, named 11%, Pfam 30%, GO 12%, TE-like 48%
+    no_ref_hit    216: TE-like 41%, named 2%
+    ref_paralog   116: TE-like 60%, named 22%
+    ref_homolog    34: TE-like 47%, named 29%
+  novel candidates (hq, no SaNama RefSeq hit, not TE-like): 1,262; of these named via Swiss-Prot 130, Pfam-only 315, unannotated 817
+    siscowet_braker_g3343        ptg000254l_1:191828-257480 aa=3868  siscowet_braker_ uncharacterized protein with Vitellogenin_N,TPR_Vi Vitellogenin_N,TPR_Vitellogeni
+    siscowet_braker_g12631       ptg001124l_1:147738-157153 aa=2933  siscowet_braker_ uncharacterized protein with ZP-N,Zona_pellucida d ZP-N,Zona_pellucida
+    siscowet_braker_g25045       ptg004137l_1:64167-77407 aa=2286  siscowet_braker_ uncharacterized protein with zf-HC5HC2H_2,zf-HC5HC zf-HC5HC2H_2,zf-HC5HC2H
+    siscowet_braker_g19281       ptg002208l_1:65207-80134 aa=2286  siscowet_braker_ uncharacterized protein with zf-HC5HC2H_2,zf-HC5HC zf-HC5HC2H_2,zf-HC5HC2H
+    siscowet_braker_g27827       ptg006995l_1:269001-275456 aa=2151  siscowet_braker_ uncharacterized protein                            
+    siscowet_braker_g8469        ptg000688l_1:44147-61855 aa=1993  siscowet_braker_ uncharacterized protein                            
+    siscowet_braker_g1724        ptg000130l_1:2050973-2074455 aa=1961  siscowet_braker_ uncharacterized protein with C2 domain(s)          C2
+    siscowet_braker_g17790       ptg001920l_1:249365-263275 aa=1843  siscowet_braker_ uncharacterized protein with JCAD domain(s)        JCAD
+    siscowet_braker_g22485       ptg002924l_1:241368-251694 aa=1695  siscowet_braker_ uncharacterized protein with Atrophin-1 domain(s)  Atrophin-1
+    siscowet_braker_g19561       ptg002250l_1:73653-83663 aa=1667  siscowet_braker_ uncharacterized protein                            
+    siscowet_braker_g15528       ptg001554l_1:104118-124856 aa=1617  siscowet_braker_ uncharacterized protein with JCAD domain(s)        JCAD
+    siscowet_braker_g24848       ptg004041l_1:619779-624632 aa=1617  siscowet_braker_ Uncharacterized protein C4orf54 homolog-like       DUF4585
+    siscowet_braker_g16271       ptg001669l_1:541150-546784 aa=1594  siscowet_braker_ uncharacterized protein with Carn_acyltransf,Aspar Carn_acyltransf,Asparaginase_2
+    siscowet_braker_g5933        ptg000464l_1:233898-239145 aa=1594  siscowet_braker_ uncharacterized protein with Carn_acyltransf,Aspar Carn_acyltransf,Asparaginase_2
+    siscowet_braker_g18006       ptg001955l_1:306861-314841 aa=1571  siscowet_braker_ uncharacterized protein                            
+    siscowet_braker_g26136       ptg004716l_1:314391-329761 aa=1496  alpk2-like       Alpha-protein kinase 2-like                        I-set,Alpha_kinase
+    siscowet_braker_g3340        ptg000254l_1:56537-63468 aa=1494  siscowet_braker_ uncharacterized protein                            
+    siscowet_braker_g11589       ptg000978l_1:37889-44819 aa=1494  siscowet_braker_ uncharacterized protein                            
+    siscowet_braker_g19122       ptg002177l_1:473227-480195 aa=1494  siscowet_braker_ uncharacterized protein                            
+    siscowet_braker_g25195       ptg004212l_1:81581-94753 aa=1491  siscowet_braker_ uncharacterized protein with Trefoil,ZP-N,Zona_pel Trefoil,ZP-N,Zona_pellucida
+    siscowet_braker_g1155        ptg000085l_1:1194540-1201387 aa=1486  siscowet_braker_ uncharacterized protein                            
+    siscowet_braker_g18925       ptg002135l_1:21659-27199 aa=1440  siscowet_braker_ uncharacterized protein with SecA_DEAD,P-loop_SecA SecA_DEAD,P-loop_SecA
+    siscowet_braker_g9432        ptg000775l_1:307862-318675 aa=1420  siscowet_braker_ uncharacterized protein                            
+    siscowet_braker_g4991        ptg000383l_1:1113071-1120438 aa=1362  siscowet_braker_ uncharacterized protein                            
+    siscowet_braker_g4989        ptg000383l_1:1065662-1073008 aa=1362  siscowet_braker_ uncharacterized protein                            
+

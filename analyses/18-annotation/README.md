@@ -1,5 +1,11 @@
 # 18-annotation — Step 0: gene function table
 
+> **Superseded (2026-07 → 2026-10).** The candidates below were called against the lean-background
+> reference only. Re-tested on each ecotype's own genome (`analyses/23-integration/refined/`,
+> `phase18_candidate_fate.tsv`), `znf883-like`, `angptl5`, `mogat2` and the calcium-channel GO signal do
+> not survive; see `README.md` section 6 and `code/23-next-phase-research-plan.md`. The gene function
+> table itself is still the annotation backbone used downstream.
+
 Functional annotation backbone for the SaNama_1.0 (GCF_016432855.1) gene set, used to
 attach function to differential-methylation and PAV gene hits
 (see `code/18-diff-annotation-phenotype-plan.md`).

@@ -1,0 +1,36 @@
+lean: merged gene function table 59,078 genes (liftoff 55,437, braker 3,641)
+  new hq 3,356: Swiss-Prot hit 52%, named 39%, Pfam 53%, GO 40%, TE-like 7%
+    no_ref_hit  1,277: TE-like 11%, named 11%
+    ref_paralog 1,463: TE-like 6%, named 48%
+    ref_homolog   616: TE-like 4%, named 76%
+  new lq 285: Swiss-Prot hit 22%, named 9%, Pfam 29%, GO 12%, TE-like 45%
+    no_ref_hit    175: TE-like 38%, named 1%
+    ref_paralog    80: TE-like 59%, named 18%
+    ref_homolog    30: TE-like 53%, named 30%
+  novel candidates (hq, no SaNama RefSeq hit, not TE-like): 1,137; of these named via Swiss-Prot 130, Pfam-only 268, unannotated 739
+    lean_braker_g14293           ptg001990l_1:1266788-1281557 aa=4122  lean_braker_g142 uncharacterized protein with MAPB1_N,MBL_MAP1B dom MAPB1_N,MBL_MAP1B
+    lean_braker_g10135           ptg001214l_1:100214-165916 aa=3869  lean_braker_g101 uncharacterized protein with Vitellogenin_N,TPR_Vi Vitellogenin_N,TPR_Vitellogeni
+    lean_braker_g16583           ptg002495l_1:478326-496955 aa=2902  lean_braker_g165 uncharacterized protein with NUT domain(s)         NUT
+    lean_braker_g9834            ptg001135l_1:396402-404695 aa=2559  lean_braker_g983 uncharacterized protein with ZP-N,Zona_pellucida d ZP-N,Zona_pellucida
+    lean_braker_g11239           ptg001371l_1:3260-17711 aa=2286  lean_braker_g112 uncharacterized protein with zf-HC5HC2H_2,zf-HC5HC zf-HC5HC2H_2,zf-HC5HC2H
+    lean_braker_g15939           ptg002320l_1:472374-490671 aa=2241  lean_braker_g159 uncharacterized protein with Mesothelin domain(s)  Mesothelin
+    lean_braker_g24917           ptg008277l_1:13152-22909 aa=2091  lean_braker_g249 uncharacterized protein                            
+    lean_braker_g6340            ptg000655l_1:62602-86083 aa=1961  lean_braker_g634 uncharacterized protein with C2 domain(s)          C2
+    lean_braker_g11455           ptg001408l_1:270060-283953 aa=1837  lean_braker_g114 uncharacterized protein with JCAD domain(s)        JCAD
+    lean_braker_g19754           ptg003723l_1:266884-276109 aa=1698  lean_braker_g197 uncharacterized protein with Atrophin-1 domain(s)  Atrophin-1
+    lean_braker_g13931           ptg001905l_1:477802-482655 aa=1617  lean_braker_g139 Uncharacterized protein C4orf54 homolog-like       DUF4585
+    lean_braker_g3720            ptg000397l_1:90599-95419 aa=1606  c4orf54-like     Uncharacterized protein C4orf54-like               DUF4585
+    lean_braker_g1353            ptg000150l_1:161610-167244 aa=1594  lean_braker_g135 uncharacterized protein with Carn_acyltransf,Aspar Carn_acyltransf,Asparaginase_2
+    lean_braker_g2059            ptg000230l_1:195515-200762 aa=1594  lean_braker_g205 uncharacterized protein with Carn_acyltransf,Aspar Carn_acyltransf,Asparaginase_2
+    lean_braker_g20215           ptg003870l_1:311790-319770 aa=1571  lean_braker_g202 uncharacterized protein                            
+    lean_braker_g19882           ptg003765l_1:140177-148653 aa=1540  lean_braker_g198 uncharacterized protein with Somatomedin_B,Hemopex Somatomedin_B,Hemopexin
+    lean_braker_g12660           ptg001645l_1:1172295-1183728 aa=1524  lean_braker_g126 uncharacterized protein                            
+    lean_braker_g12354           ptg001575l_1:39472-54868 aa=1496  alpk2-like       Alpha-protein kinase 2-like                        I-set,Alpha_kinase
+    lean_braker_g19886           ptg003768l_1:676188-683156 aa=1494  lean_braker_g198 uncharacterized protein                            
+    lean_braker_g22936           ptg005625l_1:132807-138347 aa=1440  lean_braker_g229 uncharacterized protein with SecA_DEAD,P-loop_SecA SecA_DEAD,P-loop_SecA
+    lean_braker_g23287           ptg005935l_1:25561-32490 aa=1437  lean_braker_g232 uncharacterized protein                            
+    lean_braker_g13291           ptg001794l_1:1268034-1278847 aa=1420  lean_braker_g132 uncharacterized protein                            
+    lean_braker_g5716            ptg000576l_1:543738-548120 aa=1405  lean_braker_g571 uncharacterized protein                            
+    lean_braker_g19727           ptg003708l_1:106570-118337 aa=1402  lean_braker_g197 uncharacterized protein                            
+    lean_braker_g24549           ptg007732l_1:149177-157175 aa=1397  lean_braker_g245 uncharacterized protein with La domain(s)          La
+

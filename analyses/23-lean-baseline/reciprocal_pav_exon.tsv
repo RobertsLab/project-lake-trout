@@ -1,0 +1,116 @@
+gene_id	present_in	tier	product	biotype	extra_copy	gene_bp	exon_bp	cds_bp	absent_bp	absent_frac	absent_cds_bp	absent_noncoding_exon_bp	absent_intron_bp	cds_frac_absent	exons_hit	exons_total	expected_cds_bp	perm_p_cds_ge_obs	class
+gene-LOC120055406	lean		SLAM family member 9-like	protein_coding	0	17725	979	879	1000	0.0564	0	0	1000	0.0	0	5	49.6	1.0	intron_only
+gene-LOC120065085	lean		son of sevenless homolog 1-like	protein_coding	0	67455	6134	4059	1000	0.0148	0	0	1000	0.0	0	22	60.2	1.0	intron_only
+gene-map4k3a	lean		mitogen-activated protein kinase kinase kinase kinase 3a	protein_coding	0	97052	4530	2769	1000	0.0103	0	0	1000	0.0	0	34	28.5	1.0	intron_only
+gene-ap2b1	lean	A	adaptor related protein complex 2 subunit beta 1	protein_coding	0	129035	5016	2837	1000	0.0077	0	0	1000	0.0	0	23	22.0	1.0	intron_only
+gene-LOC120056503	lean		vacuolar protein sorting-associated protein 37D-like	protein_coding	0	57357	1600	918	2000	0.0349	0	0	2000	0.0	0	4	32.0	1.0	intron_only
+gene-LOC120025522	lean	A	ankyrin-1-like	protein_coding	0	92075	5574	5574	4000	0.0434	0	0	4000	0.0	0	40	242.2	1.0	intron_only
+gene-smg6	lean		SMG6 nonsense mediated mRNA decay factor	protein_coding	0	24771	4553	3819	1000	0.0404	0	0	1000	0.0	0	18	154.2	1.0	intron_only
+gene-LOC120021129	lean	A	CMP-N-acetylneuraminate-beta-galactosamide-alpha-2,3-sialyltransferase 1-like	protein_coding	0	7864	711	711	1000	0.1272	0	0	1000	0.0	0	5	90.4	1.0	intron_only
+gene-nek7	lean	A	NIMA-related kinase 7	protein_coding	0	170542	2052	1017	1000	0.0059	0	0	1000	0.0	0	12	6.0	1.0	intron_only
+gene-LOC120053718	lean	A	cAMP-specific 3',5'-cyclic phosphodiesterase 4D-like	protein_coding	0	47633	3929	2247	3000	0.063	0	0	3000	0.0	0	14	141.5	1.0	intron_only
+gene-dnase1l1l	lean		deoxyribonuclease I-like 1-like	protein_coding	0	20937	923	891	1000	0.0478	0	0	1000	0.0	0	8	42.6	1.0	intron_only
+gene-ptprc	lean	A	protein tyrosine phosphatase receptor type C	protein_coding	0	24601	4375	3447	1000	0.0406	0	0	1000	0.0	0	28	140.1	1.0	intron_only
+gene-asap1a	lean	A	ArfGAP with SH3 domain, ankyrin repeat and PH domain 1a	protein_coding	0	154233	6683	3360	3000	0.0195	0	0	3000	0.0	0	29	65.4	1.0	intron_only
+gene-LOC120025009	lean	A	protein kinase C-binding protein NELL1-like	protein_coding	0	476742	2412	2412	2000	0.0042	0	0	2000	0.0	0	20	10.1	1.0	intron_only
+gene-LOC120056781	lean	A	kin of IRRE-like protein 3	protein_coding	0	177928	3611	2241	3000	0.0169	0	0	3000	0.0	0	15	37.8	1.0	intron_only
+gene-LOC120022070_1	lean	A	growth factor receptor-bound protein 10-like	protein_coding	1	51256	3847	1845	1000	0.0195	329	146	525	0.1783	3	20	36.0	0.033	cds_hit
+gene-sh2d3a	lean	A	SH2 domain containing 3A	protein_coding	0	19050	2939	2165	1000	0.0525	0	0	1000	0.0	0	21	113.6	1.0	intron_only
+gene-LOC120025549	lean	A	leucine-rich repeat transmembrane neuronal protein 4-like	protein_coding	0	175292	1986	1986	1000	0.0057	0	0	1000	0.0	0	4	11.3	1.0	intron_only
+gene-LOC120051748_18	lean	A	uncharacterized protein K02A2.6-like	protein_coding	1	2085	1062	1062	2085	1.0	1062	0	1023	1.0	2	2	1062.0	1.0	cds_hit
+gene-LOC120055734	lean	A	LARGE xylosyl- and glucuronyltransferase 2-like	protein_coding	0	36485	3176	2256	4000	0.1096	0	0	4000	0.0	0	14	247.3	1.0	intron_only
+gene-LOC120055730	lean	A	uncharacterized LOC120055730	lncRNA	0	117917	408	0	1000	0.0085	0	0	1000		0	3	0.0	1.0	intron_only
+gene-LOC120045630	lean		cGMP-dependent protein kinase 1-like	protein_coding	0	157758	2616	2315	1000	0.0063	0	0	1000	0.0	0	19	14.7	1.0	intron_only
+gene-LOC120040412	lean	A	plexin-B2-like	protein_coding	0	34108	3134	2379	3000	0.088	0	0	3000	0.0	0	17	209.2	1.0	intron_only
+gene-LOC120038469	lean		RNA-splicing ligase RtcB homolog	protein_coding	0	23243	1874	1358	1000	0.043	0	0	1000	0.0	0	11	58.4	1.0	intron_only
+gene-LOC120063770_8	lean	A	uncharacterized LOC120063770	lncRNA	1	967	849	0	775	0.8014	0	657	118		2	2	0.0	1.0	noncoding_exon_hit
+gene-LOC120053194	lean	A	NT-3 growth factor receptor-like	protein_coding	0	170689	4142	2103	4000	0.0234	0	0	4000	0.0	0	15	49.3	1.0	intron_only
+gene-LOC120062883	lean		5-hydroxytryptamine receptor 7-like	protein_coding	0	87343	1200	1200	4000	0.0458	0	0	4000	0.0	0	2	55.0	1.0	intron_only
+gene-sugct	lean	A	succinyl-CoA:glutarate-CoA transferase	protein_coding	0	172880	3963	1336	1000	0.0058	0	0	1000	0.0	0	15	7.7	1.0	intron_only
+gene-tmeff2a	lean	A	transmembrane protein with EGF-like and two follistatin-like domains 2a	protein_coding	0	142710	959	959	11000	0.0771	0	0	11000	0.0	0	10	73.9	1.0	intron_only
+gene-LOC120038202	lean		GTPase IMAP family member 7-like	protein_coding	0	5175	1199	957	2000	0.3865	0	0	2000	0.0	0	3	369.9	1.0	intron_only
+gene-LOC120054763	lean	A	DNA-directed RNA polymerase, mitochondrial-like	protein_coding	0	93885	5412	4011	1000	0.0107	0	0	1000	0.0	0	21	42.7	1.0	intron_only
+gene-LOC120041588	lean		centrosomal protein of 170 kDa-like	protein_coding	0	25036	4167	4167	2000	0.0799	0	0	2000	0.0	0	19	332.9	1.0	intron_only
+gene-LOC120030386	lean		splicing factor 3B subunit 2-like	protein_coding	0	16650	3239	2757	3000	0.1802	0	0	3000	0.0	0	25	496.8	1.0	intron_only
+gene-LOC120049548	lean	A	glucosidase 2 subunit beta-like	protein_coding	0	226008	1093	619	1000	0.0044	0	0	1000	0.0	0	10	2.7	1.0	intron_only
+gene-unc5c	lean	A	unc-5 netrin receptor C	protein_coding	0	193680	4715	2886	3000	0.0155	0	0	3000	0.0	0	17	44.7	1.0	intron_only
+gene-LOC120043213	lean	A	extracellular serine/threonine protein kinase FAM20C-like	protein_coding	0	79129	5325	1749	1000	0.0126	0	0	1000	0.0	0	10	22.1	1.0	intron_only
+gene-LOC120020198	lean	A	synapsin-2-like	protein_coding	0	121169	876	876	3000	0.0248	0	0	3000	0.0	0	6	21.7	1.0	intron_only
+gene-LOC120034744_20	lean	A	uncharacterized LOC120034744	protein_coding	1	3838	1423	969	468	0.1219	12	454	2	0.0124	1	4	118.2	0.517	cds_hit
+gene-LOC120034415	lean	A	inactive rhomboid protein 1-like	protein_coding	0	55251	3683	2592	1000	0.0181	0	0	1000	0.0	0	18	46.9	1.0	intron_only
+gene-LOC120027905	lean	A	band 4.1-like protein 3	protein_coding	0	22286	1245	1245	1000	0.0449	0	0	1000	0.0	0	10	55.9	1.0	intron_only
+gene-LOC120066682	lean	A	nuclear receptor ROR-alpha A	protein_coding	0	289389	1588	1588	1000	0.0035	0	0	1000	0.0	0	12	5.5	1.0	intron_only
+gene-pros1	lean		protein S	protein_coding	0	42253	1780	1635	1000	0.0237	0	0	1000	0.0	0	10	38.7	1.0	intron_only
+gene-LOC120063782	lean	A	ubiquitin-conjugating enzyme E2 E3	protein_coding	0	70406	1681	639	2000	0.0284	0	0	2000	0.0	0	7	18.2	1.0	intron_only
+gene-LOC120043897_11	lean		uncharacterized LOC120043897	protein_coding	1	3414	2963	2909	3414	1.0	2909	54	451	1.0	2	2	2909.0	1.0	cds_hit
+gene-LOC120042129	siscowet		cytochrome P450 3A27-like	protein_coding	0	22765	2903	1557	1000	0.0439	0	0	1000	0.0	0	13	68.4	1.0	intron_only
+gene-LOC120050135	siscowet	A	nucleosome assembly protein 1-like 1-A	protein_coding	0	27191	3378	1194	1000	0.0368	0	0	1000	0.0	0	19	43.9	1.0	intron_only
+gene-LOC120019576	siscowet		radixin-like	protein_coding	0	52954	2298	1794	2000	0.0378	0	0	2000	0.0	0	15	67.8	1.0	intron_only
+gene-cpn1	siscowet	A	carboxypeptidase N, polypeptide 1	protein_coding	0	159860	2082	1347	1000	0.0063	0	0	1000	0.0	0	9	8.4	1.0	intron_only
+gene-LOC120024458	siscowet	A	sodium/potassium-transporting ATPase subunit beta-1-interacting protein 2	protein_coding	0	181726	621	621	2000	0.011	0	0	2000	0.0	0	6	6.8	1.0	intron_only
+gene-triob	siscowet		trio Rho guanine nucleotide exchange factor b	protein_coding	0	89584	10917	9171	1000	0.0112	0	0	1000	0.0	0	56	102.4	1.0	intron_only
+gene-LOC120053938	siscowet	A	nuclear receptor ROR-alpha A-like	protein_coding	0	290675	1733	1560	1000	0.0034	0	0	1000	0.0	0	11	5.4	1.0	intron_only
+gene-LOC120064465	siscowet		ras-related protein Rab-22A-like	protein_coding	0	30731	1554	408	1000	0.0325	0	0	1000	0.0	0	5	13.3	1.0	intron_only
+gene-LOC120032210	siscowet	A	kinesin-like protein KIF21A	protein_coding	0	44790	5275	4787	4000	0.0893	0	0	4000	0.0	0	34	427.5	1.0	intron_only
+gene-LOC120048669	siscowet	A	carcinoembryonic antigen-related cell adhesion molecule 5-like	protein_coding	0	67047	4935	1529	9000	0.1342	0	0	9000	0.0	0	21	205.2	1.0	intron_only
+gene-LOC120065442	siscowet	A	protein CBFA2T2-like	protein_coding	0	62736	3343	1841	5000	0.0797	0	0	5000	0.0	0	11	146.7	1.0	intron_only
+gene-LOC120032530	siscowet		signal-induced proliferation-associated 1-like protein 2	protein_coding	0	94767	5264	4825	1000	0.0106	0	0	1000	0.0	0	19	50.9	1.0	intron_only
+gene-vps50	siscowet	A	VPS50 EARP/GARPII complex subunit	protein_coding	0	230687	4640	2928	3000	0.013	0	0	3000	0.0	0	28	38.1	1.0	intron_only
+gene-LOC120056879	siscowet	A	uncharacterized LOC120056879	lncRNA	0	987	987	0	859	0.8703	0	859	0		1	1	0.0	1.0	noncoding_exon_hit
+gene-gpia_1	siscowet	A	glucose-6-phosphate isomerase a	protein_coding	1	30984	2113	1662	2000	0.0645	198	0	1802	0.1191	3	18	107.3	0.257	cds_hit
+gene-LOC120065642	siscowet	A	protein kinase C alpha type	protein_coding	0	227458	4055	2022	2000	0.0088	0	0	2000	0.0	0	17	17.8	1.0	intron_only
+gene-LOC120031305	siscowet	A	opioid-binding protein/cell adhesion molecule-like	protein_coding	0	218413	2121	1077	1000	0.0046	0	0	1000	0.0	0	10	4.9	1.0	intron_only
+gene-LOC120017525	siscowet		uncharacterized LOC120017525	lncRNA	0	59152	428	0	3000	0.0507	0	0	3000		0	5	0.0	1.0	intron_only
+gene-LOC120039615	siscowet		uncharacterized LOC120039615	lncRNA	0	3275	218	0	1000	0.3053	0	0	1000		0	3	0.0	1.0	intron_only
+gene-dnah2	siscowet	A	dynein, axonemal, heavy chain 2	protein_coding	0	63832	5764	5669	1000	0.0157	0	0	1000	0.0	0	37	88.8	1.0	intron_only
+gene-LOC120024920	siscowet	A	major histocompatibility complex class I-related gene protein-like	protein_coding	0	3371	2306	1083	704	0.2088	0	704	0	0.0	1	2	226.2	1.0	noncoding_exon_hit
+gene-LOC120032728	siscowet	A	E3 ubiquitin-protein ligase TRIM39-like	protein_coding	0	59371	2405	2405	2000	0.0337	0	0	2000	0.0	0	6	81.0	1.0	intron_only
+gene-LOC120044851	siscowet	A	uncharacterized LOC120044851	lncRNA	0	14689	1249	0	4000	0.2723	0	0	4000		0	5	0.0	1.0	intron_only
+gene-iqsec3a	siscowet		IQ motif and Sec7 domain ArfGEF 3a	protein_coding	0	97721	2790	2790	2000	0.0205	0	0	2000	0.0	0	13	57.1	1.0	intron_only
+gene-crtc3	siscowet	A	CREB regulated transcription coactivator 3	protein_coding	0	76073	3637	2066	2000	0.0263	0	0	2000	0.0	0	15	54.3	1.0	intron_only
+gene-LOC120053598	siscowet	A	lisH domain-containing protein ARMC9	protein_coding	0	106393	2848	2539	1000	0.0094	0	0	1000	0.0	0	28	23.9	1.0	intron_only
+gene-LOC120057339	siscowet		reticulon-3-like	protein_coding	0	12040	1403	651	1000	0.0831	0	0	1000	0.0	0	7	54.1	1.0	intron_only
+gene-LOC120020909	siscowet		mitogen-activated protein kinase kinase kinase 1-like	protein_coding	0	118343	5539	4620	1000	0.0085	0	0	1000	0.0	0	20	39.0	1.0	intron_only
+gene-LOC120045058	siscowet		protocadherin alpha-C2-like	protein_coding	0	34960	5387	2979	1000	0.0286	0	0	1000	0.0	0	4	85.2	1.0	intron_only
+gene-LOC120063528	siscowet	A		C_region	0	11209	835	645	1000	0.0892	0	0	1000	0.0	0	5	57.5	1.0	intron_only
+gene-LOC120031768	siscowet	A	myotubularin-related protein 5-like	protein_coding	0	74642	8346	5805	3000	0.0402	0	0	3000	0.0	0	45	233.3	1.0	intron_only
+gene-LOC120038650	siscowet	A	prickle-like protein 1	protein_coding	0	69001	4054	2796	1000	0.0145	0	0	1000	0.0	0	9	40.5	1.0	intron_only
+gene-pphln1	siscowet	A	periphilin 1	protein_coding	0	32160	1780	1032	2000	0.0622	0	0	2000	0.0	0	15	64.2	1.0	intron_only
+gene-LOC120042766	siscowet	A	tumor necrosis factor receptor superfamily member 16-like	protein_coding	0	59741	4644	1038	1000	0.0167	0	0	1000	0.0	0	6	17.4	1.0	intron_only
+gene-LOC120066294	siscowet		NACHT, LRR and PYD domains-containing protein 12-like	protein_coding	0	23388	5085	4068	1000	0.0428	0	0	1000	0.0	0	19	173.9	1.0	intron_only
+gene-LOC120029476	siscowet	A	KH domain-containing, RNA-binding, signal transduction-associated protein 2-like	protein_coding	0	118069	1089	1089	4000	0.0339	0	0	4000	0.0	0	11	36.9	1.0	intron_only
+gene-LOC120060868	siscowet	A	agrin-like	protein_coding	0	380651	6417	6207	1000	0.0026	0	0	1000	0.0	0	36	16.3	1.0	intron_only
+gene-LOC120056235	siscowet		vertebrate ancient opsin-like	protein_coding	0	85935	1290	1290	1000	0.0116	0	0	1000	0.0	0	4	15.0	1.0	intron_only
+gene-ttll9_1	siscowet	A	tubulin tyrosine ligase-like family, member 9	protein_coding	1	10891	2590	1308	3000	0.2755	731	0	2269	0.5589	7	14	360.3	0.061	cds_hit
+gene-mpp6b	siscowet	A	membrane protein, palmitoylated 6b (MAGUK p55 subfamily member 6)	protein_coding	0	42808	3443	1788	4000	0.0934	0	0	4000	0.0	0	14	167.1	1.0	intron_only
+gene-LOC120020307	siscowet		cadherin-2-like	protein_coding	0	87204	4336	2745	2000	0.0229	0	0	2000	0.0	0	16	63.0	1.0	intron_only
+gene-tmc6b	siscowet	A	transmembrane channel-like 6b	protein_coding	0	56433	4782	2522	1000	0.0177	0	0	1000	0.0	0	27	44.7	1.0	intron_only
+gene-LOC120066718	siscowet	A	SH3 and multiple ankyrin repeat domains protein 2-like	protein_coding	0	170394	5508	5508	1000	0.0059	0	0	1000	0.0	0	21	32.3	1.0	intron_only
+gene-LOC120048047	siscowet	A	alpha-1,3-mannosyl-glycoprotein 4-beta-N-acetylglucosaminyltransferase B	protein_coding	0	190128	4029	1644	1000	0.0053	0	0	1000	0.0	0	15	8.6	1.0	intron_only
+gene-LOC120066463	siscowet	A	contactin-1a-like	protein_coding	0	185803	5666	3063	4000	0.0215	0	0	4000	0.0	0	25	65.9	1.0	intron_only
+gene-LOC120056031	siscowet		nuclear receptor ROR-beta-like	protein_coding	0	24211	3929	1509	4000	0.1652	0	0	4000	0.0	0	9	249.3	1.0	intron_only
+gene-gde1	siscowet	A	glycerophosphodiester phosphodiesterase 1	protein_coding	0	8438	1982	1002	1000	0.1185	0	0	1000	0.0	0	6	118.7	1.0	intron_only
+gene-LOC120046589	siscowet		ankyrin-3-like	protein_coding	0	147631	10475	8319	1000	0.0068	0	0	1000	0.0	0	47	56.3	1.0	intron_only
+gene-LOC120028089	siscowet	A	phosphoenolpyruvate carboxykinase [GTP], mitochondrial-like	protein_coding	0	30394	2771	1953	1000	0.0329	0	0	1000	0.0	0	14	64.3	1.0	intron_only
+gene-LOC120039112	siscowet		sialoadhesin-like	protein_coding	0	21409	1320	1320	4000	0.1868	0	0	4000	0.0	0	5	246.6	1.0	intron_only
+gene-LOC120025537	siscowet	A	astrotactin-2-like	protein_coding	0	392303	3629	3629	4000	0.0102	0	0	4000	0.0	0	22	37.0	1.0	intron_only
+gene-LOC120056805	siscowet	A	troponin T, fast skeletal muscle isoforms-like	protein_coding	0	29478	1204	834	1000	0.0339	0	0	1000	0.0	0	15	28.3	1.0	intron_only
+gene-LOC120061515	siscowet	A	uncharacterized LOC120061515	lncRNA	0	16295	2245	0	1000	0.0614	0	0	1000		0	10	0.0	1.0	intron_only
+gene-LOC120036268	siscowet		pneumococcal serine-rich repeat protein-like	protein_coding	0	39206	4169	3561	1000	0.0255	0	0	1000	0.0	0	15	90.8	1.0	intron_only
+gene-LOC120054371	siscowet	A	lipoma-preferred partner homolog	protein_coding	0	111267	1493	1154	2000	0.018	0	0	2000	0.0	0	7	20.7	1.0	intron_only
+gene-LOC120042986	siscowet		receptor-type tyrosine-protein phosphatase N2-like	protein_coding	0	70475	2708	2708	1000	0.0142	0	0	1000	0.0	0	19	38.4	1.0	intron_only
+gene-LOC120035702	siscowet		tripartite motif-containing protein 16-like	protein_coding	0	11854	1857	1659	1000	0.0844	0	0	1000	0.0	0	6	140.0	1.0	intron_only
+gene-cracr2b	siscowet	A	calcium release activated channel regulator 2B	protein_coding	0	44037	2661	2117	1000	0.0227	0	0	1000	0.0	0	20	48.1	1.0	intron_only
+gene-LOC120051748_32	siscowet	A	uncharacterized protein K02A2.6-like	protein_coding	1	2085	1062	1062	2085	1.0	1062	0	1023	1.0	2	2	1062.0	1.0	cds_hit
+gene-tmem45a	siscowet		transmembrane protein 45a	protein_coding	0	79139	1235	840	2000	0.0253	0	0	2000	0.0	0	6	21.2	1.0	intron_only
+gene-LOC120032363	siscowet		spectrin beta chain, non-erythrocytic 1-like	protein_coding	0	89284	8365	7143	2000	0.0224	0	0	2000	0.0	0	36	160.0	1.0	intron_only
+gene-LOC120032364	siscowet		uncharacterized LOC120032364	lncRNA	0	10427	418	0	2000	0.1918	0	0	2000		0	3	0.0	1.0	intron_only
+gene-LOC120024897	siscowet	A	cGMP-inhibited 3',5'-cyclic phosphodiesterase B-like	protein_coding	0	87086	3623	3285	2000	0.023	0	0	2000	0.0	0	18	75.4	1.0	intron_only
+gene-bco2a	siscowet	A	beta-carotene oxygenase 2a	protein_coding	0	105024	3180	1701	1000	0.0095	0	0	1000	0.0	0	12	16.2	1.0	intron_only
+gene-LOC120030672	siscowet	A	calsequestrin-1-like	protein_coding	0	39000	1475	1284	1000	0.0256	0	0	1000	0.0	0	11	32.9	1.0	intron_only
+gene-LOC120040161	siscowet	A	sperm-associated antigen 1A-like	protein_coding	0	38858	6910	1282	6000	0.1544	0	0	6000	0.0	0	7	198.0	1.0	intron_only
+gene-LOC120019149	siscowet	A	histone chaperone asf1b-B-like	protein_coding	0	22906	1739	609	1000	0.0437	0	0	1000	0.0	0	4	26.6	1.0	intron_only
+gene-sh3yl1	siscowet	A	SH3 and SYLF domain containing 1	protein_coding	0	46265	2089	1065	1000	0.0216	0	0	1000	0.0	0	12	23.0	1.0	intron_only
+gene-LOC120038491	siscowet		28S ribosomal RNA	rRNA	0	6827	6827	0	762	0.1116	0	762	0		1	1	0.0	1.0	noncoding_exon_hit
+gene-LOC120041427_26	siscowet	A	uncharacterized LOC120041427	lncRNA	1	641	266	0	580	0.9048	0	242	338		2	3	0.0	1.0	noncoding_exon_hit
+gene-LOC120039613_2	siscowet	A	uncharacterized LOC120039613	lncRNA	1	5533	196	0	1000	0.1807	0	0	1000		0	3	0.0	1.0	intron_only
