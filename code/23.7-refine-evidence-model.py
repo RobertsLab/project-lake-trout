@@ -590,8 +590,10 @@ def main():
                 "genes; rank on the flag-free subset first.\n")
         o.write("- `native_dmr` lists genes within 5 kb of a 23.13 DMR replicated in both frames; "
                 "`native_dmrs` gives DMR id, location class and siscowet − lean difference. DMRs "
-                "significant in only one frame are not counted. Phase 4 (BRAKER3) addresses genes "
-                "Liftoff cannot see at all.\n")
+                "significant in only one frame are not counted. Phase 4 (BRAKER3, `code/23.17`–`23.22`) "
+                "tested genes Liftoff cannot see: 99 % of BRAKER-new candidates have a near-identical "
+                "locus in the other ecotype's assembly; 0 lean / 7 siscowet remain, none read-supported. "
+                "See `analyses/23-denovo-annotation/` and the plan log.\n")
     print(f"\nDone. Outputs -> {OUT}")
 
 
