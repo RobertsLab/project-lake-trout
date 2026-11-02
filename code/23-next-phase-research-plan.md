@@ -561,4 +561,37 @@ ecotype differences in gene / copy counts should not be read as biology without 
 tmp/ and the standalone Vertebrata.fa (all reproducible / duplicated) were removed from raven
 (−105 GB); the shared disk was at 99 % mainly from a separate project (sr320/whale, 1.3 TB).
 
-**Remaining:** 23.21 browser tracks (build on raven, stage locally) and the Phase 4 PR.
+
+**Step 7 — reciprocal genomic-absence screen** ([`23.22`](23.22-reciprocal-absence-screen.py),
+written 2026-11-01, not yet run). This is the per-gene check the caveat above asks for, applied to
+gene content rather than copy number.
+
+23.19 classes a BRAKER gene as `new` against that ecotype's own Liftoff annotation, and as
+`no_ref_hit` against the SaNama reference proteins. Neither question is "is it absent from the other
+ecotype's genome?" A model called in lean and missing from siscowet's *annotation* is equally
+consistent with BRAKER failing to predict it there — a real risk given the two assemblies were
+annotated in separate runs with separate repeat libraries. So each hq / `no_ref_hit` candidate's
+protein is mapped back to the other ecotype's purged assembly with miniprot and classed
+`present_in_other` / `weak_hit_in_other` / `absent_from_other`; only genomic absence survives.
+
+The `present_in_other` count is informative in its own right — it measures directly how leaky
+"BRAKER-new" is as a proxy for ecotype-specific. Candidates are then intersected with the Phase-2
+(23.4) read-level ecotype-specific regions
+(`analyses/23-reciprocal-pav/{eco}_specific.present_regions.on_{eco}.bed`); those carrying both
+protein-level and read-level absence (`pav_supported`) are the set to carry into Phase 5, not the
+raw 1,137 / 1,262. This is the same ≥2-independent-lines standard Phase 3 pass 2 applied to the
+methylation calls. Caveat on the caveat: a miniprot non-hit is evidence of absence only up to the
+other assembly's completeness, which is exactly why the read-level flag matters — it does not depend
+on that assembly being complete.
+
+**RNA-seq evidence limit (applies to every "new gene" count above).** The BRAKER3 evidence set
+`PRJNA316738` is 72 runs of **36 bp single-end, liver-only** Illumina GA IIx (2016), 17.8 Gbp. At
+36 bp almost no read spans an intron with enough flank on both sides to yield a confident junction,
+which is the hint type BRAKER3 most wants; liver-only additionally means no RNA evidence for genes
+not expressed in adult liver. The observed "BRAKER3 adds little on conserved genes" and
+BUSCO C 73.5 / 77.0 % for BRAKER3 alone are both consistent with that. The new-gene models therefore
+rest mostly on protein homology, and the counts should be read as protein-evidence-driven. Modern
+paired-end multi-tissue RNA-seq is the fix, and would be worth having before these counts are used
+as an ecotype-divergence result.
+
+**Remaining:** 23.21 browser tracks (build on raven, stage locally), 23.22 reciprocal screen (run on raven), and the Phase 4 PR.
