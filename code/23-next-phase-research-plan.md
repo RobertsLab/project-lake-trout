@@ -561,4 +561,73 @@ ecotype differences in gene / copy counts should not be read as biology without 
 tmp/ and the standalone Vertebrata.fa (all reproducible / duplicated) were removed from raven
 (−105 GB); the shared disk was at 99 % mainly from a separate project (sr320/whale, 1.3 TB).
 
+
+**Step 7 — reciprocal genomic-absence screen** ([`23.22`](23.22-reciprocal-absence-screen.py),
+written 2026-11-01, not yet run). This is the per-gene check the caveat above asks for, applied to
+gene content rather than copy number.
+
+23.19 classes a BRAKER gene as `new` against that ecotype's own Liftoff annotation, and as
+`no_ref_hit` against the SaNama reference proteins. Neither question is "is it absent from the other
+ecotype's genome?" A model called in lean and missing from siscowet's *annotation* is equally
+consistent with BRAKER failing to predict it there — a real risk given the two assemblies were
+annotated in separate runs with separate repeat libraries. So each hq / `no_ref_hit` candidate's
+protein is mapped back to the other ecotype's purged assembly with miniprot and classed
+`present_in_other` / `weak_hit_in_other` / `absent_from_other`; only genomic absence survives.
+
+The `present_in_other` count is informative in its own right — it measures directly how leaky
+"BRAKER-new" is as a proxy for ecotype-specific. Candidates are then intersected with the Phase-2
+(23.4) read-level ecotype-specific regions
+(`analyses/23-reciprocal-pav/{eco}_specific.present_regions.on_{eco}.bed`); those carrying both
+protein-level and read-level absence (`pav_supported`) are the set to carry into Phase 5, not the
+raw 1,137 / 1,262. This is the same ≥2-independent-lines standard Phase 3 pass 2 applied to the
+methylation calls. Caveat on the caveat: a miniprot non-hit is evidence of absence only up to the
+other assembly's completeness, which is exactly why the read-level flag matters — it does not depend
+on that assembly being complete.
+
+**RNA-seq evidence limit (applies to every "new gene" count above).** The BRAKER3 evidence set
+`PRJNA316738` is 72 runs of **36 bp single-end, liver-only** Illumina GA IIx (2016), 17.8 Gbp. At
+36 bp almost no read spans an intron with enough flank on both sides to yield a confident junction,
+which is the hint type BRAKER3 most wants; liver-only additionally means no RNA evidence for genes
+not expressed in adult liver. The observed "BRAKER3 adds little on conserved genes" and
+BUSCO C 73.5 / 77.0 % for BRAKER3 alone are both consistent with that. The new-gene models therefore
+rest mostly on protein homology, and the counts should be read as protein-evidence-driven. Modern
+paired-end multi-tissue RNA-seq is the fix, and would be worth having before these counts are used
+as an ecotype-divergence result.
+
+**Step 7 result (run 2026-11-01 on raven, miniprot 0.18-r281).**
+
+| | lean → siscowet | siscowet → lean |
+|---|---|---|
+| hq `no_ref_hit` candidates screened | 1,277 | 1,481 |
+| `present_in_other` | **1,272 (99.6 %)** | **1,466 (99.0 %)** |
+| `weak_hit_in_other` | 5 | 8 |
+| **`absent_from_other`** | **0** | **7** |
+| of those, not TE-like | 0 | 7 |
+| `pav_supported` (also a Phase-2 read-level ecotype-specific region) | 0 | 0 |
+
+**The BRAKER-new "novel candidates" are almost entirely annotation gaps, not ecotype-specific
+genes.** Essentially every candidate has a locus in the other ecotype's assembly; BRAKER simply
+predicted a gene on one assembly and not the other. The headline counts above (1,137 lean / 1,262
+siscowet novel candidates) should not be read as ecotype-specific gene content.
+
+The hits are not pseudo-tetraploid artifacts. In a salmonid the obvious worry is that a permissive
+60 %/60 % threshold just finds the ohnolog, but the matches are far better than that: median
+identity **1.000** and median query coverage **1.000** in both directions, with 98.0 % (lean) and
+95.6 % (siscowet) of hits at ≥ 90 % identity. These are near-identical, full-length loci. Tightening
+the identity cut to 0.90 would still leave only 31 / 1,277 and 79 / 1,481 absent, so the conclusion
+does not hinge on the threshold.
+
+Surviving candidates: **7 siscowet genes, 0 lean** (`siscowet.ecotype_specific.ids`). All 7 are
+non-TE with repeat fraction ≈ 0, 96–268 aa; 5 have at least one evidence-supported intron and 2 are
+mono-exonic. None falls in a Phase-2 read-level ecotype-specific region, so none has a second
+independent line, and at n = 7 against an assembly with known residual haplotypes they are leads at
+best. The lean/siscowet asymmetry (0 vs 7) is in the direction the residual-haplotype caveat
+predicts.
+
+Interpretation: this retires "BRAKER-new" as a proxy for ecotype-specific gene content, the same way
+Phase 3 pass 2 retired the single-reference DMRs. It does not say the ecotypes have identical gene
+content — it says this annotation-difference method cannot demonstrate otherwise, and that a real
+test needs read-level or assembly-level evidence (Phase 2's reciprocal PAV) rather than a comparison
+of two independent annotation runs.
+
 **Remaining:** 23.21 browser tracks (build on raven, stage locally) and the Phase 4 PR.

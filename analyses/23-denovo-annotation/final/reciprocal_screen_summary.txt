@@ -1,0 +1,12 @@
+Reciprocal genomic-absence screen of BRAKER-new candidates (23.22)
+thresholds: present if identity >= 0.60 and query coverage >= 0.60
+
+ ecotype    other  candidates  absent_from_other  weak_hit_in_other  present_in_other  pav_supported  absent_non_te
+    lean siscowet        1277                  0                  5              1272              0              0
+siscowet     lean        1481                  7                  8              1466              0              7
+
+absent_from_other = no miniprot locus in the other assembly (ecotype-specific candidate).
+present_in_other  = the locus exists there but was not annotated; an annotation gap,
+                    and a direct measure of how leaky 'BRAKER-new' is as a proxy.
+pav_supported     = also inside a Phase-2 (23.4) read-level ecotype-specific region;
+                    two independent lines. Carry THIS set into Phase 5, not the raw count.
