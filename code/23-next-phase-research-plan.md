@@ -446,3 +446,119 @@ environment — with a minority trans / environmental component, larger in sisco
 
 **Next:** Phase 4 (BRAKER3) on raven; for methylation, a population sample (more fish, both
 ecotypes) would test the cis haplotypes and the untestable ~80 % of DMRs.
+
+### Phase 4 — de novo annotation (BRAKER3) — RUNNING (started 2026-10-16 on raven)
+
+**Setup** ([`23.17`](23.17-denovo-setup.sh), `analyses/23-denovo-annotation/`): containers
+`teambraker/braker3:v3.1.1` (BRAKER 3.0.8, GeneMark-ETP, AUGUSTUS, ProtHint, TSEBRA),
+`dfam/tetools:2.00` (RepeatModeler 2.0.9, RepeatMasker 4.2.4) and BUSCO 6.1.0
+(`actinopterygii_odb12`); RNA-seq PRJNA316738 (72 liver runs, 36 bp single-end GAIIx) pooled per
+ecotype (lean 257 M reads, siscowet 237 M); proteins = OrthoDB v12 Vertebrata (19.39 M) + SaNama_1.0
+RefSeq (58 k).
+
+**Pipeline** ([`23.18`](23.18-denovo-pipeline.sh)), one resumable chain per ecotype, both in parallel at
+24 threads (niced): RepeatModeler2 `-LTRStruct` → RepeatMasker soft-mask with the ecotype's own
+library → HISAT2 own-ecotype RNA-seq → BRAKER3 (RNA + proteins) → BUSCO protein mode.
+
+**Smoke test** (one ~5 Mb gene-dense contig per assembly, 12 threads): every stage ran; lean contig
+44 % soft-masked, 149 BRAKER genes vs 106 Liftoff genes. Timing: BRAKER 83 min, of which DIAMOND
+vs the 19 M proteins was 3 min and ProtHint / spaln ~40 min (scales with gene number). Extrapolated
+full run: RepeatModeler ~3–4 days, BRAKER ~6–8 days per ecotype, ~1.5–2 weeks wall time.
+Caveat: the only RNA-seq is 36 bp single-end liver, so splice support is weak and non-liver genes
+rely on protein evidence.
+
+**Merge script ready** ([`23.19`](23.19-merge-annotation.py), written while BRAKER runs; tested on the
+lean smoke contig). BRAKER genes are classed by bedtools overlap with the polished Liftoff GFF3:
+`shared` (same-strand CDS overlap; Liftoff model kept, CDS Jaccard recorded), `liftoff_locus`
+(inside a Liftoff gene of any biotype / strand; reported only) or `new` (no Liftoff gene; added with
+provenance=braker). New genes get hq / lq from protein length ≥ 50 aa, CDS repeat fraction < 0.5 and
+evidence (≥ 1 intron matching an RNA-seq b2h or ProtHint intron hint, or ProtHint CDSpart coverage
+≥ 0.5), and a reference-homology status from DIAMOND vs SaNama RefSeq proteins (ref_homolog ≥ 90 %
+identity = likely Liftoff miss; ref_paralog; no_ref_hit = novel candidate). Outputs per ecotype in
+`final/{eco}/`: merged GFF3 (gffread-valid), genes BED, new-gene GFF3 / protein / CDS FASTA, merged
+proteins for BUSCO, per-gene class table, summary. Smoke contig (lean, 4.8 Mb): 149 BRAKER genes =
+67 shared (median CDS Jaccard 0.96) / 22 liftoff_locus / 60 new (16 hq; 37 no_ref_hit, 3 of them
+hq); 59 % of Liftoff protein-coding genes matched by a BRAKER CDS.
+
+Smoke note: the siscowet smoke BRAKER run failed in GeneMark-ETP's masking-penalty step ("input
+sequence size is too small", 11 reliable genes on the 5 Mb contig), which is a small-genome
+artifact. 23.18 now logs stage failures to the chain log; this change is committed but **not**
+deployed to raven while the pipeline that reads it is running.
+
+**Functional annotation script ready** ([`23.20`](23.20-functional-annotation.py), written while BRAKER
+runs; tested on the lean smoke merge). Liftoff genes inherit the reference function table through
+their reference gene ID. New BRAKER genes get: DIAMOND `--sensitive` vs UniProt Swiss-Prot (hit at
+e ≤ 1e-5, query cover ≥ 50 %; named at ≥ 30 % identity and e ≤ 1e-10, symbol = Swiss-Prot gene +
+"-like"); GO terms of the named hit (UniProt reviewed GO table); Pfam-A domains (hmmsearch
+`--cut_ga`); and a TE flag (TE Pfam domain, TE-like hit name, or CDS repeat fraction ≥ 0.5). Swiss-Prot
++ Pfam stand in for eggNOG-mapper / InterProScan, whose databases (~50 / ~15 GB) are not on raven.
+Databases are in `evidence/function/` (approved downloads 2026-10-17; release info in
+db_versions.txt). Writes `final/{eco}/gene_function_table.tsv` (reference-table columns + provenance,
+ref_gene_id, evidence) and `{eco}.braker_new.function.tsv`. Smoke contig: of 16 hq new genes, 56 % have
+a Swiss-Prot hit, 50 % Pfam, 25 % TE-like; 2 are novel candidates (hq, no RefSeq hit, not TE-like).
+
+**Browser track script ready** ([`23.21`](23.21-denovo-browser-tracks.py), tested on the lean smoke
+merge in a local JBrowse copy). JBrowse only, on `lean_purged` / `siscowet_purged`: a merged-gene BED
+(Liftoff grey, BRAKER hq teal, lq light teal, TE-like light grey; name = symbol) and a bgzip / tabix
+GFF3 of the BRAKER-only models with product, quality, ref_status, Swiss-Prot hit, Pfam and TE flag on
+the gene line. `build` runs on raven (htslib); `stage` copies the tracks into
+`jbrowse/data/lake-trout/` and adds them to `jbrowse/config.json` idempotently. While testing,
+itemRgb colouring turned out to render black in JBrowse 3.6.2: the default BED9 autoSql types the
+column as `uint reserved`. Tracks now declare a string-`itemRgb` autoSql; the live native DMR tracks
+from Step F had the same bug (fix in a separate PR).
+
+**Remaining after BRAKER:** run 23.19 → 23.20 → 23.21 build/stage on both ecotypes; BUSCO on the
+merged proteins.
+
+**Run log (2026-10-16 → 10-25).** RepeatModeler2's `-LTRStruct` step dominated: `ltrharvest` ran
+single-threaded for 128 h (lean) and 146 h (siscowet), growing to ~65–78 GB RSS each, with no output
+until it finished; LTR_retriever then took ~9–13 h (siscowet fell back from a 16,622-sequence redundant
+LTR library to 1,150 non-redundant). The wait was kept (decision points on 10-20 / 10-22) and the LTR
+step added ~300–370 families. BRAKER3 then took only ~33 h for lean.
+
+| | lean | siscowet |
+|---|---|---|
+| repeat families | 1,995 | 1,916 |
+| soft-masked | 51.4 % | 52.5 % |
+| own-ecotype RNA-seq aligned (HISAT2) | 84.2 % | 88.6 % |
+| BRAKER3 genes / proteins | 26,820 / 32,554 | running (started 10-25 03:39) |
+| BUSCO, BRAKER3 alone | C 73.5 % [S 39.5, D 34.0], F 3.5, M 23.0 | |
+
+**Lean merge + function (23.19 / 23.20, 2026-10-25).** BRAKER genes: 22,469 shared with Liftoff
+(median CDS Jaccard 1.00), 710 inside a Liftoff locus, **3,641 new** (hq 3,356 / lq 285); 59 % of
+Liftoff protein-coding genes have a same-strand BRAKER CDS. New genes by reference homology: 646
+ref_homolog (≥ 90 % identity — most likely Liftoff misses), 1,543 ref_paralog, 1,452 no_ref_hit.
+Merged set **59,078 genes** (55,437 Liftoff + 3,641 BRAKER). New hq genes: Swiss-Prot hit 52 %, Pfam
+53 %, GO 40 %, TE-like 7 %. **1,137 novel candidates** (hq, no RefSeq hit, not TE-like): 130 named via
+Swiss-Prot, 268 Pfam-only, 739 unannotated. Two fixes from the full-size run: 23.19's rename step was
+quadratic (now a dict lookup), and 23.20 now flags Polinton / Maverick DNA_pol_B proteins and
+proteins identical in ≥ 3 new genes as TE-like (−103 false candidates).
+
+BUSCO (actinopterygii_odb12, one protein per gene): **Liftoff alone C 89.4 % (M 7.4 %) → merged
+C 90.0 % (M 6.7 %)**; BRAKER adds 41 complete / −47 missing conserved genes. As expected, conserved
+genes are already in the lean reference; BRAKER's contribution is the non-conserved and
+reference-absent layer that BUSCO does not measure.
+
+**Siscowet (BRAKER3 done 10-26 after ~28 h; merge / function / BUSCO run 10-31).**
+
+| | lean | siscowet |
+|---|---|---|
+| Liftoff genes | 55,437 | 59,968 |
+| BRAKER3 genes / proteins | 26,820 / 32,554 | 30,375 / 36,742 |
+| BUSCO, BRAKER3 alone | C 73.5 %, M 23.0 % | C 77.0 %, M 19.5 % |
+| BRAKER: shared / liftoff_locus / **new** | 22,469 / 710 / **3,641** | 25,219 / 721 / **4,435** |
+| new hq / lq | 3,356 / 285 | 4,069 / 366 |
+| new: ref_homolog / ref_paralog / no_ref_hit | 646 / 1,543 / 1,452 | 861 / 1,877 / 1,697 |
+| **merged gene set** | **59,078** | **64,403** |
+| novel candidates (hq, no RefSeq hit, not TE-like) | 1,137 | 1,262 |
+| BUSCO, Liftoff only | C 89.4 % [D 36.8], M 7.4 % | C 91.8 % [D 45.3], M 5.6 % |
+| **BUSCO, merged** | **C 90.0 % [S 52.8, D 37.2], M 6.7 %** | **C 92.4 % [S 46.5, D 45.9], M 4.9 %** |
+
+Caveat: siscowet's higher BUSCO duplication (46 % vs 37 %), larger purged assembly (2.84 vs 2.58 Gb)
+and more Liftoff copies point to residual uncollapsed haplotype sequence in the siscowet assembly, so
+ecotype differences in gene / copy counts should not be read as biology without a per-gene check
+(e.g. read-depth or Liftoff copy-pair identity). Disk housekeeping 10-31: smoke/, per-run SRA FASTQs,
+tmp/ and the standalone Vertebrata.fa (all reproducible / duplicated) were removed from raven
+(−105 GB); the shared disk was at 99 % mainly from a separate project (sr320/whale, 1.3 TB).
+
+**Remaining:** 23.21 browser tracks (build on raven, stage locally) and the Phase 4 PR.
