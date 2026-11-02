@@ -10,7 +10,7 @@
 | `14-diff-meth` | reference-based DMCs / DMRs (302 DMRs) | `code/14` |
 | `15-diff-pav` | reference-based PAV calls and browser BEDs | `code/11`, `12`, `15` |
 | `18-annotation` | RefSeq gene function table, candidate ranking, GO (superseded by 23) | `code/18*` |
-| `23-reciprocal-pav` | each ecotype's reads vs the other's assembly: ecotype-specific present regions, genes | `code/23.4` |
+| `23-reciprocal-pav` | each ecotype's reads vs the other's assembly: ecotype-specific present regions, genes; `target_coverage/` = same regions on the carrying ecotype's own reads | `code/23.4`, `23.23` |
 | `23-gene-sets` | shared / ecotype-only / copy-number gene sets | `code/23.5` |
 | `23-integration/refined` | five-line evidence model, tiers A–B, collapsed GO, Phase-18 candidate fate | `code/23.6`, `23.7` |
 | `23-native-methylation` | native methylation, CpG scan DMRs, fixed variants, allele-specific methylation | `code/23.8`–`23.16` |

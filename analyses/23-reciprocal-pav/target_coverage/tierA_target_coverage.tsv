@@ -1,0 +1,77 @@
+gene_id	symbol	product	present_in	lines_refined	caution	target_coverage_class
+gene-LOC120022070	LOC120022070	growth factor receptor-bound protein 10-like	lean	reciprocal_pav,cnv,ref_divergence		polymorphic
+gene-gpia	gpia	glucose-6-phosphate isomerase a	siscowet	reciprocal_pav,cnv,ref_divergence		fixed_present
+gene-ttll9	ttll9	tubulin tyrosine ligase-like family, member 9	siscowet	reciprocal_pav,cnv,ref_divergence		polymorphic
+gene-LOC120034744	LOC120034744	uncharacterized LOC120034744	lean	reciprocal_pav,cnv,ref_divergence	repeat_or_tandem_family;tandem_cluster_n5	polymorphic
+gene-LOC120039613	LOC120039613	uncharacterized LOC120039613	siscowet	reciprocal_pav,cnv,ref_divergence	noncoding;repeat_or_tandem_family	polymorphic
+gene-LOC120041427	LOC120041427	uncharacterized LOC120041427	siscowet	reciprocal_pav,cnv,ref_divergence	noncoding;repeat_or_tandem_family	polymorphic
+gene-LOC120044851	LOC120044851	uncharacterized LOC120044851	siscowet	reciprocal_pav,cnv,ref_divergence	noncoding;repeat_or_tandem_family	mixed
+gene-LOC120051748	LOC120051748	uncharacterized protein K02A2.6-like	siscowet	reciprocal_pav,cnv,ref_divergence	repeat_or_tandem_family	polymorphic
+gene-LOC120063770	LOC120063770	uncharacterized LOC120063770	lean	reciprocal_pav,cnv,ref_divergence	noncoding;repeat_or_tandem_family	polymorphic
+gene-LOC120020198	LOC120020198	synapsin-2-like	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120021129	LOC120021129	CMP-N-acetylneuraminate-beta-galactosamide-alpha-2,3-sialyltransferase 1-like	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120024458	LOC120024458	sodium/potassium-transporting ATPase subunit beta-1-interacting protein 2	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120024897	LOC120024897	cGMP-inhibited 3',5'-cyclic phosphodiesterase B-like	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120024920	LOC120024920	major histocompatibility complex class I-related gene protein-like	siscowet	reciprocal_pav,ref_divergence		low_all
+gene-LOC120025009	LOC120025009	protein kinase C-binding protein NELL1-like	lean	reciprocal_pav,ref_divergence		mixed
+gene-LOC120025522	LOC120025522	ankyrin-1-like	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120025537	LOC120025537	astrotactin-2-like	siscowet	reciprocal_pav,ref_divergence		mixed
+gene-LOC120025549	LOC120025549	leucine-rich repeat transmembrane neuronal protein 4-like	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120027905	LOC120027905	band 4.1-like protein 3	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120028089	LOC120028089	phosphoenolpyruvate carboxykinase [GTP], mitochondrial-like	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120029476	LOC120029476	KH domain-containing, RNA-binding, signal transduction-associated protein 2-like	siscowet	reciprocal_pav,ref_divergence		fixed_present
+gene-LOC120030672	LOC120030672	calsequestrin-1-like	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120031305	LOC120031305	opioid-binding protein/cell adhesion molecule-like	siscowet	reciprocal_pav,ref_divergence		mixed
+gene-LOC120031768	LOC120031768	myotubularin-related protein 5-like	siscowet	reciprocal_pav,ref_divergence		fixed_present
+gene-LOC120032210	LOC120032210	kinesin-like protein KIF21A	siscowet	reciprocal_pav,ref_divergence		mixed
+gene-LOC120032728	LOC120032728	E3 ubiquitin-protein ligase TRIM39-like	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120034415	LOC120034415	inactive rhomboid protein 1-like	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120038650	LOC120038650	prickle-like protein 1	siscowet	reciprocal_pav,ref_divergence		mixed
+gene-LOC120040161	LOC120040161	sperm-associated antigen 1A-like	siscowet	reciprocal_pav,ref_divergence		mixed
+gene-LOC120040412	LOC120040412	plexin-B2-like	lean	reciprocal_pav,ref_divergence		mixed
+gene-LOC120042766	LOC120042766	tumor necrosis factor receptor superfamily member 16-like	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120043213	LOC120043213	extracellular serine/threonine protein kinase FAM20C-like	lean	reciprocal_pav,ref_divergence		mixed
+gene-LOC120048047	LOC120048047	alpha-1,3-mannosyl-glycoprotein 4-beta-N-acetylglucosaminyltransferase B	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120048669	LOC120048669	carcinoembryonic antigen-related cell adhesion molecule 5-like	siscowet	reciprocal_pav,ref_divergence		fixed_present
+gene-LOC120049548	LOC120049548	glucosidase 2 subunit beta-like	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120050135	LOC120050135	nucleosome assembly protein 1-like 1-A	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120053194	LOC120053194	NT-3 growth factor receptor-like	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120053598	LOC120053598	lisH domain-containing protein ARMC9	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120053718	LOC120053718	cAMP-specific 3',5'-cyclic phosphodiesterase 4D-like	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120053938	LOC120053938	nuclear receptor ROR-alpha A-like	siscowet	reciprocal_pav,ref_divergence		fixed_present
+gene-LOC120054371	LOC120054371	lipoma-preferred partner homolog	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120054763	LOC120054763	DNA-directed RNA polymerase, mitochondrial-like	lean	reciprocal_pav,ref_divergence		mixed
+gene-LOC120055734	LOC120055734	LARGE xylosyl- and glucuronyltransferase 2-like	lean	reciprocal_pav,ref_divergence		mixed
+gene-LOC120056781	LOC120056781	kin of IRRE-like protein 3	lean	reciprocal_pav,ref_divergence		mixed
+gene-LOC120056805	LOC120056805	troponin T, fast skeletal muscle isoforms-like	siscowet	reciprocal_pav,ref_divergence		mixed
+gene-LOC120060868	LOC120060868	agrin-like	siscowet	reciprocal_pav,ref_divergence		mixed
+gene-LOC120063528	LOC120063528		siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120063782	LOC120063782	ubiquitin-conjugating enzyme E2 E3	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120065442	LOC120065442	protein CBFA2T2-like	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120065642	LOC120065642	protein kinase C alpha type	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120066463	LOC120066463	contactin-1a-like	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120066682	LOC120066682	nuclear receptor ROR-alpha A	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120066718	LOC120066718	SH3 and multiple ankyrin repeat domains protein 2-like	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-ap2b1	ap2b1	adaptor related protein complex 2 subunit beta 1	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-asap1a	asap1a	ArfGAP with SH3 domain, ankyrin repeat and PH domain 1a	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-bco2a	bco2a	beta-carotene oxygenase 2a	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-cpn1	cpn1	carboxypeptidase N, polypeptide 1	siscowet	reciprocal_pav,ref_divergence		mixed
+gene-cracr2b	cracr2b	calcium release activated channel regulator 2B	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-crtc3	crtc3	CREB regulated transcription coactivator 3	siscowet	reciprocal_pav,ref_divergence		mixed
+gene-dnah2	dnah2	dynein, axonemal, heavy chain 2	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-gde1	gde1	glycerophosphodiester phosphodiesterase 1	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-mpp6b	mpp6b	membrane protein, palmitoylated 6b (MAGUK p55 subfamily member 6)	siscowet	reciprocal_pav,ref_divergence		mixed
+gene-nek7	nek7	NIMA-related kinase 7	lean	reciprocal_pav,ref_divergence		fixed_present
+gene-pphln1	pphln1	periphilin 1	siscowet	reciprocal_pav,ref_divergence		mixed
+gene-ptprc	ptprc	protein tyrosine phosphatase receptor type C	lean	reciprocal_pav,ref_divergence		mixed
+gene-sh2d3a	sh2d3a	SH2 domain containing 3A	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-sh3yl1	sh3yl1	SH3 and SYLF domain containing 1	siscowet	reciprocal_pav,ref_divergence		mixed
+gene-sugct	sugct	succinyl-CoA:glutarate-CoA transferase	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-tmc6b	tmc6b	transmembrane channel-like 6b	siscowet	reciprocal_pav,ref_divergence		mixed
+gene-tmeff2a	tmeff2a	transmembrane protein with EGF-like and two follistatin-like domains 2a	lean	reciprocal_pav,ref_divergence		fixed_present
+gene-unc5c	unc5c	unc-5 netrin receptor C	lean	reciprocal_pav,ref_divergence		polymorphic
+gene-vps50	vps50	VPS50 EARP/GARPII complex subunit	siscowet	reciprocal_pav,ref_divergence		polymorphic
+gene-LOC120019149	LOC120019149	histone chaperone asf1b-B-like	siscowet	reciprocal_pav,ecotype_only_corroborated	repeat_or_tandem_family	polymorphic
+gene-LOC120055730	LOC120055730	uncharacterized LOC120055730	lean	reciprocal_pav,ref_divergence	noncoding;repeat_or_tandem_family	polymorphic
+gene-LOC120056879	LOC120056879	uncharacterized LOC120056879	siscowet	reciprocal_pav,ref_divergence	noncoding;repeat_or_tandem_family	polymorphic
+gene-LOC120061515	LOC120061515	uncharacterized LOC120061515	siscowet	reciprocal_pav,ref_divergence	noncoding;repeat_or_tandem_family	polymorphic

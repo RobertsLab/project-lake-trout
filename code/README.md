@@ -18,6 +18,7 @@ Scripts are numbered in execution order. Plans and progress logs: `18-diff-annot
 | `23.4`–`23.7` | Phase 2: reciprocal PAV, gene sets, integration, refined evidence model | `analyses/23-reciprocal-pav`, `23-gene-sets`, `23-integration/refined` |
 | `23.8`–`23.16` | Phase 3: native methylation, CpG scan, DMR tracks, fixed variants, allele-specific methylation | `analyses/23-native-methylation` |
 | `23.17-lean-reference-baseline.py`, `23.18-reciprocal-pav-exon.py` | Lean vs published-lean baseline; exon placement of reciprocal-PAV segments | `analyses/23-lean-baseline` |
+| `23.23-reciprocal-pav-target-coverage.py` | Target-ecotype coverage of reciprocal-PAV regions, shuffled null, tier-A classes | `analyses/23-reciprocal-pav/target_coverage` |
 | `23.17-denovo-setup.sh` … `23.22` | Phase 4: RepeatModeler2 + BRAKER3, Liftoff merge, function, browser tracks, reciprocal absence screen | `analyses/23-denovo-annotation` |
 
 Numbering note: `23.17` and `23.18` are each used twice (the lean-baseline Python scripts and the

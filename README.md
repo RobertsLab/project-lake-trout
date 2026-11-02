@@ -145,7 +145,12 @@ contigs / 59,968 lifted genes; 50,379 genes shared.
 - **Gene content:** 1,474 lean-only and 3,040 siscowet-only genes corroborated by both assemblies,
   but 89 % of these are covered by the other ecotype's reads (assembly gaps, not absences); 147 /
   344 remain. 2,359 copy-number-divergent genes (dominated by tRNA / snRNA / histone arrays)
-- **Refined evidence model** (5 independent lines, tiers A–B): **76 tier-A genes** with read-level
+- **Target-ecotype coverage check** ([`23.23`](code/23.23-reciprocal-pav-target-coverage.py), 2026-11-02):
+  only 9 % / 6 % of the siscowet- / lean-present regions are covered by all four fish of that ecotype
+  (shuffled-region null: 73 % / 56 %); 57–67 % are missing from at least one of its own fish. **7 of the
+  76 tier-A genes are fixed in four fish of their ecotype; the rest are within-ecotype polymorphisms.**
+  See [`analyses/23-reciprocal-pav/target_coverage/README.md`](analyses/23-reciprocal-pav/target_coverage/README.md).
+- **Refined evidence model** (5 lines, tiers A–B; see the 23.23 caveat above): **76 tier-A genes** with read-level
   native support (66 flag-free), 2,527 tier-B. Since 2026-10-15 the methylation line is
   `native_dmr` (71 genes within 5 kb of a native DMR replicated on both assemblies), replacing the
   reference DMR line. The lean-only **calcium-channel GO signal was an

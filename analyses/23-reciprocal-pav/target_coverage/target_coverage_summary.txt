@@ -1,0 +1,69 @@
+siscowet-present regions (n=340, 697,000 bp); siscowet fish median flank depth: bc2071 5.3x, bc2072 3.7x, bc2073 5.8x, bc2096 9.4x
+  fixed_present    32 regions (  9.4 %)     73,000 bp     6 genes
+  mixed           110 regions ( 32.4 %)    250,000 bp    23 genes
+  polymorphic     192 regions ( 56.5 %)    364,000 bp    41 genes
+  low_all           6 regions (  1.8 %)     10,000 bp     1 genes
+  absent_all        0 regions (  0.0 %)          0 bp     0 genes
+  per-fish absent rate: bc2071 29 %, bc2072 32 %, bc2073 36 %, bc2096 19 %
+  pooled 4-fish depth vs flanks: full (>=0.6) 155, half (0.25-0.6) 145, sparse (<0.25) 40
+  polymorphic regions by number of absent fish: 1 absent: 102, 2 absent: 73, 3 absent: 17
+  null 1 (shuffled, n=340):
+    fixed_present   235 regions ( 69.1 %)    497,000 bp
+    mixed            50 regions ( 14.7 %)     96,000 bp
+    polymorphic      53 regions ( 15.6 %)    100,000 bp
+    low_all           2 regions (  0.6 %)      4,000 bp
+    absent_all        0 regions (  0.0 %)          0 bp
+    per-fish absent rate: bc2071 7 %, bc2072 7 %, bc2073 7 %, bc2096 4 %
+  null 2 (shuffled, n=340):
+    fixed_present   248 regions ( 72.9 %)    493,000 bp
+    mixed            48 regions ( 14.1 %)    117,000 bp
+    polymorphic      44 regions ( 12.9 %)     87,000 bp
+    low_all           0 regions (  0.0 %)          0 bp
+    absent_all        0 regions (  0.0 %)          0 bp
+    per-fish absent rate: bc2071 5 %, bc2072 6 %, bc2073 7 %, bc2096 3 %
+  null 3 (shuffled, n=340):
+    fixed_present   258 regions ( 75.9 %)    502,000 bp
+    mixed            48 regions ( 14.1 %)    113,000 bp
+    polymorphic      32 regions (  9.4 %)     76,000 bp
+    low_all           2 regions (  0.6 %)      6,000 bp
+    absent_all        0 regions (  0.0 %)          0 bp
+    per-fish absent rate: bc2071 3 %, bc2072 4 %, bc2073 4 %, bc2096 3 %
+
+lean-present regions (n=343, 870,000 bp); lean fish median flank depth: bc2041 6.3x, bc2068 3.4x, bc2069 2.2x, bc2070 4.6x
+  fixed_present    21 regions (  6.1 %)     95,000 bp     3 genes
+  mixed            86 regions ( 25.1 %)    220,000 bp     9 genes
+  polymorphic     231 regions ( 67.3 %)    548,000 bp    31 genes
+  low_all           5 regions (  1.5 %)      7,000 bp     1 genes
+  absent_all        0 regions (  0.0 %)          0 bp     0 genes
+  per-fish absent rate: bc2041 20 %, bc2068 48 %, bc2069 40 %, bc2070 34 %
+  pooled 4-fish depth vs flanks: full (>=0.6) 178, half (0.25-0.6) 142, sparse (<0.25) 23
+  polymorphic regions by number of absent fish: 1 absent: 90, 2 absent: 105, 3 absent: 36
+  null 1 (shuffled, n=343):
+    fixed_present   192 regions ( 56.0 %)    409,000 bp
+    mixed            70 regions ( 20.4 %)    302,000 bp
+    polymorphic      80 regions ( 23.3 %)    154,000 bp
+    low_all           1 regions (  0.3 %)      5,000 bp
+    absent_all        0 regions (  0.0 %)          0 bp
+    per-fish absent rate: bc2041 3 %, bc2068 13 %, bc2069 12 %, bc2070 6 %
+  null 2 (shuffled, n=343):
+    fixed_present   194 regions ( 56.6 %)    476,000 bp
+    mixed            81 regions ( 23.6 %)    246,000 bp
+    polymorphic      66 regions ( 19.2 %)    144,000 bp
+    low_all           2 regions (  0.6 %)      4,000 bp
+    absent_all        0 regions (  0.0 %)          0 bp
+    per-fish absent rate: bc2041 4 %, bc2068 11 %, bc2069 12 %, bc2070 5 %
+  null 3 (shuffled, n=343):
+    fixed_present   192 regions ( 56.0 %)    411,000 bp
+    mixed            73 regions ( 21.3 %)    245,000 bp
+    polymorphic      76 regions ( 22.2 %)    151,000 bp
+    low_all           2 regions (  0.6 %)     63,000 bp
+    absent_all        0 regions (  0.0 %)          0 bp
+    per-fish absent rate: bc2041 3 %, bc2068 10 %, bc2069 14 %, bc2070 8 %
+
+Tier-A genes (n=76) by target-ecotype coverage class of their reciprocal-PAV region:
+  fixed_present      7
+  mixed             21
+  polymorphic       47
+  low_all            1
+
+Definitions: per fish present = frac>=1x >= 0.80 and region/flank depth ratio >= 0.60; absent = frac>=1x < 0.20; low = in between. fixed_present = all 4 present; polymorphic = >=1 absent and >=1 present; low_all = all low; absent_all = all absent; mixed = other. Flanks = 2 kb each side on the same assembly. Null = the same regions shuffled to random positions on the same contigs (bedtools shuffle).

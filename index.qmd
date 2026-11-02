@@ -121,6 +121,17 @@ reciprocal-PAV gene is also annotated in the published lean genome, so a gene ab
 four lean fish is not absent from lean trout in general.
 :::
 
+::: {.warn-box}
+**Most tier-A regions are not fixed in the ecotype that carries them (23.23).** Checked against the
+four fish of the *same* ecotype aligned to their own assembly, only 9 % (siscowet) and 6 % (lean) of
+reciprocal-PAV regions are covered in all four (random regions: 73 % and 56 %); 57–67 % are missing
+from at least one of them. **Seven of the 76 tier-A genes are fixed in all four fish of their ecotype**
+(`gpia`, a KH-domain RNA-binding gene, a myotubularin-related-5-like, a CEACAM5-like and a
+ROR-alpha-like in siscowet; `nek7` and `tmeff2a` in lean); the other 69 are large indels segregating
+within the ecotype that happened to be absent from the four fish of the other. Tables:
+[`analyses/23-reciprocal-pav/target_coverage/`](analyses/23-reciprocal-pav/target_coverage/README.md).
+:::
+
 A selection of the flag-free, protein-coding set (**CDS** marks coding-sequence loss; all others
 are intronic or UTR):
 
@@ -360,9 +371,11 @@ separate parasite study and is orthogonal support at best.
 8. Five-line evidence model with tiers; tandem-cluster-collapsed GO over-representation
 9. Lean vs published-lean baseline: lean–siscowet SVs polarized against the reference; exon placement of reciprocal-PAV segments
 10. Phase 4: RepeatModeler2 + BRAKER3 de novo annotation per ecotype, Liftoff merge, Swiss-Prot / Pfam function, reciprocal genomic-absence screen of BRAKER-new genes (miniprot)
+11. Target-ecotype coverage of the reciprocal-PAV regions on each ecotype's own reads, with a shuffled-region null (23.23)
 
 ### Next
 - **Methylation follow-up** — population sample of both ecotypes to test the cis haplotypes and the ~80 % of DMRs that cannot be phased with four fish
+- **Population sample** — tens of fish per ecotype to turn the within-ecotype polymorphisms behind tier A into allele-frequency differences
 - **RNA-seq** — paired-end, multi-tissue RNA-seq from both ecotypes; the 36 bp single-end liver data leave BRAKER3's new models resting on protein homology
 - **Phase 5** — JBrowse tracks for the merged Liftoff + BRAKER annotation (23.21); manuscript; NCBI assembly submission
 

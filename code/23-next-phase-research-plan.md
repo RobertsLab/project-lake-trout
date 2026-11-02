@@ -648,3 +648,37 @@ scripts, #29 / #30 reciprocal screen, #31 outputs).
 `logs/`. Not committed (on raven only, gitignored): the merged GFF3s (383 / 425 MB, over GitHub's limit),
 the full merged protein FASTAs, the Liftoff-only longest-isoform FASTAs, `final/*/_work/`, and the
 raw BRAKER / RepeatModeler / BUSCO working directories.
+
+### Phase 2 — Step 6 (2026-11-02): target-ecotype coverage of the reciprocal-PAV regions (23.23)
+
+**Gap.** 23.4 calls a region "X-specific present" when all four fish of the other ecotype have zero
+coverage and the flanks are covered. It never asked whether X's own four fish cover it. Both
+assemblies pool four fish, so a region can be fixed in X, segregating within X, a retained haplotig,
+or an artifact. Every tier-A gene requires this line, and for 66 / 76 its only companion is
+`ref_divergence`, which co-occurs with any PAV by construction.
+
+**Check** ([`23.23`](23.23-reciprocal-pav-target-coverage.py), on the Phase 3 own-assembly BAMs): per
+region and target fish, depth, fraction ≥ 1x and the ratio to the 2 kb flanks; `present` / `low` /
+`absent` per fish; `fixed_present` (4/4), `polymorphic` (≥ 1 absent, ≥ 1 present), `mixed`, `low_all`,
+`absent_all` per region; the same on three shuffled-region null sets to get the chance rate at 2–9x
+per-fish depth.
+
+| | siscowet-present (340) | null | lean-present (343) | null |
+|---|---|---|---|---|
+| fixed_present | **32 (9 %)** | 73 % | **21 (6 %)** | 56 % |
+| polymorphic | 192 (57 %) | 13 % | 231 (67 %) | 22 % |
+| per-fish absent rate | 19–36 % | 3–7 % | 20–48 % | 3–14 % |
+| pooled depth ≥ 0.6 × flank / 0.25–0.6 / < 0.25 | 46 / 43 / 12 % | | 52 / 41 / 7 % | |
+
+**Tier A: 7 of 76 genes are fixed in all four fish of the ecotype that carries them** (`gpia`,
+KH-domain RNA-binding LOC120029476, myotubularin-related-5-like, CEACAM5-like, ROR-alpha-A-like in
+siscowet; `nek7`, `tmeff2a` in lean); 47 are polymorphic within that ecotype, 21 mixed, 1 low_all.
+
+**Interpretation.** The reciprocal-PAV regions are mostly large indels segregating in *both*
+ecotypes that happened to be absent from the four querying fish (an allele at frequency 0.3 is absent
+from four diploid fish 6 % of the time). `reciprocal_pav` is a within-sample absence, not an
+ecotype-level one, and tier A should be read as 7 genes with fixed-in-four-fish bidirectional read
+evidence plus 69 within-ecotype polymorphisms. This is the same kind of retirement Step 5 applied to
+the corroborated ecotype-only genes and Phase 4 applied to BRAKER-new. 23.7 has not been re-run; the
+per-gene classes are in `analyses/23-reciprocal-pav/target_coverage/` (README there). Only a
+population sample can turn these into allele-frequency differences.
